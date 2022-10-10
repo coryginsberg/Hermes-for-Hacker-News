@@ -7,15 +7,15 @@
 
 import CoreData
 import SwiftUI
+import FirebaseCore
+import FirebaseDatabaseSwift
 
 struct ContentView: View {
   @Environment(\.managedObjectContext) private var viewContext
 
   @ObservedObject var fetch = HackerNewsAPI()
-  init () {
-    let _ = print(fetch.hnStories)
-    print(fetch.hnStories)
-  }
+  
+    
   var body: some View {
 
     Text("Hello, World!123")
@@ -38,7 +38,8 @@ private let itemFormatter: DateFormatter = {
 }()
 
 struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-  }
+    static var previews: some View {
+        ContentView()
+    }
 }
+

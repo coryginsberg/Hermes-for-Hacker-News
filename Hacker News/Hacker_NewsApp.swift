@@ -6,15 +6,17 @@
 //
 
 import SwiftUI
+import FirebaseCore
 
 @main
 struct Hacker_NewsApp: App {
-    let persistenceController = PersistenceController.shared
+  init() {
+    FirebaseApp.configure()
+  }
 
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-        }
+  var body: some Scene {
+    WindowGroup {
+      ContentView()
     }
+  }
 }
