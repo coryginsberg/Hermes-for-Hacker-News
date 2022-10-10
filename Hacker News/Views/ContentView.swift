@@ -15,18 +15,26 @@ struct ContentView: View {
 
   @ObservedObject var fetch = HackerNewsAPI()
   
-    
   var body: some View {
-
-    Text("Hello, World!123")
-    LazyVStack {
-      List(fetch.hnStories) { story in
-        VStack(alignment: .leading) {
-          Text(story.title)
-          Text("\(story.score) points by \(story.by) @ \(story.time) | \(story.descendants)")
+    TabView {
+      PostsView(title: "Posts")
+        .tabItem {
+          Label("Posts", systemImage: "house")
         }
-      }
+      PostsView(title: "Inbox")
+        .tabItem {
+          Label("Inbox", systemImage: "envelope.fill")
+        }
+      PostsView(title: "Profile")
+        .tabItem {
+          Label("Profile", systemImage: "person.fill")
+        }
+      PostsView(title: "Settings")
+        .tabItem {
+          Label("Settings", systemImage: "gearshape.fill")
+        }
     }
+    .accentColor(Color(.systemOrange))
   }
 }
 

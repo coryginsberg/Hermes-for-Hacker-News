@@ -11,15 +11,22 @@
 		EE05F64B28E789C500E03740 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE05F64A28E789C500E03740 /* ContentView.swift */; };
 		EE05F64D28E789CC00E03740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE05F64C28E789CC00E03740 /* Assets.xcassets */; };
 		EE05F65028E789CC00E03740 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE05F64F28E789CC00E03740 /* Preview Assets.xcassets */; };
-		EE5BB59B28F4C60900026356 /* IDETemplateMacros.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE5BB59A28F4C60900026356 /* IDETemplateMacros.plist */; };
-		EE5BB59C28F4C60900026356 /* IDETemplateMacros.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE5BB59A28F4C60900026356 /* IDETemplateMacros.plist */; };
-		EE5BB59D28F4C60900026356 /* IDETemplateMacros.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE5BB59A28F4C60900026356 /* IDETemplateMacros.plist */; };
-		EE5BB5A128F4C70400026356 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5BB5A028F4C70400026356 /* File.swift */; };
-		EE5BB5A228F4C70400026356 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5BB5A028F4C70400026356 /* File.swift */; };
-		EE5BB5A328F4C70400026356 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5BB5A028F4C70400026356 /* File.swift */; };
 		EE5BB5A628F4CAEF00026356 /* Database+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5BB5A528F4CAEF00026356 /* Database+Extensions.swift */; };
 		EE5BB5A728F4CAEF00026356 /* Database+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5BB5A528F4CAEF00026356 /* Database+Extensions.swift */; };
 		EE5BB5A828F4CAEF00026356 /* Database+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5BB5A528F4CAEF00026356 /* Database+Extensions.swift */; };
+		EE5BB5AE28F4CFC800026356 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = EE5BB5AD28F4CFC800026356 /* LICENSE.md */; };
+		EE5BB5AF28F4CFC800026356 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = EE5BB5AD28F4CFC800026356 /* LICENSE.md */; };
+		EE5BB5B028F4CFC800026356 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = EE5BB5AD28F4CFC800026356 /* LICENSE.md */; };
+		EE5BB5B228F4CFCF00026356 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EE5BB5B128F4CFCE00026356 /* README.md */; };
+		EE5BB5B328F4CFCF00026356 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EE5BB5B128F4CFCE00026356 /* README.md */; };
+		EE5BB5B428F4CFCF00026356 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EE5BB5B128F4CFCE00026356 /* README.md */; };
+		EE5BB5B628F4CFDE00026356 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EE5BB5B528F4CFDE00026356 /* .gitignore */; };
+		EE5BB5B728F4CFDE00026356 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EE5BB5B528F4CFDE00026356 /* .gitignore */; };
+		EE5BB5B828F4CFDE00026356 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EE5BB5B528F4CFDE00026356 /* .gitignore */; };
+		EE5BB5BB28F4D22500026356 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5BB5BA28F4D22500026356 /* PostsView.swift */; };
+		EE5BB5BC28F4D22500026356 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5BB5BA28F4D22500026356 /* PostsView.swift */; };
+		EE5BB5BD28F4D22500026356 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5BB5BA28F4D22500026356 /* PostsView.swift */; };
+		EE5BB5BF28F4D8E100026356 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE5BB5BE28F4D8E000026356 /* GoogleService-Info.plist */; };
 		EE84227E28E8C92F00C20E55 /* HackerNewsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE84227D28E8C92F00C20E55 /* HackerNewsAPI.swift */; };
 		EEF3D1EF28F0C1F800A28582 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EEF3D1EE28F0C1F800A28582 /* Alamofire */; };
 		EEF3D1F428F0C42200A28582 /* HNAPITypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF3D1F328F0C42200A28582 /* HNAPITypes.swift */; };
@@ -51,11 +58,12 @@
 		EE05F64F28E789CC00E03740 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EE05F65A28E789CD00E03740 /* Hacker NewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hacker NewsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE05F66428E789CD00E03740 /* Hacker NewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hacker NewsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE5BB59A28F4C60900026356 /* IDETemplateMacros.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = IDETemplateMacros.plist; sourceTree = "<group>"; };
-		EE5BB59E28F4C70300026356 /* Hacker NewsTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hacker NewsTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		EE5BB59F28F4C70300026356 /* Hacker NewsUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hacker NewsUITests-Bridging-Header.h"; sourceTree = "<group>"; };
-		EE5BB5A028F4C70400026356 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		EE5BB5A528F4CAEF00026356 /* Database+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Database+Extensions.swift"; sourceTree = "<group>"; };
+		EE5BB5AD28F4CFC800026356 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		EE5BB5B128F4CFCE00026356 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EE5BB5B528F4CFDE00026356 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		EE5BB5BA28F4D22500026356 /* PostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
+		EE5BB5BE28F4D8E000026356 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EE84227D28E8C92F00C20E55 /* HackerNewsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsAPI.swift; sourceTree = "<group>"; };
 		EEF3D1F328F0C42200A28582 /* HNAPITypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HNAPITypes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,8 +98,9 @@
 		EE05F63C28E789C500E03740 = {
 			isa = PBXGroup;
 			children = (
-				EE5BB5A428F4CADE00026356 /* Models */,
-				EE5BB59A28F4C60900026356 /* IDETemplateMacros.plist */,
+				EE5BB5B528F4CFDE00026356 /* .gitignore */,
+				EE5BB5B128F4CFCE00026356 /* README.md */,
+				EE5BB5AD28F4CFC800026356 /* LICENSE.md */,
 				EE05F64728E789C500E03740 /* Hacker News */,
 				EE05F64628E789C500E03740 /* Products */,
 			);
@@ -110,15 +119,14 @@
 		EE05F64728E789C500E03740 /* Hacker News */ = {
 			isa = PBXGroup;
 			children = (
+				EE5BB5BE28F4D8E000026356 /* GoogleService-Info.plist */,
+				EE5BB5B928F4D04600026356 /* Views */,
+				EE5BB5A428F4CADE00026356 /* Models */,
 				EEF3D1F228F0C41300A28582 /* Helper */,
 				EE84227C28E8C8C200C20E55 /* API */,
 				EE05F64828E789C500E03740 /* Hacker_NewsApp.swift */,
-				EE5BB5A028F4C70400026356 /* File.swift */,
-				EE05F64A28E789C500E03740 /* ContentView.swift */,
 				EE05F64C28E789CC00E03740 /* Assets.xcassets */,
 				EE05F64E28E789CC00E03740 /* Preview Content */,
-				EE5BB59E28F4C70300026356 /* Hacker NewsTests-Bridging-Header.h */,
-				EE5BB59F28F4C70300026356 /* Hacker NewsUITests-Bridging-Header.h */,
 			);
 			path = "Hacker News";
 			sourceTree = "<group>";
@@ -137,6 +145,15 @@
 				EE5BB5A528F4CAEF00026356 /* Database+Extensions.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EE5BB5B928F4D04600026356 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EE05F64A28E789C500E03740 /* ContentView.swift */,
+				EE5BB5BA28F4D22500026356 /* PostsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		EE84227C28E8C8C200C20E55 /* API */ = {
@@ -162,11 +179,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE05F66E28E789CD00E03740 /* Build configuration list for PBXNativeTarget "Hacker News" */;
 			buildPhases = (
-				027884C4C1CC115D96411867 /* [CP] Check Pods Manifest.lock */,
 				EE05F64128E789C500E03740 /* Sources */,
 				EE05F64228E789C500E03740 /* Frameworks */,
 				EE05F64328E789C500E03740 /* Resources */,
-				794DAD0649483CB8F4C3164A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -271,9 +286,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE5BB59B28F4C60900026356 /* IDETemplateMacros.plist in Resources */,
+				EE5BB5B628F4CFDE00026356 /* .gitignore in Resources */,
 				EE05F65028E789CC00E03740 /* Preview Assets.xcassets in Resources */,
+				EE5BB5AE28F4CFC800026356 /* LICENSE.md in Resources */,
+				EE5BB5B228F4CFCF00026356 /* README.md in Resources */,
 				EE05F64D28E789CC00E03740 /* Assets.xcassets in Resources */,
+				EE5BB5BF28F4D8E100026356 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +299,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE5BB59C28F4C60900026356 /* IDETemplateMacros.plist in Resources */,
+				EE5BB5B328F4CFCF00026356 /* README.md in Resources */,
+				EE5BB5B728F4CFDE00026356 /* .gitignore in Resources */,
+				EE5BB5AF28F4CFC800026356 /* LICENSE.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,60 +309,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE5BB59D28F4C60900026356 /* IDETemplateMacros.plist in Resources */,
+				EE5BB5B428F4CFCF00026356 /* README.md in Resources */,
+				EE5BB5B828F4CFDE00026356 /* .gitignore in Resources */,
+				EE5BB5B028F4CFC800026356 /* LICENSE.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		027884C4C1CC115D96411867 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Hacker News-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		794DAD0649483CB8F4C3164A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Hacker News/Pods-Hacker News-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Hacker News/Pods-Hacker News-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Hacker News/Pods-Hacker News-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EE05F64128E789C500E03740 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE5BB5A128F4C70400026356 /* File.swift in Sources */,
+				EE5BB5BB28F4D22500026356 /* PostsView.swift in Sources */,
 				EE84227E28E8C92F00C20E55 /* HackerNewsAPI.swift in Sources */,
 				EE05F64B28E789C500E03740 /* ContentView.swift in Sources */,
 				EEF3D1F428F0C42200A28582 /* HNAPITypes.swift in Sources */,
@@ -356,7 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE5BB5A728F4CAEF00026356 /* Database+Extensions.swift in Sources */,
-				EE5BB5A228F4C70400026356 /* File.swift in Sources */,
+				EE5BB5BC28F4D22500026356 /* PostsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,7 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE5BB5A828F4CAEF00026356 /* Database+Extensions.swift in Sources */,
-				EE5BB5A328F4C70400026356 /* File.swift in Sources */,
+				EE5BB5BD28F4D22500026356 /* PostsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
