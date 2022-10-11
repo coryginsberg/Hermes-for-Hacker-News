@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EE05F64928E789C500E03740 /* Hacker_NewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE05F64828E789C500E03740 /* Hacker_NewsApp.swift */; };
+		EE05F64928E789C500E03740 /* HackerNewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE05F64828E789C500E03740 /* HackerNewsApp.swift */; };
 		EE05F64B28E789C500E03740 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE05F64A28E789C500E03740 /* ContentView.swift */; };
 		EE05F64D28E789CC00E03740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE05F64C28E789CC00E03740 /* Assets.xcassets */; };
 		EE05F65028E789CC00E03740 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE05F64F28E789CC00E03740 /* Preview Assets.xcassets */; };
@@ -55,7 +55,7 @@
 
 /* Begin PBXFileReference section */
 		EE05F64528E789C500E03740 /* Hacker News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hacker News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE05F64828E789C500E03740 /* Hacker_NewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hacker_NewsApp.swift; sourceTree = "<group>"; };
+		EE05F64828E789C500E03740 /* HackerNewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsApp.swift; sourceTree = "<group>"; };
 		EE05F64A28E789C500E03740 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EE05F64C28E789CC00E03740 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE05F64F28E789CC00E03740 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -130,7 +130,7 @@
 				EE5BB5A428F4CADE00026356 /* Models */,
 				EEF3D1F228F0C41300A28582 /* Helper */,
 				EE84227C28E8C8C200C20E55 /* API */,
-				EE05F64828E789C500E03740 /* Hacker_NewsApp.swift */,
+				EE05F64828E789C500E03740 /* HackerNewsApp.swift */,
 				EE05F64C28E789CC00E03740 /* Assets.xcassets */,
 				EE05F64E28E789CC00E03740 /* Preview Content */,
 			);
@@ -266,7 +266,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EE05F64028E789C500E03740 /* Build configuration list for PBXProject "Hacker News" */;
+			buildConfigurationList = EE05F64028E789C500E03740 /* Build configuration list for PBXProject "HackerNews" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -339,7 +339,7 @@
 				EEF3D1F428F0C42200A28582 /* HNAPITypes.swift in Sources */,
 				EE5BB5A628F4CAEF00026356 /* Database+Extensions.swift in Sources */,
 				EEE6F2E928F5F7D000C6C1B2 /* InboxView.swift in Sources */,
-				EE05F64928E789C500E03740 /* Hacker_NewsApp.swift in Sources */,
+				EE05F64928E789C500E03740 /* HackerNewsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,7 +664,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EE05F64028E789C500E03740 /* Build configuration list for PBXProject "Hacker News" */ = {
+		EE05F64028E789C500E03740 /* Build configuration list for PBXProject "HackerNews" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EE05F66C28E789CD00E03740 /* Debug */,
