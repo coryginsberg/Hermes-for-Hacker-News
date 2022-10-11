@@ -16,19 +16,19 @@ struct ContentView: View {
   
   var body: some View {
     TabView {
-      PostsView(title: "Posts")
+      PostsView()
         .tabItem {
-          Label("Posts", systemImage: "house")
+          Label("Posts", systemImage: "newspaper.fill")
         }
-      PostsView(title: "Inbox")
+      InboxView()
         .tabItem {
           Label("Inbox", systemImage: "envelope.fill")
         }
-      PostsView(title: "Profile")
+      ProfileView()
         .tabItem {
-          Label("Profile", systemImage: "person.fill")
+          Label("Profile", systemImage: "person.crop.circle")
         }
-      PostsView(title: "Settings")
+      SettingsView()
         .tabItem {
           Label("Settings", systemImage: "gearshape.fill")
         }
