@@ -1,8 +1,7 @@
 //
-//  ContentView.swift
-//  Hacker News
+//  Copyright (c) 2022 Cory Ginsberg.
 //
-//  Created by Cory Ginsberg on 9/30/22.
+//  Licensed under the Apache License, Version 2.0
 //
 
 import CoreData
