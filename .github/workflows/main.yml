@@ -33,4 +33,4 @@ jobs:
         run: |
           git add .
           git commit -m "bump version"
-          git push origin HEAD
+          git push origin ${GITHUB_REF##*/}
