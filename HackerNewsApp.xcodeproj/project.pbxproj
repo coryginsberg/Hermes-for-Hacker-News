@@ -8,22 +8,41 @@
 
 /* Begin PBXBuildFile section */
 		EE3D492228F61227005449A4 /* HackerNewsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D492128F61227005449A4 /* HackerNewsAppApp.swift */; };
-		EE3D492428F61227005449A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D492328F61227005449A4 /* ContentView.swift */; };
 		EE3D492628F61229005449A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE3D492528F61229005449A4 /* Assets.xcassets */; };
 		EE3D492928F61229005449A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE3D492828F61229005449A4 /* Preview Assets.xcassets */; };
 		EE3D492B28F61229005449A4 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D492A28F61229005449A4 /* Persistence.swift */; };
 		EE3D492E28F61229005449A4 /* HackerNewsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE3D492C28F61229005449A4 /* HackerNewsApp.xcdatamodeld */; };
+		EE3D493728F61385005449A4 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EE3D493628F61385005449A4 /* FirebaseDatabaseSwift */; };
+		EE3D493928F613D2005449A4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EE3D493828F613D2005449A4 /* .gitignore */; };
+		EE3D493C28F613D8005449A4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EE3D493A28F613D8005449A4 /* README.md */; };
+		EE3D493D28F613D8005449A4 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = EE3D493B28F613D8005449A4 /* LICENSE.md */; };
+		EE3D493F28F613E4005449A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE3D493E28F613E3005449A4 /* GoogleService-Info.plist */; };
+		EE3D494628F61601005449A4 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D494528F61601005449A4 /* PostsView.swift */; };
+		EE3D494828F61619005449A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D494728F61619005449A4 /* ContentView.swift */; };
+		EE3D494A28F6162A005449A4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D494928F6162A005449A4 /* SettingsView.swift */; };
+		EE3D494C28F61638005449A4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D494B28F61638005449A4 /* ProfileView.swift */; };
+		EE3D494E28F6163F005449A4 /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D494D28F6163F005449A4 /* InboxView.swift */; };
+		EE3D495428F61758005449A4 /* Database+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D495328F61757005449A4 /* Database+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EE3D491E28F61227005449A4 /* HackerNewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE3D492128F61227005449A4 /* HackerNewsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsAppApp.swift; sourceTree = "<group>"; };
-		EE3D492328F61227005449A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EE3D492528F61229005449A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE3D492828F61229005449A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EE3D492A28F61229005449A4 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		EE3D492D28F61229005449A4 /* HackerNewsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HackerNewsApp.xcdatamodel; sourceTree = "<group>"; };
 		EE3D492F28F61229005449A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE3D493828F613D2005449A4 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		EE3D493A28F613D8005449A4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EE3D493B28F613D8005449A4 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		EE3D493E28F613E3005449A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EE3D494528F61601005449A4 /* PostsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
+		EE3D494728F61619005449A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EE3D494928F6162A005449A4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		EE3D494B28F61638005449A4 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		EE3D494D28F6163F005449A4 /* InboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxView.swift; sourceTree = "<group>"; };
+		EE3D495328F61757005449A4 /* Database+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Database+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE3D493728F61385005449A4 /* FirebaseDatabaseSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +60,9 @@
 		EE3D491528F61227005449A4 = {
 			isa = PBXGroup;
 			children = (
+				EE3D493828F613D2005449A4 /* .gitignore */,
+				EE3D493B28F613D8005449A4 /* LICENSE.md */,
+				EE3D493A28F613D8005449A4 /* README.md */,
 				EE3D492028F61227005449A4 /* HackerNewsApp */,
 				EE3D491F28F61227005449A4 /* Products */,
 			);
@@ -56,8 +79,10 @@
 		EE3D492028F61227005449A4 /* HackerNewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				EE3D495228F6174F005449A4 /* Models */,
+				EE3D494428F615EE005449A4 /* Views */,
+				EE3D493E28F613E3005449A4 /* GoogleService-Info.plist */,
 				EE3D492128F61227005449A4 /* HackerNewsAppApp.swift */,
-				EE3D492328F61227005449A4 /* ContentView.swift */,
 				EE3D492528F61229005449A4 /* Assets.xcassets */,
 				EE3D492A28F61229005449A4 /* Persistence.swift */,
 				EE3D492F28F61229005449A4 /* Info.plist */,
@@ -73,6 +98,26 @@
 				EE3D492828F61229005449A4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EE3D494428F615EE005449A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EE3D494528F61601005449A4 /* PostsView.swift */,
+				EE3D494728F61619005449A4 /* ContentView.swift */,
+				EE3D494928F6162A005449A4 /* SettingsView.swift */,
+				EE3D494B28F61638005449A4 /* ProfileView.swift */,
+				EE3D494D28F6163F005449A4 /* InboxView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EE3D495228F6174F005449A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EE3D495328F61757005449A4 /* Database+Extensions.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -91,6 +136,9 @@
 			dependencies = (
 			);
 			name = HackerNewsApp;
+			packageProductDependencies = (
+				EE3D493628F61385005449A4 /* FirebaseDatabaseSwift */,
+			);
 			productName = HackerNewsApp;
 			productReference = EE3D491E28F61227005449A4 /* HackerNewsApp.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +167,9 @@
 				Base,
 			);
 			mainGroup = EE3D491528F61227005449A4;
+			packageReferences = (
+				EE3D493528F61385005449A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = EE3D491F28F61227005449A4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -133,8 +184,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE3D493D28F613D8005449A4 /* LICENSE.md in Resources */,
 				EE3D492928F61229005449A4 /* Preview Assets.xcassets in Resources */,
+				EE3D493928F613D2005449A4 /* .gitignore in Resources */,
+				EE3D493C28F613D8005449A4 /* README.md in Resources */,
 				EE3D492628F61229005449A4 /* Assets.xcassets in Resources */,
+				EE3D493F28F613E4005449A4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,9 +200,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE3D494C28F61638005449A4 /* ProfileView.swift in Sources */,
+				EE3D495428F61758005449A4 /* Database+Extensions.swift in Sources */,
+				EE3D494A28F6162A005449A4 /* SettingsView.swift in Sources */,
 				EE3D492B28F61229005449A4 /* Persistence.swift in Sources */,
-				EE3D492428F61227005449A4 /* ContentView.swift in Sources */,
+				EE3D494828F61619005449A4 /* ContentView.swift in Sources */,
 				EE3D492E28F61229005449A4 /* HackerNewsApp.xcdatamodeld in Sources */,
+				EE3D494628F61601005449A4 /* PostsView.swift in Sources */,
+				EE3D494E28F6163F005449A4 /* InboxView.swift in Sources */,
 				EE3D492228F61227005449A4 /* HackerNewsAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +409,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EE3D493528F61385005449A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EE3D493628F61385005449A4 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE3D493528F61385005449A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		EE3D492C28F61229005449A4 /* HackerNewsApp.xcdatamodeld */ = {
