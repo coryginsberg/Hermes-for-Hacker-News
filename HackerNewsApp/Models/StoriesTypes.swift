@@ -1,8 +1,6 @@
 //
-//  StoriesTypes.swift
-//  HackerNewsApp
-//
-//  Created by Cory Ginsberg on 10/12/22.
+//  Copyright (c) 2022 Cory Ginsberg.
+//  Licensed under the Apache License, Version 2.0
 //
 
 
