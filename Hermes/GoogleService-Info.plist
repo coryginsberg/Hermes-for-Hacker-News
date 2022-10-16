@@ -31,6 +31,6 @@
 	<key>GOOGLE_APP_ID</key>
 	<string>1:841633644953:ios:1819f2c5dc2b2258d31308</string>
 	<key>DATABASE_URL</key>
-	<string>https://hacker-news-ios-96e20-default-rtdb.firebaseio.com</string>
+	<string>https://hacker-news.firebaseio.com/</string>
 </dict>
 </plist>
