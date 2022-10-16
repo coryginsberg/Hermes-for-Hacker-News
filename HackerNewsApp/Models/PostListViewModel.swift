@@ -1,8 +1,6 @@
 //
-//  PostListViewModel.swift
-//  HackerNewsApp
-//
-//  Created by Cory Ginsberg on 10/12/22.
+//  Copyright (c) 2022 Cory Ginsberg.
+//  Licensed under the Apache License, Version 2.0
 //
 
 import Combine
@@ -30,11 +28,8 @@ class PostListViewModel: ObservableObject {
   }
 
   private func fetchPosts(from ref: DatabaseReference, for storiesTypes: StoriesTypes) {
-    // read data by listening for value events
     ref.observe(DataEventType.value, with: { snapshot -> Void in
-      // retrieved data is of type dictionary of dictionary
       guard let value = snapshot.value as? [Int] else { return }
-      // store content of sorted dictionary into "posts" variable
       self.posts = value.compactMap { PostViewModel(itemID: $0) }
     })
   }

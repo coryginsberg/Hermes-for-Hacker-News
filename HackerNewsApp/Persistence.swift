@@ -1,8 +1,6 @@
 //
-//  Persistence.swift
-//  HackerNewsApp
-//
-//  Created by Cory Ginsberg on 10/11/22.
+//  Copyright (c) 2022 Cory Ginsberg.
+//  Licensed under the Apache License, Version 2.0
 //
 
 import CoreData
