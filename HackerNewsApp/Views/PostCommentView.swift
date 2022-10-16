@@ -1,8 +1,6 @@
 //
-//  PostCommentView.swift
-//  HackerNewsApp
-//
-//  Created by Cory Ginsberg on 10/16/22.
+//  Copyright (c) 2022 Cory Ginsberg.
+//  Licensed under the Apache License, Version 2.0
 //
 
 import SwiftUI
@@ -11,7 +9,7 @@ struct PostCommentView: View {
   @ObservedObject var post: PostViewModel
   
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Hello, World!")
     }
 }
 
