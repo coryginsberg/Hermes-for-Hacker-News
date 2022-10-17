@@ -39,6 +39,9 @@ struct PostCell: View {
               .frame(width: abs(geometry.size.width - 32))
               .padding(.horizontal, 16.0)
           }
+        }.fixedSize(horizontal: false, vertical: true)
+        GeometryReader { geometry in
+          Divider().frame(width: abs(geometry.size.width - 32)).padding(.horizontal, 16.0)
         }
       }
     }
