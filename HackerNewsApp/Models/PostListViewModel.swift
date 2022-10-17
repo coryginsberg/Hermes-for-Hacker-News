@@ -3,7 +3,6 @@
 //  Licensed under the Apache License, Version 2.0
 //
 
-import Combine
 import FirebaseDatabase
 
 
@@ -28,7 +27,7 @@ class PostListViewModel: ObservableObject {
   }
 
   private func fetchPosts(from ref: DatabaseReference, for storiesTypes: StoriesTypes) {
-    ref.observe(DataEventType.value, with: { snapshot -> Void in
+    ref.observe(DataEventType.value, with: { snapshot in
       guard let value = snapshot.value as? [Int] else { return }
       self.posts = value.compactMap { PostViewModel(itemID: $0) }
     })
