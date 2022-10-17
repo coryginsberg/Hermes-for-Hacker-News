@@ -23,8 +23,10 @@
 		EE3D494C28F61638005449A4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D494B28F61638005449A4 /* ProfileView.swift */; };
 		EE3D494E28F6163F005449A4 /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D494D28F6163F005449A4 /* InboxView.swift */; };
 		EE3D495428F61758005449A4 /* Database+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D495328F61757005449A4 /* Database+Extensions.swift */; };
+		EE3D990128FE0B0600C1AF3C /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = EE3D990028FE0B0600C1AF3C /* Algorithms */; };
 		EE689F1028FCA81000D9C132 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE689F0F28FCA81000D9C132 /* PostCell.swift */; };
 		EE689F1228FCA90C00D9C132 /* PostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE689F1128FCA90C00D9C132 /* PostCommentView.swift */; };
+		EE689F1428FCF24000D9C132 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE689F1328FCF23E00D9C132 /* PostData.swift */; };
 		EEA3DBC128F7A59200A230CF /* StoriesTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA3DBC028F7A59200A230CF /* StoriesTypes.swift */; };
 		EEFDB86628F68B8200B836C4 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFDB86528F68B8200B836C4 /* PostViewModel.swift */; };
 		EEFDB86828F68C4200B836C4 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFDB86728F68C4200B836C4 /* PostListViewModel.swift */; };
@@ -50,6 +52,7 @@
 		EE3D495328F61757005449A4 /* Database+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Database+Extensions.swift"; sourceTree = "<group>"; };
 		EE689F0F28FCA81000D9C132 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		EE689F1128FCA90C00D9C132 /* PostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentView.swift; sourceTree = "<group>"; };
+		EE689F1328FCF23E00D9C132 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		EEA3DBC028F7A59200A230CF /* StoriesTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesTypes.swift; sourceTree = "<group>"; };
 		EEFDB86528F68B8200B836C4 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		EEFDB86728F68C4200B836C4 /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE3D990128FE0B0600C1AF3C /* Algorithms in Frameworks */,
 				EE3D493728F61385005449A4 /* FirebaseDatabaseSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +135,7 @@
 				EEFDB86528F68B8200B836C4 /* PostViewModel.swift */,
 				EEFDB86728F68C4200B836C4 /* PostListViewModel.swift */,
 				EEA3DBC028F7A59200A230CF /* StoriesTypes.swift */,
+				EE689F1328FCF23E00D9C132 /* PostData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 			name = HackerNewsApp;
 			packageProductDependencies = (
 				EE3D493628F61385005449A4 /* FirebaseDatabaseSwift */,
+				EE3D990028FE0B0600C1AF3C /* Algorithms */,
 			);
 			productName = HackerNewsApp;
 			productReference = EE3D491E28F61227005449A4 /* HackerNewsApp.app */;
@@ -184,6 +190,7 @@
 			mainGroup = EE3D491528F61227005449A4;
 			packageReferences = (
 				EE3D493528F61385005449A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				EE3D98FF28FE0B0600C1AF3C /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 			);
 			productRefGroup = EE3D491F28F61227005449A4 /* Products */;
 			projectDirPath = "";
@@ -225,6 +232,7 @@
 				EEA3DBC128F7A59200A230CF /* StoriesTypes.swift in Sources */,
 				EE3D494628F61601005449A4 /* PostsView.swift in Sources */,
 				EE3D494E28F6163F005449A4 /* InboxView.swift in Sources */,
+				EE689F1428FCF24000D9C132 /* PostData.swift in Sources */,
 				EE689F1228FCA90C00D9C132 /* PostCommentView.swift in Sources */,
 				EE689F1028FCA81000D9C132 /* PostCell.swift in Sources */,
 				EE3D492228F61227005449A4 /* HackerNewsAppApp.swift in Sources */,
@@ -439,6 +447,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		EE3D98FF28FE0B0600C1AF3C /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -446,6 +462,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EE3D493528F61385005449A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabaseSwift;
+		};
+		EE3D990028FE0B0600C1AF3C /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE3D98FF28FE0B0600C1AF3C /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
 		};
 /* End XCSwiftPackageProductDependency section */
 
