@@ -8,6 +8,11 @@ import SwiftUI
 
 struct PostsView: View {
   let title: String = "Posts"
+<<<<<<< HEAD:Hermes/Views/PostsView.swift
+=======
+
+  @StateObject var postList = PostListViewModel()
+>>>>>>> ce4e1b3 (Formatted project with swiftformat):HackerNewsApp/Views/PostsView.swift
 
   @StateObject var postList = PostListViewModel()
 
