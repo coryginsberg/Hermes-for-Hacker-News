@@ -6,6 +6,7 @@
 import Foundation
 
 // MARK: - Post
+
 struct PostData {
   let by: String
   let descendants: Int?

@@ -8,7 +8,7 @@ import SwiftUI
 
 struct PostsView: View {
   let title: String = "Posts"
-  
+
   @StateObject var postList = PostListViewModel()
 
   @StateObject var postList = PostListViewModel()
