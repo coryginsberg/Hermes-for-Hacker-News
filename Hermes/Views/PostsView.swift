@@ -12,7 +12,10 @@ struct PostsView: View {
 =======
 
   @StateObject var postList = PostListViewModel()
+<<<<<<< HEAD:Hermes/Views/PostsView.swift
 >>>>>>> ce4e1b3 (Formatted project with swiftformat):HackerNewsApp/Views/PostsView.swift
+=======
+>>>>>>> 998347e (.):HackerNewsApp/Views/PostsView.swift
 
   @Environment(\.managedObjectContext) private var viewContext
 
