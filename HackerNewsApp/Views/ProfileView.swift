@@ -11,20 +11,20 @@ struct ProfileView: View {
   var body: some View {
     NavigationView {
       Text("{Username} has {x} karma").font(.title)
-      .navigationTitle(title)
-      .toolbar {
-        ToolbarItemGroup(placement: .navigationBarTrailing) {
-          Button(action: {}) {
-            Text("Logout")
+        .navigationTitle(title)
+        .toolbar {
+          ToolbarItemGroup(placement: .navigationBarTrailing) {
+            Button(action: {}) {
+              Text("Logout")
+            }
           }
         }
-      }
     }
   }
 }
 
 struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
-    }
+  static var previews: some View {
+    ProfileView()
+  }
 }

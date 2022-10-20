@@ -7,11 +7,11 @@ import SwiftUI
 
 struct PostCell: View {
   @StateObject var post: PostViewModel
-  
+
   let primaryTextColor = Color(uiColor: .label)
   let secondaryTextColor = Color(uiColor: .secondaryLabel)
-  let spacer = Spacer(minLength: 4.0)
-  
+  let spacer: Spacer = .init(minLength: 4.0)
+
   var body: some View {
     NavigationLink(destination: PostCommentView(post: post)) {
       VStack(alignment: .leading) {
@@ -48,7 +48,7 @@ struct PostCell: View {
 struct SecondaryLabelsView: View {
   var textColor: Color
   var postData: PostData?
-  
+
   var body: some View {
     ViewThatFits(in: .horizontal) {
       HStack {
@@ -78,6 +78,6 @@ struct SecondaryLabelsView: View {
 
 struct PostCell_Previews: PreviewProvider {
   static var previews: some View {
-    PostCell(post: PostViewModel(itemID: 33244633)!)
+    PostCell(post: PostViewModel(itemID: 33_244_633)!)
   }
 }
