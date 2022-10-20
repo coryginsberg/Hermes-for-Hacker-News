@@ -15,43 +15,62 @@ struct PostCell: View {
   var body: some View {
     NavigationLink(destination: PostCommentView(post: post)) {
       VStack(alignment: .leading) {
-        HStack {
-          Image("AwkwardMonkey")
-            .resizable()
-            .frame(width: 50.0, height: 50.0)
-            .cornerRadius(8.0)
-            .padding(20.0)
-          VStack(alignment: .leading) {
-            Text(post.postData?.title ?? "")
-              .font(.headline)
-              .foregroundColor(primaryTextColor)
-              .multilineTextAlignment(.leading)
-            Spacer().frame(height: 10)
-            HStack {
-              Image(systemName: "arrow.up")
-                .dynamicTypeSize(.small)
-                .foregroundColor(secondaryTextColor)
-              Text("\(post.postData?.score ?? 0)")
-                .foregroundColor(secondaryTextColor)
-              spacer
-              Image(systemName: "bubble.left")
-                .dynamicTypeSize(.small)
-                .foregroundColor(secondaryTextColor)
-              Text("\(post.postData?.descendants ?? 0)")
-                .foregroundColor(secondaryTextColor)
-              spacer
-              Image(systemName: "clock")
-                .dynamicTypeSize(.small)
-                .foregroundColor(secondaryTextColor)
-              Text("9h")
-                .foregroundColor(secondaryTextColor)
-              spacer
-            }
+        Grid(alignment: .leading) {
+          GridRow {
+            Image("AwkwardMonkey")
+              .resizable()
+              .frame(width: 50.0, height: 50.0)
+              .cornerRadius(8.0)
+              .padding(.leading, 24.0)
+              .padding(.trailing, 16.0)
+            VStack {
+              Text(post.postData?.title ?? "Linus Torvalds to kernel devs: Grow up and stop pulling all-nighters")
+                .foregroundColor(primaryTextColor)
+                .alignmentGuide(.leading) { _ in 0 }
+                .multilineTextAlignment(.leading)
+                .padding(.trailing, 16.0)
+                .padding(.bottom, 6.0)
+                .allowsTightening(true)
+              SecondaryLabelsView(textColor: secondaryTextColor, postData: post.postData)
+            }.padding(.trailing, 16.0)
           }
-        }.fixedSize(horizontal: false, vertical: true)
-        GeometryReader { geometry in
-          Divider().frame(width: abs(geometry.size.width - 32)).padding(.horizontal, 16.0)
+          GeometryReader { geometry in
+            Divider()
+              .frame(width: abs(geometry.size.width - 32))
+              .padding(.horizontal, 16.0)
+          }
         }
+      }
+    }
+  }
+}
+
+struct SecondaryLabelsView: View {
+  var textColor: Color
+  var postData: PostData?
+  
+  var body: some View {
+    ViewThatFits(in: .horizontal) {
+      HStack {
+        Spacer()
+        Image(systemName: "arrow.up")
+          .dynamicTypeSize(.small)
+          .foregroundColor(textColor)
+        Text("\(postData?.score ?? 0)")
+          .foregroundColor(textColor)
+        Spacer()
+        Image(systemName: "bubble.left")
+          .dynamicTypeSize(.small)
+          .foregroundColor(textColor)
+        Text("\(postData?.descendants ?? 0)")
+          .foregroundColor(textColor)
+        Spacer()
+        Image(systemName: "clock")
+          .dynamicTypeSize(.small)
+          .foregroundColor(textColor)
+        Text("9h")
+          .foregroundColor(textColor)
+        Spacer()
       }
     }
   }
@@ -59,6 +78,6 @@ struct PostCell: View {
 
 struct PostCell_Previews: PreviewProvider {
   static var previews: some View {
-    PostCell(post: PostViewModel(itemID: 1)!)
+    PostCell(post: PostViewModel(itemID: 33244633)!)
   }
 }

@@ -25,10 +25,9 @@ struct PostsView: View {
         .onAppear {
           postList.getPosts(storiesTypes: StoriesTypes.topStories)
         }
-        .onDisappear {
-          postList.onViewDisappear()
-        }
         .navigationTitle(title)
+      }.refreshable {
+        postList.getPosts(storiesTypes: StoriesTypes.topStories)
       }
     }
   }
