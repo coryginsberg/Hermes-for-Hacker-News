@@ -8,19 +8,19 @@ import SwiftUI
 
 struct SettingsView: View {
   let title: String = "Settings"
-  
+
   struct Setting: Identifiable {
-       let id = UUID()
-       var name: String
+    let id = UUID()
+    var name: String
   }
-  
+
   var staff = [
     Setting(name: "Lorem Ipsum"),
     Setting(name: "Dolor sit amet")
   ]
-  
+
   @State var toggle: Bool = false
-  
+
   var body: some View {
     NavigationView {
       List {
@@ -28,7 +28,7 @@ struct SettingsView: View {
           Toggle(person.name, isOn: $toggle)
         }
       }
-        .navigationTitle(title)
+      .navigationTitle(title)
       .toolbar {
         ToolbarItemGroup(placement: .navigationBarTrailing) {
           Button(action: {}) {
@@ -45,4 +45,3 @@ struct SettingsView_Previews: PreviewProvider {
     SettingsView()
   }
 }
-

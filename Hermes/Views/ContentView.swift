@@ -4,15 +4,15 @@
 //
 
 import CoreData
-import SwiftUI
 import FirebaseCore
 import FirebaseDatabaseSwift
+import SwiftUI
 
 struct ContentView: View {
   @Environment(\.managedObjectContext) private var viewContext
 
 //  @ObservedObject var fetch = HackerNewsAPI()
-  
+
   var body: some View {
     TabView {
       PostsView()
@@ -44,8 +44,7 @@ private let itemFormatter: DateFormatter = {
 }()
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }
-

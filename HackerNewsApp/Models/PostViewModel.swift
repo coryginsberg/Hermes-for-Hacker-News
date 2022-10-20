@@ -3,27 +3,27 @@
 //  Licensed under the Apache License, Version 2.0
 //
 
-import Foundation
 import FirebaseDatabase
 import FirebaseDatabaseSwift
+import Foundation
 
 class PostViewModel: ObservableObject, Identifiable {
   private let ref = Database.root
   var itemID: Int
-  
+
   @Published var postData: PostData?
-  
+
   init?(itemID: Int) {
     self.itemID = itemID
-    self.postData = nil
-    self.getPostInfo()
+    postData = nil
+    getPostInfo()
   }
-  
+
   func getPostInfo() {
-    let postRef = ref.child("v0/item/\(self.itemID)")
+    let postRef = ref.child("v0/item/\(itemID)")
     fetchPost(from: postRef)
   }
-  
+
   private func fetchPost(from ref: DatabaseReference) {
     ref.observeSingleEvent(of: .value, with: { snapshot in
       guard let value = snapshot.value as? [String: Any] else { return }

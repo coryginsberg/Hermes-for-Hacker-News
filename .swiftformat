@@ -1,0 +1,11 @@
+--binarygrouping none 
+--commas inline 
+--hexgrouping none 
+--indent 2 
+--indentcase true 
+--octalgrouping none 
+--semicolons never 
+--stripunusedargs closure-only 
+--wraparguments after-first 
+--wrapcollections before-first 
+--wrapparameters after-first

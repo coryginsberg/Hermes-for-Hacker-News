@@ -7,11 +7,11 @@ import SwiftUI
 
 struct PostCell: View {
   @StateObject var post: PostViewModel
-  
+
   let primaryTextColor = Color(uiColor: .label)
   let secondaryTextColor = Color(uiColor: .secondaryLabel)
-  let spacer = Spacer(minLength: 4.0)
-  
+  let spacer: Spacer = .init(minLength: 4.0)
+
   var body: some View {
     NavigationLink(destination: PostCommentView(post: post)) {
       VStack(alignment: .leading) {
@@ -57,8 +57,45 @@ struct PostCell: View {
   }
 }
 
+<<<<<<< HEAD
 struct PostCell_Previews: PreviewProvider {
   static var previews: some View {
     PostCell(post: PostViewModel(itemID: 1)!)
+=======
+struct SecondaryLabelsView: View {
+  var textColor: Color
+  var postData: PostData?
+
+  var body: some View {
+    ViewThatFits(in: .horizontal) {
+      HStack {
+        Spacer()
+        Image(systemName: "arrow.up")
+          .dynamicTypeSize(.small)
+          .foregroundColor(textColor)
+        Text("\(postData?.score ?? 0)")
+          .foregroundColor(textColor)
+        Spacer()
+        Image(systemName: "bubble.left")
+          .dynamicTypeSize(.small)
+          .foregroundColor(textColor)
+        Text("\(postData?.descendants ?? 0)")
+          .foregroundColor(textColor)
+        Spacer()
+        Image(systemName: "clock")
+          .dynamicTypeSize(.small)
+          .foregroundColor(textColor)
+        Text("9h")
+          .foregroundColor(textColor)
+        Spacer()
+      }
+    }
+  }
+}
+
+struct PostCell_Previews: PreviewProvider {
+  static var previews: some View {
+    PostCell(post: PostViewModel(itemID: 33_244_633)!)
+>>>>>>> 92b9663 (Formatted project with swiftformat)
   }
 }

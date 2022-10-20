@@ -10,13 +10,13 @@ struct InboxView: View {
   var body: some View {
     NavigationView {
       Text("You have {0} messages")
-      .navigationTitle(title)
+        .navigationTitle(title)
     }
   }
 }
 
 struct InboxView_Previews: PreviewProvider {
-    static var previews: some View {
-        InboxView()
-    }
+  static var previews: some View {
+    InboxView()
+  }
 }

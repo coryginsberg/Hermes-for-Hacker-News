@@ -8,11 +8,10 @@ import SwiftUI
 
 struct PostsView: View {
   let title: String = "Posts"
-  
+
   @StateObject var postList = PostListViewModel()
 
   @Environment(\.managedObjectContext) private var viewContext
-
 
   var body: some View {
     NavigationView {
@@ -39,4 +38,3 @@ struct PostsView_Previews: PreviewProvider {
     PostsView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
   }
 }
-

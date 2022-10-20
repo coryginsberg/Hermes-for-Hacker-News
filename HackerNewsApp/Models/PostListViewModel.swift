@@ -5,13 +5,12 @@
 
 import FirebaseDatabase
 
-
 class PostListViewModel: ObservableObject {
   @Published var posts: [PostViewModel] = []
-  
+
   private let ref = Database.root
   private var refHandle: DatabaseHandle?
-  
+
   func getPosts(storiesTypes: StoriesTypes) {
     switch storiesTypes {
       case .topStories:
@@ -32,7 +31,7 @@ class PostListViewModel: ObservableObject {
       self.posts = value.compactMap { PostViewModel(itemID: $0) }
     })
   }
-  
+
   func onViewDisappear() {
     ref.removeAllObservers()
   }
