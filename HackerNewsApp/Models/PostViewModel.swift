@@ -4,7 +4,6 @@
 //
 
 import FirebaseDatabase
-import FirebaseDatabaseSwift
 import Foundation
 
 class PostViewModel: ObservableObject, Identifiable {

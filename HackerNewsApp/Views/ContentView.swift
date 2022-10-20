@@ -4,8 +4,6 @@
 //
 
 import CoreData
-import FirebaseCore
-import FirebaseDatabaseSwift
 import SwiftUI
 
 struct ContentView: View {
