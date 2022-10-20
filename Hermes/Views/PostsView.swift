@@ -14,8 +14,6 @@ struct PostsView: View {
   @StateObject var postList = PostListViewModel()
 >>>>>>> ce4e1b3 (Formatted project with swiftformat):HackerNewsApp/Views/PostsView.swift
 
-  @StateObject var postList = PostListViewModel()
-
   @Environment(\.managedObjectContext) private var viewContext
 
   var body: some View {
