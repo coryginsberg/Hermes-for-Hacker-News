@@ -27,7 +27,6 @@ class PostViewModel: ObservableObject, Identifiable {
   private func fetchPost(from ref: DatabaseReference) {
     ref.observeSingleEvent(of: .value, with: { snapshot in
       guard let value = snapshot.value as? [String: Any] else { return }
-      print(value)
       self.postData = PostData(by: value["by"] as! String,
                                descendants: value["descendants"] as? Int,
                                id: (value["id"] as? Int)!,
