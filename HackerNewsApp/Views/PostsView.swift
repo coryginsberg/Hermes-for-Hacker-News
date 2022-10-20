@@ -11,8 +11,6 @@ struct PostsView: View {
 
   @StateObject var postList = PostListViewModel()
 
-  @StateObject var postList = PostListViewModel()
-
   @Environment(\.managedObjectContext) private var viewContext
 
   var body: some View {
