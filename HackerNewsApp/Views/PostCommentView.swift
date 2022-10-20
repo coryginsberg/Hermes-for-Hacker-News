@@ -7,14 +7,14 @@ import SwiftUI
 
 struct PostCommentView: View {
   @ObservedObject var post: PostViewModel
-  
-    var body: some View {
-        Text("Hello, World!")
-    }
+
+  var body: some View {
+    Text("Hello, World!")
+  }
 }
 
 struct PostCommentView_Previews: PreviewProvider {
-    static var previews: some View {
-      PostCommentView(post: PostViewModel(itemID: 1)!)
-    }
+  static var previews: some View {
+    PostCommentView(post: PostViewModel(itemID: 1)!)
+  }
 }

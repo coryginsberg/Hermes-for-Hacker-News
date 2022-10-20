@@ -3,16 +3,14 @@
 //  Licensed under the Apache License, Version 2.0
 //
 
-import Combine
 import FirebaseDatabase
-
 
 class PostListViewModel: ObservableObject {
   @Published var posts: [PostViewModel] = []
-  
+
   private let ref = Database.root
   private var refHandle: DatabaseHandle?
-  
+
   func getPosts(storiesTypes: StoriesTypes) {
     switch storiesTypes {
       case .topStories:
@@ -28,12 +26,12 @@ class PostListViewModel: ObservableObject {
   }
 
   private func fetchPosts(from ref: DatabaseReference, for storiesTypes: StoriesTypes) {
-    ref.observe(DataEventType.value, with: { snapshot -> Void in
+    ref.observe(DataEventType.value, with: { snapshot in
       guard let value = snapshot.value as? [Int] else { return }
       self.posts = value.compactMap { PostViewModel(itemID: $0) }
     })
   }
-  
+
   func onViewDisappear() {
     ref.removeAllObservers()
   }

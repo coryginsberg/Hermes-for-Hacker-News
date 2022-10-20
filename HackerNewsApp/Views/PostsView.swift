@@ -8,11 +8,12 @@ import SwiftUI
 
 struct PostsView: View {
   let title: String = "Posts"
-  
+
+  @StateObject var postList = PostListViewModel()
+
   @StateObject var postList = PostListViewModel()
 
   @Environment(\.managedObjectContext) private var viewContext
-
 
   var body: some View {
     NavigationView {
@@ -25,10 +26,9 @@ struct PostsView: View {
         .onAppear {
           postList.getPosts(storiesTypes: StoriesTypes.topStories)
         }
-        .onDisappear {
-          postList.onViewDisappear()
-        }
         .navigationTitle(title)
+      }.refreshable {
+        postList.getPosts(storiesTypes: StoriesTypes.topStories)
       }
     }
   }
@@ -39,4 +39,3 @@ struct PostsView_Previews: PreviewProvider {
     PostsView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
   }
 }
-
