@@ -13,15 +13,15 @@ class PostListViewModel: ObservableObject {
 
   func getPosts(storiesTypes: StoriesTypes) {
     switch storiesTypes {
-      case .topStories:
-        let postListRef = ref.child("v0/topstories")
-        fetchPosts(from: postListRef, for: storiesTypes)
-      case .newStories:
-        let postListRef = ref.child("v0/newstories")
-        fetchPosts(from: postListRef, for: storiesTypes)
-      case .bestStories:
-        let postListRef = ref.child("v0/beststories")
-        fetchPosts(from: postListRef, for: storiesTypes)
+    case .topStories:
+      let postListRef = ref.child("v0/topstories")
+      fetchPosts(from: postListRef, for: storiesTypes)
+    case .newStories:
+      let postListRef = ref.child("v0/newstories")
+      fetchPosts(from: postListRef, for: storiesTypes)
+    case .bestStories:
+      let postListRef = ref.child("v0/beststories")
+      fetchPosts(from: postListRef, for: storiesTypes)
     }
   }
 
