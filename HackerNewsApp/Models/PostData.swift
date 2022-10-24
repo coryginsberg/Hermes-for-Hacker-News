@@ -6,14 +6,13 @@
 import Foundation
 
 // MARK: - Post
-
 struct PostData {
-  let by: String
+  let author: String
   let descendants: Int?
   let id: Int
   let kids: [Int]?
   let score: Int
-  let time: Int
+  let time: String
   let title: String
   let type: String
   let url: String?
