@@ -76,11 +76,14 @@ struct PostCell: View {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 struct PostCell_Previews: PreviewProvider {
   static var previews: some View {
     PostCell(post: PostViewModel(itemID: 1)!)
 =======
 =======
+=======
+>>>>>>> e5414dc (Nits, formatted code, and added author to post preview)
 struct PrimaryLabelView: View {
   var text: String
 
@@ -94,7 +97,10 @@ struct PrimaryLabelView: View {
   }
 }
 
+<<<<<<< HEAD
 >>>>>>> 3ab97c2 (Nits, formatted code, and added author to post preview)
+=======
+>>>>>>> e5414dc (Nits, formatted code, and added author to post preview)
 struct SecondaryLabelsView: View {
   var textColor: Color
   var postData: PostData?
