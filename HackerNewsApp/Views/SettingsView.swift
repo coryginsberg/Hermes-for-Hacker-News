@@ -31,9 +31,9 @@ struct SettingsView: View {
       .navigationTitle(title)
       .toolbar {
         ToolbarItemGroup(placement: .navigationBarTrailing) {
-          Button(action: {}) {
+          Button(action: {}, label: {
             Text("Logout")
-          }
+          })
         }
       }
     }

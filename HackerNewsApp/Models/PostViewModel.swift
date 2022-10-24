@@ -26,15 +26,38 @@ class PostViewModel: ObservableObject, Identifiable {
   private func fetchPost(from ref: DatabaseReference) {
     ref.observeSingleEvent(of: .value, with: { snapshot in
       guard let value = snapshot.value as? [String: Any] else { return }
-      self.postData = PostData(by: value["by"] as! String,
+      self.postData = PostData(author: value["by"] as? String ?? "",
                                descendants: value["descendants"] as? Int,
                                id: (value["id"] as? Int)!,
                                kids: value["kids"] as? [Int],
                                score: value["score"] as? Int ?? 0,
-                               time: (value["time"] as? Int ?? 0)!,
+                               time: self.calcTimeAgo(from: value["time"] as? Int ?? 0),
                                title: (value["title"] as? String)!,
                                type: (value["type"] as? String)!,
                                url: value["url"] as? String)
     })
+  }
+
+  private func calcTimeAgo(from timePublished: Int) -> String {
+    let datePublished = Date(timeIntervalSince1970: TimeInterval(timePublished))
+    let components = Calendar(identifier: .gregorian)
+      .dateComponents([.minute, .hour, .day, .month, .year],
+                      from: datePublished,
+                      to: Date())
+
+    switch components {
+    case let component where component.year! > 0:
+      return "\(components.year!)y"
+    case let component where component.month! > 0:
+      return "\(components.month!)mo"
+    case let component where component.day! > 0:
+      return "\(components.day!)d"
+    case let component where component.hour! > 0:
+      return "\(components.hour!)h"
+    case let component where component.minute! > 0:
+      return "\(components.minute!)m"
+    default:
+      return "<1m"
+    }
   }
 }
