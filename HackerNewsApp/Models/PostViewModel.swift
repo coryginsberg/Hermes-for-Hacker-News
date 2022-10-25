@@ -10,11 +10,11 @@ class PostViewModel: ObservableObject, Identifiable {
   private let ref = Database.root
   var itemID: Int
 
-  @Published var postData: PostData?
+  @Published var itemData: ItemData?
 
   init?(itemID: Int) {
     self.itemID = itemID
-    postData = nil
+    itemData = nil
     getPostInfo()
   }
 
@@ -24,26 +24,39 @@ class PostViewModel: ObservableObject, Identifiable {
   }
 
   private func fetchPost(from ref: DatabaseReference) {
-    ref.observeSingleEvent(of: .value, with: { snapshot in
-      guard let value = snapshot.value as? [String: Any] else { return }
-      self.postData = PostData(author: value["by"] as? String ?? "",
-                               descendants: value["descendants"] as? Int,
-                               id: (value["id"] as? Int)!,
-                               kids: value["kids"] as? [Int],
-                               score: value["score"] as? Int ?? 0,
-                               time: self.calcTimeAgo(from: value["time"] as? Int ?? 0),
-                               title: (value["title"] as? String)!,
-                               type: (value["type"] as? String)!,
-                               url: value["url"] as? String)
-    })
+    ref.observeSingleEvent(
+      of: .value,
+      with: { snapshot in
+        guard let value = snapshot.value as? [String: Any] else { return }
+        self.itemData = ItemData(
+          author: value["by"] as? String ?? "",
+          descendants: value["descendants"] as? Int,
+          dead: value["dead"] as? Bool ?? false,
+          deleted: value["deleted"] as? Bool ?? false,
+          id: (value["id"] as? Int)!,
+          kids: value["kids"] as? [Int],
+          parent: value["parent"] as? Int,
+          parts: value["parts"] as? [Int],
+          poll: value["poll"] as? Int,
+          score: (value["score"] as? Int)!,
+          text: value["text"] as? String ?? "",
+          time: self.calcTimeAgo(from: value["time"] as? Int ?? 0),
+          title: value["title"] as? String ?? "",
+          type: (value["type"] as? String)!,
+          url: value["url"] as? String
+        )
+      }
+    )
   }
 
   private func calcTimeAgo(from timePublished: Int) -> String {
     let datePublished = Date(timeIntervalSince1970: TimeInterval(timePublished))
     let components = Calendar(identifier: .gregorian)
-      .dateComponents([.minute, .hour, .day, .month, .year],
-                      from: datePublished,
-                      to: Date())
+      .dateComponents(
+        [.minute, .hour, .day, .month, .year],
+        from: datePublished,
+        to: Date()
+      )
 
     switch components {
     case let component where component.year! > 0:

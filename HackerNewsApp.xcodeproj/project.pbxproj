@@ -25,8 +25,10 @@
 		EE3D495428F61758005449A4 /* Database+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D495328F61757005449A4 /* Database+Extensions.swift */; };
 		EE689F1028FCA81000D9C132 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE689F0F28FCA81000D9C132 /* PostCell.swift */; };
 		EE689F1228FCA90C00D9C132 /* PostCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE689F1128FCA90C00D9C132 /* PostCommentView.swift */; };
-		EE689F1428FCF24000D9C132 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE689F1328FCF23E00D9C132 /* PostData.swift */; };
+		EE689F1428FCF24000D9C132 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE689F1328FCF23E00D9C132 /* ItemData.swift */; };
 		EEA3DBC128F7A59200A230CF /* StoriesTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA3DBC028F7A59200A230CF /* StoriesTypes.swift */; };
+		EEC3D75729085D3F004A7F03 /* PostCellNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3D75629085D3F004A7F03 /* PostCellNavView.swift */; };
+		EEC3D75929086EBB004A7F03 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3D75829086EBB004A7F03 /* CommentModel.swift */; };
 		EEFDB86628F68B8200B836C4 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFDB86528F68B8200B836C4 /* PostViewModel.swift */; };
 		EEFDB86828F68C4200B836C4 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFDB86728F68C4200B836C4 /* PostListViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -51,8 +53,10 @@
 		EE3D495328F61757005449A4 /* Database+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Database+Extensions.swift"; sourceTree = "<group>"; };
 		EE689F0F28FCA81000D9C132 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		EE689F1128FCA90C00D9C132 /* PostCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentView.swift; sourceTree = "<group>"; };
-		EE689F1328FCF23E00D9C132 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		EE689F1328FCF23E00D9C132 /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		EEA3DBC028F7A59200A230CF /* StoriesTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesTypes.swift; sourceTree = "<group>"; };
+		EEC3D75629085D3F004A7F03 /* PostCellNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellNavView.swift; sourceTree = "<group>"; };
+		EEC3D75829086EBB004A7F03 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
 		EEFDB86528F68B8200B836C4 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		EEFDB86728F68C4200B836C4 /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +125,7 @@
 				EE3D494B28F61638005449A4 /* ProfileView.swift */,
 				EE3D494D28F6163F005449A4 /* InboxView.swift */,
 				EE689F0F28FCA81000D9C132 /* PostCell.swift */,
+				EEC3D75629085D3F004A7F03 /* PostCellNavView.swift */,
 				EE689F1128FCA90C00D9C132 /* PostCommentView.swift */,
 			);
 			path = Views;
@@ -133,7 +138,8 @@
 				EEFDB86528F68B8200B836C4 /* PostViewModel.swift */,
 				EEFDB86728F68C4200B836C4 /* PostListViewModel.swift */,
 				EEA3DBC028F7A59200A230CF /* StoriesTypes.swift */,
-				EE689F1328FCF23E00D9C132 /* PostData.swift */,
+				EE689F1328FCF23E00D9C132 /* ItemData.swift */,
+				EEC3D75829086EBB004A7F03 /* CommentModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -249,8 +255,10 @@
 				EE3D492E28F61229005449A4 /* HackerNewsApp.xcdatamodeld in Sources */,
 				EEA3DBC128F7A59200A230CF /* StoriesTypes.swift in Sources */,
 				EE3D494628F61601005449A4 /* PostsView.swift in Sources */,
+				EEC3D75729085D3F004A7F03 /* PostCellNavView.swift in Sources */,
+				EEC3D75929086EBB004A7F03 /* CommentModel.swift in Sources */,
 				EE3D494E28F6163F005449A4 /* InboxView.swift in Sources */,
-				EE689F1428FCF24000D9C132 /* PostData.swift in Sources */,
+				EE689F1428FCF24000D9C132 /* ItemData.swift in Sources */,
 				EE689F1228FCA90C00D9C132 /* PostCommentView.swift in Sources */,
 				EE689F1028FCA81000D9C132 /* PostCell.swift in Sources */,
 				EE3D492228F61227005449A4 /* HackerNewsAppApp.swift in Sources */,
