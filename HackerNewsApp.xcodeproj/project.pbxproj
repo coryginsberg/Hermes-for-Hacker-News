@@ -151,10 +151,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE3D493228F61229005449A4 /* Build configuration list for PBXNativeTarget "HackerNewsApp" */;
 			buildPhases = (
+				EE6A10AD29035C390015D385 /* ShellScript */,
 				EE3D491A28F61227005449A4 /* Sources */,
 				EE3D491B28F61227005449A4 /* Frameworks */,
 				EE3D491C28F61227005449A4 /* Resources */,
-				EE6A10AD29035C390015D385 /* ShellScript */,
 			);
 			buildRules = (
 			);
