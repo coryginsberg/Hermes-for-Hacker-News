@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PostCellNavigation: View {
+struct PostCellNavView: View {
   @StateObject var post: PostViewModel
 
   let secondaryTextColor = Color(uiColor: .secondaryLabel)
@@ -20,8 +20,8 @@ struct PostCellNavigation: View {
   }
 }
 
-struct PostCellNavigation_Previews: PreviewProvider {
+struct PostCellNavView_Previews: PreviewProvider {
   static var previews: some View {
-    PostCellNavigation(post: PostViewModel(itemID: 33_244_633)!)
+    PostCellNavView(post: PostViewModel(itemID: 33_244_633)!)
   }
 }

@@ -12,29 +12,27 @@ struct PostCell: View {
   let spacer: Spacer = .init(minLength: 4.0)
 
   var body: some View {
-    NavigationLink(destination: PostCommentView(post: post)) {
-      VStack(alignment: .leading) {
-        Grid(alignment: .leading) {
-          GridRow {
-            if post.postData?.type == "story" {
-              Image("AwkwardMonkey")
-                .resizable()
-                .frame(width: 50.0, height: 50.0)
-                .cornerRadius(8.0)
-                .padding(.leading, 24.0)
-            }
-            VStack(alignment: .leading) {
-              PrimaryLabelView(text: post.postData?.title ?? "Lorem Ipsum")
-              SecondaryLabelsView(textColor: secondaryTextColor, postData: post.postData)
-            }.padding(.horizontal, 16.0)
+    VStack(alignment: .leading) {
+      Grid(alignment: .leading) {
+        GridRow {
+          if post.itemData?.type == "story" {
+            Image("AwkwardMonkey")
+              .resizable()
+              .frame(width: 50.0, height: 50.0)
+              .cornerRadius(8.0)
+              .padding(.leading, 24.0)
           }
-          GeometryReader { geometry in
-            Divider()
-              .frame(width: abs(geometry.size.width - 32))
-              .padding(.horizontal, 16.0)
-          }
-        }.fixedSize(horizontal: false, vertical: true)
-      }
+          VStack(alignment: .leading) {
+            PrimaryLabelView(text: post.itemData?.title ?? "")
+            SecondaryLabelsView(textColor: secondaryTextColor, postData: post.itemData)
+          }.padding(.horizontal, 16.0)
+        }
+        GeometryReader { geometry in
+          Divider()
+            .frame(width: abs(geometry.size.width - 32))
+            .padding(.horizontal, 16.0)
+        }
+      }.fixedSize(horizontal: false, vertical: true)
     }
   }
 }
@@ -54,7 +52,7 @@ struct PrimaryLabelView: View {
 
 struct SecondaryLabelsView: View {
   var textColor: Color
-  var postData: PostData?
+  var postData: ItemData?
 
   var body: some View {
     ViewThatFits(in: .horizontal) {
@@ -67,7 +65,7 @@ struct SecondaryLabelsView: View {
           .dynamicTypeSize(.xSmall)
           .foregroundColor(textColor)
         SecondaryText(textBody: postData?.time ?? "", textColor: textColor)
-        Text("by \(postData?.author ?? "SlimGinz")")
+        Text("by \(postData?.author ?? "")")
           .allowsTightening(true)
           .frame(maxWidth: .infinity, alignment: .trailing)
           .font(.system(size: 14))
