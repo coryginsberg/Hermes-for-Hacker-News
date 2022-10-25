@@ -73,4 +73,27 @@ class PostViewModel: ObservableObject, Identifiable {
       return "<1m"
     }
   }
+
+  private func calcTimeAgo(from timePublished: Int) -> String {
+    let datePublished = Date(timeIntervalSince1970: TimeInterval(timePublished))
+    let components = Calendar(identifier: .gregorian)
+      .dateComponents([.minute, .hour, .day, .month, .year],
+                      from: datePublished,
+                      to: Date())
+
+    switch components {
+    case let component where component.year! > 0:
+      return "\(components.year!)y"
+    case let component where component.month! > 0:
+      return "\(components.month!)mo"
+    case let component where component.day! > 0:
+      return "\(components.day!)d"
+    case let component where component.hour! > 0:
+      return "\(components.hour!)h"
+    case let component where component.minute! > 0:
+      return "\(components.minute!)m"
+    default:
+      return "<1m"
+    }
+  }
 }

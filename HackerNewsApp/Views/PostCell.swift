@@ -12,6 +12,7 @@ struct PostCell: View {
   let spacer: Spacer = .init(minLength: 4.0)
 
   var body: some View {
+<<<<<<< HEAD
     VStack(alignment: .leading) {
       Grid(alignment: .leading) {
         GridRow {
@@ -33,6 +34,31 @@ struct PostCell: View {
             .padding(.horizontal, 16.0)
         }
       }.fixedSize(horizontal: false, vertical: true)
+=======
+    NavigationLink(destination: PostCommentView(post: post)) {
+      VStack(alignment: .leading) {
+        Grid(alignment: .leading) {
+          GridRow {
+            if post.postData?.type == "story" {
+              Image("AwkwardMonkey")
+                .resizable()
+                .frame(width: 50.0, height: 50.0)
+                .cornerRadius(8.0)
+                .padding(.leading, 24.0)
+            }
+            VStack(alignment: .leading) {
+              PrimaryLabelView(text: post.postData?.title ?? "Lorem Ipsum")
+              SecondaryLabelsView(textColor: secondaryTextColor, postData: post.postData)
+            }.padding(.horizontal, 16.0)
+          }
+          GeometryReader { geometry in
+            Divider()
+              .frame(width: abs(geometry.size.width - 32))
+              .padding(.horizontal, 16.0)
+          }
+        }.fixedSize(horizontal: false, vertical: true)
+      }
+>>>>>>> main
     }
   }
 }
@@ -65,7 +91,11 @@ struct SecondaryLabelsView: View {
           .dynamicTypeSize(.xSmall)
           .foregroundColor(textColor)
         SecondaryText(textBody: postData?.time ?? "", textColor: textColor)
+<<<<<<< HEAD
         Text("by \(postData?.author ?? "")")
+=======
+        Text("by \(postData?.author ?? "SlimGinz")")
+>>>>>>> main
           .allowsTightening(true)
           .frame(maxWidth: .infinity, alignment: .trailing)
           .font(.system(size: 14))
