@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE0CC7D629120BEB0093F7FC /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0CC7D529120BEB0093F7FC /* CommentCell.swift */; };
 		EE3D492228F61227005449A4 /* HackerNewsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3D492128F61227005449A4 /* HackerNewsAppApp.swift */; };
 		EE3D492628F61229005449A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE3D492528F61229005449A4 /* Assets.xcassets */; };
 		EE3D492928F61229005449A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE3D492828F61229005449A4 /* Preview Assets.xcassets */; };
@@ -28,12 +29,12 @@
 		EE689F1428FCF24000D9C132 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE689F1328FCF23E00D9C132 /* ItemData.swift */; };
 		EEA3DBC128F7A59200A230CF /* StoriesTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA3DBC028F7A59200A230CF /* StoriesTypes.swift */; };
 		EEC3D75729085D3F004A7F03 /* PostCellNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3D75629085D3F004A7F03 /* PostCellNavView.swift */; };
-		EEC3D75929086EBB004A7F03 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3D75829086EBB004A7F03 /* CommentModel.swift */; };
-		EEFDB86628F68B8200B836C4 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFDB86528F68B8200B836C4 /* PostViewModel.swift */; };
+		EEFDB86628F68B8200B836C4 /* ItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFDB86528F68B8200B836C4 /* ItemInfo.swift */; };
 		EEFDB86828F68C4200B836C4 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFDB86728F68C4200B836C4 /* PostListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE0CC7D529120BEB0093F7FC /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		EE3D491E28F61227005449A4 /* HackerNewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE3D492128F61227005449A4 /* HackerNewsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsAppApp.swift; sourceTree = "<group>"; };
 		EE3D492528F61229005449A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,8 +57,7 @@
 		EE689F1328FCF23E00D9C132 /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		EEA3DBC028F7A59200A230CF /* StoriesTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesTypes.swift; sourceTree = "<group>"; };
 		EEC3D75629085D3F004A7F03 /* PostCellNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellNavView.swift; sourceTree = "<group>"; };
-		EEC3D75829086EBB004A7F03 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
-		EEFDB86528F68B8200B836C4 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		EEFDB86528F68B8200B836C4 /* ItemInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfo.swift; sourceTree = "<group>"; };
 		EEFDB86728F68C4200B836C4 /* PostListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +127,7 @@
 				EE689F0F28FCA81000D9C132 /* PostCell.swift */,
 				EEC3D75629085D3F004A7F03 /* PostCellNavView.swift */,
 				EE689F1128FCA90C00D9C132 /* PostCommentView.swift */,
+				EE0CC7D529120BEB0093F7FC /* CommentCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,11 +136,10 @@
 			isa = PBXGroup;
 			children = (
 				EE3D495328F61757005449A4 /* Database+Extensions.swift */,
-				EEFDB86528F68B8200B836C4 /* PostViewModel.swift */,
+				EEFDB86528F68B8200B836C4 /* ItemInfo.swift */,
 				EEFDB86728F68C4200B836C4 /* PostListViewModel.swift */,
 				EEA3DBC028F7A59200A230CF /* StoriesTypes.swift */,
 				EE689F1328FCF23E00D9C132 /* ItemData.swift */,
-				EEC3D75829086EBB004A7F03 /* CommentModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -151,11 +151,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE3D493228F61229005449A4 /* Build configuration list for PBXNativeTarget "HackerNewsApp" */;
 			buildPhases = (
-				EE6A10AD29035C390015D385 /* ShellScript */,
 				EE3D491A28F61227005449A4 /* Sources */,
 				EE3D491B28F61227005449A4 /* Frameworks */,
 				EE3D491C28F61227005449A4 /* Resources */,
-				EE6A10AD29035C390015D385 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -221,33 +219,12 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		EE6A10AD29035C390015D385 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nif test -d \"$HOME/.mint/bin\"; then\n  PATH=\"$HOME/.mint/bin:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, run setup.sh (or download from https://github.com/realm/SwiftLint)\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		EE3D491A28F61227005449A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEFDB86628F68B8200B836C4 /* PostViewModel.swift in Sources */,
+				EEFDB86628F68B8200B836C4 /* ItemInfo.swift in Sources */,
 				EE3D494C28F61638005449A4 /* ProfileView.swift in Sources */,
 				EE3D495428F61758005449A4 /* Database+Extensions.swift in Sources */,
 				EE3D494A28F6162A005449A4 /* SettingsView.swift in Sources */,
@@ -256,8 +233,8 @@
 				EE3D492E28F61229005449A4 /* HackerNewsApp.xcdatamodeld in Sources */,
 				EEA3DBC128F7A59200A230CF /* StoriesTypes.swift in Sources */,
 				EE3D494628F61601005449A4 /* PostsView.swift in Sources */,
+				EE0CC7D629120BEB0093F7FC /* CommentCell.swift in Sources */,
 				EEC3D75729085D3F004A7F03 /* PostCellNavView.swift in Sources */,
-				EEC3D75929086EBB004A7F03 /* CommentModel.swift in Sources */,
 				EE3D494E28F6163F005449A4 /* InboxView.swift in Sources */,
 				EE689F1428FCF24000D9C132 /* ItemData.swift in Sources */,
 				EE689F1228FCA90C00D9C132 /* PostCommentView.swift in Sources */,
