@@ -6,12 +6,13 @@
 import SwiftUI
 
 struct PostCell: View {
-  @StateObject var post: PostViewModel
+  @StateObject var post: ItemInfo
 
   let secondaryTextColor = Color(uiColor: .secondaryLabel)
   let spacer: Spacer = .init(minLength: 4.0)
 
   var body: some View {
+<<<<<<< HEAD
 <<<<<<< HEAD
     NavigationLink(destination: PostCommentView(post: post)) {
       VStack(alignment: .leading) {
@@ -72,6 +73,8 @@ struct PostCell: View {
         }.fixedSize(horizontal: false, vertical: true)
       }
 =======
+=======
+>>>>>>> 20047ea (Initial comment view setup. Only top level comments for now)
     VStack(alignment: .leading) {
       Grid(alignment: .leading) {
         GridRow {
@@ -93,7 +96,10 @@ struct PostCell: View {
             .padding(.horizontal, 16.0)
         }
       }.fixedSize(horizontal: false, vertical: true)
+<<<<<<< HEAD
 >>>>>>> 39507b4 (Changed "PostData" to "ItemData" and added extra items)
+=======
+>>>>>>> 20047ea (Initial comment view setup. Only top level comments for now)
     }
   }
 }
@@ -178,7 +184,11 @@ struct SecondaryText: View {
 
 struct PostCell_Previews: PreviewProvider {
   static var previews: some View {
+<<<<<<< HEAD
     PostCell(post: PostViewModel(itemID: 33_244_633)!)
 >>>>>>> 92b9663 (Formatted project with swiftformat)
+=======
+    PostCell(post: ItemInfo(itemID: 33_244_633)!)
+>>>>>>> 20047ea (Initial comment view setup. Only top level comments for now)
   }
 }

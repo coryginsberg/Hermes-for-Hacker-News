@@ -24,7 +24,7 @@ struct PostsView: View {
       ScrollView(.vertical) {
         LazyVStack {
           ForEach(postList.posts) { post in
-            PostCellNavView(post: PostViewModel(itemID: post.itemID)!)
+            PostCellNavView(post: ItemInfo(itemID: post.itemID)!)
           }
         }
         .onAppear {

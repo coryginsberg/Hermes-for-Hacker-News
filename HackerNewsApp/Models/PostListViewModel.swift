@@ -6,7 +6,7 @@
 import FirebaseDatabase
 
 class PostListViewModel: ObservableObject {
-  @Published var posts: [PostViewModel] = []
+  @Published var posts: [ItemInfo] = []
 
   private let ref = Database.root
   private var refHandle: DatabaseHandle?
@@ -26,10 +26,14 @@ class PostListViewModel: ObservableObject {
   }
 
   private func fetchPosts(from ref: DatabaseReference, for storiesTypes: StoriesTypes) {
-    ref.observe(DataEventType.value, with: { snapshot in
-      guard let value = snapshot.value as? [Int] else { return }
-      self.posts = value.compactMap { PostViewModel(itemID: $0) }
-    })
+    ref.getData() { error, snapshot in
+      guard error == nil else {
+        print(error!.localizedDescription)
+        return;
+      }
+      guard let value = snapshot?.value as? [Int] else { return }
+      self.posts = value.compactMap { ItemInfo(itemID: $0) }
+    }
   }
 
   func onViewDisappear() {

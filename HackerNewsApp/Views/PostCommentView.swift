@@ -6,16 +6,19 @@
 import SwiftUI
 
 struct PostCommentView: View {
-  @ObservedObject var post: PostViewModel
+  @ObservedObject var post: ItemInfo
 
   var body: some View {
     NavigationView {
-
       ScrollView {
-        PostCell(post: post)
-        ForEach(post.itemData?.kids ?? [], id: \.self) { comment in
-          Text("\(comment)")
+        LazyVStack {
+          PostCell(post: post)
+          ForEach(post.itemData?.kids ?? [], id: \.self) { comment in
+            let _ = print(comment)
+            CommentCell(comment: ItemInfo(itemID: comment)!)
+          }
         }
+        
       }
     }
     .navigationTitle(Text(""))
@@ -23,14 +26,8 @@ struct PostCommentView: View {
   }
 }
 
-// struct Comment: View {
-//   var body: some View {
-//
-//   }
-// }
-
 struct PostCommentView_Previews: PreviewProvider {
   static var previews: some View {
-    PostCommentView(post: PostViewModel(itemID: 1)!)
+    PostCommentView(post: ItemInfo(itemID: 1)!)
   }
 }
