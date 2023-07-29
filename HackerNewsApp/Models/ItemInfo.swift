@@ -3,37 +3,39 @@
 //  Licensed under the Apache License, Version 2.0
 //
 
+import FaviconFinder
 import FirebaseDatabase
 import Foundation
+import SwiftUI
 
-class ItemInfo: ObservableObject, Identifiable {
+final class ItemInfo: Identifiable {
   private let ref = Database.root
   var itemID: Int
   var handle: DatabaseHandle?
 
   @Published var itemData: ItemData?
 
-  init?(itemID: Int) {
+  init?(itemID: Int) async {
     self.itemID = itemID
     itemData = nil
-    getItemInfo()
+    await getItemInfo()
   }
 
-  func getItemInfo() {
+  func getItemInfo() async {
     let postRef = ref.child("v0/item/\(itemID)")
-    fetchItem(from: postRef) { item in
+    await fetchItem(from: postRef) { item in
       self.itemData = item
-      print(item)
     }
   }
 
-  private func fetchItem(from ref: DatabaseReference, completion: @escaping (ItemData) -> Void) {
-    ref.getData() { error, snapshot in
-      guard error == nil else {
-        print(error!.localizedDescription)
-        return;
-      }
-      guard let value = snapshot?.value as? [String: Any] else { return }
+  private func fetchItem(from ref: DatabaseReference, completion: @escaping (ItemData) -> Void) async {
+    do {
+      let snapshot = try await ref.getData()
+      guard let value = snapshot.value as? [String: Any] else { return }
+      
+      let url = value["url"] as? String;
+      let faviconUrl = url != nil ? try await self.loadFavicon(fromUrl: URL(string: url ?? "")!) : nil;
+      
       let itemData = ItemData(
         author: value["by"] as? String ?? "",
         descendants: value["descendants"] as? Int,
@@ -49,9 +51,28 @@ class ItemInfo: ObservableObject, Identifiable {
         time: self.calcTimeAgo(from: value["time"] as? Int ?? 0),
         title: value["title"] as? String ?? "",
         type: (value["type"] as? String)!,
-        url: value["url"] as? String
+        url: url,
+        faviconUrl: faviconUrl
       )
+      
       completion(itemData)
+    } catch {
+      print("Error fetching item: \(error.localizedDescription)")
+      return
+    }
+  }
+  
+  private func loadFavicon(fromUrl url: URL) async throws -> URL {
+    do {
+      let favicon = try await FaviconFinder(url: url, downloadImage: false).downloadFavicon()
+      return favicon.url
+      
+    } catch {
+      print("Error loading favicon: \(error.localizedDescription)")
+      guard let url = Bundle.main.url(forResource: "awkward-monkey", withExtension: "png") else {
+        throw URLError(.fileDoesNotExist)
+      }
+      return url
     }
   }
 

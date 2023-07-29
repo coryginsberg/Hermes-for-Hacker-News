@@ -6,7 +6,7 @@
 import CoreData
 import SwiftUI
 
-struct ContentView: View {
+struct RootView: View {
   @Environment(\.managedObjectContext) private var viewContext
 
   var body: some View {
@@ -41,6 +41,6 @@ private let itemFormatter: DateFormatter = {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView()
+    RootView()
   }
 }

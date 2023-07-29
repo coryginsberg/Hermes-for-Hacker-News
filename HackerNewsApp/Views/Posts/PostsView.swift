@@ -18,15 +18,15 @@ struct PostsView: View {
       ScrollView(.vertical) {
         LazyVStack {
           ForEach(postList.posts) { post in
-            PostCellNavView(post: ItemInfo(itemID: post.itemID)!)
+            PostCellNavView(postData: post.itemData ?? TestData.postsData[0])
           }
         }
-        .onAppear {
-          postList.getPosts(storiesTypes: StoriesTypes.topStories)
-        }
+        .task {
+          await postList.genPosts(storiesTypes: StoriesTypes.topStories)
+        } 
         .navigationTitle(title)
       }.refreshable {
-        postList.getPosts(storiesTypes: StoriesTypes.topStories)
+        await postList.genPosts(storiesTypes: StoriesTypes.topStories)
       }
     }
   }

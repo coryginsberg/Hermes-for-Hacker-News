@@ -15,7 +15,8 @@ let package = Package(
     .package(name: "Firebase",
            url: "https://github.com/firebase/firebase-ios-sdk.git",
            .upToNextMajor(from: "8.10.0")
-           )
+           ),
+    .package(url: "https://github.com/will-lumley/FaviconFinder.git", from: "4.2.0"),
   ],
   targets: [
     .target(
@@ -23,6 +24,7 @@ let package = Package(
       dependencies: [
         .product(name: "FirebaseAuth", package: "Firebase"),
         .product(name: "FirebaseDatabase", package: "Firebase")
+        .product(name: "FaviconFinder", package: "FaviconFinder")
       ],
       path: packageName
     )

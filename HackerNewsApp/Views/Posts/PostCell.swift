@@ -6,7 +6,7 @@
 import SwiftUI
 
 struct PostCell: View {
-  @StateObject var post: ItemInfo
+  @State var postData: ItemData
 
   let secondaryTextColor = Color(uiColor: .secondaryLabel)
   let spacer: Spacer = .init(minLength: 4.0)
@@ -15,16 +15,18 @@ struct PostCell: View {
     VStack(alignment: .leading) {
       Grid(alignment: .leading) {
         GridRow {
-          if post.itemData?.type == "story" {
-            Image("AwkwardMonkey")
-              .resizable()
-              .frame(width: 50.0, height: 50.0)
-              .cornerRadius(8.0)
-              .padding(.leading, 24.0)
+          if postData.type == "story" {
+            AsyncImage(url: postData.faviconUrl) { image in
+                   image.resizable()
+              } placeholder: {
+                Image("AwkwardMonkey")
+              }
+              .frame(width: 50, height: 50, alignment: .top)
+              .clipShape(RoundedRectangle(cornerRadius: 8)).padding(.leading, 24)
           }
           VStack(alignment: .leading) {
-            PrimaryLabelView(text: post.itemData?.title ?? "")
-            SecondaryLabelsView(textColor: secondaryTextColor, postData: post.itemData)
+            PrimaryLabelView(postData: postData, secondaryTextColor: secondaryTextColor)
+            SecondaryLabelsView(postData: postData, textColor: secondaryTextColor)
           }.padding(.horizontal, 16.0)
         }
         GeometryReader { geometry in
@@ -38,21 +40,24 @@ struct PostCell: View {
 }
 
 struct PrimaryLabelView: View {
-  var text: String
-
+  var postData: ItemData?
+  var secondaryTextColor: Color
+      
   var body: some View {
-    Text(text)
+    Text(postData?.title ?? "")
       .foregroundColor(Color(uiColor: .label))
       .multilineTextAlignment(.leading)
       .padding(.bottom, 6.0)
       .allowsTightening(true)
       .frame(maxWidth: .infinity, alignment: .leading)
+//    SecondaryText(textBody: (URL(string: (postData?.url)!)?.baseURL!.absoluteString)!, textColor: secondaryTextColor)
+
   }
 }
 
 struct SecondaryLabelsView: View {
-  var textColor: Color
   var postData: ItemData?
+  var textColor: Color
 
   var body: some View {
     ViewThatFits(in: .horizontal) {
@@ -103,6 +108,6 @@ struct SecondaryText: View {
 
 struct PostCell_Previews: PreviewProvider {
   static var previews: some View {
-    PostCell(post: ItemInfo(itemID: 33_244_633)!)
+    PostCell(postData: TestData.postsData[0])
   }
 }
