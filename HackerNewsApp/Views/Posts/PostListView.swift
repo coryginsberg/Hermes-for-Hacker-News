@@ -6,7 +6,7 @@
 import Foundation
 import SwiftUI
 
-struct PostsView: View {
+struct PostListView: View {
   let title: String = "Posts"
 <<<<<<< HEAD:Hermes/Views/PostsView.swift
 =======
@@ -38,7 +38,7 @@ struct PostsView: View {
 =======
         .task {
           await postList.genPosts(storiesTypes: StoriesTypes.topStories)
-        } 
+        }
         .navigationTitle(title)
       }.refreshable {
         await postList.genPosts(storiesTypes: StoriesTypes.topStories)
@@ -50,6 +50,6 @@ struct PostsView: View {
 
 struct PostsView_Previews: PreviewProvider {
   static var previews: some View {
-    PostsView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    PostListView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
   }
 }

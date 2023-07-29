@@ -5,21 +5,20 @@
 
 import SwiftUI
 
-struct CommentsView: View {
+struct CommentListView: View {
   @State var postData: ItemData
 
   var body: some View {
     NavigationView {
       ScrollView {
-        LazyVStack { 
+        LazyVStack {
           PostCell(postData: postData)
 //          ForEach(postData.kids ?? [], id: \.self) { comment in
 //            CommentCell(commentData: ItemInfo(itemID: comment))
 //          }
         }
-        
       }
-    } 
+    }
     .navigationTitle(Text(""))
     .navigationBarTitleDisplayMode(.inline)
   }
@@ -27,6 +26,6 @@ struct CommentsView: View {
 
 struct PostCommentView_Previews: PreviewProvider {
   static var previews: some View {
-    CommentsView(postData: TestData.postsData[0])
+    CommentListView(postData: TestData.postsData[0])
   }
 }

@@ -2,5 +2,10 @@
   "swift.swiftEnvironmentVariables": {
     "DEVELOPER_DIR": "/Applications/Xcode.app/Contents/Developer"
   },
-  "swift.SDK": "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS16.0.sdk"
+  "swift.SDK": "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS16.0.sdk",
+  "sarif-viewer.connectToGithubCodeScanning": "off",
+  "swiftlint.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  }
 }
