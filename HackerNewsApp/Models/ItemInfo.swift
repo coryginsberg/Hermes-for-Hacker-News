@@ -35,7 +35,7 @@ final class ItemInfo: Identifiable {
 
       let url = value["url"] as? String
       let faviconUrl =
-        url != nil ? try await self.loadFavicon(fromUrl: URL(string: url ?? "")!) : nil
+        url != nil ? try await loadFavicon(fromUrl: URL(string: url ?? "")!) : nil
 
       let itemData = ItemData(
         author: value["by"] as? String ?? "",
@@ -49,7 +49,7 @@ final class ItemInfo: Identifiable {
         poll: value["poll"] as? Int,
         score: value["score"] as? Int ?? 0,
         text: value["text"] as? String ?? "",
-        time: self.calcTimeAgo(from: value["time"] as? Int ?? 0),
+        time: calcTimeAgo(from: value["time"] as? Int ?? 0),
         title: value["title"] as? String ?? "",
         type: (value["type"] as? String) ?? "",
         url: url,

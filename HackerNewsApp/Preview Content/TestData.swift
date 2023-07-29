@@ -28,18 +28,18 @@ struct TestData {
       descendants: nil,
       dead: false,
       deleted: false,
-      id: Int.random(in: 100000..<1_000_000),
+      id: Int.random(in: 100_000 ..< 1_000_000),
       kids: nil,
       parent: nil,
       parts: nil,
       poll: nil,
-      score: Int.random(in: 1..<600),
+      score: Int.random(in: 1 ..< 600),
       text:
-        """
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        """,
-      time: "\(Int.random(in: 1_670_495_658...1_690_495_658))",
+      """
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      """,
+      time: "\(Int.random(in: 1_670_495_658 ... 1_690_495_658))",
       title: title,
       type: types[1],
       url: nil,

@@ -26,13 +26,13 @@ class PostListViewModel: ObservableObject {
   }
 
   @MainActor
-  private func fetchPosts(from ref: DatabaseReference, for storiesTypes: StoriesTypes) async {
+  private func fetchPosts(from ref: DatabaseReference, for _: StoriesTypes) async {
     do {
       let snapshot = try await ref.queryLimited(toFirst: 50).getData()
       guard let snapshotVal = snapshot.value as? [Int] else { return }
       debugPrint(snapshotVal)
 
-      self.posts = try await snapshotVal.concurrentCompactMap { (value) throws in
+      posts = try await snapshotVal.concurrentCompactMap { value throws in
         await ItemInfo(itemID: value)
       }
     } catch {

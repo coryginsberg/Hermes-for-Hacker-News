@@ -16,7 +16,7 @@ struct SettingsView: View {
 
   var staff = [
     Setting(name: "Lorem Ipsum"),
-    Setting(name: "Dolor sit amet")
+    Setting(name: "Dolor sit amet"),
   ]
 
   @State var toggle: Bool = false
