@@ -15,7 +15,7 @@ struct PostCellNavView: View {
 
   var body: some View {
     NavigationLink(destination: CommentListView(postData: postData)) {
-        PostCell(postData: postData)
+      PostCell(postData: postData)
     }
   }
 }

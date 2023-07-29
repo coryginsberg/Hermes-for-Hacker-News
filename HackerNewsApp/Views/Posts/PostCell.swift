@@ -17,12 +17,12 @@ struct PostCell: View {
         GridRow {
           if postData.type == "story" {
             AsyncImage(url: postData.faviconUrl) { image in
-                   image.resizable()
-              } placeholder: {
-                Image("AwkwardMonkey")
+              image.resizable()
+            } placeholder: {
+              Image("AwkwardMonkey")
             }
-              .frame(width: 50, height: 50, alignment: .top)
-              .clipShape(RoundedRectangle(cornerRadius: 8)).padding(.leading, 24)
+            .frame(width: 50, height: 50, alignment: .top)
+            .clipShape(RoundedRectangle(cornerRadius: 8)).padding(.leading, 24)
           }
           VStack(alignment: .leading) {
             PrimaryLabelView(postData: postData, secondaryTextColor: secondaryTextColor)
@@ -51,7 +51,6 @@ struct PrimaryLabelView: View {
       .allowsTightening(true)
       .frame(maxWidth: .infinity, alignment: .leading)
 //    SecondaryText(textBody: (URL(string: (postData?.url)!)?.baseURL!.absoluteString)!, textColor: secondaryTextColor)
-
   }
 }
 
