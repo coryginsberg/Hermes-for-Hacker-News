@@ -8,13 +8,13 @@ import WebKit
 
 struct CommentCell: View {
   @State var commentData: ItemData
-  
+
   var body: some View {
 //  let primaryColor = commentData.dead ? Color(uiColor: .systemGray5) : Color(uiColor: .label)
     let secondaryColor = commentData.dead ? Color(uiColor: .systemGray5) : Color(uiColor: .secondaryLabel)
     let prefixText = commentData.dead ? "[dead]" : commentData.deleted ? "[deleted]" : ""
-    
-    VStack() {
+
+    VStack {
       Text("\(prefixText) \(commentData.text.markdownToAttributed())")
 //          .foregroundColor(primaryColor)
 //          .multilineTextAlignment(.leading)
@@ -22,13 +22,13 @@ struct CommentCell: View {
 //          .allowsTightening(true)
 //          .frame(maxWidth: .infinity, alignment: .leading)
 //          .dynamicTypeSize(.medium)
-      
-      HStack() {
+
+      HStack {
         Image(systemName: "clock")
           .dynamicTypeSize(.xSmall)
           .foregroundColor(secondaryColor)
         SecondaryText(textBody: commentData.time, textColor: secondaryColor)
-        if (commentData.score != 0) {
+        if commentData.score != 0 {
           SecondaryImage(imageName: "arrow.up", textColor: secondaryColor)
           SecondaryText(textBody: "\(commentData.score)", textColor: secondaryColor)
         }
@@ -38,7 +38,6 @@ struct CommentCell: View {
           .font(.system(size: 14))
           .foregroundColor(secondaryColor)
           .lineLimit(1)
-        
       }
       GeometryReader { geometry in
         Divider()
@@ -58,7 +57,7 @@ extension String {
   }
 }
 
-//struct WebViewWrapper: UIViewControllerRepresentable {
+// struct WebViewWrapper: UIViewControllerRepresentable {
 //  typealias UIViewControllerType = .
 //
 //  let html: String
@@ -85,4 +84,4 @@ extension String {
 ////  func sizeThatFits(_ proposal: ProposedViewSize, uiView: WKWebView, context: Context) -> CGSize? {
 ////    return CGSize(width: proposal.width!, height: ))
 ////  }
-//}
+// }

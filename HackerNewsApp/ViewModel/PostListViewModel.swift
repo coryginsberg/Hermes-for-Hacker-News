@@ -30,20 +30,20 @@ class PostListViewModel: ObservableObject {
     do {
       let snapshot = try await ref.queryLimited(toFirst: 50).getData()
       guard let snapshotVal = snapshot.value as? [Int] else { return }
-      debugPrint(snapshotVal);
-      
-      self.posts = try await snapshotVal.concurrentCompactMap() { (value) throws in
-          await ItemInfo(itemID: value)
+      debugPrint(snapshotVal)
+
+      self.posts = try await snapshotVal.concurrentCompactMap { (value) throws in
+        await ItemInfo(itemID: value)
       }
     } catch {
       print(error.localizedDescription)
       return
     }
   }
-  
+
   func fetchPostsInfo() async -> [ItemInfo] {
-    await posts.asyncCompactMap() {
-      await ItemInfo(itemID: $0.itemID);
+    await posts.asyncCompactMap {
+      await ItemInfo(itemID: $0.itemID)
     }
   }
 
@@ -51,5 +51,3 @@ class PostListViewModel: ObservableObject {
     ref.removeAllObservers()
   }
 }
-
-

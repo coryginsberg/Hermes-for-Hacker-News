@@ -1,0 +1,28 @@
+{
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "name": "Debug HackerNewsApp",
+      "program": "${workspaceFolder:HackerNewsApp}/.build/debug/HackerNewsApp",
+      "args": [],
+      "cwd": "${workspaceFolder:HackerNewsApp}",
+      "preLaunchTask": "swift: Build Debug HackerNewsApp"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "name": "Release HackerNewsApp",
+      "program": "${workspaceFolder:HackerNewsApp}/.build/release/HackerNewsApp",
+      "args": [],
+      "cwd": "${workspaceFolder:HackerNewsApp}",
+      "preLaunchTask": "swift: Build Release HackerNewsApp"
+    }
+  ]
+}

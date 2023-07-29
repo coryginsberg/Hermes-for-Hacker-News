@@ -14,7 +14,7 @@ struct PostCellNavView: View {
   let spacer: Spacer = .init(minLength: 4.0)
 
   var body: some View {
-    NavigationLink(destination: CommentsView(postData: postData)) {
+    NavigationLink(destination: CommentListView(postData: postData)) {
         PostCell(postData: postData)
     }
   }

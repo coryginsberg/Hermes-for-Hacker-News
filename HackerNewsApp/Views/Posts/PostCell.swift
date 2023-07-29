@@ -20,7 +20,7 @@ struct PostCell: View {
                    image.resizable()
               } placeholder: {
                 Image("AwkwardMonkey")
-              }
+            }
               .frame(width: 50, height: 50, alignment: .top)
               .clipShape(RoundedRectangle(cornerRadius: 8)).padding(.leading, 24)
           }
@@ -42,7 +42,7 @@ struct PostCell: View {
 struct PrimaryLabelView: View {
   var postData: ItemData?
   var secondaryTextColor: Color
-      
+
   var body: some View {
     Text(postData?.title ?? "")
       .foregroundColor(Color(uiColor: .label))
@@ -102,7 +102,6 @@ struct SecondaryText: View {
       .font(.system(size: 12))
       .padding(.trailing, 6.0)
       .lineLimit(1)
-
   }
 }
 

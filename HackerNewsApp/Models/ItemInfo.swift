@@ -32,16 +32,17 @@ final class ItemInfo: Identifiable {
     do {
       let snapshot = try await ref.getData()
       guard let value = snapshot.value as? [String: Any] else { return }
-      
-      let url = value["url"] as? String;
-      let faviconUrl = url != nil ? try await self.loadFavicon(fromUrl: URL(string: url ?? "")!) : nil;
-      
+
+      let url = value["url"] as? String
+      let faviconUrl =
+        url != nil ? try await self.loadFavicon(fromUrl: URL(string: url ?? "")!) : nil
+
       let itemData = ItemData(
         author: value["by"] as? String ?? "",
         descendants: value["descendants"] as? Int,
         dead: value["dead"] as? Bool ?? false,
         deleted: value["deleted"] as? Bool ?? false,
-        id: (value["id"] as? Int)!,
+        id: value["id"] as? Int ?? 0,
         kids: value["kids"] as? [Int],
         parent: value["parent"] as? Int,
         parts: value["parts"] as? [Int],
@@ -50,23 +51,22 @@ final class ItemInfo: Identifiable {
         text: value["text"] as? String ?? "",
         time: self.calcTimeAgo(from: value["time"] as? Int ?? 0),
         title: value["title"] as? String ?? "",
-        type: (value["type"] as? String)!,
+        type: (value["type"] as? String) ?? "",
         url: url,
         faviconUrl: faviconUrl
       )
-      
+
       completion(itemData)
     } catch {
       print("Error fetching item: \(error.localizedDescription)")
       return
     }
   }
-  
+
   private func loadFavicon(fromUrl url: URL) async throws -> URL {
     do {
       let favicon = try await FaviconFinder(url: url, downloadImage: false).downloadFavicon()
       return favicon.url
-      
     } catch {
       print("Error loading favicon: \(error.localizedDescription)")
       guard let url = Bundle.main.url(forResource: "awkward-monkey", withExtension: "png") else {

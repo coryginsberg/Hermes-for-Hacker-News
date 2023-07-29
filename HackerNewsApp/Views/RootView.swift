@@ -11,7 +11,7 @@ struct RootView: View {
 
   var body: some View {
     TabView {
-      PostsView()
+      PostListView()
         .tabItem {
           Label("Posts", systemImage: "newspaper.fill")
         }

@@ -32,6 +32,7 @@ struct PersistenceController {
   init(inMemory: Bool = false) {
     container = NSPersistentCloudKitContainer(name: "HackerNewsApp")
     if inMemory {
+      // swiftlint:disable force_unwrapping
       container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
     }
     container.loadPersistentStores(completionHandler: { _, error in
