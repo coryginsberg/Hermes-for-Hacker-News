@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct PostCellNavView: View {
-  @StateObject var post: ItemInfo
+  @State var postData: ItemData
 
   let secondaryTextColor = Color(uiColor: .secondaryLabel)
   let spacer: Spacer = .init(minLength: 4.0)
 
   var body: some View {
-    NavigationLink(destination: PostCommentView(post: post)) {
-        PostCell(post: post)
+    NavigationLink(destination: CommentsView(postData: postData)) {
+        PostCell(postData: postData)
     }
   }
 }
 
 struct PostCellNavView_Previews: PreviewProvider {
   static var previews: some View {
-    PostCellNavView(post: ItemInfo(itemID: 33_244_633)!)
+    PostCellNavView(postData: TestData.postsData[0])
   }
 }

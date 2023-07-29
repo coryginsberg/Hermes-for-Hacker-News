@@ -10,6 +10,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - Post
 struct ItemData {
@@ -28,4 +29,5 @@ struct ItemData {
   let title: String // The title of the story, poll or job. HTML.
   let type: String // The type of item. One of "job", "story", "comment", "poll", or "pollopt".
   let url: String? // The URL of the story.
+  let faviconUrl: URL?
 }
