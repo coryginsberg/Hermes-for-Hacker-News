@@ -18,7 +18,7 @@ struct PostListView: View {
       ScrollView(.vertical) {
         LazyVStack {
           ForEach(postList.posts) { post in
-            PostCellNavView(postData: post.itemData ?? TestData.postsData[0])
+            PostCellNavView(postData: post.delegate.itemData)
           }
         }
         .task {

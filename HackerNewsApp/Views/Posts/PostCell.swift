@@ -15,7 +15,7 @@ struct PostCell: View {
     VStack(alignment: .leading) {
       Grid(alignment: .leading) {
         GridRow {
-          if postData.type == "story" {
+          if postData.type == .story {
             AsyncImage(url: postData.faviconUrl) { image in
               image.resizable()
             } placeholder: {
@@ -68,7 +68,7 @@ struct SecondaryLabelsView: View {
         Image(systemName: "clock")
           .dynamicTypeSize(.xSmall)
           .foregroundColor(textColor)
-        SecondaryText(textBody: postData?.time ?? "", textColor: textColor)
+        SecondaryText(textBody: ItemInfoHelper.calcTimeSince(datePosted: postData?.time ?? Date()), textColor: textColor)
         Text("by \(postData?.author ?? "")")
           .allowsTightening(true)
           .frame(maxWidth: .infinity, alignment: .trailing)
@@ -106,6 +106,6 @@ struct SecondaryText: View {
 
 struct PostCell_Previews: PreviewProvider {
   static var previews: some View {
-    PostCell(postData: TestData.postsData[0])
+    PostCell(postData: TestData.Posts.randomPosts[0])
   }
 }

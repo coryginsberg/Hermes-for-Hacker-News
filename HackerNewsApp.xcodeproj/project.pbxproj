@@ -29,6 +29,10 @@
 		EE9DB72E2A75A726000772D9 /* CommentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DB72D2A75A726000772D9 /* CommentListViewModel.swift */; };
 		EEA3DBC128F7A59200A230CF /* StoriesTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA3DBC028F7A59200A230CF /* StoriesTypes.swift */; };
 		EEC3D75729085D3F004A7F03 /* PostCellNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC3D75629085D3F004A7F03 /* PostCellNavView.swift */; };
+		EECA110E2A76ED73005F4EF9 /* ItemInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECA110D2A76ED73005F4EF9 /* ItemInfoHelper.swift */; };
+		EECA11102A76F3D6005F4EF9 /* PostType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECA110F2A76F3D6005F4EF9 /* PostType.swift */; };
+		EECA11122A76FC4D005F4EF9 /* PostInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECA11112A76FC4D005F4EF9 /* PostInfo.swift */; };
+		EECA11142A770277005F4EF9 /* CommentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECA11132A770277005F4EF9 /* CommentInfo.swift */; };
 		EED44F342A75CFEF0011CB20 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED44F332A75CFEF0011CB20 /* TestData.swift */; };
 		EEEEC3B4292EBFF200B8F5E0 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEEEC3B3292EBFF200B8F5E0 /* StoreKit.framework */; };
 		EEFDB86628F68B8200B836C4 /* ItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFDB86528F68B8200B836C4 /* ItemInfo.swift */; };
@@ -61,6 +65,10 @@
 		EE9DB72D2A75A726000772D9 /* CommentListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListViewModel.swift; sourceTree = "<group>"; };
 		EEA3DBC028F7A59200A230CF /* StoriesTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesTypes.swift; sourceTree = "<group>"; };
 		EEC3D75629085D3F004A7F03 /* PostCellNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellNavView.swift; sourceTree = "<group>"; };
+		EECA110D2A76ED73005F4EF9 /* ItemInfoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoHelper.swift; sourceTree = "<group>"; };
+		EECA110F2A76F3D6005F4EF9 /* PostType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostType.swift; sourceTree = "<group>"; };
+		EECA11112A76FC4D005F4EF9 /* PostInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInfo.swift; sourceTree = "<group>"; };
+		EECA11132A770277005F4EF9 /* CommentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInfo.swift; sourceTree = "<group>"; };
 		EED44F2F2A75C7B20011CB20 /* SECURITY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SECURITY.md; sourceTree = "<group>"; };
 		EED44F302A75C7D70011CB20 /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
 		EED44F332A75CFEF0011CB20 /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
@@ -192,6 +200,10 @@
 				EEFDB86528F68B8200B836C4 /* ItemInfo.swift */,
 				EEA3DBC028F7A59200A230CF /* StoriesTypes.swift */,
 				EE689F1328FCF23E00D9C132 /* ItemData.swift */,
+				EECA110D2A76ED73005F4EF9 /* ItemInfoHelper.swift */,
+				EECA110F2A76F3D6005F4EF9 /* PostType.swift */,
+				EECA11112A76FC4D005F4EF9 /* PostInfo.swift */,
+				EECA11132A770277005F4EF9 /* CommentInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -218,7 +230,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				EED44F2D2A75BF100011CB20 /* PBXTargetDependency */,
 			);
 			name = HackerNewsApp;
 			packageProductDependencies = (
@@ -296,7 +307,10 @@
 				EE3D494828F61619005449A4 /* RootView.swift in Sources */,
 				EE3D492E28F61229005449A4 /* HackerNewsApp.xcdatamodeld in Sources */,
 				EEA3DBC128F7A59200A230CF /* StoriesTypes.swift in Sources */,
+				EECA11142A770277005F4EF9 /* CommentInfo.swift in Sources */,
+				EECA110E2A76ED73005F4EF9 /* ItemInfoHelper.swift in Sources */,
 				EE3D494628F61601005449A4 /* PostListView.swift in Sources */,
+				EECA11102A76F3D6005F4EF9 /* PostType.swift in Sources */,
 				EE0CC7D629120BEB0093F7FC /* CommentCell.swift in Sources */,
 				EEC3D75729085D3F004A7F03 /* PostCellNavView.swift in Sources */,
 				EE3D494E28F6163F005449A4 /* InboxView.swift in Sources */,
@@ -305,17 +319,11 @@
 				EE689F1028FCA81000D9C132 /* PostCell.swift in Sources */,
 				EE3D492228F61227005449A4 /* HackerNewsAppApp.swift in Sources */,
 				EEFDB86828F68C4200B836C4 /* PostListViewModel.swift in Sources */,
+				EECA11122A76FC4D005F4EF9 /* PostInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		EED44F2D2A75BF100011CB20 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = EED44F2C2A75BF100011CB20 /* SwiftLintPlugin */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		EE3D493028F61229005449A4 /* Debug */ = {
@@ -470,7 +478,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.coryginsberg.HackerNewsApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coryginsberg.HackerNewsHermes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -507,7 +515,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.coryginsberg.HackerNewsApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.coryginsberg.HackerNewsHermes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -576,11 +584,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EE3D493528F61385005449A4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabaseSwift;
-		};
-		EED44F2C2A75BF100011CB20 /* SwiftLintPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EED44F272A75BC490011CB20 /* XCRemoteSwiftPackageReference "SwiftLint" */;
-			productName = "plugin:SwiftLintPlugin";
 		};
 /* End XCSwiftPackageProductDependency section */
 
