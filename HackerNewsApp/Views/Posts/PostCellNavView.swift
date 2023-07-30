@@ -22,6 +22,6 @@ struct PostCellNavView: View {
 
 struct PostCellNavView_Previews: PreviewProvider {
   static var previews: some View {
-    PostCellNavView(postData: TestData.postsData[0])
+    PostCellNavView(postData: TestData.Posts.randomPosts[0])
   }
 }

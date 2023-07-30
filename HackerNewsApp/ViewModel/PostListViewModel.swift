@@ -12,28 +12,27 @@ class PostListViewModel: ObservableObject {
   private var refHandle: DatabaseHandle?
 
   func genPosts(storiesTypes: StoriesTypes) async {
+    let postListRef: DatabaseReference;
     switch storiesTypes {
     case .topStories:
-      let postListRef = ref.child("v0/topstories")
-      await fetchPosts(from: postListRef, for: storiesTypes)
+      postListRef = ref.child("v0/topstories")
     case .newStories:
-      let postListRef = ref.child("v0/newstories")
-      await fetchPosts(from: postListRef, for: storiesTypes)
+      postListRef = ref.child("v0/newstories")
     case .bestStories:
-      let postListRef = ref.child("v0/beststories")
-      await fetchPosts(from: postListRef, for: storiesTypes)
+      postListRef = ref.child("v0/beststories")
     }
+    await fetchPosts(from: postListRef)
   }
 
   @MainActor
-  private func fetchPosts(from ref: DatabaseReference, for _: StoriesTypes) async {
+  private func fetchPosts(from ref: DatabaseReference) async {
     do {
       let snapshot = try await ref.queryLimited(toFirst: 50).getData()
       guard let snapshotVal = snapshot.value as? [Int] else { return }
       debugPrint(snapshotVal)
 
       posts = try await snapshotVal.concurrentCompactMap { value throws in
-        await ItemInfo(itemID: value)
+        await PostInfo(value)
       }
     } catch {
       print(error.localizedDescription)
@@ -43,7 +42,7 @@ class PostListViewModel: ObservableObject {
 
   func fetchPostsInfo() async -> [ItemInfo] {
     await posts.asyncCompactMap {
-      await ItemInfo(itemID: $0.itemID)
+      await PostInfo($0.delegate.itemData.id)
     }
   }
 

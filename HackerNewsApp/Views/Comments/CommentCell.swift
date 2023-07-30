@@ -15,7 +15,7 @@ struct CommentCell: View {
     let prefixText = commentData.dead ? "[dead]" : commentData.deleted ? "[deleted]" : ""
 
     VStack {
-      Text("\(prefixText) \(commentData.text.markdownToAttributed())")
+      Text("\(prefixText) \(commentData.text?.markdownToAttributed() ?? "")")
 //          .foregroundColor(primaryColor)
 //          .multilineTextAlignment(.leading)
 //          .padding(.bottom, 6.0)
@@ -27,7 +27,7 @@ struct CommentCell: View {
         Image(systemName: "clock")
           .dynamicTypeSize(.xSmall)
           .foregroundColor(secondaryColor)
-        SecondaryText(textBody: commentData.time, textColor: secondaryColor)
+        SecondaryText(textBody: ItemInfoHelper.calcTimeSince(datePosted: commentData.time), textColor: secondaryColor)
         if commentData.score != 0 {
           SecondaryImage(imageName: "arrow.up", textColor: secondaryColor)
           SecondaryText(textBody: "\(commentData.score)", textColor: secondaryColor)
