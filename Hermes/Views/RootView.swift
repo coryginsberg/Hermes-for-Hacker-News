@@ -3,17 +3,16 @@
 //  Licensed under the Apache License, Version 2.0
 //
 
-import CoreData
 import SwiftUI
 
 struct RootView: View {
   @Environment(\.managedObjectContext) private var viewContext
-
-//  @ObservedObject var fetch = HackerNewsAPI()
-
+  
+  //  @ObservedObject var fetch = HackerNewsAPI()
+  
   var body: some View {
     TabView {
-      PostsView()
+      PostListView()
         .tabItem {
           Label("Posts", systemImage: "newspaper.fill")
         }
@@ -41,7 +40,7 @@ private let itemFormatter: DateFormatter = {
   return formatter
 }()
 
-struct ContentView_Previews: PreviewProvider {
+struct RootView_Previews: PreviewProvider {
   static var previews: some View {
     RootView()
   }

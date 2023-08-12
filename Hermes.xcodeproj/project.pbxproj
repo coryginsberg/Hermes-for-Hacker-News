@@ -8,12 +8,41 @@
 
 /* Begin PBXBuildFile section */
 		EEC8B9D12A880A280088B6E9 /* HermesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9D02A880A280088B6E9 /* HermesApp.swift */; };
-		EEC8B9D32A880A280088B6E9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9D22A880A280088B6E9 /* RootView.swift */; };
 		EEC8B9D52A880A310088B6E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D42A880A310088B6E9 /* Assets.xcassets */; };
 		EEC8B9D82A880A310088B6E9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D72A880A310088B6E9 /* Preview Assets.xcassets */; };
 		EEC8B9E22A880A320088B6E9 /* HermesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9E12A880A320088B6E9 /* HermesTests.swift */; };
 		EEC8B9EC2A880A320088B6E9 /* HermesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9EB2A880A320088B6E9 /* HermesUITests.swift */; };
 		EEC8B9EE2A880A320088B6E9 /* HermesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9ED2A880A320088B6E9 /* HermesUITestsLaunchTests.swift */; };
+		EEC8BA082A88144C0088B6E9 /* PostInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA002A88144B0088B6E9 /* PostInfo.swift */; };
+		EEC8BA092A88144C0088B6E9 /* CommentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA012A88144B0088B6E9 /* CommentInfo.swift */; };
+		EEC8BA0A2A88144C0088B6E9 /* StoriesTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA022A88144B0088B6E9 /* StoriesTypes.swift */; };
+		EEC8BA0B2A88144C0088B6E9 /* ItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA032A88144B0088B6E9 /* ItemInfo.swift */; };
+		EEC8BA0C2A88144C0088B6E9 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA042A88144B0088B6E9 /* ItemData.swift */; };
+		EEC8BA0D2A88144C0088B6E9 /* ItemInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA052A88144B0088B6E9 /* ItemInfoHelper.swift */; };
+		EEC8BA0E2A88144C0088B6E9 /* PostType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA062A88144B0088B6E9 /* PostType.swift */; };
+		EEC8BA0F2A88144C0088B6E9 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA072A88144B0088B6E9 /* PostViewModel.swift */; };
+		EEC8BA122A8814520088B6E9 /* Sequence+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA102A8814520088B6E9 /* Sequence+Extensions.swift */; };
+		EEC8BA132A8814520088B6E9 /* Database+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA112A8814520088B6E9 /* Database+Extensions.swift */; };
+		EEC8BA162A88147A0088B6E9 /* CommentListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA142A88147A0088B6E9 /* CommentListViewModel.swift */; };
+		EEC8BA172A88147A0088B6E9 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA152A88147A0088B6E9 /* PostListViewModel.swift */; };
+		EEC8BA1B2A8814830088B6E9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA182A8814830088B6E9 /* ProfileView.swift */; };
+		EEC8BA1D2A8814830088B6E9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA1A2A8814830088B6E9 /* SettingsView.swift */; };
+		EEC8BA1F2A8814880088B6E9 /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA1E2A8814880088B6E9 /* InboxView.swift */; };
+		EEC8BA212A8814CA0088B6E9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA202A8814CA0088B6E9 /* RootView.swift */; };
+		EEC8BA262A8814E10088B6E9 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA222A8814E10088B6E9 /* PostCell.swift */; };
+		EEC8BA272A8814E10088B6E9 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA232A8814E10088B6E9 /* PostsView.swift */; };
+		EEC8BA282A8814E10088B6E9 /* PostCellNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA242A8814E10088B6E9 /* PostCellNavView.swift */; };
+		EEC8BA292A8814E10088B6E9 /* PostListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA252A8814E10088B6E9 /* PostListView.swift */; };
+		EEC8BA2D2A8814E70088B6E9 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA2A2A8814E70088B6E9 /* CommentCell.swift */; };
+		EEC8BA2F2A8814E70088B6E9 /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA2C2A8814E70088B6E9 /* CommentListView.swift */; };
+		EEC8BA352A8815460088B6E9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EEC8BA342A8815460088B6E9 /* README.md */; };
+		EEC8BA372A8815480088B6E9 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = EEC8BA362A8815480088B6E9 /* LICENSE.md */; };
+		EEC8BA392A88154C0088B6E9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = EEC8BA382A88154C0088B6E9 /* .swiftlint.yml */; };
+		EEC8BA3B2A8815500088B6E9 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EEC8BA3A2A8815500088B6E9 /* .gitignore */; };
+		EEC8BA3E2A8815F50088B6E9 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EEC8BA3D2A8815F50088B6E9 /* FirebaseDatabaseSwift */; };
+		EEC8BA412A8816100088B6E9 /* FaviconFinder in Frameworks */ = {isa = PBXBuildFile; productRef = EEC8BA402A8816100088B6E9 /* FaviconFinder */; };
+		EEC8BA482A88191E0088B6E9 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA472A88191E0088B6E9 /* TestData.swift */; };
+		EEE021482A881E58003676E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EEE021472A881E58003676E6 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +65,6 @@
 /* Begin PBXFileReference section */
 		EEC8B9CD2A880A280088B6E9 /* Hermes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hermes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC8B9D02A880A280088B6E9 /* HermesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesApp.swift; sourceTree = "<group>"; };
-		EEC8B9D22A880A280088B6E9 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		EEC8B9D42A880A310088B6E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEC8B9D72A880A310088B6E9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EEC8B9DD2A880A320088B6E9 /* HermesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HermesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +72,35 @@
 		EEC8B9E72A880A320088B6E9 /* HermesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HermesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC8B9EB2A880A320088B6E9 /* HermesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesUITests.swift; sourceTree = "<group>"; };
 		EEC8B9ED2A880A320088B6E9 /* HermesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EEC8BA002A88144B0088B6E9 /* PostInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostInfo.swift; sourceTree = "<group>"; };
+		EEC8BA012A88144B0088B6E9 /* CommentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentInfo.swift; sourceTree = "<group>"; };
+		EEC8BA022A88144B0088B6E9 /* StoriesTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesTypes.swift; sourceTree = "<group>"; };
+		EEC8BA032A88144B0088B6E9 /* ItemInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInfo.swift; sourceTree = "<group>"; };
+		EEC8BA042A88144B0088B6E9 /* ItemData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
+		EEC8BA052A88144B0088B6E9 /* ItemInfoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInfoHelper.swift; sourceTree = "<group>"; };
+		EEC8BA062A88144B0088B6E9 /* PostType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostType.swift; sourceTree = "<group>"; };
+		EEC8BA072A88144B0088B6E9 /* PostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		EEC8BA102A8814520088B6E9 /* Sequence+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+Extensions.swift"; sourceTree = "<group>"; };
+		EEC8BA112A8814520088B6E9 /* Database+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Database+Extensions.swift"; sourceTree = "<group>"; };
+		EEC8BA142A88147A0088B6E9 /* CommentListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentListViewModel.swift; sourceTree = "<group>"; };
+		EEC8BA152A88147A0088B6E9 /* PostListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
+		EEC8BA182A8814830088B6E9 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		EEC8BA1A2A8814830088B6E9 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		EEC8BA1E2A8814880088B6E9 /* InboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxView.swift; sourceTree = "<group>"; };
+		EEC8BA202A8814CA0088B6E9 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		EEC8BA222A8814E10088B6E9 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		EEC8BA232A8814E10088B6E9 /* PostsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
+		EEC8BA242A8814E10088B6E9 /* PostCellNavView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCellNavView.swift; sourceTree = "<group>"; };
+		EEC8BA252A8814E10088B6E9 /* PostListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListView.swift; sourceTree = "<group>"; };
+		EEC8BA2A2A8814E70088B6E9 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		EEC8BA2C2A8814E70088B6E9 /* CommentListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
+		EEC8BA322A8815390088B6E9 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		EEC8BA342A8815460088B6E9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EEC8BA362A8815480088B6E9 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		EEC8BA382A88154C0088B6E9 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		EEC8BA3A2A8815500088B6E9 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		EEC8BA472A88191E0088B6E9 /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		EEE021472A881E58003676E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +108,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEC8BA3E2A8815F50088B6E9 /* FirebaseDatabaseSwift in Frameworks */,
+				EEC8BA412A8816100088B6E9 /* FaviconFinder in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +133,11 @@
 		EEC8B9C42A880A280088B6E9 = {
 			isa = PBXGroup;
 			children = (
+				EEC8BA3A2A8815500088B6E9 /* .gitignore */,
+				EEC8BA382A88154C0088B6E9 /* .swiftlint.yml */,
+				EEC8BA322A8815390088B6E9 /* Package.swift */,
+				EEC8BA342A8815460088B6E9 /* README.md */,
+				EEC8BA362A8815480088B6E9 /* LICENSE.md */,
 				EEC8B9CF2A880A280088B6E9 /* Hermes */,
 				EEC8B9E02A880A320088B6E9 /* HermesTests */,
 				EEC8B9EA2A880A320088B6E9 /* HermesUITests */,
@@ -94,11 +158,12 @@
 		EEC8B9CF2A880A280088B6E9 /* Hermes */ = {
 			isa = PBXGroup;
 			children = (
+				EEC8B9FD2A880A610088B6E9 /* Extensions */,
 				EEC8B9FA2A880A460088B6E9 /* Models */,
 				EEC8B9FB2A880A4D0088B6E9 /* ViewModels */,
 				EEC8B9FC2A880A550088B6E9 /* Views */,
 				EEC8B9D02A880A280088B6E9 /* HermesApp.swift */,
-				EEC8B9D22A880A280088B6E9 /* RootView.swift */,
+				EEE021472A881E58003676E6 /* GoogleService-Info.plist */,
 				EEC8B9D42A880A310088B6E9 /* Assets.xcassets */,
 				EEC8B9D62A880A310088B6E9 /* Preview Content */,
 			);
@@ -108,6 +173,7 @@
 		EEC8B9D62A880A310088B6E9 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				EEC8BA472A88191E0088B6E9 /* TestData.swift */,
 				EEC8B9D72A880A310088B6E9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -133,7 +199,13 @@
 		EEC8B9FA2A880A460088B6E9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EEC8B9FD2A880A610088B6E9 /* Extensions */,
+				EEC8BA012A88144B0088B6E9 /* CommentInfo.swift */,
+				EEC8BA042A88144B0088B6E9 /* ItemData.swift */,
+				EEC8BA032A88144B0088B6E9 /* ItemInfo.swift */,
+				EEC8BA052A88144B0088B6E9 /* ItemInfoHelper.swift */,
+				EEC8BA002A88144B0088B6E9 /* PostInfo.swift */,
+				EEC8BA062A88144B0088B6E9 /* PostType.swift */,
+				EEC8BA022A88144B0088B6E9 /* StoriesTypes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -141,6 +213,9 @@
 		EEC8B9FB2A880A4D0088B6E9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				EEC8BA152A88147A0088B6E9 /* PostListViewModel.swift */,
+				EEC8BA072A88144B0088B6E9 /* PostViewModel.swift */,
+				EEC8BA142A88147A0088B6E9 /* CommentListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -148,8 +223,12 @@
 		EEC8B9FC2A880A550088B6E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EEC8B9FF2A880A6E0088B6E9 /* Comments */,
 				EEC8B9FE2A880A690088B6E9 /* Posts */,
+				EEC8B9FF2A880A6E0088B6E9 /* Comments */,
+				EEC8BA202A8814CA0088B6E9 /* RootView.swift */,
+				EEC8BA1E2A8814880088B6E9 /* InboxView.swift */,
+				EEC8BA182A8814830088B6E9 /* ProfileView.swift */,
+				EEC8BA1A2A8814830088B6E9 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -157,6 +236,8 @@
 		EEC8B9FD2A880A610088B6E9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EEC8BA112A8814520088B6E9 /* Database+Extensions.swift */,
+				EEC8BA102A8814520088B6E9 /* Sequence+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -164,6 +245,10 @@
 		EEC8B9FE2A880A690088B6E9 /* Posts */ = {
 			isa = PBXGroup;
 			children = (
+				EEC8BA252A8814E10088B6E9 /* PostListView.swift */,
+				EEC8BA242A8814E10088B6E9 /* PostCellNavView.swift */,
+				EEC8BA222A8814E10088B6E9 /* PostCell.swift */,
+				EEC8BA232A8814E10088B6E9 /* PostsView.swift */,
 			);
 			path = Posts;
 			sourceTree = "<group>";
@@ -171,6 +256,8 @@
 		EEC8B9FF2A880A6E0088B6E9 /* Comments */ = {
 			isa = PBXGroup;
 			children = (
+				EEC8BA2A2A8814E70088B6E9 /* CommentCell.swift */,
+				EEC8BA2C2A8814E70088B6E9 /* CommentListView.swift */,
 			);
 			path = Comments;
 			sourceTree = "<group>";
@@ -189,8 +276,13 @@
 			buildRules = (
 			);
 			dependencies = (
+				EEC8BA462A8816680088B6E9 /* PBXTargetDependency */,
 			);
 			name = Hermes;
+			packageProductDependencies = (
+				EEC8BA3D2A8815F50088B6E9 /* FirebaseDatabaseSwift */,
+				EEC8BA402A8816100088B6E9 /* FaviconFinder */,
+			);
 			productName = Hermes;
 			productReference = EEC8B9CD2A880A280088B6E9 /* Hermes.app */;
 			productType = "com.apple.product-type.application";
@@ -263,6 +355,10 @@
 				Base,
 			);
 			mainGroup = EEC8B9C42A880A280088B6E9;
+			packageReferences = (
+				EEC8BA3C2A8815F50088B6E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				EEC8BA3F2A8816100088B6E9 /* XCRemoteSwiftPackageReference "FaviconFinder" */,
+			);
 			productRefGroup = EEC8B9CE2A880A280088B6E9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -279,8 +375,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEC8BA392A88154C0088B6E9 /* .swiftlint.yml in Resources */,
+				EEC8BA3B2A8815500088B6E9 /* .gitignore in Resources */,
+				EEC8BA372A8815480088B6E9 /* LICENSE.md in Resources */,
 				EEC8B9D82A880A310088B6E9 /* Preview Assets.xcassets in Resources */,
 				EEC8B9D52A880A310088B6E9 /* Assets.xcassets in Resources */,
+				EEC8BA352A8815460088B6E9 /* README.md in Resources */,
+				EEE021482A881E58003676E6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,8 +406,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEC8B9D32A880A280088B6E9 /* RootView.swift in Sources */,
+				EEC8BA172A88147A0088B6E9 /* PostListViewModel.swift in Sources */,
+				EEC8BA0F2A88144C0088B6E9 /* PostViewModel.swift in Sources */,
+				EEC8BA0C2A88144C0088B6E9 /* ItemData.swift in Sources */,
+				EEC8BA2D2A8814E70088B6E9 /* CommentCell.swift in Sources */,
+				EEC8BA0D2A88144C0088B6E9 /* ItemInfoHelper.swift in Sources */,
+				EEC8BA1D2A8814830088B6E9 /* SettingsView.swift in Sources */,
+				EEC8BA262A8814E10088B6E9 /* PostCell.swift in Sources */,
+				EEC8BA282A8814E10088B6E9 /* PostCellNavView.swift in Sources */,
+				EEC8BA132A8814520088B6E9 /* Database+Extensions.swift in Sources */,
+				EEC8BA1F2A8814880088B6E9 /* InboxView.swift in Sources */,
+				EEC8BA2F2A8814E70088B6E9 /* CommentListView.swift in Sources */,
+				EEC8BA0E2A88144C0088B6E9 /* PostType.swift in Sources */,
+				EEC8BA1B2A8814830088B6E9 /* ProfileView.swift in Sources */,
 				EEC8B9D12A880A280088B6E9 /* HermesApp.swift in Sources */,
+				EEC8BA0A2A88144C0088B6E9 /* StoriesTypes.swift in Sources */,
+				EEC8BA292A8814E10088B6E9 /* PostListView.swift in Sources */,
+				EEC8BA122A8814520088B6E9 /* Sequence+Extensions.swift in Sources */,
+				EEC8BA082A88144C0088B6E9 /* PostInfo.swift in Sources */,
+				EEC8BA482A88191E0088B6E9 /* TestData.swift in Sources */,
+				EEC8BA212A8814CA0088B6E9 /* RootView.swift in Sources */,
+				EEC8BA0B2A88144C0088B6E9 /* ItemInfo.swift in Sources */,
+				EEC8BA162A88147A0088B6E9 /* CommentListViewModel.swift in Sources */,
+				EEC8BA092A88144C0088B6E9 /* CommentInfo.swift in Sources */,
+				EEC8BA272A8814E10088B6E9 /* PostsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +462,10 @@
 			isa = PBXTargetDependency;
 			target = EEC8B9CC2A880A280088B6E9 /* Hermes */;
 			targetProxy = EEC8B9E82A880A320088B6E9 /* PBXContainerItemProxy */;
+		};
+		EEC8BA462A8816680088B6E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = EEC8BA452A8816680088B6E9 /* SwiftLintPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -473,11 +600,13 @@
 				DEVELOPMENT_TEAM = 3K22YJAJ77;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -502,11 +631,13 @@
 				DEVELOPMENT_TEAM = 3K22YJAJ77;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -636,6 +767,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EEC8BA3C2A8815F50088B6E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.13.0;
+			};
+		};
+		EEC8BA3F2A8816100088B6E9 /* XCRemoteSwiftPackageReference "FaviconFinder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/will-lumley/FaviconFinder.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
+		EEC8BA422A8816540088B6E9 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.52.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EEC8BA3D2A8815F50088B6E9 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EEC8BA3C2A8815F50088B6E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		EEC8BA402A8816100088B6E9 /* FaviconFinder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EEC8BA3F2A8816100088B6E9 /* XCRemoteSwiftPackageReference "FaviconFinder" */;
+			productName = FaviconFinder;
+		};
+		EEC8BA452A8816680088B6E9 /* SwiftLintPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EEC8BA422A8816540088B6E9 /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EEC8B9C52A880A280088B6E9 /* Project object */;
 }

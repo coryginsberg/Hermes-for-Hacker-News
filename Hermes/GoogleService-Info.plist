@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>841633644953-et1q7b7o901doo1ls8k2e652km9223sl.apps.googleusercontent.com</string>
+	<string>841633644953-ru1n6mue0fhdogpjt4nsjeo1tck1copp.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.841633644953-et1q7b7o901doo1ls8k2e652km9223sl</string>
+	<string>com.googleusercontent.apps.841633644953-ru1n6mue0fhdogpjt4nsjeo1tck1copp</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCYFtGmuUi4cNFOgLxgg5KWlMET099WOMc</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.coryginsberg.HackerNewsApp</string>
+	<string>com.coryginsberg.Hermes</string>
 	<key>PROJECT_ID</key>
 	<string>hacker-news-ios-96e20</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:841633644953:ios:1819f2c5dc2b2258d31308</string>
+	<string>1:841633644953:ios:6c2a9e195b71c994d31308</string>
 	<key>DATABASE_URL</key>
 	<string>https://hacker-news.firebaseio.com/</string>
 </dict>
