@@ -8,18 +8,22 @@ import FirebaseDatabase
 import Foundation
 import SwiftUI
 
+// MARK: - ItemInfoProtocol
+
 protocol ItemInfoProtocol {
   var itemData: ItemData { get set }
 
   func fetchItem(from ref: DatabaseReference, completion: @escaping (ItemData) -> Void) async
 }
 
+// MARK: - ItemInfo
+
 class ItemInfo: Identifiable { // abstract
   var delegate: ItemInfoProtocol!
   let ref = Database.root
 
-  func getItemInfo(for itemId: Int) async {
-    let postRef = ref.child("v0/item/\(itemId)")
+  func getItemInfo(for itemID: Int) async {
+    let postRef = ref.child("v0/item/\(itemID)")
     await delegate.fetchItem(from: postRef) { [self] item in
       delegate.itemData = item
     }

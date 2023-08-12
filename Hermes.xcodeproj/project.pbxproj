@@ -42,6 +42,7 @@
 		EEC8BA3E2A8815F50088B6E9 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EEC8BA3D2A8815F50088B6E9 /* FirebaseDatabaseSwift */; };
 		EEC8BA412A8816100088B6E9 /* FaviconFinder in Frameworks */ = {isa = PBXBuildFile; productRef = EEC8BA402A8816100088B6E9 /* FaviconFinder */; };
 		EEC8BA482A88191E0088B6E9 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA472A88191E0088B6E9 /* TestData.swift */; };
+		EED148792A88247A001FA326 /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = EED148782A88247A001FA326 /* .swift-version */; };
 		EEE021482A881E58003676E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EEE021472A881E58003676E6 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		EEC8BA382A88154C0088B6E9 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		EEC8BA3A2A8815500088B6E9 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		EEC8BA472A88191E0088B6E9 /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		EED148782A88247A001FA326 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		EEE021472A881E58003676E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +135,7 @@
 		EEC8B9C42A880A280088B6E9 = {
 			isa = PBXGroup;
 			children = (
+				EED148782A88247A001FA326 /* .swift-version */,
 				EEC8BA3A2A8815500088B6E9 /* .gitignore */,
 				EEC8BA382A88154C0088B6E9 /* .swiftlint.yml */,
 				EEC8BA322A8815390088B6E9 /* Package.swift */,
@@ -379,6 +382,7 @@
 				EEC8BA3B2A8815500088B6E9 /* .gitignore in Resources */,
 				EEC8BA372A8815480088B6E9 /* LICENSE.md in Resources */,
 				EEC8B9D82A880A310088B6E9 /* Preview Assets.xcassets in Resources */,
+				EED148792A88247A001FA326 /* .swift-version in Resources */,
 				EEC8B9D52A880A310088B6E9 /* Assets.xcassets in Resources */,
 				EEC8BA352A8815460088B6E9 /* README.md in Resources */,
 				EEE021482A881E58003676E6 /* GoogleService-Info.plist in Resources */,

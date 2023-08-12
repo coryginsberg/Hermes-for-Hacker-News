@@ -12,7 +12,7 @@ class PostListViewModel: ObservableObject {
   private var refHandle: DatabaseHandle?
 
   func genPosts(storiesTypes: StoriesTypes) async {
-    let postListRef: DatabaseReference;
+    let postListRef: DatabaseReference
     switch storiesTypes {
     case .topStories:
       postListRef = ref.child("v0/topstories")

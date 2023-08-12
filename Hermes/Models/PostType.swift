@@ -12,9 +12,9 @@ struct PostType {
   static func fetchStory(from value: [String: Any], completion: @escaping (ItemData) -> Void) async {
     do {
       let url = value["url"] as? URL
-      var faviconUrl: URL?
+      var faviconURL: URL?
       if url != nil {
-        faviconUrl = try await ItemInfoHelper.loadFavicon(fromUrl: url!)
+        faviconURL = try await ItemInfoHelper.loadFavicon(fromURL: url!)
       }
       let itemData = ItemData(
         forStory: value["by"] as? String ?? "",
@@ -26,7 +26,7 @@ struct PostType {
         time: ItemInfoHelper.convertToDate(from: value["time"] as? Int ?? 0),
         title: value["title"] as? String ?? "",
         url: url,
-        faviconUrl: faviconUrl
+        faviconURL: faviconURL
       )
       completion(itemData)
     } catch {
@@ -34,7 +34,7 @@ struct PostType {
       return
     }
   }
-  
+
   static func fetchJob(from value: [String: Any], completion: @escaping (ItemData) -> Void) async {
     let url = value["url"] as? URL
     let itemData = ItemData(

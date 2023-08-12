@@ -5,11 +5,13 @@
 
 import SwiftUI
 
+// MARK: - RootView
+
 struct RootView: View {
   @Environment(\.managedObjectContext) private var viewContext
-  
+
   //  @ObservedObject var fetch = HackerNewsAPI()
-  
+
   var body: some View {
     TabView {
       PostListView()
@@ -39,6 +41,8 @@ private let itemFormatter: DateFormatter = {
   formatter.timeStyle = .medium
   return formatter
 }()
+
+// MARK: - RootView_Previews
 
 struct RootView_Previews: PreviewProvider {
   static var previews: some View {

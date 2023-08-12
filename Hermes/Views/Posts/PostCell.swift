@@ -5,6 +5,8 @@
 
 import SwiftUI
 
+// MARK: - PostCell
+
 struct PostCell: View {
   @State var postData: ItemData
 
@@ -16,7 +18,7 @@ struct PostCell: View {
       Grid(alignment: .leading) {
         GridRow {
           if postData.type == .story {
-            AsyncImage(url: postData.faviconUrl) { image in
+            AsyncImage(url: postData.faviconURL) { image in
               image.resizable()
             } placeholder: {
               Image("AwkwardMonkey")
@@ -39,6 +41,8 @@ struct PostCell: View {
   }
 }
 
+// MARK: - PrimaryLabelView
+
 struct PrimaryLabelView: View {
   var postData: ItemData?
   var secondaryTextColor: Color
@@ -53,6 +57,8 @@ struct PrimaryLabelView: View {
 //    SecondaryText(textBody: (URL(string: (postData?.url)!)?.baseURL!.absoluteString)!, textColor: secondaryTextColor)
   }
 }
+
+// MARK: - SecondaryLabelsView
 
 struct SecondaryLabelsView: View {
   var postData: ItemData?
@@ -80,6 +86,8 @@ struct SecondaryLabelsView: View {
   }
 }
 
+// MARK: - SecondaryImage
+
 struct SecondaryImage: View {
   let imageName: String
   let textColor: Color
@@ -90,6 +98,8 @@ struct SecondaryImage: View {
       .foregroundColor(textColor)
   }
 }
+
+// MARK: - SecondaryText
 
 struct SecondaryText: View {
   var textBody: String
@@ -103,6 +113,8 @@ struct SecondaryText: View {
       .lineLimit(1)
   }
 }
+
+// MARK: - PostCell_Previews
 
 struct PostCell_Previews: PreviewProvider {
   static var previews: some View {

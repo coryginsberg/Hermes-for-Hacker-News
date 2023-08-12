@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: - PostCellNavView
+
 struct PostCellNavView: View {
   @State var postData: ItemData
 
@@ -19,6 +21,8 @@ struct PostCellNavView: View {
     }
   }
 }
+
+// MARK: - PostCellNavView_Previews
 
 struct PostCellNavView_Previews: PreviewProvider {
   static var previews: some View {

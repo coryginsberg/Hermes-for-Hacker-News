@@ -12,8 +12,10 @@
 import Foundation
 import UIKit
 
-struct ItemData {
-  enum TypeVal: String {
+struct ItemData
+{
+  enum TypeVal: String
+  {
     case job
     case story
     case comment
@@ -36,7 +38,7 @@ struct ItemData {
   var title: String? // The title of the story, poll or job. HTML.
   var type: TypeVal = .story // The type of item. One of "job", "story", "comment", "poll", or "pollopt".
   var url: URL? // The URL of the story.
-  var faviconUrl: URL?
+  var faviconURL: URL?
 
   // MARK: - Default
 
@@ -56,7 +58,8 @@ struct ItemData {
        title: String?,
        type: TypeVal,
        url: URL?,
-       faviconUrl: URL?) {
+       faviconURL: URL?)
+  {
     self.author = author
     self.descendants = descendants
     self.dead = dead
@@ -72,7 +75,7 @@ struct ItemData {
     self.title = title
     self.type = type
     self.url = url
-    self.faviconUrl = faviconUrl
+    self.faviconURL = faviconURL
   }
 
   // MARK: - Story
@@ -86,7 +89,8 @@ struct ItemData {
        time: Date,
        title: String,
        url: URL?,
-       faviconUrl: URL?) {
+       faviconURL: URL?)
+  {
     self.init(author: author,
               descendants: nil,
               dead: dead,
@@ -102,7 +106,7 @@ struct ItemData {
               title: title,
               type: .story,
               url: url,
-              faviconUrl: faviconUrl)
+              faviconURL: faviconURL)
   }
 
   // MARK: - Job
@@ -115,7 +119,8 @@ struct ItemData {
        text: String?,
        time: Date,
        title: String,
-       url: URL?) {
+       url: URL?)
+  {
     self.init(author: author,
               descendants: nil,
               dead: dead,
@@ -131,7 +136,7 @@ struct ItemData {
               title: title,
               type: .job,
               url: url,
-              faviconUrl: nil)
+              faviconURL: nil)
   }
 
   // MARK: - Comment
@@ -145,7 +150,8 @@ struct ItemData {
        parent: Int?,
        score: Int,
        text: String?,
-       time: Date) {
+       time: Date)
+  {
     self.init(author: author,
               descendants: descendants,
               dead: dead,
@@ -161,6 +167,6 @@ struct ItemData {
               title: nil,
               type: .comment,
               url: nil,
-              faviconUrl: nil)
+              faviconURL: nil)
   }
 }

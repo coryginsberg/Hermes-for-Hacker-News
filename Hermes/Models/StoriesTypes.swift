@@ -4,5 +4,7 @@
 //
 
 enum StoriesTypes {
-  case topStories, newStories, bestStories
+  case topStories
+  case newStories
+  case bestStories
 }

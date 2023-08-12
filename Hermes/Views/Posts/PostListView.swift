@@ -6,6 +6,8 @@
 import Foundation
 import SwiftUI
 
+// MARK: - PostListView
+
 struct PostListView: View {
   let title: String = "Posts"
 
@@ -31,6 +33,8 @@ struct PostListView: View {
     }
   }
 }
+
+// MARK: - PostsListView_Previews
 
 struct PostsListView_Previews: PreviewProvider {
   static var previews: some View {

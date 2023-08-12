@@ -44,7 +44,7 @@ struct TestData {
         title: title,
         type: .story,
         url: nil,
-        faviconUrl: nil
+        faviconURL: nil
       )
     }.shuffled()
   }
@@ -101,7 +101,7 @@ struct TestData {
         title: "",
         type: .comment,
         url: nil,
-        faviconUrl: nil
+        faviconURL: nil
       )
     }.shuffled()
   }

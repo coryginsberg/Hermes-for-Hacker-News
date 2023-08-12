@@ -6,6 +6,8 @@
 import Foundation
 import SwiftUI
 
+// MARK: - SettingsView
+
 struct SettingsView: View {
   let title: String = "Settings"
 
@@ -39,6 +41,8 @@ struct SettingsView: View {
     }
   }
 }
+
+// MARK: - SettingsView_Previews
 
 struct SettingsView_Previews: PreviewProvider {
   static var previews: some View {

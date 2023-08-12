@@ -6,11 +6,13 @@
 import SwiftUI
 import WebKit
 
+// MARK: - CommentCell
+
 struct CommentCell: View {
   @State var commentData: ItemData
 
   var body: some View {
-//  let primaryColor = commentData.dead ? Color(uiColor: .systemGray5) : Color(uiColor: .label)
+    //  let primaryColor = commentData.dead ? Color(uiColor: .systemGray5) : Color(uiColor: .label)
     let secondaryColor = commentData.dead ? Color(uiColor: .systemGray5) : Color(uiColor: .secondaryLabel)
     let prefixText = commentData.dead ? "[dead]" : commentData.deleted ? "[deleted]" : ""
 

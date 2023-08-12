@@ -42,9 +42,9 @@ class PostViewModel: ObservableObject, Identifiable {
           text: value["text"] as? String ?? "",
           time: self.calcTimeAgo(from: value["time"] as? Int ?? 0),
           title: value["title"] as? String ?? "",
-          type: ItemData.TypeVal(rawValue: (value["type"] as! String))!,
+          type: ItemData.TypeVal(rawValue: value["type"] as! String)!,
           url: value["url"] is String ? URL(string: value["url"] as! String) : nil,
-          faviconUrl: nil
+          faviconURL: nil
         )
       }
     )

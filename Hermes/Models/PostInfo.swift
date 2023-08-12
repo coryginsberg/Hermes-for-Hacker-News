@@ -5,19 +5,19 @@
 //  Created by Cory Ginsberg on 7/30/23.
 //
 
-import Foundation
 import FirebaseDatabase
+import Foundation
 
 class PostInfo: ItemInfo, ItemInfoProtocol {
-  var itemData: ItemData = ItemData()
-  var itemId: Int
-  init?(_ itemId: Int) async {
-    self.itemId = itemId;
+  var itemData: ItemData = .init()
+  var itemID: Int
+  init?(_ itemID: Int) async {
+    self.itemID = itemID
     super.init()
     delegate = self
-    await getItemInfo(for: itemId)
+    await getItemInfo(for: itemID)
   }
-  
+
   func fetchItem(from ref: DatabaseReference, completion: @escaping (ItemData) -> Void) async {
     do {
       let snapshot = try await ref.getData()
@@ -28,7 +28,6 @@ class PostInfo: ItemInfo, ItemInfoProtocol {
         await PostType.fetchStory(from: value, completion: completion)
       case .job:
         await PostType.fetchJob(from: value, completion: completion)
-        break
       case .poll:
         break
       case .pollopt:

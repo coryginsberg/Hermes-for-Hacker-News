@@ -6,6 +6,8 @@
 import Foundation
 import SwiftUI
 
+// MARK: - PostsView
+
 struct PostsView: View {
   let title: String = "Posts"
 
@@ -23,7 +25,7 @@ struct PostsView: View {
         }
         .task {
           await postList.genPosts(storiesTypes: StoriesTypes.topStories)
-        } 
+        }
         .navigationTitle(title)
       }.refreshable {
         await postList.genPosts(storiesTypes: StoriesTypes.topStories)
@@ -31,6 +33,8 @@ struct PostsView: View {
     }
   }
 }
+
+// MARK: - PostsView_Previews
 
 struct PostsView_Previews: PreviewProvider {
   static var previews: some View {

@@ -5,15 +5,15 @@
 //  Created by Cory Ginsberg on 7/30/23.
 //
 
-import Foundation
 import FaviconFinder
+import Foundation
 
 struct ItemInfoHelper {
   static func convertToDate(from timePublished: Int) -> Date {
-    return Date(timeIntervalSince1970: TimeInterval(timePublished))
+    Date(timeIntervalSince1970: TimeInterval(timePublished))
   }
-  
-  static func loadFavicon(fromUrl url: URL) async throws -> URL {
+
+  static func loadFavicon(fromURL url: URL) async throws -> URL {
     do {
       let favicon = try await FaviconFinder(url: url, downloadImage: false).downloadFavicon()
       return favicon.url
@@ -25,7 +25,7 @@ struct ItemInfoHelper {
       return url
     }
   }
-  
+
   static func calcTimeSince(datePosted date: Date) -> String {
     let components = Calendar(identifier: .gregorian)
       .dateComponents(

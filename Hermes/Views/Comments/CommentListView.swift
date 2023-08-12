@@ -5,6 +5,8 @@
 
 import SwiftUI
 
+// MARK: - CommentListView
+
 struct CommentListView: View {
   @State var postData: ItemData
   @StateObject var commentList = CommentListViewModel()
@@ -24,6 +26,8 @@ struct CommentListView: View {
     .navigationBarTitleDisplayMode(.inline)
   }
 }
+
+// MARK: - PostCommentView_Previews
 
 struct PostCommentView_Previews: PreviewProvider {
   static var previews: some View {
