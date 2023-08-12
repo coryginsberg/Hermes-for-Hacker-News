@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EEC8B9D12A880A280088B6E9 /* HermesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9D02A880A280088B6E9 /* HermesApp.swift */; };
-		EEC8B9D32A880A280088B6E9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9D22A880A280088B6E9 /* ContentView.swift */; };
+		EEC8B9D32A880A280088B6E9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9D22A880A280088B6E9 /* RootView.swift */; };
 		EEC8B9D52A880A310088B6E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D42A880A310088B6E9 /* Assets.xcassets */; };
 		EEC8B9D82A880A310088B6E9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D72A880A310088B6E9 /* Preview Assets.xcassets */; };
 		EEC8B9E22A880A320088B6E9 /* HermesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9E12A880A320088B6E9 /* HermesTests.swift */; };
@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		EEC8B9CD2A880A280088B6E9 /* Hermes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hermes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC8B9D02A880A280088B6E9 /* HermesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesApp.swift; sourceTree = "<group>"; };
-		EEC8B9D22A880A280088B6E9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EEC8B9D22A880A280088B6E9 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		EEC8B9D42A880A310088B6E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEC8B9D72A880A310088B6E9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EEC8B9DD2A880A320088B6E9 /* HermesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HermesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,8 +94,11 @@
 		EEC8B9CF2A880A280088B6E9 /* Hermes */ = {
 			isa = PBXGroup;
 			children = (
+				EEC8B9FA2A880A460088B6E9 /* Models */,
+				EEC8B9FB2A880A4D0088B6E9 /* ViewModels */,
+				EEC8B9FC2A880A550088B6E9 /* Views */,
 				EEC8B9D02A880A280088B6E9 /* HermesApp.swift */,
-				EEC8B9D22A880A280088B6E9 /* ContentView.swift */,
+				EEC8B9D22A880A280088B6E9 /* RootView.swift */,
 				EEC8B9D42A880A310088B6E9 /* Assets.xcassets */,
 				EEC8B9D62A880A310088B6E9 /* Preview Content */,
 			);
@@ -125,6 +128,51 @@
 				EEC8B9ED2A880A320088B6E9 /* HermesUITestsLaunchTests.swift */,
 			);
 			path = HermesUITests;
+			sourceTree = "<group>";
+		};
+		EEC8B9FA2A880A460088B6E9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EEC8B9FD2A880A610088B6E9 /* Extensions */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EEC8B9FB2A880A4D0088B6E9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		EEC8B9FC2A880A550088B6E9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EEC8B9FF2A880A6E0088B6E9 /* Comments */,
+				EEC8B9FE2A880A690088B6E9 /* Posts */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EEC8B9FD2A880A610088B6E9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EEC8B9FE2A880A690088B6E9 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
+		EEC8B9FF2A880A6E0088B6E9 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Comments;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEC8B9D32A880A280088B6E9 /* ContentView.swift in Sources */,
+				EEC8B9D32A880A280088B6E9 /* RootView.swift in Sources */,
 				EEC8B9D12A880A280088B6E9 /* HermesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
