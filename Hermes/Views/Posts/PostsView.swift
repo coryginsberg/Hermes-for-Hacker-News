@@ -18,11 +18,7 @@ struct PostsView: View {
   var body: some View {
     NavigationView {
       ScrollView(.vertical) {
-        LazyVStack {
-//          ForEach(postList.posts) { post in
-//            PostCellNavView(postData: post.itemData ?? TestData.postsData[0])
-//          }
-        }
+        LazyVStack {}
         .task {
           await postList.genPosts(storiesTypes: StoriesTypes.topStories)
         }

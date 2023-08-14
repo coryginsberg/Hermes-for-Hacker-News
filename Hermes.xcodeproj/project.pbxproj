@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE77BBD22A8AC9F400880625 /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD12A8AC9F400880625 /* WebViewWrapper.swift */; };
+		EE77BBD52A8AD14B00880625 /* PostPreviewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD42A8AD14B00880625 /* PostPreviewImage.swift */; };
 		EEC8B9D12A880A280088B6E9 /* HermesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9D02A880A280088B6E9 /* HermesApp.swift */; };
 		EEC8B9D52A880A310088B6E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D42A880A310088B6E9 /* Assets.xcassets */; };
 		EEC8B9D82A880A310088B6E9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D72A880A310088B6E9 /* Preview Assets.xcassets */; };
@@ -29,9 +31,9 @@
 		EEC8BA1D2A8814830088B6E9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA1A2A8814830088B6E9 /* SettingsView.swift */; };
 		EEC8BA1F2A8814880088B6E9 /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA1E2A8814880088B6E9 /* InboxView.swift */; };
 		EEC8BA212A8814CA0088B6E9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA202A8814CA0088B6E9 /* RootView.swift */; };
-		EEC8BA262A8814E10088B6E9 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA222A8814E10088B6E9 /* PostCell.swift */; };
+		EEC8BA262A8814E10088B6E9 /* PostCellText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA222A8814E10088B6E9 /* PostCellText.swift */; };
 		EEC8BA272A8814E10088B6E9 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA232A8814E10088B6E9 /* PostsView.swift */; };
-		EEC8BA282A8814E10088B6E9 /* PostCellNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA242A8814E10088B6E9 /* PostCellNavView.swift */; };
+		EEC8BA282A8814E10088B6E9 /* PostCellOuter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA242A8814E10088B6E9 /* PostCellOuter.swift */; };
 		EEC8BA292A8814E10088B6E9 /* PostListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA252A8814E10088B6E9 /* PostListView.swift */; };
 		EEC8BA2D2A8814E70088B6E9 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA2A2A8814E70088B6E9 /* CommentCell.swift */; };
 		EEC8BA2F2A8814E70088B6E9 /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA2C2A8814E70088B6E9 /* CommentListView.swift */; };
@@ -64,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE77BBD12A8AC9F400880625 /* WebViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewWrapper.swift; sourceTree = "<group>"; };
+		EE77BBD42A8AD14B00880625 /* PostPreviewImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPreviewImage.swift; sourceTree = "<group>"; };
 		EEC8B9CD2A880A280088B6E9 /* Hermes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hermes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC8B9D02A880A280088B6E9 /* HermesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesApp.swift; sourceTree = "<group>"; };
 		EEC8B9D42A880A310088B6E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,9 +93,9 @@
 		EEC8BA1A2A8814830088B6E9 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EEC8BA1E2A8814880088B6E9 /* InboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxView.swift; sourceTree = "<group>"; };
 		EEC8BA202A8814CA0088B6E9 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		EEC8BA222A8814E10088B6E9 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		EEC8BA222A8814E10088B6E9 /* PostCellText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCellText.swift; sourceTree = "<group>"; };
 		EEC8BA232A8814E10088B6E9 /* PostsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
-		EEC8BA242A8814E10088B6E9 /* PostCellNavView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCellNavView.swift; sourceTree = "<group>"; };
+		EEC8BA242A8814E10088B6E9 /* PostCellOuter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCellOuter.swift; sourceTree = "<group>"; };
 		EEC8BA252A8814E10088B6E9 /* PostListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListView.swift; sourceTree = "<group>"; };
 		EEC8BA2A2A8814E70088B6E9 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		EEC8BA2C2A8814E70088B6E9 /* CommentListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
@@ -133,6 +137,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE77BBD02A8AC9B800880625 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				EE77BBD12A8AC9F400880625 /* WebViewWrapper.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		EE77BBD32A8AD12D00880625 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				EE77BBD42A8AD14B00880625 /* PostPreviewImage.swift */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
 		EEC8B9C42A880A280088B6E9 = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +248,7 @@
 		EEC8B9FC2A880A550088B6E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EE77BBD02A8AC9B800880625 /* Misc */,
 				EEC8B9FE2A880A690088B6E9 /* Posts */,
 				EEC8B9FF2A880A6E0088B6E9 /* Comments */,
 				EEC8BA202A8814CA0088B6E9 /* RootView.swift */,
@@ -250,9 +271,10 @@
 		EEC8B9FE2A880A690088B6E9 /* Posts */ = {
 			isa = PBXGroup;
 			children = (
+				EE77BBD32A8AD12D00880625 /* Sections */,
 				EEC8BA252A8814E10088B6E9 /* PostListView.swift */,
-				EEC8BA242A8814E10088B6E9 /* PostCellNavView.swift */,
-				EEC8BA222A8814E10088B6E9 /* PostCell.swift */,
+				EEC8BA242A8814E10088B6E9 /* PostCellOuter.swift */,
+				EEC8BA222A8814E10088B6E9 /* PostCellText.swift */,
 				EEC8BA232A8814E10088B6E9 /* PostsView.swift */,
 			);
 			path = Posts;
@@ -414,15 +436,17 @@
 			files = (
 				EEC8BA172A88147A0088B6E9 /* PostListViewModel.swift in Sources */,
 				EEC8BA0F2A88144C0088B6E9 /* PostViewModel.swift in Sources */,
+				EE77BBD52A8AD14B00880625 /* PostPreviewImage.swift in Sources */,
 				EEC8BA0C2A88144C0088B6E9 /* ItemData.swift in Sources */,
 				EEC8BA2D2A8814E70088B6E9 /* CommentCell.swift in Sources */,
 				EEC8BA0D2A88144C0088B6E9 /* ItemInfoHelper.swift in Sources */,
 				EEC8BA1D2A8814830088B6E9 /* SettingsView.swift in Sources */,
-				EEC8BA262A8814E10088B6E9 /* PostCell.swift in Sources */,
-				EEC8BA282A8814E10088B6E9 /* PostCellNavView.swift in Sources */,
+				EEC8BA262A8814E10088B6E9 /* PostCellText.swift in Sources */,
+				EEC8BA282A8814E10088B6E9 /* PostCellOuter.swift in Sources */,
 				EEC8BA132A8814520088B6E9 /* Database+Extensions.swift in Sources */,
 				EEC8BA1F2A8814880088B6E9 /* InboxView.swift in Sources */,
 				EEC8BA2F2A8814E70088B6E9 /* CommentListView.swift in Sources */,
+				EE77BBD22A8AC9F400880625 /* WebViewWrapper.swift in Sources */,
 				EEC8BA0E2A88144C0088B6E9 /* PostType.swift in Sources */,
 				EEC8BA1B2A8814830088B6E9 /* ProfileView.swift in Sources */,
 				EEC8B9D12A880A280088B6E9 /* HermesApp.swift in Sources */,

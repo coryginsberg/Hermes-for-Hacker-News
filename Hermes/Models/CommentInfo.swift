@@ -15,7 +15,7 @@ class CommentInfo: ItemInfo, ItemInfoProtocol {
     self.itemID = itemID
     super.init()
     delegate = self
-    try await getItemInfo(for: itemID)
+    await getItemInfo(for: itemID)
   }
 
   func fetchItem(from ref: DatabaseReference, completion: @escaping (ItemData) -> Void) async {

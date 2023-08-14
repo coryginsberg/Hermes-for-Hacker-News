@@ -36,7 +36,7 @@ struct ItemData {
   var title: String? // The title of the story, poll or job. HTML.
   var type: TypeVal = .story // The type of item. One of "job", "story", "comment", "poll", or "pollopt".
   var url: URL? // The URL of the story.
-  var faviconURL: URL?
+  var faviconUrl: URL?
 
   // MARK: - Default
 
@@ -73,7 +73,7 @@ struct ItemData {
     self.title = title
     self.type = type
     self.url = url
-    self.faviconURL = faviconURL
+    self.faviconUrl = faviconURL
   }
 
   // MARK: - Story Link

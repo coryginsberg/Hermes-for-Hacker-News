@@ -15,7 +15,7 @@ struct CommentListView: View {
     NavigationView {
       ScrollView {
         LazyVStack {
-          PostCell(postData: postData)
+          PostCellText(postData: postData)
           ForEach(commentList.comments) { comment in
             CommentCell(commentData: comment.delegate.itemData)
           }
