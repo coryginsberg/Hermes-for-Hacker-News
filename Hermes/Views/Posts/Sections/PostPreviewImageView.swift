@@ -7,11 +7,13 @@
 
 import SwiftUI
 
-struct PostPreviewImage: View {
-  @State var faviconURL: URL
+struct PostPreviewImageView: View {
+  @State var url: URL
+  @State var faviconUrl: URL
+  @State private var showSafari: Bool = false
 
   var body: some View {
-    AsyncImage(url: faviconURL) { phase in
+    AsyncImage(url: faviconUrl) { phase in
       switch phase {
       case .empty:
         ProgressView()
@@ -32,9 +34,15 @@ struct PostPreviewImage: View {
     .frame(width: 50, height: 50, alignment: .top)
     .clipShape(RoundedRectangle(cornerRadius: 8))
     .padding(.leading, 24)
+    .onTapGesture {
+      showSafari.toggle()
+    }
+    .fullScreenCover(isPresented: $showSafari, content: {
+      WebViewWrapper(url: url)
+    })
   }
 }
 
 #Preview {
-  PostPreviewImage(faviconURL: TestData.Posts.randomPosts[0].url!)
+  PostCellOuterView(postData: TestData.Posts.randomPosts[0])
 }
