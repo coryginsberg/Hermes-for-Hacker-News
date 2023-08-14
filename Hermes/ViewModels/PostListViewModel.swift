@@ -29,8 +29,6 @@ class PostListViewModel: ObservableObject {
     do {
       let snapshot = try await ref.queryLimited(toFirst: 50).getData()
       guard let snapshotVal = snapshot.value as? [Int] else { return }
-      debugPrint(snapshotVal)
-
       posts = try await snapshotVal.concurrentCompactMap { value throws in
         await PostInfo(value)
       }
@@ -40,7 +38,7 @@ class PostListViewModel: ObservableObject {
     }
   }
 
-  func fetchPostsInfo() async -> [ItemInfo] {
+  func fetchPostsInfo() async throws -> [ItemInfo] {
     await posts.asyncCompactMap {
       await PostInfo($0.delegate.itemData.id)
     }

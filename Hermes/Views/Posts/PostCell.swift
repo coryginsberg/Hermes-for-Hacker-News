@@ -3,13 +3,13 @@
 //  Licensed under the Apache License, Version 2.0
 //
 
+import FaviconFinder
 import SwiftUI
 
 // MARK: - PostCell
 
 struct PostCell: View {
   @State var postData: ItemData
-
   let secondaryTextColor = Color(uiColor: .secondaryLabel)
   let spacer: Spacer = .init(minLength: 4.0)
 
@@ -17,14 +17,28 @@ struct PostCell: View {
     VStack(alignment: .leading) {
       Grid(alignment: .leading) {
         GridRow {
-          if postData.type == .story {
-            AsyncImage(url: postData.faviconURL) { image in
-              image.resizable()
-            } placeholder: {
-              Image("AwkwardMonkey")
+          if postData.type == .story && postData.url != nil {
+            AsyncImage(url: postData.faviconURL) { phase in
+              switch phase {
+              case .empty:
+                ProgressView()
+              case .success(let image):
+                image
+                  .resizable()
+                  .scaledToFit()
+                  .transition(.scale(scale: 0.1, anchor: .center))
+              case .failure:
+                Image(systemName: "wifi.slash")
+                  .resizable()
+                  .scaledToFit()
+                  .transition(.scale(scale: 0.1, anchor: .center))
+              @unknown default:
+                EmptyView()
+              }
             }
-            .frame(width: 50, height: 50, alignment: .top)
-            .clipShape(RoundedRectangle(cornerRadius: 8)).padding(.leading, 24)
+              .frame(width: 50, height: 50, alignment: .top)
+              .clipShape(RoundedRectangle(cornerRadius: 8))
+              .padding(.leading, 24)
           }
           VStack(alignment: .leading) {
             PrimaryLabelView(postData: postData, secondaryTextColor: secondaryTextColor)

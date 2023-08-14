@@ -43,8 +43,8 @@ struct TestData {
         time: Date(timeIntervalSince1970: TimeInterval(Int.random(in: 1_670_495_658 ... 1_690_495_658))),
         title: title,
         type: .story,
-        url: nil,
-        faviconURL: nil
+        url: URL(string: "https://google.com"),
+        faviconURL: URL(string: "https://www.google.com/favicon.ico")
       )
     }.shuffled()
   }

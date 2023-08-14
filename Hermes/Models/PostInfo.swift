@@ -25,9 +25,9 @@ class PostInfo: ItemInfo, ItemInfoProtocol {
       guard let postType = ItemData.TypeVal(rawValue: value["type"] as! String) else { return }
       switch postType {
       case .story:
-        await PostType.fetchStory(from: value, completion: completion)
+        try await PostType.fetchStory(from: value, completion: completion)
       case .job:
-        await PostType.fetchJob(from: value, completion: completion)
+        PostType.fetchJob(from: value, completion: completion)
       case .poll:
         break
       case .pollopt:
@@ -39,5 +39,6 @@ class PostInfo: ItemInfo, ItemInfoProtocol {
       print("Error fetching Posts: \(error.localizedDescription)")
       return
     }
+
   }
 }

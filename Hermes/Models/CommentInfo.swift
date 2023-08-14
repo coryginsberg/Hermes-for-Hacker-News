@@ -11,11 +11,11 @@ import Foundation
 class CommentInfo: ItemInfo, ItemInfoProtocol {
   var itemData: ItemData = .init()
   var itemID: Int
-  init?(for itemID: Int) async {
+  init?(for itemID: Int) async throws {
     self.itemID = itemID
     super.init()
     delegate = self
-    await getItemInfo(for: itemID)
+    try await getItemInfo(for: itemID)
   }
 
   func fetchItem(from ref: DatabaseReference, completion: @escaping (ItemData) -> Void) async {
@@ -24,7 +24,7 @@ class CommentInfo: ItemInfo, ItemInfoProtocol {
       guard let value = snapshot.value as? [String: Any] else { return }
       guard let postType = value["type"] as? ItemData.TypeVal else { return }
       guard postType == .comment else { return }
-      let itemData = ItemData(
+      completion(ItemData(
         forComment: value["by"] as? String ?? "",
         descendants: value["descendants"] as? Int ?? 0,
         dead: value["dead"] as? Bool ?? false,
@@ -35,8 +35,7 @@ class CommentInfo: ItemInfo, ItemInfoProtocol {
         score: value["score"] as? Int ?? 0,
         text: value["text"] as? String ?? "",
         time: ItemInfoHelper.convertToDate(from: value["time"] as? Int ?? 0)
-      )
-      completion(itemData)
+      ))
     } catch {
       print("Error fetching comment: \(error.localizedDescription)")
       return

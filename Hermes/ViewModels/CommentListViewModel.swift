@@ -20,7 +20,7 @@ class CommentListViewModel: ObservableObject {
       guard let snapshotVal = snapshot.value as? [Int] else { return }
 
       comments = try await snapshotVal.concurrentCompactMap { value throws in
-        await CommentInfo(for: value)
+        try await CommentInfo(for: value)
       }
     } catch {
       print(error.localizedDescription)

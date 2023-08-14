@@ -13,7 +13,7 @@ struct ItemInfoHelper {
     Date(timeIntervalSince1970: TimeInterval(timePublished))
   }
 
-  static func loadFavicon(fromURL url: URL) async throws -> URL {
+  static func loadFavicon(fromUrl url: URL) async throws -> URL {
     do {
       let favicon = try await FaviconFinder(url: url, downloadImage: false).downloadFavicon()
       return favicon.url

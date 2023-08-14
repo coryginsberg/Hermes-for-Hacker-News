@@ -12,10 +12,8 @@
 import Foundation
 import UIKit
 
-struct ItemData
-{
-  enum TypeVal: String
-  {
+struct ItemData {
+  enum TypeVal: String {
     case job
     case story
     case comment
@@ -78,25 +76,55 @@ struct ItemData
     self.faviconURL = faviconURL
   }
 
-  // MARK: - Story
+  // MARK: - Story Link
 
-  init(forStory author: String,
+  init(forLink url: URL,
+       author: String,
        dead: Bool,
        deleted: Bool,
+       descendants: Int,
        id: Int,
        score: Int,
-       text: String?,
        time: Date,
        title: String,
-       url: URL?,
        faviconURL: URL?)
   {
     self.init(author: author,
-              descendants: nil,
+              descendants: descendants,
               dead: dead,
               deleted: deleted,
               id: id,
-              kids: nil,
+              kids: [],
+              parent: nil,
+              parts: nil,
+              poll: nil,
+              score: score,
+              text: nil,
+              time: time,
+              title: title,
+              type: .story,
+              url: url,
+              faviconURL: faviconURL)
+  }
+
+  // MARK: - Story Text
+
+  init(forStory title: String,
+       author: String,
+       dead: Bool,
+       deleted: Bool,
+       descendants: Int,
+       id: Int,
+       score: Int,
+       text: String,
+       time: Date)
+  {
+    self.init(author: author,
+              descendants: descendants,
+              dead: dead,
+              deleted: deleted,
+              id: id,
+              kids: [],
               parent: nil,
               parts: nil,
               poll: nil,
@@ -105,8 +133,8 @@ struct ItemData
               time: time,
               title: title,
               type: .story,
-              url: url,
-              faviconURL: faviconURL)
+              url: nil,
+              faviconURL: nil)
   }
 
   // MARK: - Job
