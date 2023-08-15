@@ -11,6 +11,7 @@ import SwiftUI
 
 struct PostCellOuterView: View {
   @State var postData: ItemData
+  @State var isCommentView: Bool = false
 
   let secondaryTextColor = Color(uiColor: .secondaryLabel)
   let spacer = Spacer(minLength: 4.0)
@@ -22,7 +23,7 @@ struct PostCellOuterView: View {
           if postData.type == .story, let url = postData.url, let faviconUrl = postData.faviconUrl {
             PostPreviewImageView(url: url, faviconUrl: faviconUrl)
           }
-          PostCellTextView(postData: postData)
+          PostCellTextView(postData: postData, isCommentView: isCommentView)
         }
         GeometryReader { geometry in
           Divider()
