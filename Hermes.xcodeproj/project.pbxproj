@@ -11,6 +11,8 @@
 		EE77BBD52A8AD14B00880625 /* PostPreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD42A8AD14B00880625 /* PostPreviewImageView.swift */; };
 		EE77BBD72A8AD97E00880625 /* PostPrimaryLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD62A8AD97E00880625 /* PostPrimaryLabelView.swift */; };
 		EE77BBD92A8ADB2900880625 /* PostSecondaryLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD82A8ADB2900880625 /* PostSecondaryLabelView.swift */; };
+		EE85BB142A8C0CC600ACF5F3 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */; };
+		EE85BB172A8C0DF900ACF5F3 /* DomainParser in Frameworks */ = {isa = PBXBuildFile; productRef = EE85BB162A8C0DF900ACF5F3 /* DomainParser */; };
 		EEC8B9D12A880A280088B6E9 /* HermesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9D02A880A280088B6E9 /* HermesApp.swift */; };
 		EEC8B9D52A880A310088B6E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D42A880A310088B6E9 /* Assets.xcassets */; };
 		EEC8B9D82A880A310088B6E9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D72A880A310088B6E9 /* Preview Assets.xcassets */; };
@@ -72,6 +74,7 @@
 		EE77BBD42A8AD14B00880625 /* PostPreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPreviewImageView.swift; sourceTree = "<group>"; };
 		EE77BBD62A8AD97E00880625 /* PostPrimaryLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPrimaryLabelView.swift; sourceTree = "<group>"; };
 		EE77BBD82A8ADB2900880625 /* PostSecondaryLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSecondaryLabelView.swift; sourceTree = "<group>"; };
+		EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		EEC8B9CD2A880A280088B6E9 /* Hermes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hermes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC8B9D02A880A280088B6E9 /* HermesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesApp.swift; sourceTree = "<group>"; };
 		EEC8B9D42A880A310088B6E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE85BB172A8C0DF900ACF5F3 /* DomainParser in Frameworks */,
 				EEC8BA3E2A8815F50088B6E9 /* FirebaseDatabaseSwift in Frameworks */,
 				EEC8BA412A8816100088B6E9 /* FaviconFinder in Frameworks */,
 			);
@@ -270,6 +274,7 @@
 			children = (
 				EEC8BA112A8814520088B6E9 /* Database+Extensions.swift */,
 				EEC8BA102A8814520088B6E9 /* Sequence+Extensions.swift */,
+				EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -315,6 +320,7 @@
 			packageProductDependencies = (
 				EEC8BA3D2A8815F50088B6E9 /* FirebaseDatabaseSwift */,
 				EEC8BA402A8816100088B6E9 /* FaviconFinder */,
+				EE85BB162A8C0DF900ACF5F3 /* DomainParser */,
 			);
 			productName = Hermes;
 			productReference = EEC8B9CD2A880A280088B6E9 /* Hermes.app */;
@@ -391,6 +397,7 @@
 			packageReferences = (
 				EEC8BA3C2A8815F50088B6E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				EEC8BA3F2A8816100088B6E9 /* XCRemoteSwiftPackageReference "FaviconFinder" */,
+				EE85BB152A8C0DF900ACF5F3 /* XCRemoteSwiftPackageReference "SwiftDomainParser" */,
 			);
 			productRefGroup = EEC8B9CE2A880A280088B6E9 /* Products */;
 			projectDirPath = "";
@@ -460,6 +467,7 @@
 				EEC8BA0A2A88144C0088B6E9 /* StoriesTypes.swift in Sources */,
 				EEC8BA292A8814E10088B6E9 /* PostListView.swift in Sources */,
 				EEC8BA122A8814520088B6E9 /* Sequence+Extensions.swift in Sources */,
+				EE85BB142A8C0CC600ACF5F3 /* URL+Extensions.swift in Sources */,
 				EE77BBD92A8ADB2900880625 /* PostSecondaryLabelView.swift in Sources */,
 				EEC8BA082A88144C0088B6E9 /* PostInfo.swift in Sources */,
 				EEC8BA482A88191E0088B6E9 /* TestData.swift in Sources */,
@@ -809,6 +817,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EE85BB152A8C0DF900ACF5F3 /* XCRemoteSwiftPackageReference "SwiftDomainParser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Dashlane/SwiftDomainParser";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
 		EEC8BA3C2A8815F50088B6E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -836,6 +852,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EE85BB162A8C0DF900ACF5F3 /* DomainParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE85BB152A8C0DF900ACF5F3 /* XCRemoteSwiftPackageReference "SwiftDomainParser" */;
+			productName = DomainParser;
+		};
 		EEC8BA3D2A8815F50088B6E9 /* FirebaseDatabaseSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EEC8BA3C2A8815F50088B6E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

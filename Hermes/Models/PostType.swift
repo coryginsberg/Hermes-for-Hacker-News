@@ -12,6 +12,7 @@ struct PostType {
   static func fetchStory(from value: [String: Any], completion: @escaping (ItemData) -> Void) async throws {
     var itemData: ItemData
     if let urlStr = value["url"] as? String, let url = URL(string: urlStr) {
+      print(url)
       let faviconURL = try await ItemInfoHelper.loadFavicon(fromUrl: url)
       itemData = ItemData(forLink: url,
                           author: value["by"] as? String ?? "",

@@ -23,7 +23,7 @@ struct PostPreviewImageView: View {
           .scaledToFit()
           .transition(.scale(scale: 0.1, anchor: .center))
       case .failure:
-        Image(systemName: "wifi.slash")
+        Image("AwkwardMonkey")
           .resizable()
           .scaledToFit()
           .transition(.scale(scale: 0.1, anchor: .center))

@@ -3,8 +3,11 @@
 //  Licensed under the Apache License, Version 2.0
 //
 
+import DomainParser
 import FirebaseDatabase
 import Foundation
+
+// MARK: - PostViewModel
 
 class PostViewModel: ObservableObject, Identifiable {
   private let ref = Database.root

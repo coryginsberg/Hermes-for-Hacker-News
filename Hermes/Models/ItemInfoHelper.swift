@@ -18,8 +18,7 @@ struct ItemInfoHelper {
       let favicon = try await FaviconFinder(url: url, downloadImage: false).downloadFavicon()
       return favicon.url
     } catch {
-      print("Error loading favicon: \(error.localizedDescription)")
-      guard let url = Bundle.main.url(forResource: "awkward-monkey", withExtension: "png") else {
+      guard let url = URL.localURLForXCAsset(name: "AwkwardMonkey") else {
         throw URLError(.fileDoesNotExist)
       }
       return url

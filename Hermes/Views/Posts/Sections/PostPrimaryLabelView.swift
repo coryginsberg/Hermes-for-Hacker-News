@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DomainParser
 
 struct PostPrimaryLabelView: View {
   var postData: ItemData
@@ -20,11 +21,11 @@ struct PostPrimaryLabelView: View {
           .allowsTightening(true)
           .frame(maxWidth: .infinity, alignment: .leading)
         if let url = postData.url {
-          Text("\(url.urlWithoutSubdomains?.absoluteStringWithoutScheme ?? "")")
-            .font(.footnote)
-            .frame(maxWidth: .infinity, alignment: .topLeading)
-            .padding(.bottom, 4.0)
-            .foregroundColor(.init(uiColor: .tertiaryLabel))
+          Text(url.domain ?? "")
+              .font(.footnote)
+              .frame(maxWidth: .infinity, alignment: .topLeading)
+              .padding(.bottom, 4.0)
+              .foregroundColor(.init(uiColor: .tertiaryLabel))
         }
       }
     }

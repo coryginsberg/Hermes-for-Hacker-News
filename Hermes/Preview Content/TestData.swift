@@ -26,7 +26,7 @@ struct TestData {
     static let randomPosts = titles.map { title in
       ItemData(
         author: authors.randomElement()!,
-        descendants: nil,
+        descendants: Int.random(in: 0 ..< 300),
         dead: false,
         deleted: false,
         id: Int.random(in: 100_000 ..< 1_000_000),
@@ -43,7 +43,7 @@ struct TestData {
         time: Date(timeIntervalSince1970: TimeInterval(Int.random(in: 1_670_495_658 ... 1_690_495_658))),
         title: title,
         type: .story,
-        url: URL(string: "https://www.google.com/search?q=hermes+god"),
+        url: URL(string: "www.google.com/search?q=hermes+god"),
         faviconURL: URL(string: "https://www.google.com/favicon.ico")
       )
     }.shuffled()
