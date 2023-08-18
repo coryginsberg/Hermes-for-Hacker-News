@@ -12,7 +12,7 @@ class PostListViewModel: ObservableObject {
   private let ref = Database.root
   private var postListRef: DatabaseReference?
   private var storyType: StoriesTypes?
-  private var currentItem: Int = 0
+  private var currentItem: UInt = 0
   private var canLoadMoreItems = true
 
   init(forStoryType type: StoriesTypes) {
@@ -24,13 +24,13 @@ class PostListViewModel: ObservableObject {
   func loadMoreContentIfNeeded(currentItem item: ItemInfo? = nil) async {
     guard let postListRef = postListRef else { return }
     guard let item = item else {
-      await genLoadMorePosts(from: postListRef, numberOfPosts: 10)
+      await genLoadMorePosts(from: postListRef, numberOfPosts: 15)
       return
     }
 
-    let thresholdIndex = posts.index(posts.endIndex, offsetBy: -5)
+    let thresholdIndex = posts.index(posts.endIndex, offsetBy: -10)
     if posts.firstIndex(where: { $0.id == item.id }) == thresholdIndex {
-      await genLoadMorePosts(from: postListRef, numberOfPosts: 10)
+      await genLoadMorePosts(from: postListRef, numberOfPosts: 15)
     }
   }
 
@@ -53,20 +53,18 @@ class PostListViewModel: ObservableObject {
       postListRef = ref.child("v0/beststories")
     }
     guard let postListRef = postListRef else { return }
-    await genLoadMorePosts(from: postListRef, numberOfPosts: 25)
+    currentItem = 0
+    await genLoadMorePosts(from: postListRef, numberOfPosts: 35)
   }
 
   @MainActor
-  private func genLoadMorePosts(from ref: DatabaseReference, numberOfPosts count: Int) async {
+  private func genLoadMorePosts(from ref: DatabaseReference, numberOfPosts count: UInt) async {
+    guard canLoadMoreItems else { return }
     guard !isLoadingPage else { return }
-    guard currentItem >= 0 else { return }
-
     isLoadingPage = true
-
     do {
       async let snapshot = try await ref
-        .queryEnding(atValue: currentItem)
-        .queryLimited(toFirst: UInt(count - 1))
+        .queryLimited(toFirst: currentItem + count)
         .getData()
       guard let snapshotVal = try await snapshot.value as? [Int] else { return }
       Task {
@@ -75,6 +73,9 @@ class PostListViewModel: ObservableObject {
         }
         currentItem += count
         isLoadingPage = false
+        if (currentItem >= 500) {
+          canLoadMoreItems = false
+        }
       }
     } catch {
       print(error.localizedDescription)
