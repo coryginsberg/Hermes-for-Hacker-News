@@ -11,7 +11,7 @@ import SwiftUI
 struct PostListView: View {
   let title: String = "Posts"
 
-  @StateObject var postList = PostListViewModel()
+  @StateObject var postList = PostListViewModel(forStoryType: .topStories)
 
   @Environment(\.managedObjectContext) private var viewContext
 
@@ -21,14 +21,20 @@ struct PostListView: View {
         LazyVStack {
           ForEach(postList.posts) { post in
             PostCellOuterView(postData: post.delegate.itemData)
+              .onAppear {
+                Task {
+                  await postList.loadMoreContentIfNeeded(currentItem: post)
+                }
+              }
+          }
+          if postList.isLoadingPage {
+            ProgressView()
           }
         }
-        .task {
-          await postList.genPosts(storiesTypes: StoriesTypes.topStories)
-        }
         .navigationTitle(title)
-      }.refreshable {
-        await postList.genPosts(storiesTypes: StoriesTypes.topStories)
+        .refreshable {
+          await postList.refreshPostList()
+        }
       }
     }
   }

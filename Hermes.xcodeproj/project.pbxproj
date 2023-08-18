@@ -36,7 +36,6 @@
 		EEC8BA1F2A8814880088B6E9 /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA1E2A8814880088B6E9 /* InboxView.swift */; };
 		EEC8BA212A8814CA0088B6E9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA202A8814CA0088B6E9 /* RootView.swift */; };
 		EEC8BA262A8814E10088B6E9 /* PostCellTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA222A8814E10088B6E9 /* PostCellTextView.swift */; };
-		EEC8BA272A8814E10088B6E9 /* PostsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA232A8814E10088B6E9 /* PostsView.swift */; };
 		EEC8BA282A8814E10088B6E9 /* PostCellOuterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA242A8814E10088B6E9 /* PostCellOuterView.swift */; };
 		EEC8BA292A8814E10088B6E9 /* PostListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA252A8814E10088B6E9 /* PostListView.swift */; };
 		EEC8BA2D2A8814E70088B6E9 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA2A2A8814E70088B6E9 /* CommentCell.swift */; };
@@ -101,7 +100,6 @@
 		EEC8BA1E2A8814880088B6E9 /* InboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxView.swift; sourceTree = "<group>"; };
 		EEC8BA202A8814CA0088B6E9 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		EEC8BA222A8814E10088B6E9 /* PostCellTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCellTextView.swift; sourceTree = "<group>"; };
-		EEC8BA232A8814E10088B6E9 /* PostsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsView.swift; sourceTree = "<group>"; };
 		EEC8BA242A8814E10088B6E9 /* PostCellOuterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCellOuterView.swift; sourceTree = "<group>"; };
 		EEC8BA252A8814E10088B6E9 /* PostListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListView.swift; sourceTree = "<group>"; };
 		EEC8BA2A2A8814E70088B6E9 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -286,7 +284,6 @@
 				EEC8BA252A8814E10088B6E9 /* PostListView.swift */,
 				EEC8BA242A8814E10088B6E9 /* PostCellOuterView.swift */,
 				EEC8BA222A8814E10088B6E9 /* PostCellTextView.swift */,
-				EEC8BA232A8814E10088B6E9 /* PostsView.swift */,
 			);
 			path = Posts;
 			sourceTree = "<group>";
@@ -475,7 +472,6 @@
 				EEC8BA0B2A88144C0088B6E9 /* ItemInfo.swift in Sources */,
 				EEC8BA162A88147A0088B6E9 /* CommentListViewModel.swift in Sources */,
 				EEC8BA092A88144C0088B6E9 /* CommentInfo.swift in Sources */,
-				EEC8BA272A8814E10088B6E9 /* PostsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +643,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Hermes/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -679,6 +676,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Hermes/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.news";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
