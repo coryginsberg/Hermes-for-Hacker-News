@@ -16,12 +16,8 @@ class PostListViewModel: ObservableObject {
   private var canLoadMoreItems = true
 
   init(forStoryType type: StoriesTypes) {
-    let clock = ContinuousClock()
     Task {
-      let result = await clock.measure {
-        await genInitializePosts(forStoryType: type)
-      }
-      debugPrint(result)
+      await genInitializePosts(forStoryType: type)
     }
   }
 
@@ -57,7 +53,7 @@ class PostListViewModel: ObservableObject {
       postListRef = ref.child("v0/beststories")
     }
     guard let postListRef = postListRef else { return }
-    await genLoadMorePosts(from: postListRef, numberOfPosts: 15)
+    await genLoadMorePosts(from: postListRef, numberOfPosts: 25)
   }
 
   @MainActor
