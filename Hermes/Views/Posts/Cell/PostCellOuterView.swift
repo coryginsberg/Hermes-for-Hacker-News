@@ -1,5 +1,5 @@
 //
-//  PostCellNavigation.swift
+//  PostCellOuterView.swift
 //  HackerNewsApp
 //
 //  Created by Cory Ginsberg on 10/25/22.
@@ -20,7 +20,9 @@ struct PostCellOuterView: View {
     VStack(alignment: .leading) {
       Grid(alignment: .leading) {
         GridRow {
-          if postData.type == .story, let url = postData.url, let faviconUrl = postData.faviconUrl {
+          if postData.type == .story, let url = postData.url,
+             let faviconUrl = postData.faviconUrl
+          {
             PostPreviewImageView(url: url, faviconUrl: faviconUrl)
           }
           PostCellTextView(postData: postData, isCommentView: isCommentView)

@@ -19,7 +19,10 @@ class CommentInfo: ItemInfo, ItemInfoProtocol {
   }
 
   /// - See: `ItemInfo.getItemInfo()`
-  func fetchItem(from ref: DatabaseReference, completion: @escaping (ItemData) -> Void) async {
+  func fetchItem(
+    from ref: DatabaseReference,
+    completion: @escaping (ItemData) -> Void
+  ) async {
     do {
       let snapshot = try await ref.getData()
       guard let value = snapshot.value as? [String: Any] else { return }

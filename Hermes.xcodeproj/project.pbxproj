@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE0431792B4DE61400EB8C00 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = EE0431782B4DE61400EB8C00 /* .swiftformat */; };
+		EE04317C2B4DE97000EB8C00 /* .git in Resources */ = {isa = PBXBuildFile; fileRef = EE04317B2B4DE97000EB8C00 /* .git */; };
 		EE2F08EF2ACCB17400EB4489 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2F08EE2ACCB17400EB4489 /* CommentViewModel.swift */; };
 		EE6F70722ACB79FA000E7C78 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6F70712ACB79FA000E7C78 /* Errors.swift */; };
 		EE77BBD22A8AC9F400880625 /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD12A8AC9F400880625 /* WebViewWrapper.swift */; };
@@ -70,6 +72,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE0431782B4DE61400EB8C00 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
+		EE04317B2B4DE97000EB8C00 /* .git */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .git; sourceTree = "<group>"; };
 		EE2F08EE2ACCB17400EB4489 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		EE6F70712ACB79FA000E7C78 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		EE77BBD12A8AC9F400880625 /* WebViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewWrapper.swift; sourceTree = "<group>"; };
@@ -206,8 +210,10 @@
 		EEC8B9C42A880A280088B6E9 = {
 			isa = PBXGroup;
 			children = (
+				EE04317B2B4DE97000EB8C00 /* .git */,
 				EED148782A88247A001FA326 /* .swift-version */,
 				EEC8BA3A2A8815500088B6E9 /* .gitignore */,
+				EE0431782B4DE61400EB8C00 /* .swiftformat */,
 				EEC8BA382A88154C0088B6E9 /* .swiftlint.yml */,
 				EEC8BA322A8815390088B6E9 /* Package.swift */,
 				EEC8BA342A8815460088B6E9 /* README.md */,
@@ -430,6 +436,7 @@
 				EEC8BA3C2A8815F50088B6E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				EEC8BA3F2A8816100088B6E9 /* XCRemoteSwiftPackageReference "FaviconFinder" */,
 				EE85BB152A8C0DF900ACF5F3 /* XCRemoteSwiftPackageReference "SwiftDomainParser" */,
+				EE0431772B4DE59A00EB8C00 /* XCRemoteSwiftPackageReference "SwiftFormat" */,
 			);
 			productRefGroup = EEC8B9CE2A880A280088B6E9 /* Products */;
 			projectDirPath = "";
@@ -449,12 +456,14 @@
 			files = (
 				EEC8BA392A88154C0088B6E9 /* .swiftlint.yml in Resources */,
 				EEC8BA3B2A8815500088B6E9 /* .gitignore in Resources */,
+				EE04317C2B4DE97000EB8C00 /* .git in Resources */,
 				EEC8BA372A8815480088B6E9 /* LICENSE.md in Resources */,
 				EEC8B9D82A880A310088B6E9 /* Preview Assets.xcassets in Resources */,
 				EED148792A88247A001FA326 /* .swift-version in Resources */,
 				EEC8B9D52A880A310088B6E9 /* Assets.xcassets in Resources */,
 				EEC8BA352A8815460088B6E9 /* README.md in Resources */,
 				EEE021482A881E58003676E6 /* GoogleService-Info.plist in Resources */,
+				EE0431792B4DE61400EB8C00 /* .swiftformat in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -851,6 +860,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EE0431772B4DE59A00EB8C00 /* XCRemoteSwiftPackageReference "SwiftFormat" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nicklockwood/SwiftFormat";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.53.0;
+			};
+		};
 		EE85BB152A8C0DF900ACF5F3 /* XCRemoteSwiftPackageReference "SwiftDomainParser" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Dashlane/SwiftDomainParser";

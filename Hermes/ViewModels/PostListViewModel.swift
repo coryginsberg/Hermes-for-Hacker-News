@@ -20,14 +20,16 @@ class PostListViewModel: ObservableObject {
       do {
         try await genInitializePosts(forStoryType: storyType)
       } catch ValidationError.storyTypeRequired {
-        print("Error: Tried to generate a story without defining the story type");
+        print(
+          "Error: Tried to generate a story without defining the story type"
+        )
       }
     }
   }
 
   func loadMoreContentIfNeeded(currentItem item: ItemInfo? = nil) async {
     guard let postListRef = itemListRef else { return }
-    guard let item = item else {
+    guard let item else {
       await genLoadMorePosts(from: postListRef, numberOfPosts: 15)
       return
     }
@@ -41,13 +43,15 @@ class PostListViewModel: ObservableObject {
   func refreshPostList() async throws {
     currentItem = 0
     canLoadMoreItems = true
-    guard let storyType = storyType else { return }
+    guard let storyType else { return }
     try await genInitializePosts(forStoryType: storyType)
   }
 
   // MARK: - Private functions
 
-  private func genInitializePosts(forStoryType storyType: StoriesTypes? = nil) async throws {
+  private func genInitializePosts(forStoryType storyType: StoriesTypes? =
+    nil) async throws
+  {
     switch storyType {
     case .topStories:
       itemListRef = ref.child("v0/topstories")
@@ -64,7 +68,10 @@ class PostListViewModel: ObservableObject {
   }
 
   @MainActor
-  private func genLoadMorePosts(from ref: DatabaseReference, numberOfPosts count: UInt) async {
+  private func genLoadMorePosts(
+    from ref: DatabaseReference,
+    numberOfPosts count: UInt
+  ) async {
     guard canLoadMoreItems else { return }
     guard !isLoadingPage else { return }
     isLoadingPage = true
@@ -72,14 +79,15 @@ class PostListViewModel: ObservableObject {
       async let snapshot = try await ref
         .queryLimited(toFirst: currentItem + count)
         .getData()
-      guard let snapshotVal = try await snapshot.value as? [Int] else { return }
+      guard let snapshotVal = try await snapshot.value as? [UInt32]
+      else { return }
       Task {
         items = try await snapshotVal.concurrentCompactMap { value throws in
           await PostInfo(value)
         }
         currentItem += count
         isLoadingPage = false
-        if (currentItem >= 500) {
+        if currentItem >= 500 {
           canLoadMoreItems = false
         }
       }

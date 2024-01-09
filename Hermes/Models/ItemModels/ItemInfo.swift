@@ -13,7 +13,10 @@ import SwiftUI
 protocol ItemInfoProtocol {
   var itemData: ItemData { get set }
 
-  func fetchItem(from ref: DatabaseReference, completion: @escaping (ItemData) -> Void) async
+  func fetchItem(
+    from ref: DatabaseReference,
+    completion: @escaping (ItemData) -> Void
+  ) async
 }
 
 // MARK: - ItemInfo

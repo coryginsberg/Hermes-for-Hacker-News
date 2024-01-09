@@ -28,15 +28,19 @@ struct ItemData {
   var dead: Bool = false // true if the item is dead.
   var deleted: Bool = false // true if the item is deleted.
   var id: HNID = 0 // The item's unique id.
-  var kids: [HNID]? = [] // The ids of the item's comments, in ranked display order.
-  var parent: HNID? = 0 // The comment's parent: either another comment or the relevant story.
+  var kids: [HNID]? =
+    [] // The ids of the item's comments, in ranked display order.
+  var parent: HNID? =
+    0 // The comment's parent: either another comment or the relevant story.
   var parts: [HNID]? = [] // A list of related pollopts, in display order.
   var poll: HNID? // The pollopt's associated poll.
   var score: Int = 0 // The story's score, or the votes for a pollopt.
   var text: String? // The comment, story or poll text. HTML.
   var time: Date = .init() // Creation date of the item, in Unix Time.
   var title: String? // The title of the story, poll or job. HTML.
-  var type: TypeVal = .story // The type of item. One of "job", "story", "comment", "poll", or "pollopt".
+  var type: TypeVal =
+    .story // The type of item. One of "job", "story", "comment", "poll", or
+  // "pollopt".
   var url: URL? // The URL of the story.
   var faviconUrl: URL?
 
@@ -75,7 +79,7 @@ struct ItemData {
     self.title = title
     self.type = type
     self.url = url
-    self.faviconUrl = faviconURL
+    faviconUrl = faviconURL
   }
 
   // MARK: - Story Link
