@@ -11,11 +11,11 @@ import Foundation
 
 class PostViewModel: ObservableObject, Identifiable {
   private let ref = Database.root
-  var itemID: Int
+  var itemID: HNID
 
   @Published var itemData: ItemData?
 
-  init?(itemID: Int) async throws {
+  init?(itemID: HNID) async throws {
     self.itemID = itemID
     itemData = nil
     try await getPostInfo()

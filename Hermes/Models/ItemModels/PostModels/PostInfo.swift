@@ -10,8 +10,8 @@ import Foundation
 
 class PostInfo: ItemInfo, ItemInfoProtocol {
   var itemData: ItemData = .init()
-  var itemID: Int
-  init?(_ itemID: Int) async {
+  var itemID: HNID
+  init?(_ itemID: HNID) async {
     self.itemID = itemID
     super.init()
     delegate = self

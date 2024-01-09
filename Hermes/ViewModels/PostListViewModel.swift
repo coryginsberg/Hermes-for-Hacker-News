@@ -6,53 +6,59 @@
 import FirebaseDatabase
 
 class PostListViewModel: ObservableObject {
-  @Published var posts: [ItemInfo] = []
+  @Published var items: [ItemInfo] = []
   @Published var isLoadingPage = false
 
   private let ref = Database.root
-  private var postListRef: DatabaseReference?
-  private var storyType: StoriesTypes?
+  private var itemListRef: DatabaseReference?
+  private var storyType: StoriesTypes? = nil
   private var currentItem: UInt = 0
   private var canLoadMoreItems = true
 
-  init(forStoryType type: StoriesTypes) {
+  init(forStoryType storyType: StoriesTypes? = nil) {
     Task {
-      await genInitializePosts(forStoryType: type)
+      do {
+        try await genInitializePosts(forStoryType: storyType)
+      } catch ValidationError.storyTypeRequired {
+        print("Error: Tried to generate a story without defining the story type");
+      }
     }
   }
 
   func loadMoreContentIfNeeded(currentItem item: ItemInfo? = nil) async {
-    guard let postListRef = postListRef else { return }
+    guard let postListRef = itemListRef else { return }
     guard let item = item else {
       await genLoadMorePosts(from: postListRef, numberOfPosts: 15)
       return
     }
 
-    let thresholdIndex = posts.index(posts.endIndex, offsetBy: -10)
-    if posts.firstIndex(where: { $0.id == item.id }) == thresholdIndex {
+    let thresholdIndex = items.index(items.endIndex, offsetBy: -10)
+    if items.firstIndex(where: { $0.id == item.id }) == thresholdIndex {
       await genLoadMorePosts(from: postListRef, numberOfPosts: 15)
     }
   }
 
-  func refreshPostList() async {
+  func refreshPostList() async throws {
     currentItem = 0
     canLoadMoreItems = true
     guard let storyType = storyType else { return }
-    await genInitializePosts(forStoryType: storyType)
+    try await genInitializePosts(forStoryType: storyType)
   }
 
   // MARK: - Private functions
 
-  private func genInitializePosts(forStoryType type: StoriesTypes) async {
-    switch type {
+  private func genInitializePosts(forStoryType storyType: StoriesTypes? = nil) async throws {
+    switch storyType {
     case .topStories:
-      postListRef = ref.child("v0/topstories")
+      itemListRef = ref.child("v0/topstories")
     case .newStories:
-      postListRef = ref.child("v0/newstories")
+      itemListRef = ref.child("v0/newstories")
     case .bestStories:
-      postListRef = ref.child("v0/beststories")
+      itemListRef = ref.child("v0/beststories")
+    case .none:
+      throw ValidationError.storyTypeRequired
     }
-    guard let postListRef = postListRef else { return }
+    guard let postListRef = itemListRef else { return }
     currentItem = 0
     await genLoadMorePosts(from: postListRef, numberOfPosts: 35)
   }
@@ -68,7 +74,7 @@ class PostListViewModel: ObservableObject {
         .getData()
       guard let snapshotVal = try await snapshot.value as? [Int] else { return }
       Task {
-        posts = try await snapshotVal.concurrentCompactMap { value throws in
+        items = try await snapshotVal.concurrentCompactMap { value throws in
           await PostInfo(value)
         }
         currentItem += count
@@ -84,7 +90,7 @@ class PostListViewModel: ObservableObject {
   }
 
   private func genPostsInfo() async throws -> [ItemInfo] {
-    await posts.asyncCompactMap {
+    await items.asyncCompactMap {
       await PostInfo($0.delegate.itemData.id)
     }
   }

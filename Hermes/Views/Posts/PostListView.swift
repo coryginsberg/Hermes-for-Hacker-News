@@ -19,7 +19,7 @@ struct PostListView: View {
     NavigationView {
       ScrollView(.vertical) {
         LazyVStack {
-          ForEach(postList.posts) { post in
+          ForEach(postList.items) { post in
             PostCellOuterView(postData: post.delegate.itemData)
               .onAppear {
                 Task {
@@ -33,7 +33,11 @@ struct PostListView: View {
         }
         .navigationTitle(title)
         .refreshable {
-          await postList.refreshPostList()
+          do {
+            try await postList.refreshPostList()
+          } catch {
+            print("unable to refresh post list")
+          }
         }
       }
     }

@@ -22,7 +22,7 @@ class ItemInfo: Identifiable { // abstract
   var delegate: ItemInfoProtocol!
   let ref = Database.root
 
-  func getItemInfo(for itemID: Int) async {
+  func getItemInfo(for itemID: HNID) async {
     let postRef = ref.child("v0/item/\(itemID)")
     await delegate.fetchItem(from: postRef) { [self] item in
       delegate.itemData = item

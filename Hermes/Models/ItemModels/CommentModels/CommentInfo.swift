@@ -10,14 +10,15 @@ import Foundation
 
 class CommentInfo: ItemInfo, ItemInfoProtocol {
   var itemData: ItemData = .init()
-  var itemID: Int
-  init?(for itemID: Int) async throws {
+  var itemID: HNID
+  init?(for itemID: HNID) async throws {
     self.itemID = itemID
     super.init()
     delegate = self
     await getItemInfo(for: itemID)
   }
 
+  /// - See: `ItemInfo.getItemInfo()`
   func fetchItem(from ref: DatabaseReference, completion: @escaping (ItemData) -> Void) async {
     do {
       let snapshot = try await ref.getData()
@@ -29,9 +30,9 @@ class CommentInfo: ItemInfo, ItemInfoProtocol {
         descendants: value["descendants"] as? Int ?? 0,
         dead: value["dead"] as? Bool ?? false,
         deleted: value["deleted"] as? Bool ?? false,
-        id: value["id"] as? Int ?? 0,
-        kids: value["kids"] as? [Int] ?? [],
-        parent: value["parent"] as? Int ?? 0,
+        id: value["id"] as? HNID ?? 0,
+        kids: value["kids"] as? [HNID] ?? [],
+        parent: value["parent"] as? HNID ?? 0,
         score: value["score"] as? Int ?? 0,
         text: value["text"] as? String ?? "",
         time: ItemInfoHelper.convertToDate(from: value["time"] as? Int ?? 0)
