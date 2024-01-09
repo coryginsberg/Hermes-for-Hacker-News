@@ -5,6 +5,8 @@
 
 import SwiftUI
 
+// MARK: - ProfileView
+
 struct ProfileView: View {
   let title: String = "My Profile"
 
@@ -22,6 +24,8 @@ struct ProfileView: View {
     }
   }
 }
+
+// MARK: - ProfileView_Previews
 
 struct ProfileView_Previews: PreviewProvider {
   static var previews: some View {

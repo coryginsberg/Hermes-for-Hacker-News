@@ -12,6 +12,8 @@
 import Foundation
 import UIKit
 
+typealias HNID = UInt32
+
 struct ItemData {
   enum TypeVal: String {
     case job
@@ -25,11 +27,11 @@ struct ItemData {
   var descendants: Int?
   var dead: Bool = false // true if the item is dead.
   var deleted: Bool = false // true if the item is deleted.
-  var id: Int = 0 // The item's unique id.
-  var kids: [Int]? = [] // The ids of the item's comments, in ranked display order.
-  var parent: Int? = 0 // The comment's parent: either another comment or the relevant story.
-  var parts: [Int]? = [] // A list of related pollopts, in display order.
-  var poll: Int? // The pollopt's associated poll.
+  var id: HNID = 0 // The item's unique id.
+  var kids: [HNID]? = [] // The ids of the item's comments, in ranked display order.
+  var parent: HNID? = 0 // The comment's parent: either another comment or the relevant story.
+  var parts: [HNID]? = [] // A list of related pollopts, in display order.
+  var poll: HNID? // The pollopt's associated poll.
   var score: Int = 0 // The story's score, or the votes for a pollopt.
   var text: String? // The comment, story or poll text. HTML.
   var time: Date = .init() // Creation date of the item, in Unix Time.
@@ -45,18 +47,19 @@ struct ItemData {
        descendants: Int?,
        dead: Bool,
        deleted: Bool,
-       id: Int,
-       kids: [Int]?,
-       parent: Int?,
-       parts: [Int]?,
-       poll: Int?,
+       id: HNID,
+       kids: [HNID]?,
+       parent: HNID?,
+       parts: [HNID]?,
+       poll: HNID?,
        score: Int,
        text: String?,
        time: Date,
        title: String?,
        type: TypeVal,
        url: URL?,
-       faviconUrl: URL?) {
+       faviconURL: URL?)
+  {
     self.author = author
     self.descendants = descendants
     self.dead = dead
@@ -72,27 +75,58 @@ struct ItemData {
     self.title = title
     self.type = type
     self.url = url
-    self.faviconUrl = faviconUrl
+    self.faviconUrl = faviconURL
   }
 
-  // MARK: - Story
+  // MARK: - Story Link
 
-  init(forStory author: String,
+  init(forLink url: URL,
+       author: String,
        dead: Bool,
        deleted: Bool,
-       id: Int,
+       descendants: Int,
+       id: HNID,
        score: Int,
-       text: String?,
        time: Date,
        title: String,
-       url: URL?,
-       faviconUrl: URL?) {
+       faviconURL: URL?)
+  {
     self.init(author: author,
-              descendants: nil,
+              descendants: descendants,
               dead: dead,
               deleted: deleted,
               id: id,
-              kids: nil,
+              kids: [],
+              parent: nil,
+              parts: nil,
+              poll: nil,
+              score: score,
+              text: nil,
+              time: time,
+              title: title,
+              type: .story,
+              url: url,
+              faviconURL: faviconURL)
+  }
+
+  // MARK: - Story Text
+
+  init(forStory title: String,
+       author: String,
+       dead: Bool,
+       deleted: Bool,
+       descendants: Int,
+       id: HNID,
+       score: Int,
+       text: String,
+       time: Date)
+  {
+    self.init(author: author,
+              descendants: descendants,
+              dead: dead,
+              deleted: deleted,
+              id: id,
+              kids: [],
               parent: nil,
               parts: nil,
               poll: nil,
@@ -101,8 +135,8 @@ struct ItemData {
               time: time,
               title: title,
               type: .story,
-              url: url,
-              faviconUrl: faviconUrl)
+              url: nil,
+              faviconURL: nil)
   }
 
   // MARK: - Job
@@ -110,12 +144,13 @@ struct ItemData {
   init(forJob author: String,
        dead: Bool,
        deleted: Bool,
-       id: Int,
+       id: HNID,
        score: Int,
        text: String?,
        time: Date,
        title: String,
-       url: URL?) {
+       url: URL?)
+  {
     self.init(author: author,
               descendants: nil,
               dead: dead,
@@ -131,7 +166,7 @@ struct ItemData {
               title: title,
               type: .job,
               url: url,
-              faviconUrl: nil)
+              faviconURL: nil)
   }
 
   // MARK: - Comment
@@ -140,12 +175,13 @@ struct ItemData {
        descendants: Int?,
        dead: Bool,
        deleted: Bool,
-       id: Int,
-       kids: [Int]?,
-       parent: Int?,
+       id: HNID,
+       kids: [HNID]?,
+       parent: HNID?,
        score: Int,
        text: String?,
-       time: Date) {
+       time: Date)
+  {
     self.init(author: author,
               descendants: descendants,
               dead: dead,
@@ -161,6 +197,6 @@ struct ItemData {
               title: nil,
               type: .comment,
               url: nil,
-              faviconUrl: nil)
+              faviconURL: nil)
   }
 }

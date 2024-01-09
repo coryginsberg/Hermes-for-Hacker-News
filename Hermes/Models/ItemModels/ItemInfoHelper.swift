@@ -5,27 +5,26 @@
 //  Created by Cory Ginsberg on 7/30/23.
 //
 
-import Foundation
 import FaviconFinder
+import Foundation
 
 struct ItemInfoHelper {
   static func convertToDate(from timePublished: Int) -> Date {
-    return Date(timeIntervalSince1970: TimeInterval(timePublished))
+    Date(timeIntervalSince1970: TimeInterval(timePublished))
   }
-  
+
   static func loadFavicon(fromUrl url: URL) async throws -> URL {
     do {
       let favicon = try await FaviconFinder(url: url, downloadImage: false).downloadFavicon()
       return favicon.url
     } catch {
-      print("Error loading favicon: \(error.localizedDescription)")
-      guard let url = Bundle.main.url(forResource: "awkward-monkey", withExtension: "png") else {
+      guard let url = URL.localURLForXCAsset(name: "AwkwardMonkey") else {
         throw URLError(.fileDoesNotExist)
       }
       return url
     }
   }
-  
+
   static func calcTimeSince(datePosted date: Date) -> String {
     let components = Calendar(identifier: .gregorian)
       .dateComponents(

@@ -6,33 +6,82 @@
 import FirebaseDatabase
 
 class PostListViewModel: ObservableObject {
-  @Published var posts: [ItemInfo] = []
+  @Published var items: [ItemInfo] = []
+  @Published var isLoadingPage = false
 
   private let ref = Database.root
-  private var refHandle: DatabaseHandle?
+  private var itemListRef: DatabaseReference?
+  private var storyType: StoriesTypes? = nil
+  private var currentItem: UInt = 0
+  private var canLoadMoreItems = true
 
-  func genPosts(storiesTypes: StoriesTypes) async {
-    let postListRef: DatabaseReference;
-    switch storiesTypes {
-    case .topStories:
-      postListRef = ref.child("v0/topstories")
-    case .newStories:
-      postListRef = ref.child("v0/newstories")
-    case .bestStories:
-      postListRef = ref.child("v0/beststories")
+  init(forStoryType storyType: StoriesTypes? = nil) {
+    Task {
+      do {
+        try await genInitializePosts(forStoryType: storyType)
+      } catch ValidationError.storyTypeRequired {
+        print("Error: Tried to generate a story without defining the story type");
+      }
     }
-    await fetchPosts(from: postListRef)
+  }
+
+  func loadMoreContentIfNeeded(currentItem item: ItemInfo? = nil) async {
+    guard let postListRef = itemListRef else { return }
+    guard let item = item else {
+      await genLoadMorePosts(from: postListRef, numberOfPosts: 15)
+      return
+    }
+
+    let thresholdIndex = items.index(items.endIndex, offsetBy: -10)
+    if items.firstIndex(where: { $0.id == item.id }) == thresholdIndex {
+      await genLoadMorePosts(from: postListRef, numberOfPosts: 15)
+    }
+  }
+
+  func refreshPostList() async throws {
+    currentItem = 0
+    canLoadMoreItems = true
+    guard let storyType = storyType else { return }
+    try await genInitializePosts(forStoryType: storyType)
+  }
+
+  // MARK: - Private functions
+
+  private func genInitializePosts(forStoryType storyType: StoriesTypes? = nil) async throws {
+    switch storyType {
+    case .topStories:
+      itemListRef = ref.child("v0/topstories")
+    case .newStories:
+      itemListRef = ref.child("v0/newstories")
+    case .bestStories:
+      itemListRef = ref.child("v0/beststories")
+    case .none:
+      throw ValidationError.storyTypeRequired
+    }
+    guard let postListRef = itemListRef else { return }
+    currentItem = 0
+    await genLoadMorePosts(from: postListRef, numberOfPosts: 35)
   }
 
   @MainActor
-  private func fetchPosts(from ref: DatabaseReference) async {
+  private func genLoadMorePosts(from ref: DatabaseReference, numberOfPosts count: UInt) async {
+    guard canLoadMoreItems else { return }
+    guard !isLoadingPage else { return }
+    isLoadingPage = true
     do {
-      let snapshot = try await ref.queryLimited(toFirst: 50).getData()
-      guard let snapshotVal = snapshot.value as? [Int] else { return }
-      debugPrint(snapshotVal)
-
-      posts = try await snapshotVal.concurrentCompactMap { value throws in
-        await PostInfo(value)
+      async let snapshot = try await ref
+        .queryLimited(toFirst: currentItem + count)
+        .getData()
+      guard let snapshotVal = try await snapshot.value as? [Int] else { return }
+      Task {
+        items = try await snapshotVal.concurrentCompactMap { value throws in
+          await PostInfo(value)
+        }
+        currentItem += count
+        isLoadingPage = false
+        if (currentItem >= 500) {
+          canLoadMoreItems = false
+        }
       }
     } catch {
       print(error.localizedDescription)
@@ -40,8 +89,8 @@ class PostListViewModel: ObservableObject {
     }
   }
 
-  func fetchPostsInfo() async -> [ItemInfo] {
-    await posts.asyncCompactMap {
+  private func genPostsInfo() async throws -> [ItemInfo] {
+    await items.asyncCompactMap {
       await PostInfo($0.delegate.itemData.id)
     }
   }

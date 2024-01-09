@@ -26,10 +26,10 @@ struct TestData {
     static let randomPosts = titles.map { title in
       ItemData(
         author: authors.randomElement()!,
-        descendants: nil,
-        dead: false,
-        deleted: false,
-        id: Int.random(in: 100_000 ..< 1_000_000),
+        descendants: Int.random(in: 0 ..< 300),
+        dead: Bool.random(),
+        deleted: Bool.random(),
+        id: Int.random(in: 100000 ..< 1000000),
         kids: nil,
         parent: nil,
         parts: nil,
@@ -40,11 +40,11 @@ struct TestData {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         """,
-        time: Date(timeIntervalSince1970: TimeInterval(Int.random(in: 1_670_495_658 ... 1_690_495_658))),
+        time: Date(timeIntervalSince1970: TimeInterval(Int.random(in: 1670495658 ... 1690495658))),
         title: title,
         type: .story,
-        url: nil,
-        faviconUrl: nil
+        url: URL(string: "www.google.com/search?q=hermes+god"),
+        faviconURL: URL(string: "https://www.google.com/favicon.ico")
       )
     }.shuffled()
   }
@@ -84,7 +84,7 @@ struct TestData {
       """,
     ]
 
-    static let commentData = comments.map { comment in
+    static let randomComments = comments.map { comment in
       ItemData(
         author: authors.randomElement()!,
         descendants: nil,
@@ -101,7 +101,7 @@ struct TestData {
         title: "",
         type: .comment,
         url: nil,
-        faviconUrl: nil
+        faviconURL: nil
       )
     }.shuffled()
   }

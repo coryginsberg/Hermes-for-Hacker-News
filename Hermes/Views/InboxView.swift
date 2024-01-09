@@ -5,6 +5,8 @@
 
 import SwiftUI
 
+// MARK: - InboxView
+
 struct InboxView: View {
   let title: String = "Inbox"
   var body: some View {
@@ -14,6 +16,8 @@ struct InboxView: View {
     }
   }
 }
+
+// MARK: - InboxView_Previews
 
 struct InboxView_Previews: PreviewProvider {
   static var previews: some View {

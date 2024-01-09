@@ -6,10 +6,12 @@
 import Foundation
 import SwiftUI
 
+// MARK: - PostListView
+
 struct PostListView: View {
   let title: String = "Posts"
 
-  @StateObject var postList = PostListViewModel()
+  @StateObject var postList = PostListViewModel(forStoryType: .topStories)
 
   @Environment(\.managedObjectContext) private var viewContext
 
@@ -17,20 +19,32 @@ struct PostListView: View {
     NavigationView {
       ScrollView(.vertical) {
         LazyVStack {
-          ForEach(postList.posts) { post in
-            PostCellNavView(postData: post.delegate.itemData)
+          ForEach(postList.items) { post in
+            PostCellOuterView(postData: post.delegate.itemData)
+              .onAppear {
+                Task {
+                  await postList.loadMoreContentIfNeeded(currentItem: post)
+                }
+              }
+          }
+          if postList.isLoadingPage {
+            ProgressView()
           }
         }
-        .task {
-          await postList.genPosts(storiesTypes: StoriesTypes.topStories)
-        }
         .navigationTitle(title)
-      }.refreshable {
-        await postList.genPosts(storiesTypes: StoriesTypes.topStories)
+        .refreshable {
+          do {
+            try await postList.refreshPostList()
+          } catch {
+            print("unable to refresh post list")
+          }
+        }
       }
     }
   }
 }
+
+// MARK: - PostsListView_Previews
 
 struct PostsListView_Previews: PreviewProvider {
   static var previews: some View {
