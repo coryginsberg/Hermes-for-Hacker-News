@@ -15,6 +15,11 @@
 		EE77BBD92A8ADB2900880625 /* PostSecondaryLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD82A8ADB2900880625 /* PostSecondaryLabelView.swift */; };
 		EE85BB142A8C0CC600ACF5F3 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */; };
 		EE85BB172A8C0DF900ACF5F3 /* DomainParser in Frameworks */ = {isa = PBXBuildFile; productRef = EE85BB162A8C0DF900ACF5F3 /* DomainParser */; };
+		EE88762D2B82B9BB0053633E /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = EE8876262B82B9BB0053633E /* LICENSE.md */; };
+		EE8876332B82BA000053633E /* .vscode in Resources */ = {isa = PBXBuildFile; fileRef = EE88762E2B82BA000053633E /* .vscode */; };
+		EE8876342B82BA000053633E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EE88762F2B82BA000053633E /* .gitignore */; };
+		EE8876362B82BA000053633E /* .git in Resources */ = {isa = PBXBuildFile; fileRef = EE8876312B82BA000053633E /* .git */; };
+		EE8876372B82BA000053633E /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = EE8876322B82BA000053633E /* .swift-version */; };
 		EEC8B9D12A880A280088B6E9 /* HermesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9D02A880A280088B6E9 /* HermesApp.swift */; };
 		EEC8B9D52A880A310088B6E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D42A880A310088B6E9 /* Assets.xcassets */; };
 		EEC8B9D82A880A310088B6E9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D72A880A310088B6E9 /* Preview Assets.xcassets */; };
@@ -42,13 +47,10 @@
 		EEC8BA2D2A8814E70088B6E9 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA2A2A8814E70088B6E9 /* CommentCell.swift */; };
 		EEC8BA2F2A8814E70088B6E9 /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA2C2A8814E70088B6E9 /* CommentListView.swift */; };
 		EEC8BA352A8815460088B6E9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EEC8BA342A8815460088B6E9 /* README.md */; };
-		EEC8BA372A8815480088B6E9 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = EEC8BA362A8815480088B6E9 /* LICENSE.md */; };
 		EEC8BA392A88154C0088B6E9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = EEC8BA382A88154C0088B6E9 /* .swiftlint.yml */; };
-		EEC8BA3B2A8815500088B6E9 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EEC8BA3A2A8815500088B6E9 /* .gitignore */; };
 		EEC8BA3E2A8815F50088B6E9 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EEC8BA3D2A8815F50088B6E9 /* FirebaseDatabaseSwift */; };
 		EEC8BA412A8816100088B6E9 /* FaviconFinder in Frameworks */ = {isa = PBXBuildFile; productRef = EEC8BA402A8816100088B6E9 /* FaviconFinder */; };
 		EEC8BA482A88191E0088B6E9 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA472A88191E0088B6E9 /* TestData.swift */; };
-		EED148792A88247A001FA326 /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = EED148782A88247A001FA326 /* .swift-version */; };
 		EEE021482A881E58003676E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EEE021472A881E58003676E6 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +79,18 @@
 		EE77BBD62A8AD97E00880625 /* PostPrimaryLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPrimaryLabelView.swift; sourceTree = "<group>"; };
 		EE77BBD82A8ADB2900880625 /* PostSecondaryLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSecondaryLabelView.swift; sourceTree = "<group>"; };
 		EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
+		EE8876202B82B9BB0053633E /* HermesUITests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HermesUITests; sourceTree = "<group>"; };
+		EE8876212B82B9BB0053633E /* HermesTests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HermesTests; sourceTree = "<group>"; };
+		EE8876222B82B9BB0053633E /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		EE8876232B82B9BB0053633E /* Package.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Package.resolved; sourceTree = "<group>"; };
+		EE8876242B82B9BB0053633E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EE8876252B82B9BB0053633E /* Hermes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Hermes; sourceTree = "<group>"; };
+		EE8876262B82B9BB0053633E /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		EE88762E2B82BA000053633E /* .vscode */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .vscode; sourceTree = "<group>"; };
+		EE88762F2B82BA000053633E /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		EE8876302B82BA000053633E /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		EE8876312B82BA000053633E /* .git */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .git; sourceTree = "<group>"; };
+		EE8876322B82BA000053633E /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		EEC8B9CD2A880A280088B6E9 /* Hermes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hermes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC8B9D02A880A280088B6E9 /* HermesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesApp.swift; sourceTree = "<group>"; };
 		EEC8B9D42A880A310088B6E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,7 +120,6 @@
 		EEC8BA252A8814E10088B6E9 /* PostListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListView.swift; sourceTree = "<group>"; };
 		EEC8BA2A2A8814E70088B6E9 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		EEC8BA2C2A8814E70088B6E9 /* CommentListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
-		EEC8BA322A8815390088B6E9 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		EEC8BA342A8815460088B6E9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EEC8BA362A8815480088B6E9 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		EEC8BA382A88154C0088B6E9 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -206,10 +219,21 @@
 		EEC8B9C42A880A280088B6E9 = {
 			isa = PBXGroup;
 			children = (
+				EE8876312B82BA000053633E /* .git */,
+				EE88762F2B82BA000053633E /* .gitignore */,
+				EE8876322B82BA000053633E /* .swift-version */,
+				EE8876302B82BA000053633E /* .swiftlint.yml */,
+				EE88762E2B82BA000053633E /* .vscode */,
+				EE8876252B82B9BB0053633E /* Hermes */,
+				EE8876212B82B9BB0053633E /* HermesTests */,
+				EE8876202B82B9BB0053633E /* HermesUITests */,
+				EE8876262B82B9BB0053633E /* LICENSE.md */,
+				EE8876232B82B9BB0053633E /* Package.resolved */,
+				EE8876222B82B9BB0053633E /* Package.swift */,
+				EE8876242B82B9BB0053633E /* README.md */,
 				EED148782A88247A001FA326 /* .swift-version */,
 				EEC8BA3A2A8815500088B6E9 /* .gitignore */,
 				EEC8BA382A88154C0088B6E9 /* .swiftlint.yml */,
-				EEC8BA322A8815390088B6E9 /* Package.swift */,
 				EEC8BA342A8815460088B6E9 /* README.md */,
 				EEC8BA362A8815480088B6E9 /* LICENSE.md */,
 				EEC8B9CF2A880A280088B6E9 /* Hermes */,
@@ -447,13 +471,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE8876362B82BA000053633E /* .git in Resources */,
+				EE8876342B82BA000053633E /* .gitignore in Resources */,
 				EEC8BA392A88154C0088B6E9 /* .swiftlint.yml in Resources */,
-				EEC8BA3B2A8815500088B6E9 /* .gitignore in Resources */,
-				EEC8BA372A8815480088B6E9 /* LICENSE.md in Resources */,
-				EEC8B9D82A880A310088B6E9 /* Preview Assets.xcassets in Resources */,
-				EED148792A88247A001FA326 /* .swift-version in Resources */,
-				EEC8B9D52A880A310088B6E9 /* Assets.xcassets in Resources */,
+				EE8876372B82BA000053633E /* .swift-version in Resources */,
+				EE8876332B82BA000053633E /* .vscode in Resources */,
 				EEC8BA352A8815460088B6E9 /* README.md in Resources */,
+				EE88762D2B82B9BB0053633E /* LICENSE.md in Resources */,
+				EEC8B9D82A880A310088B6E9 /* Preview Assets.xcassets in Resources */,
+				EEC8B9D52A880A310088B6E9 /* Assets.xcassets in Resources */,
 				EEE021482A881E58003676E6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

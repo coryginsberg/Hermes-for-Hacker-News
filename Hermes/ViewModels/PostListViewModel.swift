@@ -75,7 +75,7 @@ class PostListViewModel: ObservableObject {
       guard let snapshotVal = try await snapshot.value as? [Int] else { return }
       Task {
         items = try await snapshotVal.concurrentCompactMap { value throws in
-          await PostInfo(value)
+            await PostInfo(HNID(value))
         }
         currentItem += count
         isLoadingPage = false
