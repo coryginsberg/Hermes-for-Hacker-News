@@ -37,10 +37,14 @@ enum TestData {
         dead: Bool.random(),
         deleted: Bool.random(),
 <<<<<<< HEAD
+<<<<<<< HEAD
         id: HNID(Int.random(in: 100000 ..< 1000000)),
 =======
         id: UInt32.random(in: 100_000 ..< 1_000_000),
 >>>>>>> b0c8453 (Added SwiftFormat and formatted codebase)
+=======
+        id: UInt32.random(in: 100_000 ..< 1_000_000),
+>>>>>>> b0c8453ede966a0d7ec39d94f82e77c8fd44b47d
         kids: nil,
         parent: nil,
         parts: nil,
@@ -103,10 +107,14 @@ enum TestData {
         dead: false,
         deleted: false,
 <<<<<<< HEAD
+<<<<<<< HEAD
         id: HNID(Int.random(in: 100_000 ..< 1_000_000)),
 =======
         id: UInt32.random(in: 100_000 ..< 1_000_000),
 >>>>>>> b0c8453 (Added SwiftFormat and formatted codebase)
+=======
+        id: UInt32.random(in: 100_000 ..< 1_000_000),
+>>>>>>> b0c8453ede966a0d7ec39d94f82e77c8fd44b47d
         kids: nil,
         parent: nil,
         parts: nil,

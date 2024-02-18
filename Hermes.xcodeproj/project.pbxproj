@@ -224,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 <<<<<<< HEAD
+<<<<<<< HEAD
 				EE8876312B82BA000053633E /* .git */,
 				EE88762F2B82BA000053633E /* .gitignore */,
 				EE8876322B82BA000053633E /* .swift-version */,
@@ -239,6 +240,9 @@
 =======
 				EE04317B2B4DE97000EB8C00 /* .git */,
 >>>>>>> b0c8453 (Added SwiftFormat and formatted codebase)
+=======
+				EE04317B2B4DE97000EB8C00 /* .git */,
+>>>>>>> b0c8453ede966a0d7ec39d94f82e77c8fd44b47d
 				EED148782A88247A001FA326 /* .swift-version */,
 				EEC8BA3A2A8815500088B6E9 /* .gitignore */,
 				EE0431782B4DE61400EB8C00 /* .swiftformat */,
