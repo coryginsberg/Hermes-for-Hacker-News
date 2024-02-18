@@ -166,7 +166,9 @@ public extension Sequence {
     _ transform: (Element) async throws -> T
   ) async throws -> [T] {
     try await withoutActuallyEscaping(transform) { escapableTransform in
-      try await withThrowingTaskGroup(of: (offset: Int, value: T).self) { group in
+      try await withThrowingTaskGroup(of: (offset: Int, value: T)
+        .self)
+      { group in
         var c = 0
         for element in self {
           let idx = c
@@ -281,7 +283,9 @@ public extension Sequence {
     _ transform: (Element) async throws -> T?
   ) async throws -> [T] {
     try await withoutActuallyEscaping(transform) { escapableTransform in
-      try await withThrowingTaskGroup(of: (offset: Int, value: T?).self) { group in
+      try await withThrowingTaskGroup(of: (offset: Int, value: T?)
+        .self)
+      { group in
         var c = 0
         for element in self {
           let idx = c
@@ -395,7 +399,9 @@ public extension Sequence {
     _ transform: (Element) async throws -> T
   ) async throws -> [T.Element] {
     try await withoutActuallyEscaping(transform) { escapableTransform in
-      try await withThrowingTaskGroup(of: (offset: Int, value: T).self) { group in
+      try await withThrowingTaskGroup(of: (offset: Int, value: T)
+        .self)
+      { group in
         var c = 0
         for element in self {
           let idx = c

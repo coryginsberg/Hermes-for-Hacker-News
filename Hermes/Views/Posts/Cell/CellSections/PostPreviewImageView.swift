@@ -1,5 +1,5 @@
 //
-//  PostPreviewImage.swift
+//  PostPreviewImageView.swift
 //  Hermes
 //
 //  Created by Cory Ginsberg on 8/14/23.

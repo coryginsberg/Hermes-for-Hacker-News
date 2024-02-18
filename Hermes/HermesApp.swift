@@ -11,10 +11,14 @@ import SwiftUI
 // MARK: - AppDelegate
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_: UIApplication,
-                   didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool
-  {
-    print("Hermes is starting up. ApplicationDelegate didFinishLaunchingWithOptions.")
+  func application(
+    _: UIApplication,
+    didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]? =
+      nil
+  ) -> Bool {
+    print(
+      "Hermes is starting up. ApplicationDelegate didFinishLaunchingWithOptions."
+    )
     FirebaseApp.configure()
     return true
   }

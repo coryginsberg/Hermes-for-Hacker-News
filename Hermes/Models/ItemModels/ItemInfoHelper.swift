@@ -8,14 +8,15 @@
 import FaviconFinder
 import Foundation
 
-struct ItemInfoHelper {
+enum ItemInfoHelper {
   static func convertToDate(from timePublished: Int) -> Date {
     Date(timeIntervalSince1970: TimeInterval(timePublished))
   }
 
   static func loadFavicon(fromUrl url: URL) async throws -> URL {
     do {
-      let favicon = try await FaviconFinder(url: url, downloadImage: false).downloadFavicon()
+      let favicon = try await FaviconFinder(url: url, downloadImage: false)
+        .downloadFavicon()
       return favicon.url
     } catch {
       guard let url = URL.localURLForXCAsset(name: "AwkwardMonkey") else {

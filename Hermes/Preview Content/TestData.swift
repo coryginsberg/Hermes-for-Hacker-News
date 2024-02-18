@@ -1,5 +1,5 @@
 //
-//  PostDataTest.swift
+//  TestData.swift
 //  HackerNewsApp
 //
 //  Created by Cory Ginsberg on 7/27/23.
@@ -7,12 +7,19 @@
 
 import Foundation
 
-struct TestData {
-  private static let authors = ["TrustyVerdict", "pressure_wedge", "UraniumOxide", "deno77", "medagutmann51"]
+enum TestData {
+  private static let authors = [
+    "TrustyVerdict",
+    "pressure_wedge",
+    "UraniumOxide",
+    "deno77",
+    "medagutmann51",
+  ]
 
   enum Posts {
     private static let titles = [
-      "Ask HN: Who here hacks McDonalds trash?", "Ask HN: Am I crazy to steal Farmville strategies?",
+      "Ask HN: Who here hacks McDonalds trash?",
+      "Ask HN: Am I crazy to steal Farmville strategies?",
       "Introducing BushBloat: a Ruby framework optimizer",
       "When a Shaolin monk met a programmer from the Silicon Valley",
       "The lost art of taking meeting notes",
@@ -29,7 +36,11 @@ struct TestData {
         descendants: Int.random(in: 0 ..< 300),
         dead: Bool.random(),
         deleted: Bool.random(),
+<<<<<<< HEAD
         id: HNID(Int.random(in: 100000 ..< 1000000)),
+=======
+        id: UInt32.random(in: 100_000 ..< 1_000_000),
+>>>>>>> b0c8453 (Added SwiftFormat and formatted codebase)
         kids: nil,
         parent: nil,
         parts: nil,
@@ -40,7 +51,8 @@ struct TestData {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         """,
-        time: Date(timeIntervalSince1970: TimeInterval(Int.random(in: 1670495658 ... 1690495658))),
+        time: Date(timeIntervalSince1970: TimeInterval(Int
+            .random(in: 1_670_495_658 ... 1_690_495_658))),
         title: title,
         type: .story,
         url: URL(string: "www.google.com/search?q=hermes+god"),
@@ -90,14 +102,19 @@ struct TestData {
         descendants: nil,
         dead: false,
         deleted: false,
+<<<<<<< HEAD
         id: HNID(Int.random(in: 100_000 ..< 1_000_000)),
+=======
+        id: UInt32.random(in: 100_000 ..< 1_000_000),
+>>>>>>> b0c8453 (Added SwiftFormat and formatted codebase)
         kids: nil,
         parent: nil,
         parts: nil,
         poll: nil,
         score: Int.random(in: 1 ..< 100),
         text: comment,
-        time: Date(timeIntervalSince1970: TimeInterval(Int.random(in: 1_670_495_658 ... 1_690_495_658))),
+        time: Date(timeIntervalSince1970: TimeInterval(Int
+            .random(in: 1_670_495_658 ... 1_690_495_658))),
         title: "",
         type: .comment,
         url: nil,

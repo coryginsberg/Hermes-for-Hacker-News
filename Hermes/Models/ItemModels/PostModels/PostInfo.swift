@@ -18,12 +18,16 @@ class PostInfo: ItemInfo, ItemInfoProtocol {
     await getItemInfo(for: itemID)
   }
 
-  func fetchItem(from ref: DatabaseReference, completion: @escaping (ItemData) -> Void) async {
+  func fetchItem(
+    from ref: DatabaseReference,
+    completion: @escaping (ItemData) -> Void
+  ) async {
     do {
       let snapshot = try await ref.getData()
 
       guard let value = snapshot.value as? [String: Any] else { return }
-      guard let postType = ItemData.TypeVal(rawValue: value["type"] as! String) else { return }
+      guard let postType = ItemData.TypeVal(rawValue: value["type"] as! String)
+      else { return }
       do {
         switch postType {
         case .story:

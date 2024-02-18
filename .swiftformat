@@ -1,0 +1,7 @@
+--binarygrouping none
+--hexgrouping none
+--indent 2
+--octalgrouping none
+--semicolons never
+--wrapcollections before-first
+--maxwidth 80

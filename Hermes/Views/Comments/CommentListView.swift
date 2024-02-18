@@ -9,18 +9,21 @@ import SwiftUI
 
 struct CommentListView: View {
   @State var postData: ItemData
-  
+
   var body: some View {
     NavigationView {
       ScrollView {
         LazyVStack {
           PostCellOuterView(postData: postData, isCommentView: true)
           if let kids = postData.kids, !kids.isEmpty {
-            ForEach(kids, id: \.self) { kid in
-              CommentCell(commentData: TestData.Comments.randomComments.randomElement() ?? TestData.Comments.randomComments[0], indent: 0);
+            ForEach(kids, id: \.self) { _ in
+              CommentCell(commentData:
+                TestData.Comments.randomComments.randomElement() ??
+                  TestData.Comments.randomComments[0],
+                indent: 0)
             }
           } else {
-            Text("Looks like there's no comments here yet");
+            Text("Looks like there's no comments here yet")
           }
         }
       }
@@ -33,5 +36,5 @@ struct CommentListView: View {
 // MARK: - PostCommentView_Previews
 
 #Preview {
-    CommentListView(postData: TestData.Posts.randomPosts[0])
+  CommentListView(postData: TestData.Posts.randomPosts[0])
 }

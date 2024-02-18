@@ -1,5 +1,5 @@
 //
-//  URL+Parsing.swift
+//  URL+Extensions.swift
 //  FaviconFinder
 //
 //  Created by William Lumley on 16/10/19.
@@ -38,11 +38,15 @@ public extension URL {
 public extension URL {
   static func localURLForXCAsset(name: String) -> URL? {
     let fileManager = FileManager.default
-    guard let cacheDirectory = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first else { return nil }
+    guard let cacheDirectory = fileManager.urls(
+      for: .cachesDirectory,
+      in: .userDomainMask
+    ).first else { return nil }
     let url = cacheDirectory.appendingPathComponent("\(name).png")
     let path = url.path
     if !fileManager.fileExists(atPath: path) {
-      guard let image = UIImage(named: name), let data = image.pngData() else { return nil }
+      guard let image = UIImage(named: name),
+            let data = image.pngData() else { return nil }
       fileManager.createFile(atPath: path, contents: data, attributes: nil)
     }
     return url

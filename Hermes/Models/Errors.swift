@@ -10,4 +10,3 @@ import Foundation
 enum ValidationError: Error {
   case storyTypeRequired
 }
-
