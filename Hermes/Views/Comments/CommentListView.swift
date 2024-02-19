@@ -9,24 +9,47 @@ import SwiftUI
 
 struct CommentListView: View {
   @State var postData: ItemData
-  
+  @State private var topLevelComments: [CommentInfo] = [];
   var body: some View {
     NavigationView {
       ScrollView {
         LazyVStack {
           PostCellOuterView(postData: postData, isCommentView: true)
           if let kids = postData.kids, !kids.isEmpty {
-            ForEach(kids, id: \.self) { kid in
-              CommentCell(commentData: TestData.Comments.randomComments.randomElement() ?? TestData.Comments.randomComments[0], indent: 0);
+            ForEach(topLevelComments) { comment in
+              CommentCell(commentData: comment.itemData, indent: 0)
             }
           } else {
             Text("Looks like there's no comments here yet");
           }
+        }.task {
+          topLevelComments = await TopLevelComments(self.postData).comments
         }
       }
     }
     .navigationTitle(Text(""))
     .navigationBarTitleDisplayMode(.inline)
+  }
+}
+
+struct TopLevelComments: Identifiable {
+  var id: ObjectIdentifier
+  var comments: [CommentInfo]
+  
+  init(_ postData: ItemData) async {
+    self.id = ObjectIdentifier.init(postData.id.customMirror.subjectType)
+    self.comments = []
+    if let kids = postData.kids, !kids.isEmpty {
+      do {
+        print(kids)
+        try await kids.asyncForEach { kid in
+          comments.append(try await CommentInfo(for: kid)!)
+        }
+      } catch {
+        print(error.localizedDescription)
+      }
+    }
+    dump(comments)
   }
 }
 

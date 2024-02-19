@@ -10,8 +10,6 @@ import SwiftUI
 struct RootView: View {
   @Environment(\.managedObjectContext) private var viewContext
 
-  //  @ObservedObject var fetch = HackerNewsAPI()
-
   var body: some View {
     TabView {
       PostListView()

@@ -11,6 +11,7 @@ import WebKit
 struct CommentCell: View {
   @State var commentData: ItemData
   @State var indent: Int8;
+  @State var commentsInfo: [CommentInfo] = []
   
 //  @StateObject var commentList = CommentViewModel()
   
@@ -49,15 +50,21 @@ struct CommentCell: View {
           Divider()
             .frame(width: abs(geometry.size.width))
         }
-      }.padding(.horizontal, 16.0)
-      ForEach(Array(commentData.kids ?? []), id: \.self) { child in
-        
-//        CommentCell(commentData: child.delegate.itemData, indent: <#T##Int8#>
-//          Task {
-//            let commentInfo = await CommentInfo(for: child)
-//            await CommentCell(commentData: commentInfo!.itemData, indent: indent + 1)
-//          }
-//        }
+      }.padding(.horizontal, 16.0).task {
+        do {
+          try await commentData.kids?.asyncForEach { kid in
+            if let info = try await CommentInfo(for: kid) {
+              commentsInfo.append(info)
+            }
+          }
+        } catch {
+          print(error.localizedDescription)
+          return
+        }
+      }
+      Text("\(commentData.kids?.count ?? 0)")
+      ForEach(commentsInfo) { comment in
+        CommentCell(commentData: comment.itemData, indent: indent + 1)
       }
     }
   }
@@ -71,4 +78,8 @@ extension String {
       return AttributedString("Error parsing markdown: \(error)")
     }
   }
+}
+
+#Preview {
+    CommentCell(commentData: TestData.Comments.randomComments[0], indent: 0)
 }

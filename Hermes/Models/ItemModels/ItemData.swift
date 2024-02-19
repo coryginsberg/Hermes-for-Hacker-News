@@ -23,21 +23,35 @@ struct ItemData {
     case pollopt
   }
 
-  var author: String = "" // The username of the item's author.
+  /// The username of the item's author.
+  var author: String = ""
   var descendants: Int?
-  var dead: Bool = false // true if the item is dead.
-  var deleted: Bool = false // true if the item is deleted.
-  var id: HNID = 0 // The item's unique id.
-  var kids: [HNID]? = [] // The ids of the item's comments, in ranked display order.
-  var parent: HNID? = 0 // The comment's parent: either another comment or the relevant story.
-  var parts: [HNID]? = [] // A list of related pollopts, in display order.
-  var poll: HNID? // The pollopt's associated poll.
-  var score: Int = 0 // The story's score, or the votes for a pollopt.
-  var text: String? // The comment, story or poll text. HTML.
-  var time: Date = .init() // Creation date of the item, in Unix Time.
-  var title: String? // The title of the story, poll or job. HTML.
-  var type: TypeVal = .story // The type of item. One of "job", "story", "comment", "poll", or "pollopt".
-  var url: URL? // The URL of the story.
+  /// true if the item is dead.
+  var dead: Bool = false
+  /// true if the item is deleted.
+  var deleted: Bool = false
+  /// The item's unique id.
+  var id: HNID = 0
+  /// The ids of the item's comments, in ranked display order.
+  var kids: [HNID]? = []
+  /// The comment's parent: either another comment or the relevant story.
+  var parent: HNID? = 0
+  /// A list of related pollopts, in display order.
+  var parts: [HNID]? = []
+  /// The pollopt's associated poll.
+  var poll: HNID?
+  /// The story's score, or the votes for a pollopt.
+  var score: Int = 0
+  /// The comment, story or poll text. HTML.
+  var text: String?
+  /// Creation date of the item, in Unix Time.
+  var time: Date = .init()
+  /// The title of the story, poll or job. HTML.
+  var title: String?
+  /// The type of item. One of "job", "story", "comment", "poll", or "pollopt".
+  var type: TypeVal = .story
+  /// The URL of the story.
+  var url: URL?
   var faviconUrl: URL?
 
   // MARK: - Default
