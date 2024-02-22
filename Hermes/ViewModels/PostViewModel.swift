@@ -22,7 +22,7 @@ class PostViewModel: ObservableObject, Identifiable {
   }
 
   func getPostInfo() async throws {
-    await PostInfo(itemID)?.fetchItem(from: ref) { itemData in
+    try await PostInfo(itemID)?.fetchItem(from: ref) { itemData in
       self.itemData = itemData
     }
   }

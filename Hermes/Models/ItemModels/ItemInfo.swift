@@ -3,10 +3,7 @@
 //  Licensed under the Apache License, Version 2.0
 //
 
-import FaviconFinder
 import FirebaseDatabase
-import Foundation
-import SwiftUI
 
 // MARK: - ItemInfoProtocol
 
@@ -18,14 +15,24 @@ protocol ItemInfoProtocol {
 
 // MARK: - ItemInfo
 
-class ItemInfo: Identifiable { // abstract
+class ItemInfo: Identifiable, ItemInfoProtocol {
+  // abstract
   var delegate: ItemInfoProtocol!
   let ref = Database.root
+  init(itemData: ItemData) {
+    self.itemData = itemData
+  }
 
   func getItemInfo(for itemID: HNID) async {
     let postRef = ref.child("v0/item/\(itemID)")
     await delegate.fetchItem(from: postRef) { [self] item in
       delegate.itemData = item
     }
+  }
+  
+  var itemData: ItemData = .init()
+  
+  func fetchItem(from ref: DatabaseReference, completion: @escaping (ItemData) -> Void) async {
+    return
   }
 }

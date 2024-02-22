@@ -8,17 +8,16 @@
 import FirebaseDatabase
 import Foundation
 
-class PostInfo: ItemInfo, ItemInfoProtocol {
-  var itemData: ItemData = .init()
+class PostInfo: ItemInfo {
   var itemID: HNID
-  init?(_ itemID: HNID) async {
+  init?(_ itemID: HNID) async throws {
     self.itemID = itemID
-    super.init()
+    super.init(itemData: .init())
     delegate = self
     await getItemInfo(for: itemID)
   }
 
-  func fetchItem(from ref: DatabaseReference, completion: @escaping (ItemData) -> Void) async {
+  override func fetchItem(from ref: DatabaseReference, completion: @escaping (ItemData) -> Void) async {
     do {
       let snapshot = try await ref.getData()
 

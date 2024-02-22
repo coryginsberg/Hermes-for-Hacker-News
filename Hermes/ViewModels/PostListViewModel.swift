@@ -11,7 +11,7 @@ class PostListViewModel: ObservableObject {
 
   private let ref = Database.root
   private var itemListRef: DatabaseReference?
-  private var storyType: StoriesTypes? = nil
+  private var storyType: StoriesTypes?
   private var currentItem: UInt = 0
   private var canLoadMoreItems = true
 
@@ -20,14 +20,14 @@ class PostListViewModel: ObservableObject {
       do {
         try await genInitializePosts(forStoryType: storyType)
       } catch ValidationError.storyTypeRequired {
-        print("Error: Tried to generate a story without defining the story type");
+        print("Error: Tried to generate a story without defining the story type")
       }
     }
   }
 
   func loadMoreContentIfNeeded(currentItem item: ItemInfo? = nil) async {
     guard let postListRef = itemListRef else { return }
-    guard let item = item else {
+    guard let item else {
       await genLoadMorePosts(from: postListRef, numberOfPosts: 15)
       return
     }
@@ -41,7 +41,7 @@ class PostListViewModel: ObservableObject {
   func refreshPostList() async throws {
     currentItem = 0
     canLoadMoreItems = true
-    guard let storyType = storyType else { return }
+    guard let storyType else { return }
     try await genInitializePosts(forStoryType: storyType)
   }
 
@@ -75,11 +75,11 @@ class PostListViewModel: ObservableObject {
       guard let snapshotVal = try await snapshot.value as? [Int] else { return }
       Task {
         items = try await snapshotVal.concurrentCompactMap { value throws in
-            await PostInfo(HNID(value))
+            try await PostInfo(HNID(value))
         }
         currentItem += count
         isLoadingPage = false
-        if (currentItem >= 500) {
+        if currentItem >= 500 {
           canLoadMoreItems = false
         }
       }
@@ -90,8 +90,8 @@ class PostListViewModel: ObservableObject {
   }
 
   private func genPostsInfo() async throws -> [ItemInfo] {
-    await items.asyncCompactMap {
-      await PostInfo($0.delegate.itemData.id)
+    try await items.asyncCompactMap {
+      try await PostInfo($0.delegate.itemData.id)
     }
   }
 

@@ -9,17 +9,17 @@ import WebKit
 // MARK: - CommentCell
 
 struct CommentCell: View {
+  
   @State var commentData: ItemData
-  @State var indent: Int8;
+  @State var indent: UInt8
   @State var commentsInfo: [CommentInfo] = []
-  
-//  @StateObject var commentList = CommentViewModel()
-  
+
   var body: some View {
     let primaryColor = commentData.dead ? Color(uiColor: .systemGray5) : Color(uiColor: .label)
-    let secondaryColor = commentData.dead ? Color(uiColor: .systemGray5) : Color(uiColor: .secondaryLabel)
+    let secondaryColor =
+      commentData.dead ? Color(uiColor: .systemGray5) : Color(uiColor: .secondaryLabel)
     let prefixText = commentData.dead ? "[dead] " : commentData.deleted ? "[deleted] " : ""
-    
+
     VStack {
       VStack {
         Text("\(prefixText)\(commentData.text ?? "")")
@@ -29,12 +29,14 @@ struct CommentCell: View {
           .allowsTightening(true)
           .frame(maxWidth: .infinity, alignment: .leading)
           .dynamicTypeSize(.medium)
-        
+
         HStack {
           Image(systemName: "clock")
             .dynamicTypeSize(.xSmall)
             .foregroundColor(secondaryColor)
-          SecondaryText(textBody: ItemInfoHelper.calcTimeSince(datePosted: commentData.time), textColor: secondaryColor)
+          SecondaryText(
+            textBody: ItemInfoHelper.calcTimeSince(datePosted: commentData.time),
+            textColor: secondaryColor)
           if commentData.score != 0 {
             SecondaryImage(imageName: "arrow.up", textColor: secondaryColor)
             SecondaryText(textBody: "\(commentData.score)", textColor: secondaryColor)
@@ -62,7 +64,6 @@ struct CommentCell: View {
           return
         }
       }
-      Text("\(commentData.kids?.count ?? 0)")
       ForEach(commentsInfo) { comment in
         CommentCell(commentData: comment.itemData, indent: indent + 1)
       }
@@ -81,5 +82,5 @@ extension String {
 }
 
 #Preview {
-    CommentCell(commentData: TestData.Comments.randomComments[0], indent: 0)
+  CommentCell(commentData: TestData.Comments.randomComments[0], indent: 0)
 }

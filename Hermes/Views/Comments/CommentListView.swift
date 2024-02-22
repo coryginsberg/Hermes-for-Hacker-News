@@ -8,53 +8,49 @@ import SwiftUI
 // MARK: - CommentListView
 
 struct CommentListView: View {
-  @State var postData: ItemData
-  @State private var topLevelComments: [CommentInfo] = [];
-  var body: some View {
-    NavigationView {
-      ScrollView {
-        LazyVStack {
-          PostCellOuterView(postData: postData, isCommentView: true)
-          if let kids = postData.kids, !kids.isEmpty {
-            ForEach(topLevelComments) { comment in
-              CommentCell(commentData: comment.itemData, indent: 0)
-            }
-          } else {
-            Text("Looks like there's no comments here yet");
-          }
-        }.task {
-          topLevelComments = await TopLevelComments(self.postData).comments
-        }
-      }
-    }
-    .navigationTitle(Text(""))
-    .navigationBarTitleDisplayMode(.inline)
-  }
-}
+  @State var numComments: Int = 0
 
-struct TopLevelComments: Identifiable {
-  var id: ObjectIdentifier
-  var comments: [CommentInfo]
+  @State var currentPost: ItemData
+  @StateObject var commentList: CommentListViewModel
+
+  init(currentPost: ItemData) {
+    _currentPost = State(wrappedValue: currentPost)
+    _numComments = State(wrappedValue: currentPost.descendants ?? 0)
+    _commentList = StateObject(wrappedValue: CommentListViewModel(withComments: currentPost.kids ?? []))
+  }
   
-  init(_ postData: ItemData) async {
-    self.id = ObjectIdentifier.init(postData.id.customMirror.subjectType)
-    self.comments = []
-    if let kids = postData.kids, !kids.isEmpty {
-      do {
-        print(kids)
-        try await kids.asyncForEach { kid in
-          comments.append(try await CommentInfo(for: kid)!)
+  var body: some View {
+    return NavigationView {
+      ScrollView(.vertical) {
+        LazyVStack {
+          PostCellOuterView(postData: currentPost, isCommentView: true)
+          if commentList.isLoadingPage {
+            ProgressView()
+          } else if commentList.items.isEmpty {
+            Text("Looks like there's no comments here yet")
+          } else {
+            ForEach(commentList.items) { comment in
+              CommentCell(commentData: comment.delegate.itemData, indent: 0)
+            }
+          }
         }
-      } catch {
-        print(error.localizedDescription)
+        .refreshable {
+          self.numComments = currentPost.kids?.count ?? 0
+          do {
+            try await commentList.refreshCommentList(forParentComments: currentPost.kids ?? [])
+          } catch {
+            print("unable to refresh comment list")
+          }
+        }
       }
     }
-    dump(comments)
+    .navigationTitle("\(numComments) Comments")
+    .navigationBarTitleDisplayMode(.inline)
   }
 }
 
 // MARK: - PostCommentView_Previews
 
 #Preview {
-    CommentListView(postData: TestData.Posts.randomPosts[0])
+    CommentListView(currentPost: TestData.Posts.randomPosts[0])
 }

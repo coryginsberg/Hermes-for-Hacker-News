@@ -6,25 +6,21 @@
 //
 
 import FirebaseDatabase
-import Foundation
 
-class CommentInfo: ItemInfo, ItemInfoProtocol {
-  var itemData: ItemData = .init()
+class CommentInfo: ItemInfo {
   var itemID: HNID
   init?(for itemID: HNID) async throws {
     self.itemID = itemID
-    super.init()
+    super.init(itemData: .init())
     delegate = self
     await getItemInfo(for: itemID)
   }
 
-  /// - See: `ItemInfo.getItemInfo()`
-  func fetchItem(from ref: DatabaseReference, completion: @escaping (ItemData) -> Void) async {
+  override func fetchItem(from ref: DatabaseReference, completion: @escaping (ItemData) -> Void) async {
     do {
       let snapshot = try await ref.getData()
-      guard let value = snapshot.value as? [String: Any] else { return }
-      guard let postType = value["type"] as? ItemData.TypeVal else { return }
-      guard postType == .comment else { return }
+      guard let value = snapshot.value as? [String: Any] else { throw ValidationError.storyTypeRequired }
+      
       completion(ItemData(
         forComment: value["by"] as? String ?? "",
         descendants: value["descendants"] as? Int ?? 0,

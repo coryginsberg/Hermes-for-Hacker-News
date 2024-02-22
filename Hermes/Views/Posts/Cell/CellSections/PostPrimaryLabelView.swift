@@ -25,7 +25,7 @@ struct PostPrimaryLabelView: View {
         WebViewWrapper(url: url)
       })
     } else {
-      NavigationLink(destination: CommentListView(postData: postData)) {
+      NavigationLink(destination: CommentListView(currentPost: postData)) {
         PrimaryLabel(postData: postData, secondaryTextColor: secondaryTextColor)
       }
     }
