@@ -12,7 +12,7 @@
 import Foundation
 import UIKit
 
-typealias HNID = UInt32
+typealias HNID = Int
 
 struct ItemData {
   enum TypeVal: String {

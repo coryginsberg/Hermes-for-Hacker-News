@@ -20,7 +20,7 @@ struct CommentListView: View {
   }
   
   var body: some View {
-    return NavigationView {
+    NavigationView {
       ScrollView(.vertical) {
         LazyVStack {
           PostCellOuterView(postData: currentPost, isCommentView: true)
@@ -33,7 +33,7 @@ struct CommentListView: View {
               CommentCell(commentData: comment.delegate.itemData, indent: 0)
             }
           }
-        }
+        }.padding(.trailing, 16.0)
         .refreshable {
           self.numComments = currentPost.kids?.count ?? 0
           do {

@@ -1,8 +1,6 @@
 //
-//  HermesApp.swift
-//  Hermes
-//
-//  Created by Cory Ginsberg on 8/12/23.
+//  Copyright (c) 2022 Cory Ginsberg.
+//  Licensed under the Apache License, Version 2.0
 //
 
 import FirebaseCore

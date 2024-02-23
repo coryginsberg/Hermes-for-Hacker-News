@@ -13,7 +13,7 @@ class CommentListViewModel: ObservableObject {
   private var commentListRef: DatabaseReference?
   private var canLoadMoreItems = true
 
-  init(withComments comments: [UInt32]) {
+  init(withComments comments: [Int]) {
     Task {
       do {
         try await genLoadComments(comments)

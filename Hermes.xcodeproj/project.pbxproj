@@ -78,6 +78,7 @@
 		EE77BBD42A8AD14B00880625 /* PostPreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPreviewImageView.swift; sourceTree = "<group>"; };
 		EE77BBD62A8AD97E00880625 /* PostPrimaryLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPrimaryLabelView.swift; sourceTree = "<group>"; };
 		EE77BBD82A8ADB2900880625 /* PostSecondaryLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSecondaryLabelView.swift; sourceTree = "<group>"; };
+		EE8220012B892D5100608696 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		EE8876202B82B9BB0053633E /* HermesUITests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HermesUITests; sourceTree = "<group>"; };
 		EE8876212B82B9BB0053633E /* HermesTests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HermesTests; sourceTree = "<group>"; };
@@ -219,6 +220,7 @@
 		EEC8B9C42A880A280088B6E9 = {
 			isa = PBXGroup;
 			children = (
+				EE8220012B892D5100608696 /* MyPlayground.playground */,
 				EE8876312B82BA000053633E /* .git */,
 				EE88762F2B82BA000053633E /* .gitignore */,
 				EE8876322B82BA000053633E /* .swift-version */,
