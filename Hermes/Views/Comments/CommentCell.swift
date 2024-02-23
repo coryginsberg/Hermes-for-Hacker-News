@@ -5,7 +5,6 @@
 
 import SwiftUI
 import WebKit
-import RegexBuilder
 
 // MARK: - CommentCell
 
@@ -30,7 +29,7 @@ struct CommentCell: View {
     let prefixText = commentData.dead ? "[dead] " : commentData.deleted ? "[deleted] " : ""
 
     LazyVStack {
-      Text("\(prefixText)\(commentData.text?.htmlToMarkDown() ?? "")")
+      Text("\(prefixText)\(commentData.text?.stringByDecodingHTMLEntities.htmlToMarkDown() ?? "")")
         .foregroundColor(primaryColor)
         .multilineTextAlignment(.leading)
         .padding(.bottom, 6.0)
@@ -69,83 +68,6 @@ struct CommentCell: View {
     }.padding(.leading, 16.0)
   }
 }
-
-extension String {
-  func markdownToAttributed() -> AttributedString {
-    do {
-      return try AttributedString(markdown: self)
-    } catch {
-      return AttributedString("Error parsing markdown: \(error)")
-    }
-  }
-}
-
-extension String {
-    func htmlToMarkDown() -> String {
-        // Replace line feeds with nothing, which is how HTML notation is read in the browsers
-        var text = self.replacing("\n", with: "")
-        
-        // Line breaks
-        text = text.replacing("<div>", with: "\n")
-        text = text.replacing("</div>", with: "")
-        text = text.replacing("<p>", with: "\n")
-        text = text.replacing("<br>", with: "\n")
-
-        // Text formatting
-        text = text.replacing("<strong>", with: "**")
-        text = text.replacing("</strong>", with: "**")
-        text = text.replacing("<b>", with: "**")
-        text = text.replacing("</b>", with: "**")
-        text = text.replacing("<em>", with: "*")
-        text = text.replacing("</em>", with: "*")
-        text = text.replacing("<i>", with: "*")
-        text = text.replacing("</i>", with: "*")
-        
-        // Replace hyperlinks block
-        var loop = true
-        // Stop looking for hyperlinks when none is found
-        while loop {
-            // Retrieve hyperlink
-            let searchHyperlink = Regex {
-                // A hyperlink that is embedded in an HTML tag in this format: <a... href="<hyperlink>"....>
-                "<a"
-                // There could be other attributes between <a... and href=...
-                // .reluctant parameter: to stop matching after the first occurrence
-                ZeroOrMore(.any)
-                // We could have href="..., href ="..., href= "..., href = "...
-                "href"
-                ZeroOrMore(.any)
-                "="
-                ZeroOrMore(.any)
-                "\""
-                // Here is where the hyperlink (href) is captured
-                Capture {
-                    ZeroOrMore(.any)
-                }
-                "\""
-                // After href="<hyperlink>", there could be a ">" sign or other attributes
-                ZeroOrMore(.any)
-                ">"
-                // Here is where the linked text is captured
-                Capture {
-                    ZeroOrMore(.any, .reluctant)
-                }
-                One("</a>")
-            }
-                .repetitionBehavior(.reluctant)
-            
-            if let match = text.firstMatch(of: searchHyperlink) {
-                let (hyperlinkTag, href, content) = match.output
-                let markDownLink = "[" + content + "](" + href + ")"
-                text = text.replacing(hyperlinkTag, with: markDownLink)
-            } else {
-                loop = false
-            }
-        }
-        return text
-    }
-}
-
 
 #Preview {
   CommentCell(commentData: TestData.Comments.randomComments[0], indent: 0)

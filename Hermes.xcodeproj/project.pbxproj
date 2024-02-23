@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE0F941E2B893A1E00108223 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F941D2B893A1E00108223 /* String+Extensions.swift */; };
 		EE2F08EF2ACCB17400EB4489 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2F08EE2ACCB17400EB4489 /* CommentViewModel.swift */; };
 		EE6F70722ACB79FA000E7C78 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6F70712ACB79FA000E7C78 /* Errors.swift */; };
 		EE77BBD22A8AC9F400880625 /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD12A8AC9F400880625 /* WebViewWrapper.swift */; };
@@ -16,10 +17,6 @@
 		EE85BB142A8C0CC600ACF5F3 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */; };
 		EE85BB172A8C0DF900ACF5F3 /* DomainParser in Frameworks */ = {isa = PBXBuildFile; productRef = EE85BB162A8C0DF900ACF5F3 /* DomainParser */; };
 		EE88762D2B82B9BB0053633E /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = EE8876262B82B9BB0053633E /* LICENSE.md */; };
-		EE8876332B82BA000053633E /* .vscode in Resources */ = {isa = PBXBuildFile; fileRef = EE88762E2B82BA000053633E /* .vscode */; };
-		EE8876342B82BA000053633E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EE88762F2B82BA000053633E /* .gitignore */; };
-		EE8876362B82BA000053633E /* .git in Resources */ = {isa = PBXBuildFile; fileRef = EE8876312B82BA000053633E /* .git */; };
-		EE8876372B82BA000053633E /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = EE8876322B82BA000053633E /* .swift-version */; };
 		EEC8B9D12A880A280088B6E9 /* HermesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9D02A880A280088B6E9 /* HermesApp.swift */; };
 		EEC8B9D52A880A310088B6E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D42A880A310088B6E9 /* Assets.xcassets */; };
 		EEC8B9D82A880A310088B6E9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D72A880A310088B6E9 /* Preview Assets.xcassets */; };
@@ -72,26 +69,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE0F941D2B893A1E00108223 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		EE2F08EE2ACCB17400EB4489 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		EE6F70712ACB79FA000E7C78 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		EE77BBD12A8AC9F400880625 /* WebViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewWrapper.swift; sourceTree = "<group>"; };
 		EE77BBD42A8AD14B00880625 /* PostPreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPreviewImageView.swift; sourceTree = "<group>"; };
 		EE77BBD62A8AD97E00880625 /* PostPrimaryLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPrimaryLabelView.swift; sourceTree = "<group>"; };
 		EE77BBD82A8ADB2900880625 /* PostSecondaryLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSecondaryLabelView.swift; sourceTree = "<group>"; };
-		EE8220012B892D5100608696 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
-		EE8876202B82B9BB0053633E /* HermesUITests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HermesUITests; sourceTree = "<group>"; };
-		EE8876212B82B9BB0053633E /* HermesTests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HermesTests; sourceTree = "<group>"; };
 		EE8876222B82B9BB0053633E /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		EE8876232B82B9BB0053633E /* Package.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Package.resolved; sourceTree = "<group>"; };
 		EE8876242B82B9BB0053633E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		EE8876252B82B9BB0053633E /* Hermes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Hermes; sourceTree = "<group>"; };
 		EE8876262B82B9BB0053633E /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
-		EE88762E2B82BA000053633E /* .vscode */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .vscode; sourceTree = "<group>"; };
-		EE88762F2B82BA000053633E /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		EE8876302B82BA000053633E /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		EE8876312B82BA000053633E /* .git */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .git; sourceTree = "<group>"; };
-		EE8876322B82BA000053633E /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		EEC8B9CD2A880A280088B6E9 /* Hermes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hermes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC8B9D02A880A280088B6E9 /* HermesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesApp.swift; sourceTree = "<group>"; };
 		EEC8B9D42A880A310088B6E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -220,15 +209,6 @@
 		EEC8B9C42A880A280088B6E9 = {
 			isa = PBXGroup;
 			children = (
-				EE8220012B892D5100608696 /* MyPlayground.playground */,
-				EE8876312B82BA000053633E /* .git */,
-				EE88762F2B82BA000053633E /* .gitignore */,
-				EE8876322B82BA000053633E /* .swift-version */,
-				EE8876302B82BA000053633E /* .swiftlint.yml */,
-				EE88762E2B82BA000053633E /* .vscode */,
-				EE8876252B82B9BB0053633E /* Hermes */,
-				EE8876212B82B9BB0053633E /* HermesTests */,
-				EE8876202B82B9BB0053633E /* HermesUITests */,
 				EE8876262B82B9BB0053633E /* LICENSE.md */,
 				EE8876232B82B9BB0053633E /* Package.resolved */,
 				EE8876222B82B9BB0053633E /* Package.swift */,
@@ -336,6 +316,7 @@
 				EEC8BA112A8814520088B6E9 /* Database+Extensions.swift */,
 				EEC8BA102A8814520088B6E9 /* Sequence+Extensions.swift */,
 				EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */,
+				EE0F941D2B893A1E00108223 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -473,11 +454,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE8876362B82BA000053633E /* .git in Resources */,
-				EE8876342B82BA000053633E /* .gitignore in Resources */,
 				EEC8BA392A88154C0088B6E9 /* .swiftlint.yml in Resources */,
-				EE8876372B82BA000053633E /* .swift-version in Resources */,
-				EE8876332B82BA000053633E /* .vscode in Resources */,
 				EEC8BA352A8815460088B6E9 /* README.md in Resources */,
 				EE88762D2B82B9BB0053633E /* LICENSE.md in Resources */,
 				EEC8B9D82A880A310088B6E9 /* Preview Assets.xcassets in Resources */,
@@ -517,6 +494,7 @@
 				EEC8BA1D2A8814830088B6E9 /* SettingsView.swift in Sources */,
 				EEC8BA262A8814E10088B6E9 /* PostCellTextView.swift in Sources */,
 				EEC8BA282A8814E10088B6E9 /* PostCellOuterView.swift in Sources */,
+				EE0F941E2B893A1E00108223 /* String+Extensions.swift in Sources */,
 				EEC8BA132A8814520088B6E9 /* Database+Extensions.swift in Sources */,
 				EEC8BA1F2A8814880088B6E9 /* InboxView.swift in Sources */,
 				EEC8BA2F2A8814E70088B6E9 /* CommentListView.swift in Sources */,
