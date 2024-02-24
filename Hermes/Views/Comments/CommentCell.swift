@@ -14,11 +14,10 @@ struct CommentCell: View {
   @StateObject var childCommentList: CommentListViewModel
 
   var childComments: [ItemData] = []
-  
+
   init(commentData: ItemData, indent: Int) {
-    _commentData = State(wrappedValue: commentData);
-    _indent = State(wrappedValue: indent);
-    
+    _commentData = State(wrappedValue: commentData)
+    _indent = State(wrappedValue: indent)
     _childCommentList = StateObject(wrappedValue: CommentListViewModel(withComments: commentData.kids ?? []))
   }
 
@@ -29,13 +28,14 @@ struct CommentCell: View {
     let prefixText = commentData.dead ? "[dead] " : commentData.deleted ? "[deleted] " : ""
 
     LazyVStack {
-      Text("\(prefixText)\(commentData.text?.stringByDecodingHTMLEntities.htmlToMarkDown() ?? "")")
+      Text(try! AttributedString(markdown: "\(prefixText)\(commentData.text ?? "")"))
         .foregroundColor(primaryColor)
         .multilineTextAlignment(.leading)
         .padding(.bottom, 6.0)
         .allowsTightening(true)
         .frame(maxWidth: .infinity, alignment: .topLeading)
         .dynamicTypeSize(.medium)
+        .textSelection(.enabled)
 
       HStack {
         Image(systemName: "clock")

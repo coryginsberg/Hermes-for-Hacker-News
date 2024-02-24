@@ -14,8 +14,10 @@ import UIKit
 
 typealias HNID = Int
 
-struct ItemData {
-  enum TypeVal: String {
+struct ItemData
+{
+  enum TypeVal: String
+  {
     case job
     case story
     case comment
@@ -198,6 +200,8 @@ struct ItemData {
        text: String?,
        time: Date)
   {
+    let markdownText = text?.stringByDecodingHTMLEntities.htmlToMarkDown()
+
     self.init(author: author,
               descendants: descendants,
               dead: dead,
@@ -208,7 +212,7 @@ struct ItemData {
               parts: nil,
               poll: nil,
               score: score,
-              text: text,
+              text: markdownText,
               time: time,
               title: nil,
               type: .comment,

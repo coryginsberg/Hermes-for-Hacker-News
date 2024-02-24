@@ -22,6 +22,9 @@ private let characterEntities: [Substring: Character] = [
   "&diams;": "♦",
 ]
 
+/// Hacker News comment text is encoded as HTML before being added to the JSON blob. The
+/// extension below allows us to decode the HTML then convert that to Markdown which the
+/// `Text()` SwiftUI struct has limited support for.
 extension String {
   // MARK: - String to HTML
 
@@ -56,8 +59,6 @@ extension String {
         return characterEntities[entity]
       }
     }
-
-    // ===== Method starts here =====
 
     var result = ""
     var position = startIndex
@@ -145,7 +146,7 @@ extension String {
 
       if let match = text.firstMatch(of: searchHyperlink) {
         let (hyperlinkTag, href, content) = match.output
-        let markDownLink = "[" + content + "](" + href + ")"
+        let markDownLink = "[\(content)](\(href))"
         text = text.replacing(hyperlinkTag, with: markDownLink)
       } else {
         loop = false
