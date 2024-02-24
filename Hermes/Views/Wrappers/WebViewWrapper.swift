@@ -1,24 +1,25 @@
 //
-//  WebView.swift
-//  Hermes
-//
-//  Created by Cory Ginsberg on 8/14/23.
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
+import SafariServices
 import SwiftUI
 import WebKit
-import SafariServices
 
 struct WebViewWrapper: UIViewControllerRepresentable {
   typealias UIViewControllerType = SFSafariViewController
-  
+
   let url: URL
-  
-  func makeUIViewController(context: Context) -> SFSafariViewController {
+
+  func makeUIViewController(context _: Context) -> SFSafariViewController {
     return SFSafariViewController(url: url)
   }
-  
-  func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {
+
+  func updateUIViewController(
+    _ uiViewController: SFSafariViewController,
+    context _: Context
+  ) {
     uiViewController.loadView()
   }
 }

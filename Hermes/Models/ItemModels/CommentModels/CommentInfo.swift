@@ -1,8 +1,6 @@
 //
-//  CommentInfo.swift
-//  HackerNewsApp
-//
-//  Created by Cory Ginsberg on 7/30/23.
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
 import FirebaseDatabase
@@ -16,11 +14,15 @@ class CommentInfo: ItemInfo {
     await getItemInfo(for: itemID)
   }
 
-  override func fetchItem(from ref: DatabaseReference, completion: @escaping (ItemData) -> Void) async {
+  override func fetchItem(
+    from ref: DatabaseReference,
+    completion: @escaping (ItemData) -> Void
+  ) async {
     do {
       let snapshot = try await ref.getData()
-      guard let value = snapshot.value as? [String: Any] else { throw ValidationError.storyTypeRequired }
-      
+      guard let value = snapshot.value as? [String: Any]
+      else { throw ValidationError.storyTypeRequired }
+
       completion(ItemData(
         forComment: value["by"] as? String ?? "",
         descendants: value["descendants"] as? Int ?? 0,

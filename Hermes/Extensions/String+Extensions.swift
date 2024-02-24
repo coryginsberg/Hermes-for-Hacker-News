@@ -1,8 +1,6 @@
 //
-//  String+Extensions.swift
-//  Hermes
-//
-//  Created by Cory Ginsberg on 2/23/24.
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
 import Foundation
@@ -22,20 +20,22 @@ private let characterEntities: [Substring: Character] = [
   "&diams;": "♦",
 ]
 
-/// Hacker News comment text is encoded as HTML before being added to the JSON blob. The
-/// extension below allows us to decode the HTML then convert that to Markdown which the
-/// `Text()` SwiftUI struct has limited support for.
+/// Hacker News comment text is encoded as HTML before being added to the JSON
+/// blob.
+/// The extension below allows us to decode the HTML then convert that to
+/// Markdown
+/// which the `Text()` SwiftUI struct has limited support for.
 extension String {
   // MARK: - String to HTML
 
-  /// Returns a new string made by replacing in the `String`
-  /// all HTML character entity references with the corresponding
-  /// character.
+  /// Returns a new string made by replacing in the `String` all HTML character
+  /// entity
+  /// references with the corresponding character.
   var stringByDecodingHTMLEntities: String {
     // ===== Utility functions =====
 
-    // Convert the number in the string to the corresponding
-    // Unicode character, e.g.
+    // Convert the number in the string to the corresponding Unicode character,
+    // e.g.
     //    decodeNumeric("64", 10)   --> "@"
     //    decodeNumeric("20ac", 16) --> "€"
     func decodeNumeric(_ string: Substring, base: Int) -> Character? {
@@ -44,8 +44,9 @@ extension String {
       return Character(uniScalar)
     }
 
-    // Decode the HTML character entity to the corresponding
-    // Unicode character, return `nil` for invalid input.
+    // Decode the HTML character entity to the corresponding Unicode character,
+    // return
+    // `nil` for invalid input.
     //     decode("&#64;")    --> "@"
     //     decode("&#x20ac;") --> "€"
     //     decode("&lt;")     --> "<"
@@ -92,7 +93,9 @@ extension String {
   // MARK: - HTML To Markdown
 
   func htmlToMarkDown() -> String {
-    // Replace line feeds with nothing, which is how HTML notation is read in the browsers
+    // Replace line feeds with nothing, which is how HTML notation is read in
+    // the
+    // browsers
     var text = replacing("\n", with: "")
 
     // Line breaks
@@ -117,10 +120,12 @@ extension String {
     while loop {
       // Retrieve hyperlink
       let searchHyperlink = Regex {
-        // A hyperlink that is embedded in an HTML tag in this format: <a... href="<hyperlink>"....>
+        // A hyperlink that is embedded in an HTML tag in this format: <a...
+        // href="<hyperlink>"....>
         "<a"
-        // There could be other attributes between <a... and href=...
-        // .reluctant parameter: to stop matching after the first occurrence
+        // There could be other attributes between <a... and href=... .reluctant
+        // parameter:
+        // to stop matching after the first occurrence
         ZeroOrMore(.any)
         // We could have href="..., href ="..., href= "..., href = "...
         "href"
@@ -133,7 +138,8 @@ extension String {
           ZeroOrMore(.any)
         }
         "\""
-        // After href="<hyperlink>", there could be a ">" sign or other attributes
+        // After href="<hyperlink>", there could be a ">" sign or other
+        // attributes
         ZeroOrMore(.any)
         ">"
         // Here is where the linked text is captured

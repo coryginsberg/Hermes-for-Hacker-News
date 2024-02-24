@@ -1,12 +1,6 @@
 //
-//  Copyright (c) 2022 Cory Ginsberg.
-//  Licensed under the Apache License, Version 2.0
-//
-// Stories, comments, jobs, Ask HNs and even polls are just items.
-// They're identified by their ids, which are unique integers,
-// and live under /v0/item/<id>
-//
-// See https://github.com/HackerNews/API#items for more info
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
 import Foundation
@@ -14,10 +8,8 @@ import UIKit
 
 typealias HNID = Int
 
-struct ItemData
-{
-  enum TypeVal: String
-  {
+struct ItemData {
+  enum TypeVal: String {
     case job
     case story
     case comment
@@ -91,7 +83,7 @@ struct ItemData
     self.title = title
     self.type = type
     self.url = url
-    self.faviconUrl = faviconURL
+    faviconUrl = faviconURL
   }
 
   // MARK: - Story Link

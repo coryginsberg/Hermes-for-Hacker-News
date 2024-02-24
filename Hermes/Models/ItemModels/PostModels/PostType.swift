@@ -1,15 +1,16 @@
 //
-//  StoryInfo.swift
-//  HackerNewsApp
-//
-//  Created by Cory Ginsberg on 7/30/23.
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
 import FirebaseDatabase
 import Foundation
 
-struct PostType {
-  static func fetchStory(from value: [String: Any], completion: @escaping (ItemData) -> Void) async throws {
+enum PostType {
+  static func fetchStory(
+    from value: [String: Any],
+    completion: @escaping (ItemData) -> Void
+  ) async throws {
     var itemData: ItemData
     if let urlStr = value["url"] as? String, let url = URL(string: urlStr) {
       let faviconURL = try await ItemInfoHelper.loadFavicon(fromUrl: url)
@@ -21,7 +22,8 @@ struct PostType {
                           id: value["id"] as? HNID ?? 0,
                           kids: value["kids"] as? [HNID] ?? [],
                           score: value["score"] as? Int ?? 0,
-                          time: ItemInfoHelper.convertToDate(from: value["time"] as? Int ?? 0),
+                          time: ItemInfoHelper
+                            .convertToDate(from: value["time"] as? Int ?? 0),
                           title: value["title"] as? String ?? "",
                           faviconURL: faviconURL)
     } else {
@@ -34,12 +36,16 @@ struct PostType {
                           kids: value["kids"] as? [HNID] ?? [],
                           score: value["score"] as? Int ?? 0,
                           text: value["text"] as? String ?? "",
-                          time: ItemInfoHelper.convertToDate(from: value["time"] as? Int ?? 0))
+                          time: ItemInfoHelper
+                            .convertToDate(from: value["time"] as? Int ?? 0))
     }
     completion(itemData)
   }
 
-  static func fetchJob(from value: [String: Any], completion: @escaping (ItemData) -> Void) {
+  static func fetchJob(
+    from value: [String: Any],
+    completion: @escaping (ItemData) -> Void
+  ) {
     completion(ItemData(
       forJob: value["by"] as? String ?? "",
       dead: value["dead"] as? Bool ?? false,

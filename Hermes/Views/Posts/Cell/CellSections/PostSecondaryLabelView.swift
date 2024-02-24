@@ -1,8 +1,6 @@
 //
-//  PostSecondaryLabelView.swift
-//  Hermes
-//
-//  Created by Cory Ginsberg on 8/14/23.
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
 import SwiftUI
@@ -19,11 +17,18 @@ struct PostSecondaryLabelView: View {
         SecondaryImage(imageName: "arrow.up", textColor: textColor)
         SecondaryText(textBody: "\(postData?.score ?? 0)", textColor: textColor)
         SecondaryImage(imageName: "bubble.left", textColor: textColor)
-        SecondaryText(textBody: "\(postData?.descendants ?? 0)", textColor: textColor)
+        SecondaryText(
+          textBody: "\(postData?.descendants ?? 0)",
+          textColor: textColor
+        )
         Image(systemName: "clock")
           .dynamicTypeSize(.xSmall)
           .foregroundColor(textColor)
-        SecondaryText(textBody: ItemInfoHelper.calcTimeSince(datePosted: postData?.time ?? Date()), textColor: textColor)
+        SecondaryText(
+          textBody: ItemInfoHelper
+            .calcTimeSince(datePosted: postData?.time ?? Date()),
+          textColor: textColor
+        )
         Text("by \(postData?.author ?? "")")
           .allowsTightening(true)
           .frame(maxWidth: .infinity, alignment: .trailing)

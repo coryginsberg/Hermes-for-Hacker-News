@@ -1,8 +1,6 @@
 //
-//  PostCellNavigation.swift
-//  HackerNewsApp
-//
-//  Created by Cory Ginsberg on 10/25/22.
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
 import SwiftUI
@@ -20,7 +18,9 @@ struct PostCellOuterView: View {
     VStack(alignment: .leading) {
       Grid(alignment: .leading) {
         GridRow {
-          if postData.type == .story, let url = postData.url, let faviconUrl = postData.faviconUrl {
+          if postData.type == .story, let url = postData.url,
+             let faviconUrl = postData.faviconUrl
+          {
             PostPreviewImageView(url: url, faviconUrl: faviconUrl)
           }
           PostCellTextView(postData: postData, isCommentView: isCommentView)

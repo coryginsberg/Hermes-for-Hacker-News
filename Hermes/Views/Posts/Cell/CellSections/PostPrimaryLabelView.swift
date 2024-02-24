@@ -1,8 +1,6 @@
 //
-//  PostPrimaryLabelView.swift
-//  Hermes
-//
-//  Created by Cory Ginsberg on 8/14/23.
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
 import DomainParser
@@ -12,18 +10,19 @@ import SwiftUI
 
 struct PostPrimaryLabelView: View {
   @State private var showSafari: Bool = false
-  
+
   var postData: ItemData
   var secondaryTextColor: Color
   var isCommentView: Bool = false
 
   var body: some View {
     if isCommentView, let url = postData.url {
-      PrimaryLabel(postData: postData, secondaryTextColor: secondaryTextColor).onTapGesture {
-        showSafari.toggle()
-      }.fullScreenCover(isPresented: $showSafari, content: {
-        WebViewWrapper(url: url)
-      })
+      PrimaryLabel(postData: postData, secondaryTextColor: secondaryTextColor)
+        .onTapGesture {
+          showSafari.toggle()
+        }.fullScreenCover(isPresented: $showSafari, content: {
+          WebViewWrapper(url: url)
+        })
     } else {
       NavigationLink(destination: CommentListView(currentPost: postData)) {
         PrimaryLabel(postData: postData, secondaryTextColor: secondaryTextColor)

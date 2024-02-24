@@ -1,6 +1,6 @@
 //
-//  Copyright (c) 2022 Cory Ginsberg.
-//  Licensed under the Apache License, Version 2.0
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
 import FirebaseDatabase
@@ -20,7 +20,9 @@ class PostListViewModel: ObservableObject {
       do {
         try await genInitializePosts(forStoryType: storyType)
       } catch ValidationError.storyTypeRequired {
-        print("Error: Tried to generate a story without defining the story type")
+        print(
+          "Error: Tried to generate a story without defining the story type"
+        )
       }
     }
   }
@@ -47,7 +49,9 @@ class PostListViewModel: ObservableObject {
 
   // MARK: - Private functions
 
-  private func genInitializePosts(forStoryType storyType: StoriesTypes? = nil) async throws {
+  private func genInitializePosts(forStoryType storyType: StoriesTypes? =
+    nil) async throws
+  {
     switch storyType {
     case .topStories:
       itemListRef = ref.child("v0/topstories")
@@ -64,7 +68,10 @@ class PostListViewModel: ObservableObject {
   }
 
   @MainActor
-  private func genLoadMorePosts(from ref: DatabaseReference, numberOfPosts count: UInt) async {
+  private func genLoadMorePosts(
+    from ref: DatabaseReference,
+    numberOfPosts count: UInt
+  ) async {
     guard canLoadMoreItems else { return }
     guard !isLoadingPage else { return }
     isLoadingPage = true
@@ -75,7 +82,7 @@ class PostListViewModel: ObservableObject {
       guard let snapshotVal = try await snapshot.value as? [Int] else { return }
       Task {
         items = try await snapshotVal.concurrentCompactMap { value throws in
-            try await PostInfo(HNID(value))
+          try await PostInfo(HNID(value))
         }
         currentItem += count
         isLoadingPage = false

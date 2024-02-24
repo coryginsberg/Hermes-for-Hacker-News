@@ -1,6 +1,6 @@
 //
-//  Copyright (c) 2022 Cory Ginsberg.
-//  Licensed under the Apache License, Version 2.0
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
 import FirebaseDatabase
@@ -10,7 +10,10 @@ import FirebaseDatabase
 protocol ItemInfoProtocol {
   var itemData: ItemData { get set }
 
-  func fetchItem(from ref: DatabaseReference, completion: @escaping (ItemData) -> Void) async
+  func fetchItem(
+    from ref: DatabaseReference,
+    completion: @escaping (ItemData) -> Void
+  ) async
 }
 
 // MARK: - ItemInfo
@@ -29,10 +32,11 @@ class ItemInfo: Identifiable, ItemInfoProtocol {
       delegate.itemData = item
     }
   }
-  
+
   var itemData: ItemData = .init()
-  
-  func fetchItem(from ref: DatabaseReference, completion: @escaping (ItemData) -> Void) async {
-    return
-  }
+
+  func fetchItem(
+    from _: DatabaseReference,
+    completion _: @escaping (ItemData) -> Void
+  ) async {}
 }

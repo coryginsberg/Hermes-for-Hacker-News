@@ -1,6 +1,6 @@
 //
-//  Copyright (c) 2022 Cory Ginsberg.
-//  Licensed under the Apache License, Version 2.0
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
 import SwiftUI
@@ -16,9 +16,11 @@ struct CommentListView: View {
   init(currentPost: ItemData) {
     _currentPost = State(wrappedValue: currentPost)
     _numComments = State(wrappedValue: currentPost.descendants ?? 0)
-    _commentList = StateObject(wrappedValue: CommentListViewModel(withComments: currentPost.kids ?? []))
+    _commentList =
+      StateObject(wrappedValue: CommentListViewModel(withComments: currentPost
+          .kids ?? []))
   }
-  
+
   var body: some View {
     NavigationView {
       ScrollView(.vertical) {
@@ -34,14 +36,15 @@ struct CommentListView: View {
             }
           }
         }.padding(.trailing, 16.0)
-        .refreshable {
-          self.numComments = currentPost.kids?.count ?? 0
-          do {
-            try await commentList.refreshCommentList(forParentComments: currentPost.kids ?? [])
-          } catch {
-            print("unable to refresh comment list")
+          .refreshable {
+            self.numComments = currentPost.kids?.count ?? 0
+            do {
+              try await commentList
+                .refreshCommentList(forParentComments: currentPost.kids ?? [])
+            } catch {
+              print("unable to refresh comment list")
+            }
           }
-        }
       }
     }
     .navigationTitle("\(numComments) Comments")
@@ -52,5 +55,5 @@ struct CommentListView: View {
 // MARK: - PostCommentView_Previews
 
 #Preview {
-    CommentListView(currentPost: TestData.Posts.randomPosts[0])
+  CommentListView(currentPost: TestData.Posts.randomPosts[0])
 }
