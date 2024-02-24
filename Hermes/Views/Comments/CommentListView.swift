@@ -22,7 +22,7 @@ struct CommentListView: View {
   }
 
   var body: some View {
-    NavigationView {
+    NavigationStack {
       ScrollView(.vertical) {
         LazyVStack {
           PostCellOuterView(postData: currentPost, isCommentView: true)
@@ -46,9 +46,8 @@ struct CommentListView: View {
             }
           }
       }
-    }
-    .navigationTitle("\(numComments) Comments")
-    .navigationBarTitleDisplayMode(.inline)
+    }.navigationTitle("\(numComments) Comments")
+      .navigationBarTitleDisplayMode(.inline)
   }
 }
 

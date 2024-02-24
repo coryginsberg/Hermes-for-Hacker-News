@@ -16,7 +16,7 @@ struct PostListView: View {
   @Environment(\.managedObjectContext) private var viewContext
 
   var body: some View {
-    NavigationView {
+    NavigationStack {
       ScrollView(.vertical) {
         LazyVStack {
           ForEach(postList.items) { post in
@@ -41,6 +41,11 @@ struct PostListView: View {
         }
       }
     }
+//    NavigationView {
+//      ScrollView(.vertical) {
+//
+//      }
+//    }
   }
 }
 
