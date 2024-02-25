@@ -24,6 +24,33 @@ struct CommentCell: View {
   }
 
   var body: some View {
+    HStack {
+      if indent > 0 {
+        Divider()
+          .frame(width: 2.0)
+          .overlay(.cyan)
+          .padding(
+            .leading,
+            2.0
+          )
+          .padding(.bottom, 8.0)
+          .padding(.top, 2.0)
+      }
+      CommentCellContent(
+        commentData: commentData,
+        indent: indent,
+        childCommentList: childCommentList
+      ).padding(.leading, 2)
+    }
+  }
+}
+
+struct CommentCellContent: View {
+  @State var commentData: ItemData
+  @State var indent: Int
+  @StateObject var childCommentList: CommentListViewModel
+
+  var body: some View {
     let primaryColor = commentData
       .dead ? Color(uiColor: .systemGray5) : Color(uiColor: .label)
     let secondaryColor =
@@ -33,6 +60,8 @@ struct CommentCell: View {
       .deleted ? "[deleted] " : ""
 
     LazyVStack {
+      // MARK: - Comment Text
+
       Text(
         try! AttributedString(
           markdown: "\(prefixText)\(commentData.text ?? "")"
@@ -42,16 +71,25 @@ struct CommentCell: View {
       .multilineTextAlignment(.leading)
       .padding(.bottom, 6.0)
       .allowsTightening(true)
-      .frame(maxWidth: .infinity, alignment: .topLeading)
+      .frame(maxWidth: .infinity, alignment: .leading)
       .dynamicTypeSize(.medium)
       .textSelection(.enabled)
 
+      // MARK: - Comment Info
+
       HStack {
+        Text("– \(commentData.author)")
+          .allowsTightening(true)
+          .frame(maxWidth: .infinity, alignment: .leading)
+          .font(.system(size: 14))
+          .foregroundColor(secondaryColor)
+          .lineLimit(1)
         Image(systemName: "clock")
           .dynamicTypeSize(.xSmall)
           .foregroundColor(secondaryColor)
         SecondaryText(
-          textBody: ItemInfoHelper.calcTimeSince(datePosted: commentData.time),
+          textBody: ItemInfoHelper
+            .calcTimeSince(datePosted: commentData.time),
           textColor: secondaryColor
         )
         if commentData.score != 0 {
@@ -61,23 +99,14 @@ struct CommentCell: View {
             textColor: secondaryColor
           )
         }
-        Text("– \(commentData.author)")
-          .allowsTightening(true)
-          .frame(maxWidth: .infinity, alignment: .trailing)
-          .font(.system(size: 14))
-          .foregroundColor(secondaryColor)
-          .lineLimit(1)
       }
-      GeometryReader { geometry in
-        Divider()
-          .frame(width: abs(geometry.size.width))
-      }
+      Divider()
       if !childCommentList.items.isEmpty {
         ForEach(childCommentList.items, content: { kid in
           CommentCell(commentData: kid.delegate.itemData, indent: indent + 1)
         })
       }
-    }.padding(.leading, 16.0)
+    }
   }
 }
 

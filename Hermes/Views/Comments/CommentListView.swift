@@ -33,6 +33,7 @@ struct CommentListView: View {
           } else {
             ForEach(commentList.items) { comment in
               CommentCell(commentData: comment.delegate.itemData, indent: 0)
+                .padding(.leading, 10.0)
             }
           }
         }.padding(.trailing, 16.0)

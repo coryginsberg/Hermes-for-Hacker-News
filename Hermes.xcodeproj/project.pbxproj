@@ -14,6 +14,8 @@
 		EE77BBD52A8AD14B00880625 /* PostPreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD42A8AD14B00880625 /* PostPreviewImageView.swift */; };
 		EE77BBD72A8AD97E00880625 /* PostPrimaryLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD62A8AD97E00880625 /* PostPrimaryLabelView.swift */; };
 		EE77BBD92A8ADB2900880625 /* PostSecondaryLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD82A8ADB2900880625 /* PostSecondaryLabelView.swift */; };
+		EE7936272B8AB68400959398 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = EE7936262B8AB68400959398 /* Realm */; };
+		EE7936292B8AB68400959398 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EE7936282B8AB68400959398 /* RealmSwift */; };
 		EE85BB142A8C0CC600ACF5F3 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */; };
 		EE85BB172A8C0DF900ACF5F3 /* DomainParser in Frameworks */ = {isa = PBXBuildFile; productRef = EE85BB162A8C0DF900ACF5F3 /* DomainParser */; };
 		EE88762D2B82B9BB0053633E /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = EE8876262B82B9BB0053633E /* LICENSE.md */; };
@@ -128,6 +130,8 @@
 			files = (
 				EE85BB172A8C0DF900ACF5F3 /* DomainParser in Frameworks */,
 				EEC8BA3E2A8815F50088B6E9 /* FirebaseDatabaseSwift in Frameworks */,
+				EE7936272B8AB68400959398 /* Realm in Frameworks */,
+				EE7936292B8AB68400959398 /* RealmSwift in Frameworks */,
 				EEC8BA412A8816100088B6E9 /* FaviconFinder in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +366,8 @@
 				EEC8BA3D2A8815F50088B6E9 /* FirebaseDatabaseSwift */,
 				EEC8BA402A8816100088B6E9 /* FaviconFinder */,
 				EE85BB162A8C0DF900ACF5F3 /* DomainParser */,
+				EE7936262B8AB68400959398 /* Realm */,
+				EE7936282B8AB68400959398 /* RealmSwift */,
 			);
 			productName = Hermes;
 			productReference = EEC8B9CD2A880A280088B6E9 /* Hermes.app */;
@@ -439,6 +445,7 @@
 				EEC8BA3C2A8815F50088B6E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				EEC8BA3F2A8816100088B6E9 /* XCRemoteSwiftPackageReference "FaviconFinder" */,
 				EE85BB152A8C0DF900ACF5F3 /* XCRemoteSwiftPackageReference "SwiftDomainParser" */,
+				EE7936252B8AB64900959398 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = EEC8B9CE2A880A280088B6E9 /* Products */;
 			projectDirPath = "";
@@ -859,6 +866,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EE7936252B8AB64900959398 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		EE85BB152A8C0DF900ACF5F3 /* XCRemoteSwiftPackageReference "SwiftDomainParser" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Dashlane/SwiftDomainParser";
@@ -894,6 +909,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EE7936262B8AB68400959398 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE7936252B8AB64900959398 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		EE7936282B8AB68400959398 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE7936252B8AB64900959398 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		EE85BB162A8C0DF900ACF5F3 /* DomainParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EE85BB152A8C0DF900ACF5F3 /* XCRemoteSwiftPackageReference "SwiftDomainParser" */;

@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import RealmSwift
 import SwiftUI
 
 // MARK: - PostListView
