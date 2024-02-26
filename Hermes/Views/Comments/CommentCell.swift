@@ -49,6 +49,9 @@ struct CommentCellContent: View {
   @State var commentData: ItemData
   @State var indent: Int
   @StateObject var childCommentList: CommentListViewModel
+  @State private var showingAlert = false
+
+  @Environment(\.dismiss) var dismiss
 
   var body: some View {
     let primaryColor = commentData
@@ -58,6 +61,9 @@ struct CommentCellContent: View {
         .dead ? Color(uiColor: .systemGray5) : Color(uiColor: .secondaryLabel)
     let prefixText = commentData.dead ? "[dead] " : commentData
       .deleted ? "[deleted] " : ""
+
+    let timePosted = ItemInfoHelper
+      .calcTimeSince(datePosted: commentData.time)
 
     LazyVStack {
       // MARK: - Comment Text
@@ -84,29 +90,41 @@ struct CommentCellContent: View {
           .font(.system(size: 14))
           .foregroundColor(secondaryColor)
           .lineLimit(1)
-        Image(systemName: "clock")
-          .dynamicTypeSize(.xSmall)
-          .foregroundColor(secondaryColor)
-        SecondaryText(
-          textBody: ItemInfoHelper
-            .calcTimeSince(datePosted: commentData.time),
-          textColor: secondaryColor
-        )
-        if commentData.score != 0 {
-          SecondaryImage(imageName: "arrow.up", textColor: secondaryColor)
-          SecondaryText(
-            textBody: "\(commentData.score)",
-            textColor: secondaryColor
+
+        Group {
+          SecondaryInfoButton(
+            systemImage: "arrowshape.turn.up.left",
+            textBody: ""
+          ) { showingAlert = true }
+          SecondaryInfoLabel(
+            systemImage: "clock",
+            textBody: ItemInfoHelper
+              .calcTimeSince(datePosted: commentData.time)
           )
-        }
+          if commentData.score > 0 {
+            SecondaryInfoLabel(
+              systemImage: "arrow.up",
+              textBody: "\(commentData.score)"
+            )
+          }
+          SecondaryInfoButton(
+            systemImage: "ellipsis",
+            textBody: ""
+          ) { showingAlert = true }
+        }.padding(.leading, 6.0)
       }
       Divider()
+
+      // MARK: - Child Comments
+
       if !childCommentList.items.isEmpty {
         ForEach(childCommentList.items, content: { kid in
           CommentCell(commentData: kid.delegate.itemData, indent: indent + 1)
         })
       }
-    }
+    }.alert("Alert!", isPresented: $showingAlert, actions: {
+      Button("OK", role: .destructive) { dismiss() }
+    })
   }
 }
 

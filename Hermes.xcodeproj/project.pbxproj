@@ -16,6 +16,7 @@
 		EE77BBD92A8ADB2900880625 /* PostSecondaryLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD82A8ADB2900880625 /* PostSecondaryLabelView.swift */; };
 		EE7936272B8AB68400959398 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = EE7936262B8AB68400959398 /* Realm */; };
 		EE7936292B8AB68400959398 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EE7936282B8AB68400959398 /* RealmSwift */; };
+		EE79362D2B8C03FC00959398 /* SecondaryInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79362C2B8C03FC00959398 /* SecondaryInfoLabel.swift */; };
 		EE85BB142A8C0CC600ACF5F3 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */; };
 		EE85BB172A8C0DF900ACF5F3 /* DomainParser in Frameworks */ = {isa = PBXBuildFile; productRef = EE85BB162A8C0DF900ACF5F3 /* DomainParser */; };
 		EE88762D2B82B9BB0053633E /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = EE8876262B82B9BB0053633E /* LICENSE.md */; };
@@ -79,6 +80,7 @@
 		EE77BBD62A8AD97E00880625 /* PostPrimaryLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPrimaryLabelView.swift; sourceTree = "<group>"; };
 		EE77BBD82A8ADB2900880625 /* PostSecondaryLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSecondaryLabelView.swift; sourceTree = "<group>"; };
 		EE7936242B8AA3F500959398 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
+		EE79362C2B8C03FC00959398 /* SecondaryInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryInfoLabel.swift; sourceTree = "<group>"; };
 		EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		EE8876222B82B9BB0053633E /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		EE8876232B82B9BB0053633E /* Package.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Package.resolved; sourceTree = "<group>"; };
@@ -211,6 +213,14 @@
 			path = CellSections;
 			sourceTree = "<group>";
 		};
+		EE79362A2B8C039C00959398 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				EE79362C2B8C03FC00959398 /* SecondaryInfoLabel.swift */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
 		EEC8B9C42A880A280088B6E9 = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +315,7 @@
 		EEC8B9FC2A880A550088B6E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EE79362A2B8C039C00959398 /* ReusableViews */,
 				EE77BBD02A8AC9B800880625 /* Wrappers */,
 				EEC8B9FE2A880A690088B6E9 /* Posts */,
 				EEC8B9FF2A880A6E0088B6E9 /* Comments */,
@@ -503,6 +514,7 @@
 				EEC8BA1D2A8814830088B6E9 /* SettingsView.swift in Sources */,
 				EEC8BA262A8814E10088B6E9 /* PostCellTextView.swift in Sources */,
 				EEC8BA282A8814E10088B6E9 /* PostCellOuterView.swift in Sources */,
+				EE79362D2B8C03FC00959398 /* SecondaryInfoLabel.swift in Sources */,
 				EE0F941E2B893A1E00108223 /* String+Extensions.swift in Sources */,
 				EEC8BA132A8814520088B6E9 /* Database+Extensions.swift in Sources */,
 				EEC8BA1F2A8814880088B6E9 /* InboxView.swift in Sources */,
