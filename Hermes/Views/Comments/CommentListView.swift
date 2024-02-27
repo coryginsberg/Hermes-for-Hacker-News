@@ -49,6 +49,7 @@ struct CommentListView: View {
       }
     }.navigationTitle("\(numComments) Comments")
       .navigationBarTitleDisplayMode(.inline)
+      
   }
 }
 

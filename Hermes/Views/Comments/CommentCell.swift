@@ -3,6 +3,7 @@
 // Licensed under the Apache License, Version 2.0
 //
 
+import AlertToast
 import SwiftUI
 import WebKit
 
@@ -50,8 +51,22 @@ struct CommentCellContent: View {
   @State var indent: Int
   @StateObject var childCommentList: CommentListViewModel
   @State private var showingAlert = false
+  private let pasteboard = UIPasteboard.general
 
   @Environment(\.dismiss) var dismiss
+  @EnvironmentObject var viewModel: AlertViewModal
+
+  func copyToClipboard(commentText: String) {
+    pasteboard.string = commentText
+    viewModel.alertToast = AlertToast(
+      displayMode: .hud,
+      type: .complete(.green),
+      title: "Text copied"
+    )
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+      viewModel.show.toggle()
+    }
+  }
 
   var body: some View {
     let primaryColor = commentData
@@ -62,24 +77,31 @@ struct CommentCellContent: View {
     let prefixText = commentData.dead ? "[dead] " : commentData
       .deleted ? "[deleted] " : ""
 
-    let timePosted = ItemInfoHelper
-      .calcTimeSince(datePosted: commentData.time)
+    let commentText = try! AttributedString(
+      markdown: "\(prefixText)\(commentData.text ?? "")"
+    )
 
     LazyVStack {
       // MARK: - Comment Text
 
-      Text(
-        try! AttributedString(
-          markdown: "\(prefixText)\(commentData.text ?? "")"
-        )
-      )
-      .foregroundColor(primaryColor)
-      .multilineTextAlignment(.leading)
-      .padding(.bottom, 6.0)
-      .allowsTightening(true)
-      .frame(maxWidth: .infinity, alignment: .leading)
-      .dynamicTypeSize(.medium)
-      .textSelection(.enabled)
+      Text(commentText)
+        .foregroundColor(primaryColor)
+        .multilineTextAlignment(.leading)
+        .padding(.bottom, 6.0)
+        .allowsTightening(true)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .dynamicTypeSize(.medium)
+        .textSelection(.enabled)
+        .contextMenu {
+          Button {
+            copyToClipboard(commentText: String(commentText.characters[...]))
+          } label: {
+            Label("Copy", systemImage: "doc.on.doc")
+          }
+          Button {} label: {
+            Label("Share", systemImage: "square.and.arrow.up")
+          }
+        }
 
       // MARK: - Comment Info
 
@@ -122,9 +144,7 @@ struct CommentCellContent: View {
           CommentCell(commentData: kid.delegate.itemData, indent: indent + 1)
         })
       }
-    }.alert("Alert!", isPresented: $showingAlert, actions: {
-      Button("OK", role: .destructive) { dismiss() }
-    })
+    }
   }
 }
 

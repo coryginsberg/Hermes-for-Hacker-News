@@ -3,12 +3,15 @@
 // Licensed under the Apache License, Version 2.0
 //
 
+import AlertToast
 import SwiftUI
 
 // MARK: - RootView
 
 struct RootView: View {
   @Environment(\.managedObjectContext) private var viewContext
+
+  @StateObject var viewModal: AlertViewModal = .init()
 
   var body: some View {
     TabView {
@@ -28,8 +31,10 @@ struct RootView: View {
         .tabItem {
           Label("Settings", systemImage: "gearshape.fill")
         }
-    }
-    .accentColor(Color(.systemOrange))
+    }.accentColor(Color(.systemOrange)).environmentObject(viewModal)
+      .toast(isPresenting: $viewModal.show) {
+        viewModal.alertToast
+      }
   }
 }
 
