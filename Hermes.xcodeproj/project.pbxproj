@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EE0F941E2B893A1E00108223 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F941D2B893A1E00108223 /* String+Extensions.swift */; };
+		EE1125332B8FF97700386CB1 /* CommentCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1125322B8FF97700386CB1 /* CommentCellContent.swift */; };
 		EE14E4B32B8D578900AD5AE1 /* AlertViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E4B22B8D578900AD5AE1 /* AlertViewModal.swift */; };
 		EE14E4B52B8E887A00AD5AE1 /* SwiftUI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E4B42B8E887A00AD5AE1 /* SwiftUI+Extensions.swift */; };
 		EE2F08EF2ACCB17400EB4489 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2F08EE2ACCB17400EB4489 /* CommentViewModel.swift */; };
@@ -77,6 +78,7 @@
 
 /* Begin PBXFileReference section */
 		EE0F941D2B893A1E00108223 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		EE1125322B8FF97700386CB1 /* CommentCellContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellContent.swift; sourceTree = "<group>"; };
 		EE14E4B22B8D578900AD5AE1 /* AlertViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModal.swift; sourceTree = "<group>"; };
 		EE14E4B42B8E887A00AD5AE1 /* SwiftUI+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Extensions.swift"; sourceTree = "<group>"; };
 		EE2F08EE2ACCB17400EB4489 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 			children = (
 				EEC8BA2A2A8814E70088B6E9 /* CommentCell.swift */,
 				EEC8BA2C2A8814E70088B6E9 /* CommentListView.swift */,
+				EE1125322B8FF97700386CB1 /* CommentCellContent.swift */,
 			);
 			path = Comments;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				EEC8BA1F2A8814880088B6E9 /* InboxView.swift in Sources */,
 				EEC8BA2F2A8814E70088B6E9 /* CommentListView.swift in Sources */,
 				EE77BBD22A8AC9F400880625 /* WebViewWrapper.swift in Sources */,
+				EE1125332B8FF97700386CB1 /* CommentCellContent.swift in Sources */,
 				EE2F08EF2ACCB17400EB4489 /* CommentViewModel.swift in Sources */,
 				EE14E4B32B8D578900AD5AE1 /* AlertViewModal.swift in Sources */,
 				EEC8BA0E2A88144C0088B6E9 /* PostType.swift in Sources */,
