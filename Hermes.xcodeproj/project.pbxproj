@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EE0F941E2B893A1E00108223 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F941D2B893A1E00108223 /* String+Extensions.swift */; };
 		EE14E4B32B8D578900AD5AE1 /* AlertViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E4B22B8D578900AD5AE1 /* AlertViewModal.swift */; };
+		EE14E4B52B8E887A00AD5AE1 /* SwiftUI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E4B42B8E887A00AD5AE1 /* SwiftUI+Extensions.swift */; };
 		EE2F08EF2ACCB17400EB4489 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2F08EE2ACCB17400EB4489 /* CommentViewModel.swift */; };
 		EE6F70722ACB79FA000E7C78 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6F70712ACB79FA000E7C78 /* Errors.swift */; };
 		EE77BBD22A8AC9F400880625 /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD12A8AC9F400880625 /* WebViewWrapper.swift */; };
@@ -77,6 +78,7 @@
 /* Begin PBXFileReference section */
 		EE0F941D2B893A1E00108223 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		EE14E4B22B8D578900AD5AE1 /* AlertViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModal.swift; sourceTree = "<group>"; };
+		EE14E4B42B8E887A00AD5AE1 /* SwiftUI+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Extensions.swift"; sourceTree = "<group>"; };
 		EE2F08EE2ACCB17400EB4489 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		EE6F70712ACB79FA000E7C78 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		EE77BBD12A8AC9F400880625 /* WebViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewWrapper.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				EEC8BA102A8814520088B6E9 /* Sequence+Extensions.swift */,
 				EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */,
 				EE0F941D2B893A1E00108223 /* String+Extensions.swift */,
+				EE14E4B42B8E887A00AD5AE1 /* SwiftUI+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				EEC8BA212A8814CA0088B6E9 /* RootView.swift in Sources */,
 				EEC8BA0B2A88144C0088B6E9 /* ItemInfo.swift in Sources */,
 				EEC8BA092A88144C0088B6E9 /* CommentInfo.swift in Sources */,
+				EE14E4B52B8E887A00AD5AE1 /* SwiftUI+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

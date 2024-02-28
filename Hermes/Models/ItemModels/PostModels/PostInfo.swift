@@ -23,18 +23,23 @@ class PostInfo: ItemInfo {
       let snapshot = try await ref.getData()
 
       guard let value = snapshot.value as? [String: Any] else { return }
-      guard let postType = ItemData.TypeVal(rawValue: value["type"] as! String)
+      guard let postType = ItemData
+        .ItemType(rawValue: value["type"] as! ItemData.ItemType.RawValue)
       else { return }
       do {
         switch postType {
         case .story:
-          try await PostType.fetchStory(from: value, completion: completion)
+          try await PostType.fetchStory(
+            from: value,
+            completion: completion as (PostData) -> Void
+          )
         case .job:
-          PostType.fetchJob(from: value, completion: completion)
-        case .poll:
-          break
-        case .pollopt:
-          break
+          PostType.fetchJob(
+            from: value,
+            completion: completion as (JobData) -> Void
+          )
+        case .poll, .pollopt:
+          fallthrough
         default:
           return
         }

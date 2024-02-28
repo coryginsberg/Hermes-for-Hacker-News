@@ -6,7 +6,7 @@
 import FirebaseDatabase
 
 class PostListViewModel: ObservableObject {
-  @Published var items: [ItemInfo] = []
+  @Published var items: [PostInfo] = []
   @Published var isLoadingPage = false
 
   private let ref = Database.root

@@ -4,53 +4,71 @@
 //
 
 import Foundation
-import UIKit
 
-typealias HNID = Int
+public typealias HNID = Int
 
-struct ItemData {
-  enum TypeVal: String {
+// MARK: - Default Data
+
+public class ItemData {
+  /// The username of the item's author.
+  var author: String
+  var descendants: Int?
+  /// true if the item is dead.
+  var dead: Bool
+  /// true if the item is deleted.
+  var deleted: Bool
+  /// The item's unique id.
+  var id: HNID
+  /// The ids of the item's comments, in ranked display order.
+  var kids: [HNID]?
+  /// The comment's parent: either another comment or the relevant story.
+  var parent: HNID?
+  /// A list of related pollopts, in display order.
+  var parts: [HNID]?
+  /// The pollopt's associated poll.
+  var poll: HNID?
+  /// The story's score, or the votes for a pollopt.
+  var score: Int
+  /// The comment, story or poll text. HTML.
+  var text: String?
+  /// Creation date of the item, in Unix Time.
+  var time: Date
+  /// The title of the story, poll or job. HTML.
+  var title: String?
+  /// The type of item. One of "job", "story", "comment", "poll", or "pollopt".
+  var type: ItemType
+  /// The URL of the story.
+  var url: URL?
+  var faviconUrl: URL?
+
+  enum ItemType: String {
     case job
     case story
     case comment
     case poll
     case pollopt
+    case unknown
   }
 
-  /// The username of the item's author.
-  var author: String = ""
-  var descendants: Int?
-  /// true if the item is dead.
-  var dead: Bool = false
-  /// true if the item is deleted.
-  var deleted: Bool = false
-  /// The item's unique id.
-  var id: HNID = 0
-  /// The ids of the item's comments, in ranked display order.
-  var kids: [HNID]? = []
-  /// The comment's parent: either another comment or the relevant story.
-  var parent: HNID? = 0
-  /// A list of related pollopts, in display order.
-  var parts: [HNID]? = []
-  /// The pollopt's associated poll.
-  var poll: HNID?
-  /// The story's score, or the votes for a pollopt.
-  var score: Int = 0
-  /// The comment, story or poll text. HTML.
-  var text: String?
-  /// Creation date of the item, in Unix Time.
-  var time: Date = .init()
-  /// The title of the story, poll or job. HTML.
-  var title: String?
-  /// The type of item. One of "job", "story", "comment", "poll", or "pollopt".
-  var type: TypeVal = .story
-  /// The URL of the story.
-  var url: URL?
-  var faviconUrl: URL?
+  convenience init() {
+    self.init(author: "",
+              descendants: nil,
+              dead: false,
+              deleted: false,
+              id: 0,
+              kids: [],
+              parent: nil,
+              parts: [],
+              poll: nil,
+              score: 0,
+              text: nil,
+              time: .init(),
+              title: nil,
+              type: .unknown,
+              url: nil,
+              faviconUrl: nil)
+  }
 
-  // MARK: - Default
-
-  init() {}
   init(author: String,
        descendants: Int?,
        dead: Bool,
@@ -64,9 +82,9 @@ struct ItemData {
        text: String?,
        time: Date,
        title: String?,
-       type: TypeVal,
+       type: ItemType,
        url: URL?,
-       faviconURL: URL?)
+       faviconUrl: URL?)
   {
     self.author = author
     self.descendants = descendants
@@ -83,132 +101,109 @@ struct ItemData {
     self.title = title
     self.type = type
     self.url = url
-    faviconUrl = faviconURL
+    self.faviconUrl = faviconUrl
   }
+}
 
-  // MARK: - Story Link
+// MARK: - Post Data
 
-  init(forLink url: URL,
-       author: String,
+class PostData: ItemData {
+  init(author: String,
        dead: Bool,
        deleted: Bool,
        descendants: Int,
        id: HNID,
        kids: [HNID],
        score: Int,
+       text: String? = nil,
        time: Date,
        title: String,
-       faviconURL: URL?)
+       url: URL? = nil,
+       faviconUrl: URL? = nil)
   {
-    self.init(author: author,
-              descendants: descendants,
-              dead: dead,
-              deleted: deleted,
-              id: id,
-              kids: kids,
-              parent: nil,
-              parts: nil,
-              poll: nil,
-              score: score,
-              text: nil,
-              time: time,
-              title: title,
-              type: .story,
-              url: url,
-              faviconURL: faviconURL)
+    super.init(author: author,
+               descendants: descendants,
+               dead: dead,
+               deleted: deleted,
+               id: id,
+               kids: kids,
+               parent: nil,
+               parts: nil,
+               poll: nil,
+               score: score,
+               text: text,
+               time: time,
+               title: title,
+               type: .story,
+               url: url,
+               faviconUrl: faviconUrl)
   }
+}
 
-  // MARK: - Story Text
+// MARK: - Job Data
 
-  init(forStory title: String,
-       author: String,
-       dead: Bool,
-       deleted: Bool,
-       descendants: Int,
-       id: HNID,
-       kids: [HNID],
-       score: Int,
-       text: String,
-       time: Date)
-  {
-    self.init(author: author,
-              descendants: descendants,
-              dead: dead,
-              deleted: deleted,
-              id: id,
-              kids: kids,
-              parent: nil,
-              parts: nil,
-              poll: nil,
-              score: score,
-              text: text,
-              time: time,
-              title: title,
-              type: .story,
-              url: nil,
-              faviconURL: nil)
-  }
-
-  // MARK: - Job
-
-  init(forJob author: String,
+class JobData: ItemData {
+  init(author: String,
        dead: Bool,
        deleted: Bool,
        id: HNID,
        score: Int,
        text: String?,
        time: Date,
-       title: String,
-       url: URL?)
+       title: String)
   {
-    self.init(author: author,
-              descendants: nil,
-              dead: dead,
-              deleted: deleted,
-              id: id,
-              kids: nil,
-              parent: nil,
-              parts: nil,
-              poll: nil,
-              score: score,
-              text: text,
-              time: time,
-              title: title,
-              type: .job,
-              url: url,
-              faviconURL: nil)
+    super.init(author: author,
+               descendants: nil,
+               dead: dead,
+               deleted: deleted,
+               id: id,
+               kids: nil,
+               parent: nil,
+               parts: nil,
+               poll: nil,
+               score: score,
+               text: text,
+               time: time,
+               title: title,
+               type: .job,
+               url: nil,
+               faviconUrl: nil)
   }
+}
 
-  // MARK: - Comment
+// MARK: - Comment Data
 
-  init(forComment author: String,
-       descendants: Int?,
-       dead: Bool,
-       deleted: Bool,
-       id: HNID,
-       kids: [HNID]?,
-       parent: HNID?,
-       score: Int,
-       text: String?,
-       time: Date)
-  {
+class CommentData: ItemData {
+  init(
+    author: String,
+    descendants: Int?,
+    dead: Bool,
+    deleted: Bool,
+    id: HNID,
+    kids: [HNID]?,
+    parent: HNID?,
+    score: Int,
+    text: String?,
+    time: Date
+  ) {
     let markdownText = text?.stringByDecodingHTMLEntities.htmlToMarkDown()
-
-    self.init(author: author,
-              descendants: descendants,
-              dead: dead,
-              deleted: deleted,
-              id: id,
-              kids: kids,
-              parent: parent,
-              parts: nil,
-              poll: nil,
-              score: score,
-              text: markdownText,
-              time: time,
-              title: nil,
-              type: .comment,
-              url: nil,
-              faviconURL: nil)
+    super.init(
+      author: author,
+      descendants: descendants,
+      dead: dead,
+      deleted: deleted,
+      id: id,
+      kids: kids,
+      parent: parent,
+      parts: nil,
+      poll: nil,
+      score: score,
+      text: markdownText,
+      time: time,
+      title: nil,
+      type: .comment,
+      url: nil,
+      faviconUrl: nil
+    )
   }
 }

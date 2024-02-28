@@ -11,7 +11,7 @@ import SwiftUI
 struct PostPrimaryLabelView: View {
   @State private var showSafari: Bool = false
 
-  var postData: ItemData
+  var postData: PostData
   var secondaryTextColor: Color
   var isCommentView: Bool = false
 

@@ -9,7 +9,7 @@ import SwiftUI
 // MARK: - PostCellText
 
 struct PostCellTextView: View {
-  @State var postData: ItemData
+  @State var postData: PostData
   @State var isCommentView: Bool = false
 
   let secondaryTextColor = Color(uiColor: .secondaryLabel)

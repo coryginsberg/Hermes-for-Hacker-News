@@ -16,15 +16,15 @@ class CommentInfo: ItemInfo {
 
   override func fetchItem(
     from ref: DatabaseReference,
-    completion: @escaping (ItemData) -> Void
+    completion: @escaping (CommentData) -> Void
   ) async {
     do {
       let snapshot = try await ref.getData()
       guard let value = snapshot.value as? [String: Any]
       else { throw ValidationError.storyTypeRequired }
 
-      completion(ItemData(
-        forComment: value["by"] as? String ?? "",
+      completion(CommentData(
+        author: value["by"] as? String ?? "",
         descendants: value["descendants"] as? Int ?? 0,
         dead: value["dead"] as? Bool ?? false,
         deleted: value["deleted"] as? Bool ?? false,

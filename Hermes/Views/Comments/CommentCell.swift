@@ -10,13 +10,13 @@ import WebKit
 // MARK: - CommentCell
 
 struct CommentCell: View {
-  @State var commentData: ItemData
+  @State var commentData: CommentData
   @State var indent: Int
   @StateObject var childCommentList: CommentListViewModel
 
-  var childComments: [ItemData] = []
+  var childComments: [CommentData] = []
 
-  init(commentData: ItemData, indent: Int) {
+  init(commentData: CommentData, indent: Int) {
     _commentData = State(wrappedValue: commentData)
     _indent = State(wrappedValue: indent)
     _childCommentList =
@@ -47,7 +47,7 @@ struct CommentCell: View {
 }
 
 struct CommentCellContent: View {
-  @State var commentData: ItemData
+  @State var commentData: CommentData
   @State var indent: Int
   @StateObject var childCommentList: CommentListViewModel
   @State private var showingAlert = false
@@ -57,23 +57,18 @@ struct CommentCellContent: View {
   @EnvironmentObject var viewModel: AlertViewModal
 
   func copyToClipboard(commentText: String) {
-    pasteboard.string = commentText
     viewModel.alertToast = AlertToast(
       displayMode: .hud,
       type: .complete(.green),
       title: "Text copied"
     )
-    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, qos: .utility) {
+      pasteboard.string = commentText
       viewModel.show.toggle()
     }
   }
 
   var body: some View {
-    let primaryColor = commentData
-      .dead ? Color(uiColor: .systemGray5) : Color(uiColor: .label)
-    let secondaryColor =
-      commentData
-        .dead ? Color(uiColor: .systemGray5) : Color(uiColor: .secondaryLabel)
     let prefixText = commentData.dead ? "[dead] " : commentData
       .deleted ? "[deleted] " : ""
 
@@ -82,16 +77,8 @@ struct CommentCellContent: View {
     )
 
     LazyVStack {
-      // MARK: - Comment Text
-
       Text(commentText)
-        .foregroundColor(primaryColor)
-        .multilineTextAlignment(.leading)
-        .padding(.bottom, 6.0)
-        .allowsTightening(true)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .dynamicTypeSize(.medium)
-        .textSelection(.enabled)
+        .commentStyle(isDead: commentData.dead)
         .contextMenu {
           Button {
             copyToClipboard(commentText: String(commentText.characters[...]))
@@ -103,45 +90,20 @@ struct CommentCellContent: View {
           }
         }
 
-      // MARK: - Comment Info
-
-      HStack {
-        Text("– \(commentData.author)")
-          .allowsTightening(true)
-          .frame(maxWidth: .infinity, alignment: .leading)
-          .font(.system(size: 14))
-          .foregroundColor(secondaryColor)
-          .lineLimit(1)
-
-        Group {
-          SecondaryInfoButton(
-            systemImage: "arrowshape.turn.up.left",
-            textBody: ""
-          ) { showingAlert = true }
-          SecondaryInfoLabel(
-            systemImage: "clock",
-            textBody: ItemInfoHelper
-              .calcTimeSince(datePosted: commentData.time)
-          )
-          if commentData.score > 0 {
-            SecondaryInfoLabel(
-              systemImage: "arrow.up",
-              textBody: "\(commentData.score)"
-            )
-          }
-          SecondaryInfoButton(
-            systemImage: "ellipsis",
-            textBody: ""
-          ) { showingAlert = true }
-        }.padding(.leading, 6.0)
-      }
+      SecondaryCommentInfoGroup(
+        commentData: commentData,
+        showingAlert: $showingAlert
+      )
       Divider()
 
       // MARK: - Child Comments
 
       if !childCommentList.items.isEmpty {
-        ForEach(childCommentList.items, content: { kid in
-          CommentCell(commentData: kid.delegate.itemData, indent: indent + 1)
+        ForEach(childCommentList.items, content: {
+          CommentCell(
+            commentData: $0.delegate.itemData as! CommentData,
+            indent: indent + 1
+          )
         })
       }
     }

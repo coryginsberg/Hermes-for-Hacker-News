@@ -1,18 +1,23 @@
 //
-//  PostDataTest.swift
-//  HackerNewsApp
-//
-//  Created by Cory Ginsberg on 7/27/23.
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
 import Foundation
 
-struct TestData {
-  private static let authors = ["TrustyVerdict", "pressure_wedge", "UraniumOxide", "deno77", "medagutmann51"]
+enum TestData {
+  private static let authors = [
+    "TrustyVerdict",
+    "pressure_wedge",
+    "UraniumOxide",
+    "deno77",
+    "medagutmann51",
+  ]
 
   enum Posts {
     private static let titles = [
-      "Ask HN: Who here hacks McDonalds trash?", "Ask HN: Am I crazy to steal Farmville strategies?",
+      "Ask HN: Who here hacks McDonalds trash?",
+      "Ask HN: Am I crazy to steal Farmville strategies?",
       "Introducing BushBloat: a Ruby framework optimizer",
       "When a Shaolin monk met a programmer from the Silicon Valley",
       "The lost art of taking meeting notes",
@@ -24,27 +29,24 @@ struct TestData {
     private static let types = ["job", "story", "poll"]
 
     static let randomPosts = titles.map { title in
-      ItemData(
+      PostData(
         author: authors.randomElement()!,
-        descendants: Int.random(in: 0 ..< 300),
         dead: Bool.random(),
         deleted: Bool.random(),
-        id: HNID(Int.random(in: 100000 ..< 1000000)),
-        kids: [2921983],
-        parent: nil,
-        parts: nil,
-        poll: nil,
+        descendants: Int.random(in: 0 ..< 300),
+        id: HNID(Int.random(in: 100_000 ..< 1_000_000)),
+        kids: [2_921_983],
         score: Int.random(in: 1 ..< 600),
         text:
         """
         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         """,
-        time: Date(timeIntervalSince1970: TimeInterval(Int.random(in: 1670495658 ... 1690495658))),
+        time: Date(timeIntervalSince1970: TimeInterval(Int
+            .random(in: 1_670_495_658 ... 1_690_495_658))),
         title: title,
-        type: .story,
         url: URL(string: "www.google.com/search?q=hermes+god"),
-        faviconURL: URL(string: "https://www.google.com/favicon.ico")
+        faviconUrl: URL(string: "https://www.google.com/favicon.ico")
       )
     }.shuffled()
   }
@@ -85,23 +87,25 @@ struct TestData {
     ]
 
     static let randomComments = comments.map { comment in
-      ItemData(
+      CommentData(
         author: authors.randomElement()!,
         descendants: nil,
         dead: false,
         deleted: false,
         id: HNID(Int.random(in: 100_000 ..< 1_000_000)),
-        kids: [2922429,2924562,2922709,2922573,2922140,2922141],
+        kids: [
+          2_922_429,
+          2_924_562,
+          2_922_709,
+          2_922_573,
+          2_922_140,
+          2_922_141,
+        ],
         parent: nil,
-        parts: nil,
-        poll: nil,
         score: Int.random(in: 1 ..< 100),
         text: comment,
-        time: Date(timeIntervalSince1970: TimeInterval(Int.random(in: 1_670_495_658 ... 1_690_495_658))),
-        title: "",
-        type: .comment,
-        url: nil,
-        faviconURL: nil
+        time: Date(timeIntervalSince1970: TimeInterval(Int
+            .random(in: 1_670_495_658 ... 1_690_495_658)))
       )
     }.shuffled()
   }

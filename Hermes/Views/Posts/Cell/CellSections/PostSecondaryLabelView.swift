@@ -8,7 +8,7 @@ import SwiftUI
 // MARK: - PostSecondaryLabelView
 
 struct PostSecondaryLabelView: View {
-  var postData: ItemData?
+  var postData: PostData?
   var textColor: Color
 
   var body: some View {

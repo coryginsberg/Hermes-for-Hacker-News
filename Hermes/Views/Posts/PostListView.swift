@@ -21,7 +21,7 @@ struct PostListView: View {
       ScrollView(.vertical) {
         LazyVStack {
           ForEach(postList.items) { post in
-            PostCellOuterView(postData: post.delegate.itemData)
+            PostCellOuterView(postData: post.delegate.itemData as! PostData)
               .onAppear {
                 Task {
                   await postList.loadMoreContentIfNeeded(currentItem: post)
