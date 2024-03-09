@@ -119,7 +119,8 @@ class PostData: ItemData {
        time: Date,
        title: String,
        url: URL? = nil,
-       faviconUrl: URL? = nil)
+       faviconUrl: URL? = nil,
+       type: ItemType = .story)
   {
     super.init(author: author,
                descendants: descendants,
@@ -134,7 +135,7 @@ class PostData: ItemData {
                text: text,
                time: time,
                title: title,
-               type: .story,
+               type: type,
                url: url,
                faviconUrl: faviconUrl)
   }
@@ -142,7 +143,7 @@ class PostData: ItemData {
 
 // MARK: - Job Data
 
-class JobData: ItemData {
+class JobData: PostData {
   init(author: String,
        dead: Bool,
        deleted: Bool,
@@ -153,21 +154,18 @@ class JobData: ItemData {
        title: String)
   {
     super.init(author: author,
-               descendants: nil,
                dead: dead,
                deleted: deleted,
+               descendants: 0,
                id: id,
-               kids: nil,
-               parent: nil,
-               parts: nil,
-               poll: nil,
+               kids: [],
                score: score,
                text: text,
                time: time,
                title: title,
-               type: .job,
                url: nil,
-               faviconUrl: nil)
+               faviconUrl: nil,
+               type: .job)
   }
 }
 

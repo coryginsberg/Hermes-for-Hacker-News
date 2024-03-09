@@ -21,12 +21,11 @@ struct PostListView: View {
       ScrollView(.vertical) {
         LazyVStack {
           ForEach(postList.items) { post in
-            PostCellOuterView(postData: post.delegate.itemData as! PostData)
-              .onAppear {
-                Task {
-                  await postList.loadMoreContentIfNeeded(currentItem: post)
-                }
+            if let postData = post.itemData as? PostData {
+              PostCellOuterView(postData: postData).task {
+                await postList.loadMoreContentIfNeeded(currentItem: post)
               }
+            }
           }
           if postList.isLoadingPage {
             ProgressView()
@@ -42,11 +41,6 @@ struct PostListView: View {
         }
       }
     }
-//    NavigationView {
-//      ScrollView(.vertical) {
-//
-//      }
-//    }
   }
 }
 

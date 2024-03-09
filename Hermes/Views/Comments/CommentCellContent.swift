@@ -7,10 +7,14 @@ import AlertToast
 import SwiftUI
 
 struct CommentCellContent: View {
-  @State var commentData: CommentData
-  @State var indent: Int
-  @StateObject var childCommentList: CommentListViewModel
+  @Binding var commentData: CommentData
+  @Binding var indent: Int
+  @Binding var hidden: Bool
+
   @State private var showingAlert = false
+  @State private var commentSize: CGSize = .zero
+  @StateObject var childCommentList: CommentListViewModel
+
   private let pasteboard = UIPasteboard.general
 
   @Environment(\.dismiss) var dismiss
@@ -36,35 +40,45 @@ struct CommentCellContent: View {
       markdown: "\(prefixText)\(commentData.text ?? "")"
     )
 
-    LazyVStack {
-      Text(commentText)
-        .commentStyle(isDead: commentData.dead)
-        .contextMenu {
-          Button {
-            copyToClipboard(commentText: String(commentText.characters[...]))
-          } label: {
-            Label("Copy", systemImage: "doc.on.doc")
+    if hidden {
+      VStack {
+        SecondaryCommentInfoGroup(
+          commentData: commentData,
+          showingAlert: $showingAlert
+        )
+        Divider()
+      }
+    } else {
+      LazyVStack {
+        Text(commentText)
+          .commentStyle(isDead: commentData.dead)
+          .contextMenu {
+            Button {
+              copyToClipboard(commentText: String(commentText
+                  .characters[...]))
+            } label: {
+              Label("Copy", systemImage: "doc.on.doc")
+            }
+            Button {} label: {
+              Label("Share", systemImage: "square.and.arrow.up")
+            }
           }
-          Button {} label: {
-            Label("Share", systemImage: "square.and.arrow.up")
-          }
+        SecondaryCommentInfoGroup(
+          commentData: commentData,
+          showingAlert: $showingAlert
+        )
+        Divider()
+
+        // MARK: - Child Comments
+
+        if !childCommentList.items.isEmpty {
+          ForEach(childCommentList.items, content: {
+            CommentCell(
+              commentData: $0.delegate.itemData as! CommentData,
+              indent: indent + 1
+            )
+          })
         }
-
-      SecondaryCommentInfoGroup(
-        commentData: commentData,
-        showingAlert: $showingAlert
-      )
-      Divider()
-
-      // MARK: - Child Comments
-
-      if !childCommentList.items.isEmpty {
-        ForEach(childCommentList.items, content: {
-          CommentCell(
-            commentData: $0.delegate.itemData as! CommentData,
-            indent: indent + 1
-          )
-        })
       }
     }
   }

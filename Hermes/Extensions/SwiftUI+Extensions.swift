@@ -12,7 +12,7 @@ extension Text {
 
     return allowsTightening(true)
       .frame(maxWidth: .infinity, alignment: .leading)
-      .font(.system(size: 14))
+      .font(.footnote)
       .foregroundColor(secondaryColor)
       .lineLimit(1)
   }
@@ -28,5 +28,6 @@ extension Text {
       .frame(maxWidth: .infinity, alignment: .leading)
       .dynamicTypeSize(.medium)
       .textSelection(.enabled)
+      .font(.body)
   }
 }

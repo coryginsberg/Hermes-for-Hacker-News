@@ -24,19 +24,21 @@ struct CommentListView: View {
   var body: some View {
     NavigationStack {
       ScrollView(.vertical) {
-        LazyVStack {
+        VStack {
           PostCellOuterView(postData: currentPost, isCommentView: true)
           if commentList.isLoadingPage {
             ProgressView()
           } else if commentList.items.isEmpty {
             Text("Looks like there's no comments here yet")
           } else {
-            ForEach(commentList.items) {
-              CommentCell(
-                commentData: $0.delegate.itemData as! CommentData,
-                indent: 0
-              )
-              .padding(.leading, 10.0)
+            ForEach(commentList.items) { comment in
+              if let commentData = comment.itemData as? CommentData {
+                CommentCell(
+                  commentData: commentData,
+                  indent: 0
+                )
+                .padding(.leading, 10.0)
+              }
             }
           }
         }.padding(.trailing, 16.0)

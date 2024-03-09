@@ -16,18 +16,24 @@ protocol ItemInfoProtocol {
   ) async
 }
 
+// MARK: - ItemInfo Constants
+
+private enum Constants {
+  static let ref = Database.root
+  static let url = "v0/item/"
+}
+
 // MARK: - ItemInfo
 
 class ItemInfo: Identifiable, ItemInfoProtocol {
   // abstract
   var delegate: ItemInfoProtocol!
-  let ref = Database.root
   init(itemData: ItemData) {
     self.itemData = itemData
   }
 
   func getItemInfo(for itemID: HNID) async {
-    let postRef = ref.child("v0/item/\(itemID)")
+    let postRef = Constants.ref.child("\(Constants.url)\(itemID)")
     await delegate.fetchItem(from: postRef) { [self] item in
       delegate.itemData = item
     }

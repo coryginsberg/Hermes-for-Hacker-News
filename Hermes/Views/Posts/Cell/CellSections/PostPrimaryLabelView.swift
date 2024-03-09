@@ -44,10 +44,12 @@ struct PrimaryLabel: View {
         .multilineTextAlignment(.leading)
         .allowsTightening(true)
         .frame(maxWidth: .infinity, alignment: .leading)
+        .font(.headline)
       if let url = postData.url {
         Text(url.domain ?? "")
           .font(.footnote)
           .frame(maxWidth: .infinity, alignment: .topLeading)
+          .padding(.top, 4.0)
           .padding(.bottom, 4.0)
           .foregroundColor(.init(uiColor: .tertiaryLabel))
       }

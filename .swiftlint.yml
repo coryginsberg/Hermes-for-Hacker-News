@@ -72,6 +72,8 @@ only_rules:
   - vertical_whitespace
   - vertical_whitespace_closing_braces
   - void_return
+  - force_unwrap
+  - implicitly_unwrapped_optional
 
 line_length: 120
 file_length:

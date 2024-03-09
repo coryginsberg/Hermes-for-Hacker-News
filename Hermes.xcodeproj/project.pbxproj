@@ -20,7 +20,6 @@
 		EE7936272B8AB68400959398 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = EE7936262B8AB68400959398 /* Realm */; };
 		EE7936292B8AB68400959398 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EE7936282B8AB68400959398 /* RealmSwift */; };
 		EE79362D2B8C03FC00959398 /* SecondaryInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79362C2B8C03FC00959398 /* SecondaryInfoLabel.swift */; };
-		EE79362F2B8D4CE600959398 /* ConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79362E2B8D4CE600959398 /* ConfirmationDialog.swift */; };
 		EE7936322B8D551500959398 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = EE7936312B8D551500959398 /* AlertToast */; };
 		EE85BB142A8C0CC600ACF5F3 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */; };
 		EE85BB172A8C0DF900ACF5F3 /* DomainParser in Frameworks */ = {isa = PBXBuildFile; productRef = EE85BB162A8C0DF900ACF5F3 /* DomainParser */; };
@@ -89,7 +88,6 @@
 		EE77BBD82A8ADB2900880625 /* PostSecondaryLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSecondaryLabelView.swift; sourceTree = "<group>"; };
 		EE7936242B8AA3F500959398 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		EE79362C2B8C03FC00959398 /* SecondaryInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryInfoLabel.swift; sourceTree = "<group>"; };
-		EE79362E2B8D4CE600959398 /* ConfirmationDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialog.swift; sourceTree = "<group>"; };
 		EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		EE8876222B82B9BB0053633E /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		EE8876232B82B9BB0053633E /* Package.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Package.resolved; sourceTree = "<group>"; };
@@ -227,7 +225,6 @@
 			isa = PBXGroup;
 			children = (
 				EE79362C2B8C03FC00959398 /* SecondaryInfoLabel.swift */,
-				EE79362E2B8D4CE600959398 /* ConfirmationDialog.swift */,
 				EE14E4B22B8D578900AD5AE1 /* AlertViewModal.swift */,
 			);
 			path = ReusableViews;
@@ -532,7 +529,6 @@
 				EEC8BA282A8814E10088B6E9 /* PostCellOuterView.swift in Sources */,
 				EE79362D2B8C03FC00959398 /* SecondaryInfoLabel.swift in Sources */,
 				EE0F941E2B893A1E00108223 /* String+Extensions.swift in Sources */,
-				EE79362F2B8D4CE600959398 /* ConfirmationDialog.swift in Sources */,
 				EEC8BA132A8814520088B6E9 /* Database+Extensions.swift in Sources */,
 				EEC8BA1F2A8814880088B6E9 /* InboxView.swift in Sources */,
 				EEC8BA2F2A8814E70088B6E9 /* CommentListView.swift in Sources */,
