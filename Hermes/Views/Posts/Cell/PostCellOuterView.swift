@@ -19,8 +19,7 @@ struct PostCellOuterView: View {
       Grid(alignment: .leading) {
         GridRow {
           if postData.type == .story, let url = postData.url,
-             let faviconUrl = postData.faviconUrl
-          {
+             let faviconUrl = postData.faviconUrl {
             PostPreviewImageView(url: url, faviconUrl: faviconUrl)
           }
           PostCellTextView(postData: postData, isCommentView: isCommentView)

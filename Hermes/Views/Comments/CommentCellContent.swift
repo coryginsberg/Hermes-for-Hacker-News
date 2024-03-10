@@ -4,6 +4,7 @@
 //
 
 import AlertToast
+import SwiftSoup
 import SwiftUI
 
 struct CommentCellContent: View {
@@ -12,13 +13,50 @@ struct CommentCellContent: View {
   @Binding var hidden: Bool
 
   @State private var showingAlert = false
-  @State private var commentSize: CGSize = .zero
   @StateObject var childCommentList: CommentListViewModel
 
-  private let pasteboard = UIPasteboard.general
+  var body: some View {
+    if hidden {
+      VStack {
+        SecondaryCommentInfoGroup(
+          commentData: commentData,
+          showingAlert: $showingAlert
+        )
+        Divider()
+      }
+    } else {
+      LazyVStack {
+        CommentText(commentData: $commentData)
+        SecondaryCommentInfoGroup(
+          commentData: commentData,
+          showingAlert: $showingAlert
+        )
+        Divider()
 
-  @Environment(\.dismiss) var dismiss
+        // Child Comments
+        if !childCommentList.items.isEmpty {
+          ForEach(childCommentList.items) { child in
+            if let childData = child.itemData as? CommentData {
+              CommentCell(
+                commentData: childData,
+                indent: indent + 1
+              )
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// MARK: - Comment Text
+
+struct CommentText: View {
+  @Binding var commentData: CommentData
+
   @EnvironmentObject var viewModel: AlertViewModal
+
+  private let pasteboard = UIPasteboard.general
 
   func copyToClipboard(commentText: String) {
     viewModel.alertToast = AlertToast(
@@ -36,50 +74,22 @@ struct CommentCellContent: View {
     let prefixText = commentData.dead ? "[dead] " : commentData
       .deleted ? "[deleted] " : ""
 
-    let commentText = try! AttributedString(
+    if let commentText = try? AttributedString(
       markdown: "\(prefixText)\(commentData.text ?? "")"
-    )
-
-    if hidden {
-      VStack {
-        SecondaryCommentInfoGroup(
-          commentData: commentData,
-          showingAlert: $showingAlert
-        )
-        Divider()
-      }
-    } else {
-      LazyVStack {
-        Text(commentText)
-          .commentStyle(isDead: commentData.dead)
-          .contextMenu {
-            Button {
-              copyToClipboard(commentText: String(commentText
-                  .characters[...]))
-            } label: {
-              Label("Copy", systemImage: "doc.on.doc")
-            }
-            Button {} label: {
-              Label("Share", systemImage: "square.and.arrow.up")
-            }
+    ) {
+      Text(commentText)
+        .commentStyle(isDead: commentData.dead)
+        .contextMenu {
+          Button {
+            copyToClipboard(commentText: String(commentText
+                .characters[...]))
+          } label: {
+            Label("Copy", systemImage: "doc.on.doc")
           }
-        SecondaryCommentInfoGroup(
-          commentData: commentData,
-          showingAlert: $showingAlert
-        )
-        Divider()
-
-        // MARK: - Child Comments
-
-        if !childCommentList.items.isEmpty {
-          ForEach(childCommentList.items, content: {
-            CommentCell(
-              commentData: $0.delegate.itemData as! CommentData,
-              indent: indent + 1
-            )
-          })
+          Button {} label: {
+            Label("Share", systemImage: "square.and.arrow.up")
+          }
         }
-      }
     }
   }
 }

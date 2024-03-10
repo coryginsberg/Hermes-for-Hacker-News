@@ -27,15 +27,15 @@ private enum Constants {
 
 class ItemInfo: Identifiable, ItemInfoProtocol {
   // abstract
-  var delegate: ItemInfoProtocol!
+  var delegate: ItemInfoProtocol?
   init(itemData: ItemData) {
     self.itemData = itemData
   }
 
   func getItemInfo(for itemID: HNID) async {
     let postRef = Constants.ref.child("\(Constants.url)\(itemID)")
-    await delegate.fetchItem(from: postRef) { [self] item in
-      delegate.itemData = item
+    await delegate?.fetchItem(from: postRef) { [self] item in
+      delegate?.itemData = item
     }
   }
 

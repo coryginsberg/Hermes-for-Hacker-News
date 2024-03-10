@@ -30,7 +30,7 @@ enum TestData {
 
     static let randomPosts = titles.map { title in
       PostData(
-        author: authors.randomElement()!,
+        author: authors.randomElement() ?? authors[0],
         dead: Bool.random(),
         deleted: Bool.random(),
         descendants: Int.random(in: 0 ..< 300),
@@ -71,13 +71,13 @@ enum TestData {
       master's thesis.
       """,
       """
-       As a Ruby guy, does this really matter for 95% of the world?
+      As a Ruby guy, does this really matter for 95% of the world?
       """,
       """
-       Fantastic article. Here's a little bit more about what was discussed. And some real life applications.
+      Fantastic article. Here's a little bit more about what was discussed. And some real life applications.
       """,
       """
-       I know this is off-topic, but does anyone know how he got visual effect X on his blog? It looks very nice.
+      I know this is off-topic, but does anyone know how he got visual effect X on his blog? It looks very nice.
       """,
       """
       > giant snippet
@@ -88,7 +88,7 @@ enum TestData {
 
     static let randomComments = comments.map { comment in
       CommentData(
-        author: authors.randomElement()!,
+        author: authors.randomElement() ?? authors[0],
         descendants: nil,
         dead: false,
         deleted: false,

@@ -24,7 +24,7 @@ class PostInfo: ItemInfo {
 
       guard let value = snapshot.value as? [String: Any] else { return }
       guard let postType = ItemData
-        .ItemType(rawValue: value["type"] as! ItemData.ItemType.RawValue)
+        .ItemType(rawValue: value["type"] as? ItemData.ItemType.RawValue ?? "")
       else { return }
       do {
         switch postType {
@@ -39,6 +39,8 @@ class PostInfo: ItemInfo {
             completion: completion as (JobData) -> Void
           )
         case .poll, .pollopt:
+          // TODO: Update to add poll support
+          // swiftlint:disable:next no_fallthrough_only
           fallthrough
         default:
           return

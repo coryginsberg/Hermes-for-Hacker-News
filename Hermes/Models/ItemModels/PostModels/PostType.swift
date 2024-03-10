@@ -11,11 +11,11 @@ enum PostType {
     from value: [String: Any],
     completion: @escaping (PostData) -> Void
   ) async throws {
-    let url: URL? = if let urlStr = value["url"] as? String {
-      URL(string: urlStr)
+    let url = genUrl(from: value["url"] as? String)
+    let faviconUrl: URL? = if let url {
+      try await ItemInfoHelper
+        .loadFavicon(fromUrl: url)
     } else { nil }
-    let faviconUrl = url != nil ? try await ItemInfoHelper
-      .loadFavicon(fromUrl: url!) : nil
 
     completion(PostData(
       author: value["by"] as? String ?? "",
@@ -32,6 +32,15 @@ enum PostType {
       url: url,
       faviconUrl: faviconUrl
     ))
+
+    func genUrl(from urlStr: String?) -> URL? {
+      guard let urlStr = urlStr,
+            let url = URL(string: urlStr)
+      else {
+        return nil
+      }
+      return url
+    }
   }
 
   static func fetchJob(

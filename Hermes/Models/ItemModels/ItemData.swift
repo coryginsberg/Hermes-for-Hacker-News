@@ -9,7 +9,7 @@ public typealias HNID = Int
 
 // MARK: - Default Data
 
-public class ItemData {
+class ItemData {
   /// The username of the item's author.
   var author: String
   var descendants: Int?
@@ -84,8 +84,7 @@ public class ItemData {
        title: String?,
        type: ItemType,
        url: URL?,
-       faviconUrl: URL?)
-  {
+       faviconUrl: URL?) {
     self.author = author
     self.descendants = descendants
     self.dead = dead
@@ -120,8 +119,7 @@ class PostData: ItemData {
        title: String,
        url: URL? = nil,
        faviconUrl: URL? = nil,
-       type: ItemType = .story)
-  {
+       type: ItemType = .story) {
     super.init(author: author,
                descendants: descendants,
                dead: dead,
@@ -151,8 +149,7 @@ class JobData: PostData {
        score: Int,
        text: String?,
        time: Date,
-       title: String)
-  {
+       title: String) {
     super.init(author: author,
                dead: dead,
                deleted: deleted,

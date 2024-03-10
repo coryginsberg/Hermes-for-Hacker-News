@@ -50,8 +50,7 @@ class PostListViewModel: ObservableObject {
   // MARK: - Private functions
 
   private func genInitializePosts(forStoryType storyType: StoriesTypes? =
-    nil) async throws
-  {
+    nil) async throws {
     switch storyType {
     case .topStories:
       itemListRef = ref.child("v0/topstories")
@@ -98,7 +97,7 @@ class PostListViewModel: ObservableObject {
 
   private func genPostsInfo() async throws -> [ItemInfo] {
     try await items.asyncCompactMap {
-      try await PostInfo($0.delegate.itemData.id)
+      try await PostInfo($0.delegate?.itemData.id ?? 0)
     }
   }
 

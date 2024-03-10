@@ -86,7 +86,6 @@
 		EE77BBD42A8AD14B00880625 /* PostPreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPreviewImageView.swift; sourceTree = "<group>"; };
 		EE77BBD62A8AD97E00880625 /* PostPrimaryLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPrimaryLabelView.swift; sourceTree = "<group>"; };
 		EE77BBD82A8ADB2900880625 /* PostSecondaryLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSecondaryLabelView.swift; sourceTree = "<group>"; };
-		EE7936242B8AA3F500959398 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		EE79362C2B8C03FC00959398 /* SecondaryInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryInfoLabel.swift; sourceTree = "<group>"; };
 		EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		EE8876222B82B9BB0053633E /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -236,7 +235,6 @@
 				EE8876262B82B9BB0053633E /* LICENSE.md */,
 				EE8876232B82B9BB0053633E /* Package.resolved */,
 				EE8876222B82B9BB0053633E /* Package.swift */,
-				EE7936242B8AA3F500959398 /* .swiftformat */,
 				EE8876242B82B9BB0053633E /* README.md */,
 				EED148782A88247A001FA326 /* .swift-version */,
 				EEC8BA3A2A8815500088B6E9 /* .gitignore */,
@@ -374,6 +372,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EEC8B9F12A880A320088B6E9 /* Build configuration list for PBXNativeTarget "Hermes" */;
 			buildPhases = (
+				EEFE9EA52B9D16C500DB5D70 /* Lint Files */,
 				EEC8B9C92A880A280088B6E9 /* Sources */,
 				EEC8B9CA2A880A280088B6E9 /* Frameworks */,
 				EEC8B9CB2A880A280088B6E9 /* Resources */,
@@ -511,6 +510,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EEFE9EA52B9D16C500DB5D70 /* Lint Files */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Lint Files";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EEC8B9C92A880A280088B6E9 /* Sources */ = {
@@ -720,6 +741,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Hermes/Preview Content\"";
 				DEVELOPMENT_TEAM = 3K22YJAJ77;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Hermes/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
@@ -753,6 +775,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Hermes/Preview Content\"";
 				DEVELOPMENT_TEAM = 3K22YJAJ77;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Hermes/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
