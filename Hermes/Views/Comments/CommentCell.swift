@@ -20,9 +20,8 @@ struct CommentCell: View {
   init(commentData: CommentData, indent: Int) {
     _commentData = State(wrappedValue: commentData)
     _indent = State(wrappedValue: indent)
-    _childCommentList =
-      StateObject(wrappedValue: CommentListViewModel(withComments: commentData
-          .kids ?? []))
+    _childCommentList = StateObject(wrappedValue: CommentListViewModel(withComments: commentData
+        .kids ?? []))
   }
 
   var body: some View {
