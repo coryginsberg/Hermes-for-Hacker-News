@@ -36,7 +36,7 @@ struct PostSecondaryLabelView: View {
           .font(.caption)
           .foregroundColor(textColor)
           .lineLimit(1)
-      }
+      }.padding(.bottom, 2.0)
     }
   }
 }

@@ -8,7 +8,6 @@ import Foundation
 public typealias HNID = Int
 
 // MARK: - Default Data
-
 class ItemData {
   /// The username of the item's author.
   var author: String

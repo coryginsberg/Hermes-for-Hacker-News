@@ -14,8 +14,16 @@ struct PostCellOuterView: View {
   let secondaryTextColor = Color(uiColor: .secondaryLabel)
   let spacer = Spacer(minLength: 4.0)
 
+  init(postData: PostData, isCommentView: Bool = false) {
+    self.postData = postData
+    self.isCommentView = isCommentView
+    #if targetEnvironment(simulator) && DEBUG
+      print(postData.title as Any, postData.id)
+    #endif
+  }
+
   var body: some View {
-    VStack(alignment: .leading) {
+    LazyVStack(alignment: .leading) {
       Grid(alignment: .leading) {
         GridRow {
           if postData.type == .story, let url = postData.url,

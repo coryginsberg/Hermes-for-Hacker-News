@@ -32,10 +32,9 @@ struct CommentListView: View {
             Text("Looks like there's no comments here yet")
           } else {
             ForEach(commentList.items) { comment in
-              if let commentData = comment.itemData as? CommentData {
-                CommentCell(
-                  commentData: commentData,
-                  indent: 0
+              if let commentData = comment.delegate?.itemData as? CommentData {
+                CommentThread(
+                  commentData: commentData
                 )
                 .padding(.leading, 10.0)
               }

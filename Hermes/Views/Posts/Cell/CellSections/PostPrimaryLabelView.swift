@@ -49,11 +49,10 @@ struct PrimaryLabel: View {
         Text(url.domain ?? "")
           .font(.footnote)
           .frame(maxWidth: .infinity, alignment: .topLeading)
-          .padding(.top, 4.0)
-          .padding(.bottom, 4.0)
+          .padding(.top, 0.0)
           .foregroundColor(.init(uiColor: .tertiaryLabel))
       }
-    }
+    }.padding(.bottom, 8.0)
   }
 }
 

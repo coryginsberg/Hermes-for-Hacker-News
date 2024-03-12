@@ -16,12 +16,19 @@ struct PostListView: View {
 
   @Environment(\.managedObjectContext) private var viewContext
 
+#if targetEnvironment(simulator) && DEBUG
+  init() {
+    print("Items", postList.items)
+    print("Environment", viewContext)
+  }
+#endif
+
   var body: some View {
     NavigationStack {
       ScrollView(.vertical) {
         LazyVStack {
           ForEach(postList.items) { post in
-            if let postData = post.itemData as? PostData {
+            if let postData = post.delegate?.itemData as? PostData {
               PostCellOuterView(postData: postData).task {
                 await postList.loadMoreContentIfNeeded(currentItem: post)
               }

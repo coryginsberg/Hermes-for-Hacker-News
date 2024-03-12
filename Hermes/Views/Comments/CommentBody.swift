@@ -1,57 +1,36 @@
 //
-// Copyright (c) 2024 Cory Ginsberg.
-// Licensed under the Apache License, Version 2.0
+//  CommentBody.swift
+//  Hermes
+//
+//  Created by Cory Ginsberg on 3/10/24.
 //
 
 import AlertToast
-import SwiftSoup
 import SwiftUI
 
-struct CommentCellContent: View {
+struct CommentBody: View {
   @Binding var commentData: CommentData
-  @Binding var indent: Int
+  @Binding var showingAlert: Bool
   @Binding var hidden: Bool
-
-  @State private var showingAlert = false
-  @StateObject var childCommentList: CommentListViewModel
+  @Binding var indent: Int
 
   var body: some View {
-    if hidden {
-      VStack {
-        SecondaryCommentInfoGroup(
-          commentData: commentData,
-          showingAlert: $showingAlert
-        )
-        Divider()
-      }
-    } else {
-      LazyVStack {
+    VStack {
+      if !hidden {
         CommentText(commentData: $commentData)
-        SecondaryCommentInfoGroup(
-          commentData: commentData,
-          showingAlert: $showingAlert
-        )
-        Divider()
-
-        // Child Comments
-        if !childCommentList.items.isEmpty {
-          ForEach(childCommentList.items) { child in
-            if let childData = child.itemData as? CommentData {
-              CommentCell(
-                commentData: childData,
-                indent: indent + 1
-              )
-            }
-          }
-        }
       }
-    }
+      SecondaryCommentInfoGroup(
+        commentData: commentData,
+        showingAlert: $showingAlert
+      )
+      Divider()
+    }.indent($indent)
   }
 }
 
 // MARK: - Comment Text
 
-struct CommentText: View {
+private struct CommentText: View {
   @Binding var commentData: CommentData
 
   @EnvironmentObject var viewModel: AlertViewModal
