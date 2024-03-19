@@ -5,6 +5,8 @@
 
 import Foundation
 
-enum ValidationError: Error {
+enum StoryListError: Error, Equatable {
   case storyTypeRequired
+  case noMorePosts
+  case databaseRefUrlNotFound
 }

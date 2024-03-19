@@ -30,9 +30,10 @@ private struct CommentIndentViewModifier: ViewModifier {
     let indentLeadingEdge =
       indent > 0
         ? (CGFloat(integerLiteral: indent) * Constants.indentAmount) - Constants.indentAmount : 0.0
+
     HStack {
       if indent > 0 {
-        colors[indent - 1 % colors.count]
+        colors[(indent - 1) % colors.count]
           .frame(width: 1.5)
           .clipShape(
             RoundedRectangle(

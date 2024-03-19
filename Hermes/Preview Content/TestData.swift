@@ -45,8 +45,7 @@ enum TestData {
         time: Date(timeIntervalSince1970: TimeInterval(Int
             .random(in: 1_670_495_658 ... 1_690_495_658))),
         title: title,
-        url: URL(string: "www.google.com/search?q=hermes+god"),
-        faviconUrl: URL(string: "https://www.google.com/favicon.ico")
+        url: URL(string: "www.google.com/search?q=hermes+god")
       )
     }.shuffled()
   }

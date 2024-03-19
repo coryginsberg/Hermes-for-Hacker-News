@@ -34,7 +34,7 @@ struct CommentThread: View {
     self.hidden = hidden
     _childCommentList = StateObject(wrappedValue: CommentListViewModel(withComments: commentData
         .kids ?? []))
-    print(indent)
+//    print(indent)
   }
 
   var body: some View {

@@ -12,10 +12,6 @@ enum PostType {
     completion: @escaping (PostData) -> Void
   ) async throws {
     let url = genUrl(from: value["url"] as? String)
-    let faviconUrl: URL? = if let url {
-      try await ItemInfoHelper
-        .loadFavicon(fromUrl: url)
-    } else { nil }
 
     completion(PostData(
       author: value["by"] as? String ?? "",
@@ -29,8 +25,7 @@ enum PostType {
       time: ItemInfoHelper
         .convertToDate(from: value["time"] as? Int ?? 0),
       title: value["title"] as? String ?? "",
-      url: url,
-      faviconUrl: faviconUrl
+      url: url
     ))
 
     func genUrl(from urlStr: String?) -> URL? {

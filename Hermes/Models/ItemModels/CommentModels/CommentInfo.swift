@@ -21,7 +21,7 @@ class CommentInfo: ItemInfo {
     do {
       let snapshot = try await ref.getData()
       guard let value = snapshot.value as? [String: Any]
-      else { throw ValidationError.storyTypeRequired }
+      else { throw StoryListError.storyTypeRequired }
 
       completion(CommentData(
         author: value["by"] as? String ?? "",

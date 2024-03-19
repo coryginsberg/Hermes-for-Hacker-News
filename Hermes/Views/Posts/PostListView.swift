@@ -4,50 +4,67 @@
 //
 
 import Foundation
-import RealmSwift
 import SwiftUI
 
 // MARK: - PostListView
 
 struct PostListView: View {
   let title: String = "Posts"
+  @State var postType: StoriesTypes
 
-  @StateObject var postList = PostListViewModel(forStoryType: .topStories)
+  @StateObject private var postList: PostListViewModel
 
   @Environment(\.managedObjectContext) private var viewContext
 
-#if targetEnvironment(simulator) && DEBUG
-  init() {
-    print("Items", postList.items)
-    print("Environment", viewContext)
+  init(postType: StoriesTypes = .topStories) {
+    self.postType = postType
+    _postList = StateObject(wrappedValue: .init(forStoryType: postType))
   }
-#endif
 
   var body: some View {
     NavigationStack {
-      ScrollView(.vertical) {
-        LazyVStack {
-          ForEach(postList.items) { post in
-            if let postData = post.delegate?.itemData as? PostData {
-              PostCellOuterView(postData: postData).task {
-                await postList.loadMoreContentIfNeeded(currentItem: post)
-              }
-            }
-          }
-          if postList.isLoadingPage {
-            ProgressView()
-          }
-        }
-        .navigationTitle(title)
-        .refreshable {
-          do {
-            try await postList.refreshPostList()
-          } catch {
-            print("unable to refresh post list")
-          }
+      LazyVStack {
+        switch postList.status {
+        case .loading:
+          ProgressView()
+        case .loaded:
+          PostListLoadedView()
+        case .noStoryTypeError:
+          Text("Tried to generate a story without defining the story type")
+        case .error(let error):
+          Text("Error: \(error.localizedDescription)")
         }
       }
-    }
+      .navigationTitle(self.title)
+    }.task {
+      postList.setStoryType(self.postType)
+      await postList.genQueryInitialPosts()
+    }.environmentObject(postList)
+  }
+}
+
+struct PostListLoadedView: View {
+  @EnvironmentObject private var postList: PostListViewModel
+
+  var body: some View {
+    let posts = postList.items.enumerated().map { $0 }
+    List(posts, id: \.element.id) { index, post in
+      if let postData = post.delegate?.itemData as? PostData {
+        PostCellOuterView(postData: postData)
+          .task {
+            do {
+              try await postList.genRequestMoreItemsIfNeeded(index: index)
+            } catch {
+              print("Here")
+            }
+          }
+      }
+    }.refreshable {
+      await postList.genRefreshPostList()
+    }.onAppear {
+      print("Post List Appeared")
+    }.listStyle(PlainListStyle())
+      .frame(height: UIScreen.main.bounds.height - 120)
   }
 }
 
@@ -55,6 +72,6 @@ struct PostListView: View {
 
 struct PostsListView_Previews: PreviewProvider {
   static var previews: some View {
-    PostListView()
+    PostListView(postType: .bestStories)
   }
 }

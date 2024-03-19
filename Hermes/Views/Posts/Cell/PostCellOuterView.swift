@@ -26,9 +26,8 @@ struct PostCellOuterView: View {
     LazyVStack(alignment: .leading) {
       Grid(alignment: .leading) {
         GridRow {
-          if postData.type == .story, let url = postData.url,
-             let faviconUrl = postData.faviconUrl {
-            PostPreviewImageView(url: url, faviconUrl: faviconUrl)
+          if postData.type == .story, let url = postData.url {
+            PostFaviconView(url: url)
           }
           PostCellTextView(postData: postData, isCommentView: isCommentView)
         }

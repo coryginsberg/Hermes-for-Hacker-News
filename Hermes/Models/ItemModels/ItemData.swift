@@ -8,6 +8,7 @@ import Foundation
 public typealias HNID = Int
 
 // MARK: - Default Data
+
 class ItemData {
   /// The username of the item's author.
   var author: String
@@ -38,7 +39,6 @@ class ItemData {
   var type: ItemType
   /// The URL of the story.
   var url: URL?
-  var faviconUrl: URL?
 
   enum ItemType: String {
     case job
@@ -64,8 +64,7 @@ class ItemData {
               time: .init(),
               title: nil,
               type: .unknown,
-              url: nil,
-              faviconUrl: nil)
+              url: nil)
   }
 
   init(author: String,
@@ -82,8 +81,7 @@ class ItemData {
        time: Date,
        title: String?,
        type: ItemType,
-       url: URL?,
-       faviconUrl: URL?) {
+       url: URL?) {
     self.author = author
     self.descendants = descendants
     self.dead = dead
@@ -99,7 +97,6 @@ class ItemData {
     self.title = title
     self.type = type
     self.url = url
-    self.faviconUrl = faviconUrl
   }
 }
 
@@ -117,7 +114,6 @@ class PostData: ItemData {
        time: Date,
        title: String,
        url: URL? = nil,
-       faviconUrl: URL? = nil,
        type: ItemType = .story) {
     super.init(author: author,
                descendants: descendants,
@@ -133,8 +129,7 @@ class PostData: ItemData {
                time: time,
                title: title,
                type: type,
-               url: url,
-               faviconUrl: faviconUrl)
+               url: url)
   }
 }
 
@@ -160,7 +155,6 @@ class JobData: PostData {
                time: time,
                title: title,
                url: nil,
-               faviconUrl: nil,
                type: .job)
   }
 }
@@ -196,8 +190,7 @@ class CommentData: ItemData {
       time: time,
       title: nil,
       type: .comment,
-      url: nil,
-      faviconUrl: nil
+      url: nil
     )
   }
 }

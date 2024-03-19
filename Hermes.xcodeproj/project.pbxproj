@@ -13,7 +13,7 @@
 		EE2F08EF2ACCB17400EB4489 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2F08EE2ACCB17400EB4489 /* CommentViewModel.swift */; };
 		EE6F70722ACB79FA000E7C78 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6F70712ACB79FA000E7C78 /* Errors.swift */; };
 		EE77BBD22A8AC9F400880625 /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD12A8AC9F400880625 /* WebViewWrapper.swift */; };
-		EE77BBD52A8AD14B00880625 /* PostPreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD42A8AD14B00880625 /* PostPreviewImageView.swift */; };
+		EE77BBD52A8AD14B00880625 /* PostFaviconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD42A8AD14B00880625 /* PostFaviconView.swift */; };
 		EE77BBD72A8AD97E00880625 /* PostPrimaryLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD62A8AD97E00880625 /* PostPrimaryLabelView.swift */; };
 		EE77BBD92A8ADB2900880625 /* PostSecondaryLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD82A8ADB2900880625 /* PostSecondaryLabelView.swift */; };
 		EE7936272B8AB68400959398 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = EE7936262B8AB68400959398 /* Realm */; };
@@ -25,6 +25,7 @@
 		EE88762D2B82B9BB0053633E /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = EE8876262B82B9BB0053633E /* LICENSE.md */; };
 		EEAE2B012B9E526B00E4A9A7 /* CommentIndentViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAE2B002B9E526B00E4A9A7 /* CommentIndentViewModifier.swift */; };
 		EEAE2B032B9E52F300E4A9A7 /* CommentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAE2B022B9E52F300E4A9A7 /* CommentBody.swift */; };
+		EEAE2B062BA0ED0900E4A9A7 /* FaviconLoaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAE2B052BA0ED0900E4A9A7 /* FaviconLoaderViewModel.swift */; };
 		EEC8B9D12A880A280088B6E9 /* HermesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9D02A880A280088B6E9 /* HermesApp.swift */; };
 		EEC8B9D52A880A310088B6E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D42A880A310088B6E9 /* Assets.xcassets */; };
 		EEC8B9D82A880A310088B6E9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D72A880A310088B6E9 /* Preview Assets.xcassets */; };
@@ -81,7 +82,7 @@
 		EE2F08EE2ACCB17400EB4489 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		EE6F70712ACB79FA000E7C78 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		EE77BBD12A8AC9F400880625 /* WebViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewWrapper.swift; sourceTree = "<group>"; };
-		EE77BBD42A8AD14B00880625 /* PostPreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPreviewImageView.swift; sourceTree = "<group>"; };
+		EE77BBD42A8AD14B00880625 /* PostFaviconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFaviconView.swift; sourceTree = "<group>"; };
 		EE77BBD62A8AD97E00880625 /* PostPrimaryLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPrimaryLabelView.swift; sourceTree = "<group>"; };
 		EE77BBD82A8ADB2900880625 /* PostSecondaryLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSecondaryLabelView.swift; sourceTree = "<group>"; };
 		EE79362C2B8C03FC00959398 /* SecondaryInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryInfoLabel.swift; sourceTree = "<group>"; };
@@ -92,6 +93,7 @@
 		EE8876262B82B9BB0053633E /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		EEAE2B002B9E526B00E4A9A7 /* CommentIndentViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentIndentViewModifier.swift; sourceTree = "<group>"; };
 		EEAE2B022B9E52F300E4A9A7 /* CommentBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentBody.swift; sourceTree = "<group>"; };
+		EEAE2B052BA0ED0900E4A9A7 /* FaviconLoaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconLoaderViewModel.swift; sourceTree = "<group>"; };
 		EEC8B9CD2A880A280088B6E9 /* Hermes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hermes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC8B9D02A880A280088B6E9 /* HermesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesApp.swift; sourceTree = "<group>"; };
 		EEC8B9D42A880A310088B6E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -214,7 +216,7 @@
 		EE77BBD32A8AD12D00880625 /* CellSections */ = {
 			isa = PBXGroup;
 			children = (
-				EE77BBD42A8AD14B00880625 /* PostPreviewImageView.swift */,
+				EE77BBD42A8AD14B00880625 /* PostFaviconView.swift */,
 				EE77BBD62A8AD97E00880625 /* PostPrimaryLabelView.swift */,
 				EE77BBD82A8ADB2900880625 /* PostSecondaryLabelView.swift */,
 			);
@@ -322,6 +324,7 @@
 		EEC8B9FB2A880A4D0088B6E9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				EEAE2B052BA0ED0900E4A9A7 /* FaviconLoaderViewModel.swift */,
 				EEC8BA152A88147A0088B6E9 /* PostListViewModel.swift */,
 				EEC8BA072A88144B0088B6E9 /* PostViewModel.swift */,
 				EE2F08EE2ACCB17400EB4489 /* CommentViewModel.swift */,
@@ -557,7 +560,7 @@
 			files = (
 				EEC8BA172A88147A0088B6E9 /* PostListViewModel.swift in Sources */,
 				EEC8BA0F2A88144C0088B6E9 /* PostViewModel.swift in Sources */,
-				EE77BBD52A8AD14B00880625 /* PostPreviewImageView.swift in Sources */,
+				EE77BBD52A8AD14B00880625 /* PostFaviconView.swift in Sources */,
 				EE77BBD72A8AD97E00880625 /* PostPrimaryLabelView.swift in Sources */,
 				EEC8BA0C2A88144C0088B6E9 /* ItemData.swift in Sources */,
 				EEC8BA2D2A8814E70088B6E9 /* CommentThread.swift in Sources */,
@@ -582,6 +585,7 @@
 				EEC8BA122A8814520088B6E9 /* Sequence+Extensions.swift in Sources */,
 				EE6F70722ACB79FA000E7C78 /* Errors.swift in Sources */,
 				EE85BB142A8C0CC600ACF5F3 /* URL+Extensions.swift in Sources */,
+				EEAE2B062BA0ED0900E4A9A7 /* FaviconLoaderViewModel.swift in Sources */,
 				EE77BBD92A8ADB2900880625 /* PostSecondaryLabelView.swift in Sources */,
 				EEC8BA082A88144C0088B6E9 /* PostInfo.swift in Sources */,
 				EEAE2B012B9E526B00E4A9A7 /* CommentIndentViewModifier.swift in Sources */,

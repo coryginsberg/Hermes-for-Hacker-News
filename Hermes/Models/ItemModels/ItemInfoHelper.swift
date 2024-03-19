@@ -11,19 +11,6 @@ enum ItemInfoHelper {
     Date(timeIntervalSince1970: TimeInterval(timePublished))
   }
 
-  static func loadFavicon(fromUrl url: URL) async throws -> URL {
-    do {
-      let favicon = try await FaviconFinder(url: url, downloadImage: false)
-        .downloadFavicon()
-      return favicon.url
-    } catch {
-      guard let url = URL.localURLForXCAsset(name: "AwkwardMonkey") else {
-        throw URLError(.fileDoesNotExist)
-      }
-      return url
-    }
-  }
-
   static func calcTimeSince(datePosted date: Date) -> String {
     let components = Calendar(identifier: .gregorian)
       .dateComponents(
