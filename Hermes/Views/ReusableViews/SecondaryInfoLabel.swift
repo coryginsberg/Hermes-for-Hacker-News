@@ -5,38 +5,38 @@
 
 import SwiftUI
 
-struct SecondaryCommentInfoGroup: View {
-  let commentData: CommentData
-  @Binding var showingAlert: Bool
-
-  var body: some View {
-    HStack {
-      Text("– \(commentData.author)").secondaryStyle(isDead: commentData.dead)
-
-      Group {
-        SecondaryInfoButton(
-          systemImage: "arrowshape.turn.up.left",
-          textBody: ""
-        ) { showingAlert = true }
-        SecondaryInfoLabel(
-          systemImage: "clock",
-          textBody: ItemInfoHelper
-            .calcTimeSince(datePosted: commentData.time)
-        )
-        if commentData.score > 0 {
-          SecondaryInfoLabel(
-            systemImage: "arrow.up",
-            textBody: "\(commentData.score)"
-          )
-        }
-        SecondaryInfoButton(
-          systemImage: "ellipsis",
-          textBody: ""
-        ) { showingAlert = true }
-      }.padding(.leading, 6.0)
-    }
-  }
-}
+// struct SecondaryCommentInfoGroup: View {
+//  let commentData: CommentData
+//  @Binding var showingAlert: Bool
+//
+//  var body: some View {
+//    HStack {
+//      Text("– \(commentData.author)").secondaryStyle(isDead: commentData.dead)
+//
+//      Group {
+//        SecondaryInfoButton(
+//          systemImage: "arrowshape.turn.up.left",
+//          textBody: ""
+//        ) { showingAlert = true }
+//        SecondaryInfoLabel(
+//          systemImage: "clock",
+//          textBody: ItemInfoHelper
+//            .calcTimeSince(datePosted: commentData.time)
+//        )
+//        if commentData.score > 0 {
+//          SecondaryInfoLabel(
+//            systemImage: "arrow.up",
+//            textBody: "\(commentData.score)"
+//          )
+//        }
+//        SecondaryInfoButton(
+//          systemImage: "ellipsis",
+//          textBody: ""
+//        ) { showingAlert = true }
+//      }.padding(.leading, 6.0)
+//    }
+//  }
+// }
 
 struct SecondaryInfoLabel: View {
   let systemImage: String

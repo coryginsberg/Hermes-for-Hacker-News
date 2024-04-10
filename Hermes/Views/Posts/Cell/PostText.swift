@@ -8,25 +8,23 @@ import SwiftUI
 
 // MARK: - PostCellText
 
-struct PostCellTextView: View {
-  @State var postData: PostData
+struct PostText: View {
+  @State var post: Post
   @State var isCommentView: Bool = false
+  @State var isFaviconVisible: Bool = true
 
   let secondaryTextColor = Color(uiColor: .secondaryLabel)
   let spacer: Spacer = .init(minLength: 4.0)
 
   var body: some View {
     VStack(alignment: .leading) {
-      PostPrimaryLabelView(
-        postData: postData,
+      PostPrimaryLabel(
+        post: post,
         secondaryTextColor: secondaryTextColor,
         isCommentView: isCommentView
       )
-      PostSecondaryLabelView(postData: postData, textColor: secondaryTextColor)
-    }.padding(.horizontal, 16.0)
+      PostSecondaryLabel(post: post, textColor: secondaryTextColor)
+    }
+    .padding(.leading, isFaviconVisible ? 16.0 : 0)
   }
-}
-
-#Preview {
-  PostCellOuterView(postData: TestData.Posts.randomPosts[0])
 }

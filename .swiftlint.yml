@@ -98,6 +98,10 @@ attributes:
     - "@NSManaged"
     - "@objc"
     - "@Environment"
+    - "@Attribute"
+    - "@Relationship"
+    - "@UIApplicationDelegateAdaptor"
+    - "@Query"
 
 force_cast: warning
 force_try: warning
@@ -119,6 +123,10 @@ identifier_name:
     - x
     - y
     - z
+
+type_name:
+  excluded:
+    - C
 
 private_over_fileprivate:
   validate_extensions: true

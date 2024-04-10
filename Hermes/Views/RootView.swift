@@ -10,15 +10,16 @@ import SwiftUI
 
 struct RootView: View {
   @Environment(\.managedObjectContext) private var viewContext
-
-  @StateObject var viewModal: AlertViewModal = .init()
+  @State private var viewModel = ViewModel()
+  @StateObject var alertViewModal: AlertViewModal = .init()
 
   var body: some View {
     TabView {
-      PostListView()
+      PostTabView()
         .tabItem {
           Label("Posts", systemImage: "newspaper.fill")
         }
+        .environment(viewModel)
       InboxView()
         .tabItem {
           Label("Inbox", systemImage: "envelope.fill")
@@ -31,19 +32,14 @@ struct RootView: View {
         .tabItem {
           Label("Settings", systemImage: "gearshape.fill")
         }
-    }.accentColor(Color(.systemOrange)).environmentObject(viewModal)
-      .toast(isPresenting: $viewModal.show) {
-        viewModal.alertToast
-      }
+    }
+    .accentColor(Color(.systemOrange))
+    .environmentObject(alertViewModal)
+    .toast(isPresenting: $alertViewModal.show) {
+      alertViewModal.alertToast
+    }
   }
 }
-
-private let itemFormatter: DateFormatter = {
-  let formatter = DateFormatter()
-  formatter.dateStyle = .short
-  formatter.timeStyle = .medium
-  return formatter
-}()
 
 // MARK: - RootView_Previews
 

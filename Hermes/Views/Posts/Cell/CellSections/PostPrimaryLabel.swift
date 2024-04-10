@@ -8,25 +8,25 @@ import SwiftUI
 
 // MARK: - PostPrimaryLabelView
 
-struct PostPrimaryLabelView: View {
+struct PostPrimaryLabel: View {
   @State private var showSafari: Bool = false
 
-  var postData: PostData
+  var post: Post
   var secondaryTextColor: Color
   var isCommentView: Bool = false
 
   var body: some View {
-    if isCommentView, let url = postData.url {
-      PrimaryLabel(postData: postData, secondaryTextColor: secondaryTextColor)
+    if isCommentView, let url = post.url {
+      PrimaryLabel(post: post, secondaryTextColor: secondaryTextColor)
         .onTapGesture {
           showSafari.toggle()
         }.fullScreenCover(isPresented: $showSafari, content: {
           WebViewWrapper(url: url)
         })
     } else {
-      NavigationLink(destination: CommentListView(currentPost: postData)) {
-        PrimaryLabel(postData: postData, secondaryTextColor: secondaryTextColor)
-      }
+//      NavigationLink(destination: CommentListView(currentPost: postData)) {
+      PrimaryLabel(post: post, secondaryTextColor: secondaryTextColor)
+//      }
     }
   }
 }
@@ -34,28 +34,26 @@ struct PostPrimaryLabelView: View {
 // MARK: - PrimaryLabel
 
 struct PrimaryLabel: View {
-  var postData: ItemData
+  var post: Post
   var secondaryTextColor: Color
 
   var body: some View {
     VStack(alignment: .leading) {
-      Text(postData.title ?? "")
+      Text(post.title)
         .foregroundColor(Color(uiColor: .label))
         .multilineTextAlignment(.leading)
         .allowsTightening(true)
         .frame(maxWidth: .infinity, alignment: .leading)
         .font(.headline)
-      if let url = postData.url {
+        .fontWeight(.regular)
+      if let url = post.url {
         Text(url.domain ?? "")
           .font(.footnote)
           .frame(maxWidth: .infinity, alignment: .topLeading)
           .padding(.top, 0.0)
           .foregroundColor(.init(uiColor: .tertiaryLabel))
       }
-    }.padding(.bottom, 8.0)
+    }
+    .padding(.bottom, 8.0)
   }
-}
-
-#Preview {
-  PostCellOuterView(postData: TestData.Posts.randomPosts[0])
 }

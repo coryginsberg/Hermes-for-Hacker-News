@@ -7,8 +7,8 @@ import SwiftUI
 
 // MARK: - PostSecondaryLabelView
 
-struct PostSecondaryLabelView: View {
-  var postData: PostData?
+struct PostSecondaryLabel: View {
+  var post: Post
   var textColor: Color
 
   var body: some View {
@@ -17,30 +17,33 @@ struct PostSecondaryLabelView: View {
         Group {
           SecondaryInfoLabel(
             systemImage: "arrow.up",
-            textBody: "\(postData?.score ?? 0)"
+            textBody: "\(post.points ?? 0)"
           )
           SecondaryInfoLabel(
             systemImage: "bubble.left",
-            textBody: "\(postData?.descendants ?? 0)"
+            textBody: "\(post.numComments ?? 0)"
           )
           SecondaryInfoLabel(
             systemImage: "clock",
-            textBody: ItemInfoHelper
-              .calcTimeSince(datePosted: postData?.time ?? Date())
+            textBody: DateFormatter
+              .calcTimeSince(datePosted: post.createdAt)
           )
-        }.padding(.trailing, 10.0)
+        }
+        .padding(.trailing, 10.0)
+        .frame(alignment: .leading)
 
-        Text("by \(postData?.author ?? "")")
+        Text("by \(post.author)")
           .allowsTightening(true)
           .frame(maxWidth: .infinity, alignment: .trailing)
           .font(.caption)
           .foregroundColor(textColor)
           .lineLimit(1)
-      }.padding(.bottom, 2.0)
+      }
+      .padding(.bottom, 2.0)
     }
   }
 }
 
-#Preview {
-  PostCellOuterView(postData: TestData.Posts.randomPosts[0])
-}
+// #Preview {
+//  PostCellOuterView(postData: TestData.Posts.randomPosts[0])
+// }

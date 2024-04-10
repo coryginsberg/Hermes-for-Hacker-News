@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct PostFaviconView: View {
+struct PostFavicon: View {
   @State var url: URL
   @State var loadUrl = false
 
@@ -15,28 +15,36 @@ struct PostFaviconView: View {
     Group {
       switch self.faviconLoader.state {
       case .idle:
-        ProgressView().faviconStyle(withUrlToLoad: self.$url)
+        ProgressView()
+          .faviconStyle(withUrlToLoad: self.$url)
       case .loading:
-        ProgressView().faviconStyle(withUrlToLoad: self.$url)
+        ProgressView()
+          .faviconStyle(withUrlToLoad: self.$url)
       case .loaded(let image):
-        Image(uiImage: image).faviconStyle(withUrlToLoad: self.$url)
+        Image(uiImage: image)
+          .faviconStyle(withUrlToLoad: self.$url)
 //      case .failed(let error) where error == "failedToFindFavicon":
 //        Image(.awkwardMonkey).faviconStyle(withUrlToLoad: self.$url).redacted(reason: .invalidated)
 //      case .failed(let error) where error.code == -999:
 //        Image(.awkwardMonkey).faviconStyle(withUrlToLoad: self.$url).redacted(reason: .invalidated)
       case .failed(let error):
-        Image(.awkwardMonkey).faviconStyle(withUrlToLoad: self.$url).redacted(reason: .invalidated).onAppear {
-          print(error)
-        }
+        Image(.awkwardMonkey)
+          .faviconStyle(withUrlToLoad: self.$url)
+          .redacted(reason: .invalidated)
+          .onAppear {
+            log().error("\(error)")
+          }
       }
-    }.task {
+    }
+    .task {
       await self.faviconLoader.load(fromUrl: self.url)
-    }.onTapGesture {
+    }
+    .onTapGesture {
       self.loadUrl.toggle()
     }
-    .fullScreenCover(isPresented: self.$loadUrl, content: {
+    .fullScreenCover(isPresented: self.$loadUrl) {
       WebViewWrapper(url: self.$url.wrappedValue)
-    })
+    }
   }
 }
 
@@ -47,7 +55,6 @@ extension Image {
       .transition(.scale(scale: 0.1, anchor: .center))
       .frame(width: 50, height: 50, alignment: .top)
       .clipShape(RoundedRectangle(cornerRadius: 8))
-      .padding(.leading, 24)
   }
 }
 
@@ -60,10 +67,5 @@ extension ProgressView {
       .transition(.scale(scale: 0.1, anchor: .center))
       .frame(width: 50, height: 50, alignment: .top)
       .clipShape(RoundedRectangle(cornerRadius: 8))
-      .padding(.leading, 24)
   }
-}
-
-#Preview {
-  PostCellOuterView(postData: TestData.Posts.randomPosts[0])
 }

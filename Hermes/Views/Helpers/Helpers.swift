@@ -1,16 +1,13 @@
 //
-// Copyright (c) 2024 Cory Ginsberg.
-// Licensed under the Apache License, Version 2.0
+//  Helpers.swift
+//  Hermes
+//
+//  Created by Cory Ginsberg on 4/10/24.
 //
 
-import FaviconFinder
 import Foundation
 
-enum ItemInfoHelper {
-  static func convertToDate(from timePublished: Int) -> Date {
-    Date(timeIntervalSince1970: TimeInterval(timePublished))
-  }
-
+extension DateFormatter {
   static func calcTimeSince(datePosted date: Date) -> String {
     let components = Calendar(identifier: .gregorian)
       .dateComponents(
