@@ -1,11 +1,23 @@
+# Mostly taken from the Kodeco (Formerly Ray Wenderlich) Swift style guide. Minor modifications done to align with my personal preferences
+
 excluded:
   - .build
   - .github
   - .vscode
   - HackerNewsApp.xcodeproj
+  - ${PWD}/Carthage
+  - ${PWD}/Pods
+  - ${PWD}/DerivedData
 
-# explicitly list all rules in use
-only_rules:
+
+disabled_rules:
+  - trailing_comma
+  - todo
+
+analyzer_rules:
+  - unused_import
+
+opt_in_rules:
   - block_based_kvo
   - class_delegate_protocol
   - closing_brace
@@ -18,6 +30,7 @@ only_rules:
   - comment_spacing
   - compiler_protocol_init
   - computed_accessors_order
+  - convenience_type
   - control_statement
   - custom_rules
   - deployment_target
@@ -30,6 +43,8 @@ only_rules:
   - explicit_init
   - file_name_no_space
   - file_length
+  - function_body_length
+  - force_cast
   - force_try
   - is_disjoint
   - leading_whitespace
@@ -72,8 +87,53 @@ only_rules:
   - vertical_whitespace
   - vertical_whitespace_closing_braces
   - void_return
+  - force_unwrapping
+  - implicitly_unwrapped_optional
+  - attributes
+
+attributes:
+  always_on_same_line:
+    - "@IBSegueAction"
+    - "@IBAction"
+    - "@NSManaged"
+    - "@objc"
+    - "@Environment"
+    - "@Attribute"
+    - "@Relationship"
+    - "@UIApplicationDelegateAdaptor"
+    - "@Query"
+
+force_cast: warning
+force_try: warning
+force_unwrapping: error
 
 line_length: 120
 file_length:
   warning: 500
   error: 1200
+function_body_length:
+    warning: 60
+
+legacy_hashing: error
+
+identifier_name:
+  excluded:
+    - i
+    - id
+    - x
+    - y
+    - z
+
+type_name:
+  excluded:
+    - C
+
+private_over_fileprivate:
+  validate_extensions: true
+
+trailing_whitespace:
+  ignores_empty_lines: false
+  ignores_comments: true
+
+vertical_whitespace:
+  max_empty_lines: 2

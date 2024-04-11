@@ -1,13 +1,13 @@
 //
-//  HermesApp.swift
-//  Hermes
-//
-//  Created by Cory Ginsberg on 8/12/23.
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
-import FirebaseCore
+import OSLog
+import SwiftData
 import SwiftUI
 
+<<<<<<< HEAD
 // MARK: - AppDelegate
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -24,15 +24,29 @@ class AppDelegate: NSObject, UIApplicationDelegate {
   }
 }
 
+=======
+>>>>>>> mvc-rewrite
 // MARK: - HermesApp
 
 @main
 struct HermesApp: App {
-  @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+  @State private var viewModel = ViewModel()
+
+  let modelContainer: ModelContainer
+
+  init() {
+    do {
+      modelContainer = try ModelContainer(for: Post.self)
+    } catch {
+      Logger(category: "HermesApp").fault("\(error)")
+      fatalError("Failed to create ModelContainer for ItemData")
+    }
+  }
 
   var body: some Scene {
     WindowGroup {
-      RootView()
+      RootView().environment(viewModel)
     }
+    .modelContainer(modelContainer)
   }
 }

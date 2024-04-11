@@ -1,23 +1,25 @@
 //
-//  Copyright (c) 2022 Cory Ginsberg.
-//  Licensed under the Apache License, Version 2.0
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
+import AlertToast
 import SwiftUI
 
 // MARK: - RootView
 
 struct RootView: View {
   @Environment(\.managedObjectContext) private var viewContext
-
-  //  @ObservedObject var fetch = HackerNewsAPI()
+  @State private var viewModel = ViewModel()
+  @StateObject var alertViewModal: AlertViewModal = .init()
 
   var body: some View {
     TabView {
-      PostListView()
+      PostTabView()
         .tabItem {
           Label("Posts", systemImage: "newspaper.fill")
         }
+        .environment(viewModel)
       InboxView()
         .tabItem {
           Label("Inbox", systemImage: "envelope.fill")
@@ -32,15 +34,12 @@ struct RootView: View {
         }
     }
     .accentColor(Color(.systemOrange))
+    .environmentObject(alertViewModal)
+    .toast(isPresenting: $alertViewModal.show) {
+      alertViewModal.alertToast
+    }
   }
 }
-
-private let itemFormatter: DateFormatter = {
-  let formatter = DateFormatter()
-  formatter.dateStyle = .short
-  formatter.timeStyle = .medium
-  return formatter
-}()
 
 // MARK: - RootView_Previews
 

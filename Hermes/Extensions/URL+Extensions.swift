@@ -1,9 +1,14 @@
 //
+<<<<<<< HEAD
 //  URL+Extensions.swift
 //  FaviconFinder
 //
 //  Created by William Lumley on 16/10/19.
 //  Copyright © 2019 William Lumley. All rights reserved.
+=======
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
+>>>>>>> mvc-rewrite
 //
 
 import DomainParser

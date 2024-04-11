@@ -1,8 +1,9 @@
-/*
- *  CollectionConcurrencyKit
- *  Copyright (c) John Sundell 2021
- *  MIT license, see LICENSE.md file for details
- */
+//
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
+//
+
+// swiftlint:disable all
 
 // MARK: - ForEach
 
@@ -167,8 +168,12 @@ public extension Sequence {
   ) async throws -> [T] {
     try await withoutActuallyEscaping(transform) { escapableTransform in
       try await withThrowingTaskGroup(of: (offset: Int, value: T)
+<<<<<<< HEAD
         .self)
       { group in
+=======
+        .self) { group in
+>>>>>>> mvc-rewrite
         var c = 0
         for element in self {
           let idx = c
@@ -284,8 +289,12 @@ public extension Sequence {
   ) async throws -> [T] {
     try await withoutActuallyEscaping(transform) { escapableTransform in
       try await withThrowingTaskGroup(of: (offset: Int, value: T?)
+<<<<<<< HEAD
         .self)
       { group in
+=======
+        .self) { group in
+>>>>>>> mvc-rewrite
         var c = 0
         for element in self {
           let idx = c
@@ -400,8 +409,12 @@ public extension Sequence {
   ) async throws -> [T.Element] {
     try await withoutActuallyEscaping(transform) { escapableTransform in
       try await withThrowingTaskGroup(of: (offset: Int, value: T)
+<<<<<<< HEAD
         .self)
       { group in
+=======
+        .self) { group in
+>>>>>>> mvc-rewrite
         var c = 0
         for element in self {
           let idx = c
@@ -420,3 +433,5 @@ public extension Sequence {
     }
   }
 }
+
+// swiftlint:enable all

@@ -3,57 +3,63 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		EE0431792B4DE61400EB8C00 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = EE0431782B4DE61400EB8C00 /* .swiftformat */; };
 		EE04317C2B4DE97000EB8C00 /* .git in Resources */ = {isa = PBXBuildFile; fileRef = EE04317B2B4DE97000EB8C00 /* .git */; };
 		EE2F08EF2ACCB17400EB4489 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2F08EE2ACCB17400EB4489 /* CommentViewModel.swift */; };
 		EE6F70722ACB79FA000E7C78 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6F70712ACB79FA000E7C78 /* Errors.swift */; };
+=======
+		EE0F941E2B893A1E00108223 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F941D2B893A1E00108223 /* String+Extensions.swift */; };
+		EE14E4B32B8D578900AD5AE1 /* AlertViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E4B22B8D578900AD5AE1 /* AlertViewModal.swift */; };
+		EE14E4B52B8E887A00AD5AE1 /* SwiftUI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E4B42B8E887A00AD5AE1 /* SwiftUI+Extensions.swift */; };
+>>>>>>> mvc-rewrite
 		EE77BBD22A8AC9F400880625 /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD12A8AC9F400880625 /* WebViewWrapper.swift */; };
-		EE77BBD52A8AD14B00880625 /* PostPreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD42A8AD14B00880625 /* PostPreviewImageView.swift */; };
-		EE77BBD72A8AD97E00880625 /* PostPrimaryLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD62A8AD97E00880625 /* PostPrimaryLabelView.swift */; };
-		EE77BBD92A8ADB2900880625 /* PostSecondaryLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD82A8ADB2900880625 /* PostSecondaryLabelView.swift */; };
+		EE77BBD52A8AD14B00880625 /* PostFavicon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD42A8AD14B00880625 /* PostFavicon.swift */; };
+		EE77BBD72A8AD97E00880625 /* PostPrimaryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD62A8AD97E00880625 /* PostPrimaryLabel.swift */; };
+		EE77BBD92A8ADB2900880625 /* PostSecondaryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD82A8ADB2900880625 /* PostSecondaryLabel.swift */; };
+		EE79362D2B8C03FC00959398 /* SecondaryInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79362C2B8C03FC00959398 /* SecondaryInfoLabel.swift */; };
+		EE7936322B8D551500959398 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = EE7936312B8D551500959398 /* AlertToast */; };
 		EE85BB142A8C0CC600ACF5F3 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */; };
 		EE85BB172A8C0DF900ACF5F3 /* DomainParser in Frameworks */ = {isa = PBXBuildFile; productRef = EE85BB162A8C0DF900ACF5F3 /* DomainParser */; };
 		EE88762D2B82B9BB0053633E /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = EE8876262B82B9BB0053633E /* LICENSE.md */; };
-		EE8876332B82BA000053633E /* .vscode in Resources */ = {isa = PBXBuildFile; fileRef = EE88762E2B82BA000053633E /* .vscode */; };
-		EE8876342B82BA000053633E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EE88762F2B82BA000053633E /* .gitignore */; };
-		EE8876362B82BA000053633E /* .git in Resources */ = {isa = PBXBuildFile; fileRef = EE8876312B82BA000053633E /* .git */; };
-		EE8876372B82BA000053633E /* .swift-version in Resources */ = {isa = PBXBuildFile; fileRef = EE8876322B82BA000053633E /* .swift-version */; };
+		EE9727EC2BC7352400240EDF /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727E02BC7352400240EDF /* Errors.swift */; };
+		EE9727ED2BC7352400240EDF /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727E12BC7352400240EDF /* ViewModel.swift */; };
+		EE9727EE2BC7352400240EDF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727E22BC7352400240EDF /* Constants.swift */; };
+		EE9727F02BC7352400240EDF /* HNStoriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727E52BC7352400240EDF /* HNStoriesList.swift */; };
+		EE9727F12BC7352400240EDF /* HNStoriesResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727E62BC7352400240EDF /* HNStoriesResults.swift */; };
+		EE9727F22BC7352400240EDF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727E82BC7352400240EDF /* Post.swift */; };
+		EE9727F32BC7352400240EDF /* Post+HNSearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727EB2BC7352400240EDF /* Post+HNSearchResults.swift */; };
+		EE9727F62BC7380800240EDF /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = EE9727F52BC7380800240EDF /* OrderedCollections */; };
+		EE9727F92BC7384000240EDF /* ItemFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727F82BC7384000240EDF /* ItemFetcher.swift */; };
+		EE9727FC2BC73B1D00240EDF /* ModelContext+SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727FB2BC73B1D00240EDF /* ModelContext+SQLite.swift */; };
+		EE9727FF2BC73EDF00240EDF /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727FE2BC73EDF00240EDF /* Helpers.swift */; };
+		EEAE2B012B9E526B00E4A9A7 /* CommentIndentViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAE2B002B9E526B00E4A9A7 /* CommentIndentViewModifier.swift */; };
+		EEAE2B032B9E52F300E4A9A7 /* CommentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAE2B022B9E52F300E4A9A7 /* CommentBody.swift */; };
+		EEAE2B062BA0ED0900E4A9A7 /* FaviconLoaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAE2B052BA0ED0900E4A9A7 /* FaviconLoaderViewModel.swift */; };
 		EEC8B9D12A880A280088B6E9 /* HermesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9D02A880A280088B6E9 /* HermesApp.swift */; };
 		EEC8B9D52A880A310088B6E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D42A880A310088B6E9 /* Assets.xcassets */; };
 		EEC8B9D82A880A310088B6E9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D72A880A310088B6E9 /* Preview Assets.xcassets */; };
 		EEC8B9E22A880A320088B6E9 /* HermesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9E12A880A320088B6E9 /* HermesTests.swift */; };
 		EEC8B9EC2A880A320088B6E9 /* HermesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9EB2A880A320088B6E9 /* HermesUITests.swift */; };
 		EEC8B9EE2A880A320088B6E9 /* HermesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9ED2A880A320088B6E9 /* HermesUITestsLaunchTests.swift */; };
-		EEC8BA082A88144C0088B6E9 /* PostInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA002A88144B0088B6E9 /* PostInfo.swift */; };
-		EEC8BA092A88144C0088B6E9 /* CommentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA012A88144B0088B6E9 /* CommentInfo.swift */; };
-		EEC8BA0A2A88144C0088B6E9 /* ItemTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA022A88144B0088B6E9 /* ItemTypes.swift */; };
-		EEC8BA0B2A88144C0088B6E9 /* ItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA032A88144B0088B6E9 /* ItemInfo.swift */; };
-		EEC8BA0C2A88144C0088B6E9 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA042A88144B0088B6E9 /* ItemData.swift */; };
-		EEC8BA0D2A88144C0088B6E9 /* ItemInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA052A88144B0088B6E9 /* ItemInfoHelper.swift */; };
-		EEC8BA0E2A88144C0088B6E9 /* PostType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA062A88144B0088B6E9 /* PostType.swift */; };
-		EEC8BA0F2A88144C0088B6E9 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA072A88144B0088B6E9 /* PostViewModel.swift */; };
 		EEC8BA122A8814520088B6E9 /* Sequence+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA102A8814520088B6E9 /* Sequence+Extensions.swift */; };
-		EEC8BA132A8814520088B6E9 /* Database+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA112A8814520088B6E9 /* Database+Extensions.swift */; };
-		EEC8BA172A88147A0088B6E9 /* PostListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA152A88147A0088B6E9 /* PostListViewModel.swift */; };
 		EEC8BA1B2A8814830088B6E9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA182A8814830088B6E9 /* ProfileView.swift */; };
 		EEC8BA1D2A8814830088B6E9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA1A2A8814830088B6E9 /* SettingsView.swift */; };
 		EEC8BA1F2A8814880088B6E9 /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA1E2A8814880088B6E9 /* InboxView.swift */; };
 		EEC8BA212A8814CA0088B6E9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA202A8814CA0088B6E9 /* RootView.swift */; };
-		EEC8BA262A8814E10088B6E9 /* PostCellTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA222A8814E10088B6E9 /* PostCellTextView.swift */; };
-		EEC8BA282A8814E10088B6E9 /* PostCellOuterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA242A8814E10088B6E9 /* PostCellOuterView.swift */; };
-		EEC8BA292A8814E10088B6E9 /* PostListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA252A8814E10088B6E9 /* PostListView.swift */; };
-		EEC8BA2D2A8814E70088B6E9 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA2A2A8814E70088B6E9 /* CommentCell.swift */; };
+		EEC8BA262A8814E10088B6E9 /* PostText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA222A8814E10088B6E9 /* PostText.swift */; };
+		EEC8BA282A8814E10088B6E9 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA242A8814E10088B6E9 /* PostCell.swift */; };
+		EEC8BA292A8814E10088B6E9 /* PostList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA252A8814E10088B6E9 /* PostList.swift */; };
+		EEC8BA2D2A8814E70088B6E9 /* CommentThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA2A2A8814E70088B6E9 /* CommentThread.swift */; };
 		EEC8BA2F2A8814E70088B6E9 /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA2C2A8814E70088B6E9 /* CommentListView.swift */; };
-		EEC8BA352A8815460088B6E9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EEC8BA342A8815460088B6E9 /* README.md */; };
-		EEC8BA392A88154C0088B6E9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = EEC8BA382A88154C0088B6E9 /* .swiftlint.yml */; };
-		EEC8BA3E2A8815F50088B6E9 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EEC8BA3D2A8815F50088B6E9 /* FirebaseDatabaseSwift */; };
 		EEC8BA412A8816100088B6E9 /* FaviconFinder in Frameworks */ = {isa = PBXBuildFile; productRef = EEC8BA402A8816100088B6E9 /* FaviconFinder */; };
 		EEC8BA482A88191E0088B6E9 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA472A88191E0088B6E9 /* TestData.swift */; };
 		EEE021482A881E58003676E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EEE021472A881E58003676E6 /* GoogleService-Info.plist */; };
+		EEEA19A42BB6127200654F56 /* PostTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEA19A32BB6127200654F56 /* PostTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,27 +80,39 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
 		EE0431782B4DE61400EB8C00 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		EE04317B2B4DE97000EB8C00 /* .git */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .git; sourceTree = "<group>"; };
 		EE2F08EE2ACCB17400EB4489 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		EE6F70712ACB79FA000E7C78 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+=======
+		EE0F941D2B893A1E00108223 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		EE14E4B22B8D578900AD5AE1 /* AlertViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModal.swift; sourceTree = "<group>"; };
+		EE14E4B42B8E887A00AD5AE1 /* SwiftUI+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Extensions.swift"; sourceTree = "<group>"; };
+>>>>>>> mvc-rewrite
 		EE77BBD12A8AC9F400880625 /* WebViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewWrapper.swift; sourceTree = "<group>"; };
-		EE77BBD42A8AD14B00880625 /* PostPreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPreviewImageView.swift; sourceTree = "<group>"; };
-		EE77BBD62A8AD97E00880625 /* PostPrimaryLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPrimaryLabelView.swift; sourceTree = "<group>"; };
-		EE77BBD82A8ADB2900880625 /* PostSecondaryLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSecondaryLabelView.swift; sourceTree = "<group>"; };
+		EE77BBD42A8AD14B00880625 /* PostFavicon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFavicon.swift; sourceTree = "<group>"; };
+		EE77BBD62A8AD97E00880625 /* PostPrimaryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPrimaryLabel.swift; sourceTree = "<group>"; };
+		EE77BBD82A8ADB2900880625 /* PostSecondaryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSecondaryLabel.swift; sourceTree = "<group>"; };
+		EE79362C2B8C03FC00959398 /* SecondaryInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryInfoLabel.swift; sourceTree = "<group>"; };
 		EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
-		EE8876202B82B9BB0053633E /* HermesUITests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HermesUITests; sourceTree = "<group>"; };
-		EE8876212B82B9BB0053633E /* HermesTests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = HermesTests; sourceTree = "<group>"; };
 		EE8876222B82B9BB0053633E /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		EE8876232B82B9BB0053633E /* Package.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Package.resolved; sourceTree = "<group>"; };
 		EE8876242B82B9BB0053633E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		EE8876252B82B9BB0053633E /* Hermes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Hermes; sourceTree = "<group>"; };
 		EE8876262B82B9BB0053633E /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
-		EE88762E2B82BA000053633E /* .vscode */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .vscode; sourceTree = "<group>"; };
-		EE88762F2B82BA000053633E /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		EE8876302B82BA000053633E /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		EE8876312B82BA000053633E /* .git */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .git; sourceTree = "<group>"; };
-		EE8876322B82BA000053633E /* .swift-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
+		EE9727E02BC7352400240EDF /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		EE9727E12BC7352400240EDF /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		EE9727E22BC7352400240EDF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EE9727E52BC7352400240EDF /* HNStoriesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNStoriesList.swift; sourceTree = "<group>"; };
+		EE9727E62BC7352400240EDF /* HNStoriesResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNStoriesResults.swift; sourceTree = "<group>"; };
+		EE9727E82BC7352400240EDF /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		EE9727EB2BC7352400240EDF /* Post+HNSearchResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+HNSearchResults.swift"; sourceTree = "<group>"; };
+		EE9727F82BC7384000240EDF /* ItemFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFetcher.swift; sourceTree = "<group>"; };
+		EE9727FB2BC73B1D00240EDF /* ModelContext+SQLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelContext+SQLite.swift"; sourceTree = "<group>"; };
+		EE9727FE2BC73EDF00240EDF /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		EEAE2B002B9E526B00E4A9A7 /* CommentIndentViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentIndentViewModifier.swift; sourceTree = "<group>"; };
+		EEAE2B022B9E52F300E4A9A7 /* CommentBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentBody.swift; sourceTree = "<group>"; };
+		EEAE2B052BA0ED0900E4A9A7 /* FaviconLoaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconLoaderViewModel.swift; sourceTree = "<group>"; };
 		EEC8B9CD2A880A280088B6E9 /* Hermes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hermes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC8B9D02A880A280088B6E9 /* HermesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesApp.swift; sourceTree = "<group>"; };
 		EEC8B9D42A880A310088B6E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,25 +122,15 @@
 		EEC8B9E72A880A320088B6E9 /* HermesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HermesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC8B9EB2A880A320088B6E9 /* HermesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesUITests.swift; sourceTree = "<group>"; };
 		EEC8B9ED2A880A320088B6E9 /* HermesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		EEC8BA002A88144B0088B6E9 /* PostInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostInfo.swift; sourceTree = "<group>"; };
-		EEC8BA012A88144B0088B6E9 /* CommentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentInfo.swift; sourceTree = "<group>"; };
-		EEC8BA022A88144B0088B6E9 /* ItemTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTypes.swift; sourceTree = "<group>"; };
-		EEC8BA032A88144B0088B6E9 /* ItemInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInfo.swift; sourceTree = "<group>"; };
-		EEC8BA042A88144B0088B6E9 /* ItemData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
-		EEC8BA052A88144B0088B6E9 /* ItemInfoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInfoHelper.swift; sourceTree = "<group>"; };
-		EEC8BA062A88144B0088B6E9 /* PostType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostType.swift; sourceTree = "<group>"; };
-		EEC8BA072A88144B0088B6E9 /* PostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		EEC8BA102A8814520088B6E9 /* Sequence+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+Extensions.swift"; sourceTree = "<group>"; };
-		EEC8BA112A8814520088B6E9 /* Database+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Database+Extensions.swift"; sourceTree = "<group>"; };
-		EEC8BA152A88147A0088B6E9 /* PostListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListViewModel.swift; sourceTree = "<group>"; };
 		EEC8BA182A8814830088B6E9 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EEC8BA1A2A8814830088B6E9 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EEC8BA1E2A8814880088B6E9 /* InboxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxView.swift; sourceTree = "<group>"; };
 		EEC8BA202A8814CA0088B6E9 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		EEC8BA222A8814E10088B6E9 /* PostCellTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCellTextView.swift; sourceTree = "<group>"; };
-		EEC8BA242A8814E10088B6E9 /* PostCellOuterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCellOuterView.swift; sourceTree = "<group>"; };
-		EEC8BA252A8814E10088B6E9 /* PostListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListView.swift; sourceTree = "<group>"; };
-		EEC8BA2A2A8814E70088B6E9 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		EEC8BA222A8814E10088B6E9 /* PostText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostText.swift; sourceTree = "<group>"; };
+		EEC8BA242A8814E10088B6E9 /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		EEC8BA252A8814E10088B6E9 /* PostList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostList.swift; sourceTree = "<group>"; };
+		EEC8BA2A2A8814E70088B6E9 /* CommentThread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentThread.swift; sourceTree = "<group>"; };
 		EEC8BA2C2A8814E70088B6E9 /* CommentListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentListView.swift; sourceTree = "<group>"; };
 		EEC8BA342A8815460088B6E9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EEC8BA362A8815480088B6E9 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
@@ -132,6 +140,8 @@
 		EED148782A88247A001FA326 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		EED1487F2A89A578001FA326 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEE021472A881E58003676E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EEEA19A32BB6127200654F56 /* PostTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTabView.swift; sourceTree = "<group>"; };
+		EEED0AAF2B9D33FA00BB27C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +150,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE85BB172A8C0DF900ACF5F3 /* DomainParser in Frameworks */,
-				EEC8BA3E2A8815F50088B6E9 /* FirebaseDatabaseSwift in Frameworks */,
+				EE9727F62BC7380800240EDF /* OrderedCollections in Frameworks */,
+				EE7936322B8D551500959398 /* AlertToast in Frameworks */,
 				EEC8BA412A8816100088B6E9 /* FaviconFinder in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,40 +177,10 @@
 			isa = PBXGroup;
 			children = (
 				EE77BBD32A8AD12D00880625 /* CellSections */,
-				EEC8BA242A8814E10088B6E9 /* PostCellOuterView.swift */,
-				EEC8BA222A8814E10088B6E9 /* PostCellTextView.swift */,
+				EEC8BA242A8814E10088B6E9 /* PostCell.swift */,
+				EEC8BA222A8814E10088B6E9 /* PostText.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		EE6F706E2ACB6B48000E7C78 /* ItemModels */ = {
-			isa = PBXGroup;
-			children = (
-				EE6F70702ACB6B94000E7C78 /* CommentModels */,
-				EE6F706F2ACB6B6C000E7C78 /* PostModels */,
-				EEC8BA042A88144B0088B6E9 /* ItemData.swift */,
-				EEC8BA022A88144B0088B6E9 /* ItemTypes.swift */,
-				EEC8BA032A88144B0088B6E9 /* ItemInfo.swift */,
-				EEC8BA052A88144B0088B6E9 /* ItemInfoHelper.swift */,
-			);
-			path = ItemModels;
-			sourceTree = "<group>";
-		};
-		EE6F706F2ACB6B6C000E7C78 /* PostModels */ = {
-			isa = PBXGroup;
-			children = (
-				EEC8BA002A88144B0088B6E9 /* PostInfo.swift */,
-				EEC8BA062A88144B0088B6E9 /* PostType.swift */,
-			);
-			path = PostModels;
-			sourceTree = "<group>";
-		};
-		EE6F70702ACB6B94000E7C78 /* CommentModels */ = {
-			isa = PBXGroup;
-			children = (
-				EEC8BA012A88144B0088B6E9 /* CommentInfo.swift */,
-			);
-			path = CommentModels;
 			sourceTree = "<group>";
 		};
 		EE77BBD02A8AC9B800880625 /* Wrappers */ = {
@@ -213,16 +194,85 @@
 		EE77BBD32A8AD12D00880625 /* CellSections */ = {
 			isa = PBXGroup;
 			children = (
-				EE77BBD42A8AD14B00880625 /* PostPreviewImageView.swift */,
-				EE77BBD62A8AD97E00880625 /* PostPrimaryLabelView.swift */,
-				EE77BBD82A8ADB2900880625 /* PostSecondaryLabelView.swift */,
+				EE77BBD42A8AD14B00880625 /* PostFavicon.swift */,
+				EE77BBD62A8AD97E00880625 /* PostPrimaryLabel.swift */,
+				EE77BBD82A8ADB2900880625 /* PostSecondaryLabel.swift */,
 			);
 			path = CellSections;
+			sourceTree = "<group>";
+		};
+		EE79362A2B8C039C00959398 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				EE79362C2B8C03FC00959398 /* SecondaryInfoLabel.swift */,
+				EE14E4B22B8D578900AD5AE1 /* AlertViewModal.swift */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		EE9727E72BC7352400240EDF /* JSONSchemas */ = {
+			isa = PBXGroup;
+			children = (
+				EE9727E52BC7352400240EDF /* HNStoriesList.swift */,
+				EE9727E62BC7352400240EDF /* HNStoriesResults.swift */,
+			);
+			path = JSONSchemas;
+			sourceTree = "<group>";
+		};
+		EE9727E92BC7352400240EDF /* SwiftDataModels */ = {
+			isa = PBXGroup;
+			children = (
+				EE9727E82BC7352400240EDF /* Post.swift */,
+			);
+			path = SwiftDataModels;
+			sourceTree = "<group>";
+		};
+		EE9727EA2BC7352400240EDF /* ItemModels */ = {
+			isa = PBXGroup;
+			children = (
+				EE9727E72BC7352400240EDF /* JSONSchemas */,
+				EE9727E92BC7352400240EDF /* SwiftDataModels */,
+			);
+			path = ItemModels;
+			sourceTree = "<group>";
+		};
+		EE9727F72BC7383300240EDF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EE9727E22BC7352400240EDF /* Constants.swift */,
+				EE9727F82BC7384000240EDF /* ItemFetcher.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		EE9727FA2BC73B0F00240EDF /* Debugging */ = {
+			isa = PBXGroup;
+			children = (
+				EE9727FB2BC73B1D00240EDF /* ModelContext+SQLite.swift */,
+			);
+			path = Debugging;
+			sourceTree = "<group>";
+		};
+		EE9727FD2BC73EA300240EDF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EE9727FE2BC73EDF00240EDF /* Helpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		EEAE2B042B9E544B00E4A9A7 /* CommentViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				EEAE2B002B9E526B00E4A9A7 /* CommentIndentViewModifier.swift */,
+			);
+			path = CommentViewModifiers;
 			sourceTree = "<group>";
 		};
 		EEC8B9C42A880A280088B6E9 = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 				EE8876312B82BA000053633E /* .git */,
@@ -233,6 +283,8 @@
 				EE8876252B82B9BB0053633E /* Hermes */,
 				EE8876212B82B9BB0053633E /* HermesTests */,
 				EE8876202B82B9BB0053633E /* HermesUITests */,
+=======
+>>>>>>> mvc-rewrite
 				EE8876262B82B9BB0053633E /* LICENSE.md */,
 				EE8876232B82B9BB0053633E /* Package.resolved */,
 				EE8876222B82B9BB0053633E /* Package.swift */,
@@ -253,6 +305,7 @@
 				EEC8B9E02A880A320088B6E9 /* HermesTests */,
 				EEC8B9EA2A880A320088B6E9 /* HermesUITests */,
 				EEC8B9CE2A880A280088B6E9 /* Products */,
+				EEED0AAE2B9D33FA00BB27C0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -269,6 +322,7 @@
 		EEC8B9CF2A880A280088B6E9 /* Hermes */ = {
 			isa = PBXGroup;
 			children = (
+				EE9727FA2BC73B0F00240EDF /* Debugging */,
 				EED1487F2A89A578001FA326 /* Info.plist */,
 				EEC8B9FD2A880A610088B6E9 /* Extensions */,
 				EEC8B9FA2A880A460088B6E9 /* Models */,
@@ -311,8 +365,11 @@
 		EEC8B9FA2A880A460088B6E9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EE6F706E2ACB6B48000E7C78 /* ItemModels */,
-				EE6F70712ACB79FA000E7C78 /* Errors.swift */,
+				EE9727F72BC7383300240EDF /* Helpers */,
+				EE9727EA2BC7352400240EDF /* ItemModels */,
+				EE9727EB2BC7352400240EDF /* Post+HNSearchResults.swift */,
+				EE9727E12BC7352400240EDF /* ViewModel.swift */,
+				EE9727E02BC7352400240EDF /* Errors.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -320,9 +377,7 @@
 		EEC8B9FB2A880A4D0088B6E9 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				EEC8BA152A88147A0088B6E9 /* PostListViewModel.swift */,
-				EEC8BA072A88144B0088B6E9 /* PostViewModel.swift */,
-				EE2F08EE2ACCB17400EB4489 /* CommentViewModel.swift */,
+				EEAE2B052BA0ED0900E4A9A7 /* FaviconLoaderViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -330,9 +385,10 @@
 		EEC8B9FC2A880A550088B6E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EE9727FD2BC73EA300240EDF /* Helpers */,
+				EE79362A2B8C039C00959398 /* ReusableViews */,
 				EE77BBD02A8AC9B800880625 /* Wrappers */,
 				EEC8B9FE2A880A690088B6E9 /* Posts */,
-				EEC8B9FF2A880A6E0088B6E9 /* Comments */,
 				EEC8BA202A8814CA0088B6E9 /* RootView.swift */,
 				EEC8BA1E2A8814880088B6E9 /* InboxView.swift */,
 				EEC8BA182A8814830088B6E9 /* ProfileView.swift */,
@@ -344,9 +400,10 @@
 		EEC8B9FD2A880A610088B6E9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				EEC8BA112A8814520088B6E9 /* Database+Extensions.swift */,
 				EEC8BA102A8814520088B6E9 /* Sequence+Extensions.swift */,
 				EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */,
+				EE0F941D2B893A1E00108223 /* String+Extensions.swift */,
+				EE14E4B42B8E887A00AD5AE1 /* SwiftUI+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -354,8 +411,10 @@
 		EEC8B9FE2A880A690088B6E9 /* Posts */ = {
 			isa = PBXGroup;
 			children = (
+				EEC8B9FF2A880A6E0088B6E9 /* Comments */,
 				EE102A3A2ACCB90300C28F80 /* Cell */,
-				EEC8BA252A8814E10088B6E9 /* PostListView.swift */,
+				EEC8BA252A8814E10088B6E9 /* PostList.swift */,
+				EEEA19A32BB6127200654F56 /* PostTabView.swift */,
 			);
 			path = Posts;
 			sourceTree = "<group>";
@@ -363,10 +422,20 @@
 		EEC8B9FF2A880A6E0088B6E9 /* Comments */ = {
 			isa = PBXGroup;
 			children = (
-				EEC8BA2A2A8814E70088B6E9 /* CommentCell.swift */,
+				EEAE2B042B9E544B00E4A9A7 /* CommentViewModifiers */,
+				EEC8BA2A2A8814E70088B6E9 /* CommentThread.swift */,
 				EEC8BA2C2A8814E70088B6E9 /* CommentListView.swift */,
+				EEAE2B022B9E52F300E4A9A7 /* CommentBody.swift */,
 			);
 			path = Comments;
+			sourceTree = "<group>";
+		};
+		EEED0AAE2B9D33FA00BB27C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EEED0AAF2B9D33FA00BB27C0 /* Foundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,6 +445,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EEC8B9F12A880A320088B6E9 /* Build configuration list for PBXNativeTarget "Hermes" */;
 			buildPhases = (
+				EEFE9EA52B9D16C500DB5D70 /* Lint Files */,
 				EEC8B9C92A880A280088B6E9 /* Sources */,
 				EEC8B9CA2A880A280088B6E9 /* Frameworks */,
 				EEC8B9CB2A880A280088B6E9 /* Resources */,
@@ -387,9 +457,10 @@
 			);
 			name = Hermes;
 			packageProductDependencies = (
-				EEC8BA3D2A8815F50088B6E9 /* FirebaseDatabaseSwift */,
 				EEC8BA402A8816100088B6E9 /* FaviconFinder */,
 				EE85BB162A8C0DF900ACF5F3 /* DomainParser */,
+				EE7936312B8D551500959398 /* AlertToast */,
+				EE9727F52BC7380800240EDF /* OrderedCollections */,
 			);
 			productName = Hermes;
 			productReference = EEC8B9CD2A880A280088B6E9 /* Hermes.app */;
@@ -455,7 +526,7 @@
 				};
 			};
 			buildConfigurationList = EEC8B9C82A880A280088B6E9 /* Build configuration list for PBXProject "Hermes" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -464,10 +535,14 @@
 			);
 			mainGroup = EEC8B9C42A880A280088B6E9;
 			packageReferences = (
-				EEC8BA3C2A8815F50088B6E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				EEC8BA3F2A8816100088B6E9 /* XCRemoteSwiftPackageReference "FaviconFinder" */,
 				EE85BB152A8C0DF900ACF5F3 /* XCRemoteSwiftPackageReference "SwiftDomainParser" */,
+<<<<<<< HEAD
 				EE0431772B4DE59A00EB8C00 /* XCRemoteSwiftPackageReference "SwiftFormat" */,
+=======
+				EE7936302B8D551500959398 /* XCRemoteSwiftPackageReference "AlertToast" */,
+				EE9727F42BC7380800240EDF /* XCRemoteSwiftPackageReference "swift-collections" */,
+>>>>>>> mvc-rewrite
 			);
 			productRefGroup = EEC8B9CE2A880A280088B6E9 /* Products */;
 			projectDirPath = "";
@@ -485,6 +560,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				EE8876362B82BA000053633E /* .git in Resources */,
 				EE8876342B82BA000053633E /* .gitignore in Resources */,
 				EEC8BA392A88154C0088B6E9 /* .swiftlint.yml in Resources */,
@@ -500,6 +576,8 @@
 				EEC8B9D52A880A310088B6E9 /* Assets.xcassets in Resources */,
 >>>>>>> b0c8453 (Added SwiftFormat and formatted codebase)
 				EEC8BA352A8815460088B6E9 /* README.md in Resources */,
+=======
+>>>>>>> mvc-rewrite
 				EE88762D2B82B9BB0053633E /* LICENSE.md in Resources */,
 				EEC8B9D82A880A310088B6E9 /* Preview Assets.xcassets in Resources */,
 				EEC8B9D52A880A310088B6E9 /* Assets.xcassets in Resources */,
@@ -524,40 +602,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EEFE9EA52B9D16C500DB5D70 /* Lint Files */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Lint Files";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EEC8B9C92A880A280088B6E9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEC8BA172A88147A0088B6E9 /* PostListViewModel.swift in Sources */,
-				EEC8BA0F2A88144C0088B6E9 /* PostViewModel.swift in Sources */,
-				EE77BBD52A8AD14B00880625 /* PostPreviewImageView.swift in Sources */,
-				EE77BBD72A8AD97E00880625 /* PostPrimaryLabelView.swift in Sources */,
-				EEC8BA0C2A88144C0088B6E9 /* ItemData.swift in Sources */,
-				EEC8BA2D2A8814E70088B6E9 /* CommentCell.swift in Sources */,
-				EEC8BA0D2A88144C0088B6E9 /* ItemInfoHelper.swift in Sources */,
+				EE77BBD52A8AD14B00880625 /* PostFavicon.swift in Sources */,
+				EE77BBD72A8AD97E00880625 /* PostPrimaryLabel.swift in Sources */,
+				EEC8BA2D2A8814E70088B6E9 /* CommentThread.swift in Sources */,
 				EEC8BA1D2A8814830088B6E9 /* SettingsView.swift in Sources */,
-				EEC8BA262A8814E10088B6E9 /* PostCellTextView.swift in Sources */,
-				EEC8BA282A8814E10088B6E9 /* PostCellOuterView.swift in Sources */,
-				EEC8BA132A8814520088B6E9 /* Database+Extensions.swift in Sources */,
+				EE9727ED2BC7352400240EDF /* ViewModel.swift in Sources */,
+				EEC8BA262A8814E10088B6E9 /* PostText.swift in Sources */,
+				EE9727EC2BC7352400240EDF /* Errors.swift in Sources */,
+				EE9727F92BC7384000240EDF /* ItemFetcher.swift in Sources */,
+				EE9727FF2BC73EDF00240EDF /* Helpers.swift in Sources */,
+				EEAE2B032B9E52F300E4A9A7 /* CommentBody.swift in Sources */,
+				EEC8BA282A8814E10088B6E9 /* PostCell.swift in Sources */,
+				EE9727F32BC7352400240EDF /* Post+HNSearchResults.swift in Sources */,
+				EEEA19A42BB6127200654F56 /* PostTabView.swift in Sources */,
+				EE79362D2B8C03FC00959398 /* SecondaryInfoLabel.swift in Sources */,
+				EE0F941E2B893A1E00108223 /* String+Extensions.swift in Sources */,
 				EEC8BA1F2A8814880088B6E9 /* InboxView.swift in Sources */,
 				EEC8BA2F2A8814E70088B6E9 /* CommentListView.swift in Sources */,
 				EE77BBD22A8AC9F400880625 /* WebViewWrapper.swift in Sources */,
-				EE2F08EF2ACCB17400EB4489 /* CommentViewModel.swift in Sources */,
-				EEC8BA0E2A88144C0088B6E9 /* PostType.swift in Sources */,
+				EE14E4B32B8D578900AD5AE1 /* AlertViewModal.swift in Sources */,
 				EEC8BA1B2A8814830088B6E9 /* ProfileView.swift in Sources */,
 				EEC8B9D12A880A280088B6E9 /* HermesApp.swift in Sources */,
-				EEC8BA0A2A88144C0088B6E9 /* ItemTypes.swift in Sources */,
-				EEC8BA292A8814E10088B6E9 /* PostListView.swift in Sources */,
+				EEC8BA292A8814E10088B6E9 /* PostList.swift in Sources */,
 				EEC8BA122A8814520088B6E9 /* Sequence+Extensions.swift in Sources */,
-				EE6F70722ACB79FA000E7C78 /* Errors.swift in Sources */,
+				EE9727EE2BC7352400240EDF /* Constants.swift in Sources */,
 				EE85BB142A8C0CC600ACF5F3 /* URL+Extensions.swift in Sources */,
-				EE77BBD92A8ADB2900880625 /* PostSecondaryLabelView.swift in Sources */,
-				EEC8BA082A88144C0088B6E9 /* PostInfo.swift in Sources */,
+				EEAE2B062BA0ED0900E4A9A7 /* FaviconLoaderViewModel.swift in Sources */,
+				EE77BBD92A8ADB2900880625 /* PostSecondaryLabel.swift in Sources */,
+				EE9727F22BC7352400240EDF /* Post.swift in Sources */,
+				EEAE2B012B9E526B00E4A9A7 /* CommentIndentViewModifier.swift in Sources */,
+				EE9727F02BC7352400240EDF /* HNStoriesList.swift in Sources */,
+				EE9727FC2BC73B1D00240EDF /* ModelContext+SQLite.swift in Sources */,
 				EEC8BA482A88191E0088B6E9 /* TestData.swift in Sources */,
 				EEC8BA212A8814CA0088B6E9 /* RootView.swift in Sources */,
-				EEC8BA0B2A88144C0088B6E9 /* ItemInfo.swift in Sources */,
-				EEC8BA092A88144C0088B6E9 /* CommentInfo.swift in Sources */,
+				EE9727F12BC7352400240EDF /* HNStoriesResults.swift in Sources */,
+				EE14E4B52B8E887A00AD5AE1 /* SwiftUI+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,6 +833,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Hermes/Preview Content\"";
 				DEVELOPMENT_TEAM = 3K22YJAJ77;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Hermes/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
@@ -736,7 +843,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -760,6 +867,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Hermes/Preview Content\"";
 				DEVELOPMENT_TEAM = 3K22YJAJ77;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Hermes/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
@@ -769,7 +877,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -901,12 +1009,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+<<<<<<< HEAD
 		EE0431772B4DE59A00EB8C00 /* XCRemoteSwiftPackageReference "SwiftFormat" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nicklockwood/SwiftFormat";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 0.53.0;
+=======
+		EE7936302B8D551500959398 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.9;
+>>>>>>> mvc-rewrite
 			};
 		};
 		EE85BB152A8C0DF900ACF5F3 /* XCRemoteSwiftPackageReference "SwiftDomainParser" */ = {
@@ -917,12 +1034,12 @@
 				minimumVersion = 1.1.0;
 			};
 		};
-		EEC8BA3C2A8815F50088B6E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		EE9727F42BC7380800240EDF /* XCRemoteSwiftPackageReference "swift-collections" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			repositoryURL = "https://github.com/apple/swift-collections.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 10.13.0;
+				minimumVersion = 1.1.0;
 			};
 		};
 		EEC8BA3F2A8816100088B6E9 /* XCRemoteSwiftPackageReference "FaviconFinder" */ = {
@@ -944,15 +1061,20 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EE7936312B8D551500959398 /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE7936302B8D551500959398 /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
+		};
 		EE85BB162A8C0DF900ACF5F3 /* DomainParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EE85BB152A8C0DF900ACF5F3 /* XCRemoteSwiftPackageReference "SwiftDomainParser" */;
 			productName = DomainParser;
 		};
-		EEC8BA3D2A8815F50088B6E9 /* FirebaseDatabaseSwift */ = {
+		EE9727F52BC7380800240EDF /* OrderedCollections */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EEC8BA3C2A8815F50088B6E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseDatabaseSwift;
+			package = EE9727F42BC7380800240EDF /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
 		};
 		EEC8BA402A8816100088B6E9 /* FaviconFinder */ = {
 			isa = XCSwiftPackageProductDependency;

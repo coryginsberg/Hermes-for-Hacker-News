@@ -1,8 +1,6 @@
 //
-//  HermesUITestsLaunchTests.swift
-//  HermesUITests
-//
-//  Created by Cory Ginsberg on 8/12/23.
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
 import XCTest
