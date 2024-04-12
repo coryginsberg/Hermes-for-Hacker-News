@@ -6,7 +6,7 @@
   "sarif-viewer.connectToGithubCodeScanning": "off",
   "swiftlint.enable": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": "explicit"
   },
   "editor.rulers": [
     120
