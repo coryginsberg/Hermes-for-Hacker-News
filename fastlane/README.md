@@ -19,7 +19,7 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 [bundle exec] fastlane lint
 ```
 
-Run SwiftLint
+Run SwiftLint. Automatically runs on push to `dev`
 
 ### submit
 
