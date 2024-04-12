@@ -16,7 +16,8 @@ default_platform(:ios)
 
 desc "Run SwiftLint"
 lane :lint do
-  increment_version_number_in_xcodeproj(bump_type: 'patch')
+  setup_ci if ENV['CI']
+  increment_version_number(bump_type: 'patch')
   swiftlint(
     mode: :lint,
     raise_if_swiftlint_error: true,
@@ -26,8 +27,9 @@ end
 
 desc "Push a new beta build to TestFlight"
 lane :beta do
-  increment_build_number_in_xcodeproj
-  increment_version_number_in_xcodeproj(bump_type: 'major')
+  setup_ci if ENV['CI']
+  increment_build_number
+  increment_version_number(bump_type: 'minor')
   add_badge
   build_app(scheme: "Hermes")
 

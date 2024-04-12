@@ -1,11 +1,11 @@
-name: lint-ios-app
+name: build-ios-app
 on:
   push:
     branches:
-      - 'dev'
+      - 'main'
 jobs:
   build:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - run: fastlane lint
+      - run: fastlane beta
