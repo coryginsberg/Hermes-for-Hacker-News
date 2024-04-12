@@ -21,6 +21,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Run SwiftLint
 
+### submit
+
+```sh
+[bundle exec] fastlane submit
+```
+
+Submit current changes
+
 ### beta
 
 ```sh
