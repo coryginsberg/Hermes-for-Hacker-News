@@ -6,12 +6,11 @@
 //
 
 import Foundation
-import OrderedCollections
 import SwiftData
 
 @Model
 final class Post {
-  @Attribute(.unique) var postId: HNID
+  @Attribute(.unique) var itemId: HNID
   var tags: [String]
   var author: String
   var children: [HNID]
@@ -38,7 +37,7 @@ final class Post {
        storyText: String?,
        jobText: String?,
        index: Int) {
-    self.postId = postId
+    self.itemId = postId
     self.tags = tags
     self.author = author
     self.children = children ?? []
@@ -56,7 +55,7 @@ final class Post {
 
 extension Post: CustomStringConvertible {
   var description: String {
-    "\(postId), \(title) by \(author)"
+    "\(itemId), \(title) by \(author)"
   }
 }
 

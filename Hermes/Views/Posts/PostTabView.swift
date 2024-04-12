@@ -29,7 +29,7 @@ struct PostTabView: View {
       }
     }
     .task {
-      await HNSearchResults.refresh(modelContext: modelContext)
+      await AngoliaSearchResults.refresh(modelContext: modelContext)
     }
     .onAppear {
 #if DEBUG

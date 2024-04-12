@@ -9,4 +9,5 @@ enum StoryListError: Error, Equatable {
   case storyTypeRequired
   case noMorePosts
   case databaseRefUrlNotFound
+  case objectIdNotFound
 }

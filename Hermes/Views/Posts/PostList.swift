@@ -27,7 +27,7 @@ struct PostList: View {
       PostCell(forPost: post)
     }
     .refreshable {
-      await HNSearchResults.refresh(modelContext: modelContext)
+      await AngoliaSearchResults.refresh(modelContext: modelContext)
     }
   }
 }

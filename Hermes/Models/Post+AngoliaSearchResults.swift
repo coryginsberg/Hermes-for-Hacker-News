@@ -11,15 +11,16 @@ import SwiftData
 private let logger = Logger(category: "Post+HNSearchResults")
 
 extension Post {
-  convenience init(from hit: HNSearchResults.Hit, index: Int) {
-    self.init(postId: hit.storyId,
+  convenience init(from hit: AngoliaSearchResults.Hit, index: Int) throws {
+    guard let objectId = Int(hit.objectId) else { throw StoryListError.objectIdNotFound }
+    self.init(postId: objectId,
               tags: hit.tags,
               author: hit.author,
-              children: hit.children?.compactMap { $0 } ?? [],
+              children: hit.children.compactMap { $0 },
               createdAt: hit.createdAt,
               numComments: hit.numComments,
               points: hit.points,
-              title: hit.title ?? "",
+              title: hit.title,
               updatedAt: hit.updatedAt,
               url: hit.url,
               storyText: hit.storyText,
@@ -28,25 +29,24 @@ extension Post {
   }
 }
 
-extension HNSearchResults {
-  /// A logger for debugging.
-
+extension AngoliaSearchResults {
   /// Loads new posts and deletes outdated ones.
   @MainActor
   static func refresh(modelContext: ModelContext) async {
     do {
       try modelContext.delete(model: Post.self)
 
-      // Fetch the latest set of quakes from the server.
+      // Fetch the latest set of data from the server.
       logger.debug("Refreshing the data store...")
       let (featureCollection, storyList) = try await fetchStoryList(list: .topstories)
       logger.debug("Loaded feature collection:\n\(featureCollection)")
       // Add the content to the data store.
       for hit in featureCollection.hits {
-        guard let storyIndex = storyList.firstIndex(of: hit.storyId) else {
+        guard let objectId = Int(hit.objectId),
+              let storyIndex = storyList.firstIndex(of: objectId) else {
           throw FetchResultsError.QueryError.notInStoryList
         }
-        let post = Post(from: hit, index: storyIndex)
+        let post = try Post(from: hit, index: storyIndex)
         modelContext.insert(post)
       }
 

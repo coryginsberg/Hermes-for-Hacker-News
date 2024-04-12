@@ -7,7 +7,10 @@
 
 import Foundation
 
+// Technically this is the JSON schema for the stories list xD
 typealias HNStoriesList = [HNID]
+
+// MARK: - Fetch Stories List
 
 extension HNStoriesList {
   enum StoryLists: String {

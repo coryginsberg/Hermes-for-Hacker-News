@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE03A6F82BC9D75600D649E1 /* AngoliaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE03A6F72BC9D75600D649E1 /* AngoliaItem.swift */; };
+		EE03A6FA2BC9DD4D00D649E1 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE03A6F92BC9DD4D00D649E1 /* Comment.swift */; };
+		EE03A6FC2BC9DE9D00D649E1 /* Comment+AngoliaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE03A6FB2BC9DE9D00D649E1 /* Comment+AngoliaItem.swift */; };
 		EE0F941E2B893A1E00108223 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F941D2B893A1E00108223 /* String+Extensions.swift */; };
 		EE14E4B32B8D578900AD5AE1 /* AlertViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E4B22B8D578900AD5AE1 /* AlertViewModal.swift */; };
 		EE14E4B52B8E887A00AD5AE1 /* SwiftUI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E4B42B8E887A00AD5AE1 /* SwiftUI+Extensions.swift */; };
@@ -23,9 +26,9 @@
 		EE9727ED2BC7352400240EDF /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727E12BC7352400240EDF /* ViewModel.swift */; };
 		EE9727EE2BC7352400240EDF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727E22BC7352400240EDF /* Constants.swift */; };
 		EE9727F02BC7352400240EDF /* HNStoriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727E52BC7352400240EDF /* HNStoriesList.swift */; };
-		EE9727F12BC7352400240EDF /* HNStoriesResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727E62BC7352400240EDF /* HNStoriesResults.swift */; };
+		EE9727F12BC7352400240EDF /* AngoliaStoriesResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727E62BC7352400240EDF /* AngoliaStoriesResults.swift */; };
 		EE9727F22BC7352400240EDF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727E82BC7352400240EDF /* Post.swift */; };
-		EE9727F32BC7352400240EDF /* Post+HNSearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727EB2BC7352400240EDF /* Post+HNSearchResults.swift */; };
+		EE9727F32BC7352400240EDF /* Post+AngoliaSearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727EB2BC7352400240EDF /* Post+AngoliaSearchResults.swift */; };
 		EE9727F62BC7380800240EDF /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = EE9727F52BC7380800240EDF /* OrderedCollections */; };
 		EE9727F92BC7384000240EDF /* ItemFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727F82BC7384000240EDF /* ItemFetcher.swift */; };
 		EE9727FC2BC73B1D00240EDF /* ModelContext+SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727FB2BC73B1D00240EDF /* ModelContext+SQLite.swift */; };
@@ -73,6 +76,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE03A6F72BC9D75600D649E1 /* AngoliaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AngoliaItem.swift; sourceTree = "<group>"; };
+		EE03A6F92BC9DD4D00D649E1 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		EE03A6FB2BC9DE9D00D649E1 /* Comment+AngoliaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comment+AngoliaItem.swift"; sourceTree = "<group>"; };
 		EE0F941D2B893A1E00108223 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		EE14E4B22B8D578900AD5AE1 /* AlertViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModal.swift; sourceTree = "<group>"; };
 		EE14E4B42B8E887A00AD5AE1 /* SwiftUI+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Extensions.swift"; sourceTree = "<group>"; };
@@ -90,9 +96,9 @@
 		EE9727E12BC7352400240EDF /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		EE9727E22BC7352400240EDF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EE9727E52BC7352400240EDF /* HNStoriesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNStoriesList.swift; sourceTree = "<group>"; };
-		EE9727E62BC7352400240EDF /* HNStoriesResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNStoriesResults.swift; sourceTree = "<group>"; };
+		EE9727E62BC7352400240EDF /* AngoliaStoriesResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AngoliaStoriesResults.swift; sourceTree = "<group>"; };
 		EE9727E82BC7352400240EDF /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		EE9727EB2BC7352400240EDF /* Post+HNSearchResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+HNSearchResults.swift"; sourceTree = "<group>"; };
+		EE9727EB2BC7352400240EDF /* Post+AngoliaSearchResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+AngoliaSearchResults.swift"; sourceTree = "<group>"; };
 		EE9727F82BC7384000240EDF /* ItemFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFetcher.swift; sourceTree = "<group>"; };
 		EE9727FB2BC73B1D00240EDF /* ModelContext+SQLite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelContext+SQLite.swift"; sourceTree = "<group>"; };
 		EE9727FE2BC73EDF00240EDF /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -200,7 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				EE9727E52BC7352400240EDF /* HNStoriesList.swift */,
-				EE9727E62BC7352400240EDF /* HNStoriesResults.swift */,
+				EE03A6F72BC9D75600D649E1 /* AngoliaItem.swift */,
+				EE9727E62BC7352400240EDF /* AngoliaStoriesResults.swift */,
 			);
 			path = JSONSchemas;
 			sourceTree = "<group>";
@@ -209,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				EE9727E82BC7352400240EDF /* Post.swift */,
+				EE03A6F92BC9DD4D00D649E1 /* Comment.swift */,
 			);
 			path = SwiftDataModels;
 			sourceTree = "<group>";
@@ -333,7 +341,8 @@
 			children = (
 				EE9727F72BC7383300240EDF /* Helpers */,
 				EE9727EA2BC7352400240EDF /* ItemModels */,
-				EE9727EB2BC7352400240EDF /* Post+HNSearchResults.swift */,
+				EE9727EB2BC7352400240EDF /* Post+AngoliaSearchResults.swift */,
+				EE03A6FB2BC9DE9D00D649E1 /* Comment+AngoliaItem.swift */,
 				EE9727E12BC7352400240EDF /* ViewModel.swift */,
 				EE9727E02BC7352400240EDF /* Errors.swift */,
 			);
@@ -583,14 +592,16 @@
 				EE9727FF2BC73EDF00240EDF /* Helpers.swift in Sources */,
 				EEAE2B032B9E52F300E4A9A7 /* CommentBody.swift in Sources */,
 				EEC8BA282A8814E10088B6E9 /* PostCell.swift in Sources */,
-				EE9727F32BC7352400240EDF /* Post+HNSearchResults.swift in Sources */,
+				EE9727F32BC7352400240EDF /* Post+AngoliaSearchResults.swift in Sources */,
 				EEEA19A42BB6127200654F56 /* PostTabView.swift in Sources */,
 				EE79362D2B8C03FC00959398 /* SecondaryInfoLabel.swift in Sources */,
+				EE03A6F82BC9D75600D649E1 /* AngoliaItem.swift in Sources */,
 				EE0F941E2B893A1E00108223 /* String+Extensions.swift in Sources */,
 				EEC8BA1F2A8814880088B6E9 /* InboxView.swift in Sources */,
 				EEC8BA2F2A8814E70088B6E9 /* CommentListView.swift in Sources */,
 				EE77BBD22A8AC9F400880625 /* WebViewWrapper.swift in Sources */,
 				EE14E4B32B8D578900AD5AE1 /* AlertViewModal.swift in Sources */,
+				EE03A6FA2BC9DD4D00D649E1 /* Comment.swift in Sources */,
 				EEC8BA1B2A8814830088B6E9 /* ProfileView.swift in Sources */,
 				EEC8B9D12A880A280088B6E9 /* HermesApp.swift in Sources */,
 				EEC8BA292A8814E10088B6E9 /* PostList.swift in Sources */,
@@ -605,7 +616,8 @@
 				EE9727FC2BC73B1D00240EDF /* ModelContext+SQLite.swift in Sources */,
 				EEC8BA482A88191E0088B6E9 /* TestData.swift in Sources */,
 				EEC8BA212A8814CA0088B6E9 /* RootView.swift in Sources */,
-				EE9727F12BC7352400240EDF /* HNStoriesResults.swift in Sources */,
+				EE9727F12BC7352400240EDF /* AngoliaStoriesResults.swift in Sources */,
+				EE03A6FC2BC9DE9D00D649E1 /* Comment+AngoliaItem.swift in Sources */,
 				EE14E4B52B8E887A00AD5AE1 /* SwiftUI+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -642,7 +654,7 @@
 		};
 		EEC8BA462A8816680088B6E9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = EEC8BA452A8816680088B6E9 /* plugin:SwiftLintPlugin */;
+			productRef = EEC8BA452A8816680088B6E9 /* SwiftLintPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1017,7 +1029,7 @@
 			package = EEC8BA3F2A8816100088B6E9 /* XCRemoteSwiftPackageReference "FaviconFinder" */;
 			productName = FaviconFinder;
 		};
-		EEC8BA452A8816680088B6E9 /* plugin:SwiftLintPlugin */ = {
+		EEC8BA452A8816680088B6E9 /* SwiftLintPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EEC8BA422A8816540088B6E9 /* XCRemoteSwiftPackageReference "SwiftLint" */;
 			productName = "plugin:SwiftLintPlugin";

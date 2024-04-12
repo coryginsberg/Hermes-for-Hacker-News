@@ -12,20 +12,18 @@
 import Foundation
 import OSLog
 
-// MARK: - HNSearchResults
+// MARK: - AngoliaSearchResults
 
-// swiftlint:disable nesting
-struct HNSearchResults: Codable {
+struct AngoliaSearchResults: Codable {
   var hits: [Hit]
   var hitsPerPage: Int
   var nbHits: Int
   var nbPages: Int
   var page: Int
   var params: String
-  var processingTimeMs: Int?
-  var processingTimingsMs: ProcessingTimingsMs?
+  var processingTimeMs: Int
   var query: String
-  var serverTimeMs: Int?
+  var serverTimeMs: Int
 
   enum CodingKeys: String, CodingKey {
     case hits
@@ -34,115 +32,53 @@ struct HNSearchResults: Codable {
     case nbPages
     case page
     case params
-    case processingTimeMs
-    case processingTimingsMs
+    case processingTimeMs = "processingTimeMS"
     case query
-    case serverTimeMs
+    case serverTimeMs = "serverTimeMS"
   }
 
   // MARK: - Hit
 
   struct Hit: Codable {
-    var highlightResult: HighlightResult?
     var tags: [String]
     var author: String
-    var children: [Int?]? = []
+    var children: [Int]
     var createdAt: Date
-    var createdAtI: Int
-    var numComments: Int = 0
+    var jobText: String?
+    var numComments: Int
     var objectId: String
-    var points: Int = 0
-    var storyId: HNID
-    var title: String?
+    var points: Int
+    var title: String
     var updatedAt: Date
     var url: String?
     var storyText: String?
-    var jobText: String?
 
+    // swiftlint:disable nesting
     enum CodingKeys: String, CodingKey {
-      case highlightResult = "_highlightResult"
       case tags = "_tags"
       case author
       case children
       case createdAt = "created_at"
-      case createdAtI = "created_at_i"
+      case jobText = "job_text"
       case numComments = "num_comments"
       case objectId = "objectID"
       case points
-      case storyId = "story_id"
       case title
       case updatedAt = "updated_at"
       case url
       case storyText = "story_text"
-      case jobText = "job_text"
     }
-
-    // MARK: - HighlightResult
-
-    struct HighlightResult: Codable {
-      var author: MatchedResult
-      var title: MatchedResult
-      var url: MatchedResult?
-      var storyText: MatchedResult?
-
-      enum CodingKeys: String, CodingKey {
-        case author
-        case title
-        case url
-        case storyText = "story_text"
-      }
-
-      // MARK: - Author
-
-      struct MatchedResult: Codable {
-        var matchLevel: MatchLevel
-        var matchedWords: [String]
-        var value: String
-
-        enum CodingKeys: String, CodingKey {
-          case matchLevel
-          case matchedWords
-          case value
-        }
-
-        enum MatchLevel: String, Codable {
-          case none
-        }
-      }
-    }
-  }
-
-  // MARK: - ProcessingTimingsMs
-
-  struct ProcessingTimingsMs: Codable {
-    var request: Request
-
-    enum CodingKeys: String, CodingKey {
-      case request
-    }
-
-    // MARK: - Request
-
-    struct Request: Codable {
-      var roundTrip: Int
-
-      enum CodingKeys: String, CodingKey {
-        case roundTrip = "round_trip"
-      }
-    }
+    // swiftlint:enable nesting
   }
 }
 
-// swiftlint:enable nesting
-
-extension HNSearchResults.Hit: CustomStringConvertible {
+extension AngoliaSearchResults.Hit: CustomStringConvertible {
   var description: String {
     """
     hit: {
       author: \(author),
       children: \(String(describing: children)),
       createdAt: \(String(describing: createdAt)),
-      createdAtI: \(String(describing: createdAtI))
       numComments: \(String(describing: numComments))
       points: \(String(describing: points))
       title: \(String(describing: title))
@@ -150,14 +86,13 @@ extension HNSearchResults.Hit: CustomStringConvertible {
       updatedAt: \(String(describing: updatedAt))
       storyText: \(String(describing: storyText))
       jobText: \(String(describing: jobText))
-      storyId: \(String(describing: storyId))
       objectId: \(String(describing: objectId))
     }
     """
   }
 }
 
-extension HNSearchResults: CustomStringConvertible {
+extension AngoliaSearchResults: CustomStringConvertible {
   var description: String {
     var description = "Empty search result"
     if let hit = hits.first {
@@ -172,9 +107,9 @@ extension HNSearchResults: CustomStringConvertible {
 
 // MARK: - HNSearchResults convenience initializers and mutators
 
-extension HNSearchResults {
+extension AngoliaSearchResults {
   init(data: Data) throws {
-    self = try JSONDecoder().decode(HNSearchResults.self, from: data)
+    self = try JSONDecoder().decode(AngoliaSearchResults.self, from: data)
   }
 
   init(_ json: String, using encoding: String.Encoding = .utf8) throws {
@@ -209,7 +144,7 @@ extension HNSearchResults {
                            query: String? = nil,
                            numericFilters: String? = nil,
                            pageNumber: Int = 0,
-                           hitsPerPage: Int = 100) async throws -> HNSearchResults {
+                           hitsPerPage: Int = 100) async throws -> AngoliaSearchResults {
     let urlBase = URL(string: C.angoliaBaseUrl)
     var urlQueryItems: [URLQueryItem] = []
     if !tags.isEmpty {
@@ -232,7 +167,7 @@ extension HNSearchResults {
     return try await ItemFetcher.fetch(fromUrl: fullSearchUrl)
   }
 
-  static func fetchStoryList(list: HNStoriesList.StoryLists) async throws -> (HNSearchResults, HNStoriesList) {
+  static func fetchStoryList(list: HNStoriesList.StoryLists) async throws -> (AngoliaSearchResults, HNStoriesList) {
     let storyList = try await HNStoriesList.fetch(withStoryList: list)
     var charCount = C.angoliaBaseUrl.count + C.urlSizeBreathingRoom
     let storiesAsUrlTags = storyList.compactMap { story in
