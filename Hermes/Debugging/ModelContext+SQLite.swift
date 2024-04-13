@@ -1,8 +1,6 @@
 //
-//  ModelContext+SQLite.swift
-//  Hermes for Hacker News 2
-//
-//  Created by Cory Ginsberg on 4/2/24.
+// Copyright (c) 2023 - Present Cory Ginsberg
+// Licensed under Apache License 2.0
 //
 
 import Foundation

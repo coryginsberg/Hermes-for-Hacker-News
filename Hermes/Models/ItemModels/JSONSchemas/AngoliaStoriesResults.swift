@@ -1,8 +1,7 @@
 //
-//  HNSearchResults.swift
-//  Hermes for Hacker News 2
+// Copyright (c) 2023 - Present Cory Ginsberg
+// Licensed under Apache License 2.0
 //
-//  Created by Cory Ginsberg on 3/30/24.
 
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:

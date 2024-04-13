@@ -1,11 +1,12 @@
-////
-//// Copyright (c) 2024 Cory Ginsberg.
-//// Licensed under the Apache License, Version 2.0
-////
+//
+// Copyright (c) 2023 - Present Cory Ginsberg
+// Licensed under Apache License 2.0
+//
+
 //
 // import SwiftUI
 //
-//// MARK: - CommentListView
+// MARK: - CommentListView
 //
 // struct CommentListView: View {
 //  @State var numComments: Int = 0
@@ -56,7 +57,7 @@
 //  }
 // }
 //
-//// MARK: - PostCommentView_Previews
+// MARK: - PostCommentView_Previews
 //
 // #Preview {
 //  CommentListView(currentPost: TestData.Posts.randomPosts[0])

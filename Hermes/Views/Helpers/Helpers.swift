@@ -1,8 +1,6 @@
 //
-//  Helpers.swift
-//  Hermes
-//
-//  Created by Cory Ginsberg on 4/10/24.
+// Copyright (c) 2023 - Present Cory Ginsberg
+// Licensed under Apache License 2.0
 //
 
 import Foundation

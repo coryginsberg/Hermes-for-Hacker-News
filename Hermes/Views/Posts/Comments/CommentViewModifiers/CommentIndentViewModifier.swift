@@ -1,9 +1,8 @@
-////
-////  CommentCellStyles.swift
-////  Hermes
-////
-////  Created by Cory Ginsberg on 3/10/24.
-////
+//
+// Copyright (c) 2023 - Present Cory Ginsberg
+// Licensed under Apache License 2.0
+//
+
 //
 // import SwiftUI
 //
@@ -49,7 +48,7 @@
 //  }
 // }
 //
-//// MARK: - View extension to add indent support
+// MARK: - View extension to add indent support
 //
 // extension VStack {
 //  /// Adds a colored bar to the side of each comment (after the top-level one) to show how far down the thread the

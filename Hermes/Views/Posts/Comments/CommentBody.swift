@@ -1,9 +1,8 @@
-////
-////  CommentBody.swift
-////  Hermes
-////
-////  Created by Cory Ginsberg on 3/10/24.
-////
+//
+// Copyright (c) 2023 - Present Cory Ginsberg
+// Licensed under Apache License 2.0
+//
+
 //
 // import AlertToast
 // import SwiftUI
@@ -28,7 +27,7 @@
 //  }
 // }
 //
-//// MARK: - Comment Text
+// MARK: - Comment Text
 //
 // private struct CommentText: View {
 //  @Binding var commentData: CommentData

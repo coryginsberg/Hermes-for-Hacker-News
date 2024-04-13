@@ -1,13 +1,14 @@
-////
-//// Copyright (c) 2024 Cory Ginsberg.
-//// Licensed under the Apache License, Version 2.0
-////
+//
+// Copyright (c) 2023 - Present Cory Ginsberg
+// Licensed under Apache License 2.0
+//
+
 //
 // import AlertToast
 // import SwiftUI
 // import WebKit
 //
-//// MARK: - CommentCell
+// MARK: - CommentCell
 //
 ///// Entry point for both top-level comment threads and "sub-threads" that branch off from children (ie: The comment has
 ///// multiple child responses on it)
