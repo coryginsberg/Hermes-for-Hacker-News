@@ -104,7 +104,7 @@ extension AngoliaSearchResults: CustomStringConvertible {
   }
 }
 
-// MARK: - HNSearchResults convenience initializers and mutators
+// MARK: - Init & Fetching
 
 extension AngoliaSearchResults {
   init(data: Data) throws {
@@ -139,6 +139,7 @@ extension AngoliaSearchResults {
   ///   - query: full-text query
   ///   - pageNumber: page number
   ///   - hitsPerPage: number of results per page
+  /// - Returns: The search results
   static func fetchResults(withTags tags: String = "",
                            query: String? = nil,
                            numericFilters: String? = nil,
@@ -161,7 +162,7 @@ extension AngoliaSearchResults {
         .map { key, value -> URLQueryItem in
           URLQueryItem(name: key, value: String(value))
         })
-    Logger(category: "HNSearchResults").log("\(fullSearchUrl?.absoluteString ?? "")")
+    Logger(category: "AngoliaSearchResults").log("\(fullSearchUrl?.absoluteString ?? "")")
 
     return try await ItemFetcher.fetch(fromUrl: fullSearchUrl)
   }

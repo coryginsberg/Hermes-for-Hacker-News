@@ -8,9 +8,11 @@
 // import SwiftUI
 // import WebKit
 //
+
 // MARK: - CommentCell
+
 //
-///// Entry point for both top-level comment threads and "sub-threads" that branch off from children (ie: The comment has
+/// Entrzy point for both top-level comment threads and "sub-threads" that branch off from children (ie: The comment has
 ///// multiple child responses on it)
 /////
 ///// > Note: This struct runs recursively through all child comments until none are left

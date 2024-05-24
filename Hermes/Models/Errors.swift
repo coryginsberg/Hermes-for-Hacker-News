@@ -11,3 +11,8 @@ enum StoryListError: Error, Equatable {
   case databaseRefUrlNotFound
   case objectIdNotFound
 }
+
+enum GenericError: Error {
+  case missingValue(String)
+  case missingUrl
+}

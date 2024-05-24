@@ -8,25 +8,6 @@ import SwiftData
 
 private let logger = Logger(category: "Post+HNSearchResults")
 
-extension Post {
-  convenience init(from hit: AngoliaSearchResults.Hit, index: Int) throws {
-    guard let objectId = Int(hit.objectId) else { throw StoryListError.objectIdNotFound }
-    self.init(postId: objectId,
-              tags: hit.tags,
-              author: hit.author,
-              children: hit.children.compactMap { $0 },
-              createdAt: hit.createdAt,
-              numComments: hit.numComments,
-              points: hit.points,
-              title: hit.title,
-              updatedAt: hit.updatedAt,
-              url: hit.url,
-              storyText: hit.storyText,
-              jobText: hit.jobText,
-              index: index)
-  }
-}
-
 extension AngoliaSearchResults {
   /// Loads new posts and deletes outdated ones.
   @MainActor

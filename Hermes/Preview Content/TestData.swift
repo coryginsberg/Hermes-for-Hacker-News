@@ -60,11 +60,11 @@
 //      said, but I've had some experience in this area and just finished reading through some of the archives and I
 //      think his focus is wrong. I'm going to ignore the technical issue and talk about the bigger picture and higher
 //      level things than what was said in the blog post. If the OP thinks that the process is most important, it's
-//      really about end results. But if he thinks it should be about the end results then he's an idiot for not thinking
+//      really about end results. But if he thinks it should be about the end results then he's an idiot for not thinkin
 //      about the process. I'll weasel in a reference the startup I co-founded even though it's not directly relevant.
 //      """,
 //      """
-//      Here's a long detailed, objective explanation of everything related to this issue. It's probably more useful than
+//      Here's a long detailed, objective explanation of everything related to this issue. It's probably more useful tha
 //      the actual link and it may serve as one of the best efforts to consolidate information on this subject on the
 //      entire Internet. If it contains original research only a couple of readers will be qualified to tell. Half the
 //      people who pvote this won't understand more than the first two paragraphs.

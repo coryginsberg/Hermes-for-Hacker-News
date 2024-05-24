@@ -3,27 +3,35 @@
 // Licensed under Apache License 2.0
 //
 
-//
-// import SwiftUI
-//
+import SwiftData
+import SwiftUI
+
 // MARK: - CommentListView
-//
-// struct CommentListView: View {
-//  @State var numComments: Int = 0
-//
-//  @State var currentPost: PostData
-//  @StateObject var commentList: CommentListViewModel
-//
-//  init(currentPost: PostData) {
-//    _currentPost = State(wrappedValue: currentPost)
-//    _numComments = State(wrappedValue: currentPost.descendants ?? 0)
-//    _commentList =
-//      StateObject(wrappedValue: CommentListViewModel(withComments: currentPost
-//          .kids ?? []))
-//  }
-//
-//  var body: some View {
-//    NavigationStack {
+
+struct CommentListView: View {
+  @Environment(\.modelContext) private var modelContext
+  @Query var postWithComments: [PostWithComments]
+
+  @Binding var selectedPostID: PersistentIdentifier?
+  private var selectedPost: Post?
+
+  init(selectedPostID: Binding<PersistentIdentifier?>, selectedPost: Post?) {
+    _selectedPostID = selectedPostID
+    self.selectedPost = selectedPost
+  }
+
+  var body: some View {
+    NavigationStack {
+      if selectedPostID == nil {
+        Text("Nothing selected")
+      } else if selectedPost?.numComments == 0 {
+        Text("No comments... yet...")
+      } else if postWithComments.isEmpty || postWithComments[0].children.count < selectedPost?.numComments ?? 0 {
+        ProgressView()
+      } else {
+        Text(postWithComments[0].children[0].text)
+      }
+
 //      ScrollView(.vertical) {
 //        VStack {
 //          PostCellOuterView(postData: currentPost, isCommentView: true)
@@ -54,11 +62,21 @@
 //      }
 //    }.navigationTitle("\(numComments) Comments")
 //      .navigationBarTitleDisplayMode(.inline)
-//  }
-// }
-//
-// MARK: - PostCommentView_Previews
-//
-// #Preview {
-//  CommentListView(currentPost: TestData.Posts.randomPosts[0])
-// }
+    }.onChange(of: selectedPostID, initial: true) {
+      Task {
+//        if let selectedPost = self.selectedPost {
+        ////          let post = modelContext.registeredModel(for: selectedPostID)
+        ////          self.postWithComments = try await PostWithComments(from: post.itemId)
+        await AngoliaItem.loadItem(fromId: selectedPost?.itemId ?? 0, modelContext: modelContext)
+//        }
+      }
+//      Task {
+//        // TODO: This is only loading the first item over and over again???
+//        for comment in post.children {
+//          print(comment)
+//          await AngoliaItem.loadItem(fromId: comment, modelContext: modelContext)
+//        }
+//      }
+    }
+  }
+}

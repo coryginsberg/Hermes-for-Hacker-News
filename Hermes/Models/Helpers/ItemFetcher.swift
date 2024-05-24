@@ -23,6 +23,24 @@ enum ItemFetcher {
       // Decode the JSON into a data model
       let jsonDecoder = JSONDecoder()
       jsonDecoder.dateDecodingStrategy = .iso8601
+      // /search/ uses the standard ISO8601 date format but /items/ uses ISO8601 with fractional seconds for some reason
+//      jsonDecoder.dateDecodingStrategy = .custom { decoder -> Date in
+//        let container = try decoder.singleValueContainer()
+//        guard let containerString = try? container.decode(String.self) else {
+//          return Date.now
+//        }
+//        let formatter1 = ISO8601DateFormatter()
+//        formatter1.formatOptions = .withInternetDateTime
+//        let formatter2 = ISO8601DateFormatter()
+//        formatter2.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+//        if let date = formatter1.date(from: containerString) {
+//          return date
+//        } else if let date = formatter2.date(from: containerString) {
+//          return date
+//        }
+//        throw DecodingError.dataCorruptedError(in: container,
+//                                               debugDescription: "Invalid date string: \(containerString)")
+//      }
       return try jsonDecoder.decode(T.self, from: data)
     } catch {
       logger.error("\(error)")

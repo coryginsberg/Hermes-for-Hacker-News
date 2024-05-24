@@ -3,6 +3,7 @@
 // Licensed under Apache License 2.0
 //
 
+import Alamofire
 import Foundation
 
 // Technically this is the JSON schema for the stories list xD
@@ -22,7 +23,12 @@ extension HNStoriesList {
   }
 
   static func fetch(withStoryList storyList: StoryLists) async throws -> HNStoriesList {
-    let hnUrl = URL(string: "https://hacker-news.firebaseio.com/v0/\(storyList).json")
-    return try await ItemFetcher.fetch(fromUrl: hnUrl)
+    if let hnUrl = URL(string: "https://hacker-news.firebaseio.com/v0/\(storyList).json") {
+      return try await AF.request(hnUrl)
+        .validate()
+        .serializingDecodable(HNStoriesList.self)
+        .value
+    }
+    throw URLError(.unsupportedURL)
   }
 }

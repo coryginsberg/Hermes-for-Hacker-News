@@ -11,8 +11,8 @@ final class Comment {
   @Attribute(.unique) var itemId: HNID
   var author: String
   @Relationship(deleteRule: .cascade) var children: [Comment]
-  var createdAt: Date
-  var parent: Comment?
+  var createdAt: String
+  @Relationship(inverse: \PostWithComments.children) var parent: Comment?
   var post: Post?
   var points: Int?
   var text: String
@@ -21,7 +21,7 @@ final class Comment {
   init(itemId: HNID,
        author: String,
        children: [Comment],
-       createdAt: Date,
+       createdAt: String,
        parent: Comment?,
        post: Post,
        points: Int? = nil,
