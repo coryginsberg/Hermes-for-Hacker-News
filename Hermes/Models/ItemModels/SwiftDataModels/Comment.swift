@@ -8,34 +8,34 @@ import SwiftData
 
 @Model
 final class Comment {
-  @Attribute(.unique) var itemId: Int
+  @Attribute(.unique) var itemId: HNID
   var author: String
-  var children: [Comment]
+  @Relationship(deleteRule: .cascade) var children: [Comment]
   var createdAt: Date
-  var parentId: Int?
+  var parent: Comment?
+  var post: Post?
   var points: Int?
-  var storyId: Int
   var text: String
-  var depth: Int
+  var commentDepth: Int
 
-  init(itemId: Int,
+  init(itemId: HNID,
        author: String,
        children: [Comment],
        createdAt: Date,
-       parentId: Int?,
+       parent: Comment?,
+       post: Post,
        points: Int? = nil,
-       storyId: Int,
        text: String,
-       depth: Int = 0) {
+       commentDepth: Int = 0) {
     self.itemId = itemId
     self.author = author
     self.children = children
     self.createdAt = createdAt
-    self.parentId = parentId
+    self.parent = parent
+    self.post = post
     self.points = points
-    self.storyId = storyId
     self.text = text
-    self.depth = depth
+    self.commentDepth = commentDepth
   }
 }
 
@@ -55,3 +55,37 @@ extension Array where Element: Comment {
 
 // Ensure that the model's conformance to Identifiable is public
 extension Comment: Identifiable {}
+
+// MARK: - Convenience Inits
+
+extension Comment {
+  /// Initialize from HNID. Must provide a comment depth
+  convenience init(from id: HNID, commentDepth: Int) async throws {
+    let item = try await AngoliaItem.fetchItem(by: id)
+    try await self.init(from: item, commentDepth: commentDepth)
+  }
+
+  /// Initialize from an AngoliaItem
+  convenience init(from comment: AngoliaItem, commentDepth: Int = 0) async throws {
+    let children = try await comment.children.asyncMap { child in
+      try await Comment(from: child, commentDepth: commentDepth + 1)
+    }
+
+    let parent = if commentDepth > 0 {
+      try await Comment(from: comment, commentDepth: commentDepth - 1)
+    } else {
+      nil as Comment?
+    }
+    let post = try await Post(from: comment.storyId)
+
+    self.init(itemId: comment.id,
+              author: comment.author,
+              children: children,
+              createdAt: comment.createdAt,
+              parent: parent,
+              post: post,
+              points: comment.points,
+              text: comment.text,
+              commentDepth: commentDepth)
+  }
+}
