@@ -9,74 +9,44 @@ import SwiftUI
 // MARK: - CommentListView
 
 struct CommentListView: View {
-  @Environment(\.modelContext) private var modelContext
-  @Query var postWithComments: [PostWithComments]
+  @Binding var selectedPost: Post?
 
-  @Binding var selectedPostID: PersistentIdentifier?
-  private var selectedPost: Post?
-
-  init(selectedPostID: Binding<PersistentIdentifier?>, selectedPost: Post?) {
-    _selectedPostID = selectedPostID
-    self.selectedPost = selectedPost
-  }
+  @ObservedObject private var algoliaItemLoader = AlgoliaCommentsViewModel()
 
   var body: some View {
     NavigationStack {
-      if selectedPostID == nil {
-        Text("Nothing selected")
-      } else if selectedPost?.numComments == 0 {
-        Text("No comments... yet...")
-      } else if postWithComments.isEmpty || postWithComments[0].children.count < selectedPost?.numComments ?? 0 {
-        ProgressView()
-      } else {
-        Text(postWithComments[0].children[0].text)
+      ScrollView(.vertical) {
+        VStack {
+          if let selectedPost {
+            PostCell(forPost: selectedPost, isCommentView: true)
+          }
+          switch algoliaItemLoader.state {
+          case .idle:
+            ProgressView()
+          case .loading:
+            ProgressView()
+          case .failed(let error):
+            Text("Loading failed with error: \(error.localizedDescription)")
+          case .empty:
+            Text("Looks like there's no comments here yet")
+          case .loaded(let algoliaItems):
+            ForEach(algoliaItems) { comment in
+              CommentThread(
+                comment: comment
+              )
+//              .padding(.leading, 10.0)
+            }
+          }
+        }.padding(.trailing, 16.0)
       }
-
-//      ScrollView(.vertical) {
-//        VStack {
-//          PostCellOuterView(postData: currentPost, isCommentView: true)
-//          if commentList.isLoadingPage {
-//            ProgressView()
-//          } else if commentList.items.isEmpty {
-//            Text("Looks like there's no comments here yet")
-//          } else {
-//            ForEach(commentList.items) { comment in
-//              if let commentData = comment.delegate?.itemData as? CommentData {
-//                CommentThread(
-//                  commentData: commentData
-//                )
-//                .padding(.leading, 10.0)
-//              }
-//            }
-//          }
-//        }.padding(.trailing, 16.0)
-//          .refreshable {
-//            self.numComments = currentPost.kids?.count ?? 0
-//            do {
-//              try await commentList
-//                .refreshCommentList(forParentComments: currentPost.kids ?? [])
-//            } catch {
-//              print("unable to refresh comment list")
-//            }
-//          }
-//      }
-//    }.navigationTitle("\(numComments) Comments")
-//      .navigationBarTitleDisplayMode(.inline)
-    }.onChange(of: selectedPostID, initial: true) {
-      Task {
-//        if let selectedPost = self.selectedPost {
-        ////          let post = modelContext.registeredModel(for: selectedPostID)
-        ////          self.postWithComments = try await PostWithComments(from: post.itemId)
-        await AngoliaItem.loadItem(fromId: selectedPost?.itemId ?? 0, modelContext: modelContext)
-//        }
+    }.navigationTitle("\(selectedPost?.numComments ?? 0) Comments")
+      .navigationBarTitleDisplayMode(.inline)
+      .onChange(of: selectedPost, initial: true) {
+        if let selectedPost {
+          Task {
+            await algoliaItemLoader.load(from: selectedPost)
+          }
+        }
       }
-//      Task {
-//        // TODO: This is only loading the first item over and over again???
-//        for comment in post.children {
-//          print(comment)
-//          await AngoliaItem.loadItem(fromId: comment, modelContext: modelContext)
-//        }
-//      }
-    }
   }
 }

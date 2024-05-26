@@ -12,21 +12,18 @@ struct PostFavicon: View {
   @ObservedObject private var faviconLoader = FaviconLoaderViewModel()
 
   var body: some View {
-    Group {
+    VStack {
       switch self.faviconLoader.state {
-      case .idle:
-        ProgressView()
-          .faviconStyle(withUrlToLoad: self.$url)
       case .loading:
         ProgressView()
           .faviconStyle(withUrlToLoad: self.$url)
       case .loaded(let image):
         Image(uiImage: image)
           .faviconStyle(withUrlToLoad: self.$url)
-//      case .failed(let error) where error == "failedToFindFavicon":
-//        Image(.awkwardMonkey).faviconStyle(withUrlToLoad: self.$url).redacted(reason: .invalidated)
-//      case .failed(let error) where error.code == -999:
-//        Image(.awkwardMonkey).faviconStyle(withUrlToLoad: self.$url).redacted(reason: .invalidated)
+      //      case .failed(let error) where error == "failedToFindFavicon":
+      //        Image(.awkwardMonkey).faviconStyle(withUrlToLoad: self.$url).redacted(reason: .invalidated)
+      //      case .failed(let error) where error.code == -999:
+      //        Image(.awkwardMonkey).faviconStyle(withUrlToLoad: self.$url).redacted(reason: .invalidated)
       case .failed(let error):
         Image(.awkwardMonkey)
           .faviconStyle(withUrlToLoad: self.$url)
@@ -34,10 +31,13 @@ struct PostFavicon: View {
           .onAppear {
             log().error("\(error)")
           }
+      default:
+        Image(.awkwardMonkey)
+          .faviconStyle(withUrlToLoad: self.$url)
+          .redacted(reason: .invalidated)
       }
-    }
-    .task {
-      await self.faviconLoader.load(fromUrl: self.url)
+    }.task {
+      await self.faviconLoader.load(from: self.url)
     }
     .onTapGesture {
       self.loadUrl.toggle()

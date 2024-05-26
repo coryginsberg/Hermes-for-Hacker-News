@@ -5,20 +5,10 @@
 
 import FaviconFinder
 import Foundation
-import UIKit
 
-@MainActor
-final class FaviconLoaderViewModel: ObservableObject {
-  enum State {
-    case idle
-    case loading
-    case failed(Error)
-    case loaded(FaviconImage)
-  }
-
-  @Published private(set) var state = State.idle
-
-  func load(fromUrl url: URL) async {
+final class FaviconLoaderViewModel: LoadableItemState<FaviconImage>, LoadableItem {
+  typealias TLoadFrom = URL
+  func load(from url: TLoadFrom) async {
     state = .loading
     do {
       let favicon = try await FaviconFinder(url: url, checkForMetaRefreshRedirect: true).downloadFavicon()

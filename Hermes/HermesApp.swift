@@ -17,7 +17,7 @@ struct HermesApp: App {
 
   init() {
     do {
-      modelContainer = try ModelContainer(for: Post.self, Comment.self, PostWithComments.self)
+      modelContainer = try ModelContainer(for: Post.self)
     } catch {
       Logger(category: "HermesApp").fault("\(error)")
       fatalError("Failed to create ModelContainer for ItemData")

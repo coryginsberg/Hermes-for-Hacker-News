@@ -23,9 +23,9 @@ struct PostTabView: View {
         await AngoliaSearchResults.refresh(modelContext: modelContext)
       }
     } detail: {
-      CommentListView(selectedPostID: $selectedId, selectedPost: posts.first(where: { post in
+      CommentListView(selectedPost: Binding(get: { posts.first(where: { post in
         post.id == selectedId
-      }))
+      }) }, set: { _ in }))
     }
     .task {
       await AngoliaSearchResults.refresh(modelContext: modelContext)

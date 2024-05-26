@@ -6,13 +6,12 @@
 import Foundation
 import SwiftData
 
-@Model
 final class Comment {
-  @Attribute(.unique) var itemId: HNID
+  var itemId: HNID
   var author: String
-  @Relationship(deleteRule: .cascade) var children: [Comment]
-  var createdAt: String
-  @Relationship(inverse: \PostWithComments.children) var parent: Comment?
+  var children: [Comment]
+  var createdAt: Date
+  var parent: Comment?
   var post: Post?
   var points: Int?
   var text: String
@@ -21,7 +20,7 @@ final class Comment {
   init(itemId: HNID,
        author: String,
        children: [Comment],
-       createdAt: String,
+       createdAt: Date,
        parent: Comment?,
        post: Post,
        points: Int? = nil,
@@ -59,25 +58,26 @@ extension Comment: Identifiable {}
 // MARK: - Convenience Inits
 
 extension Comment {
-  /// Initialize from HNID. Must provide a comment depth
-  convenience init(from id: HNID, commentDepth: Int) async throws {
-    let item = try await AngoliaItem.fetchItem(by: id)
-    try await self.init(from: item, commentDepth: commentDepth)
-  }
+//  /// Initialize from HNID. Must provide a comment depth
+//  convenience init(from id: HNID, commentDepth: Int) async throws {
+//    let item = try await AlgoliaItem.fetchItem(by: id)
+//    try await self.init(from: item, commentDepth: commentDepth)
+//  }
 
-  /// Initialize from an AngoliaItem
-  convenience init(from comment: AngoliaItem, commentDepth: Int = 0) async throws {
-    let children = try await comment.children.asyncMap { child in
-      try await Comment(from: child, commentDepth: commentDepth + 1)
+  /// Initialize from an AlgoliaItem
+  convenience init(from comment: AlgoliaItem, forPost post: Post, commentDepth: Int = 0) throws {
+    let children = try comment.children.map { child in
+      try Comment(from: child, forPost: post, commentDepth: commentDepth + 1)
     }
 
     let parent = if commentDepth > 0 {
-      try await Comment(from: comment, commentDepth: commentDepth - 1)
+      try Comment(from: comment, forPost: post, commentDepth: commentDepth - 1)
     } else {
       nil as Comment?
     }
-    let post = try await Post(from: comment.storyId)
-
+    guard let text = comment.text else {
+      throw NSError(domain: "Must have text", code: 0)
+    }
     self.init(itemId: comment.id,
               author: comment.author,
               children: children,
@@ -85,7 +85,7 @@ extension Comment {
               parent: parent,
               post: post,
               points: comment.points,
-              text: comment.text,
+              text: text,
               commentDepth: commentDepth)
   }
 }
