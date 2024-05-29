@@ -75,7 +75,7 @@ extension Comment {
     } else {
       nil as Comment?
     }
-    guard let text = comment.text else {
+    guard let text = comment.text?.stringByDecodingHTMLEntities.htmlToMarkDown() else {
       throw NSError(domain: "Must have text", code: 0)
     }
     self.init(itemId: comment.id,

@@ -8,7 +8,7 @@ import Foundation
 
 final class FaviconLoaderViewModel: LoadableItemState<FaviconImage>, LoadableItem {
   typealias TLoadFrom = URL
-  func load(from url: TLoadFrom) async {
+  func load(from url: TLoadFrom, isPreview: Bool = false) async {
     state = .loading
     do {
       let favicon = try await FaviconFinder(url: url, checkForMetaRefreshRedirect: true).downloadFavicon()

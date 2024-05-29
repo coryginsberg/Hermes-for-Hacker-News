@@ -9,18 +9,18 @@ import SwiftUI
 struct CommentBody: View {
   @Binding var commentData: Comment
   @Binding var showingAlert: Bool
-//  @Binding var hidden: Bool
+  @Binding var hidden: Bool
 //  @Binding var indent: Int
 
   var body: some View {
     VStack {
-//      if !hidden {
-      CommentText(commentData: $commentData)
-//      }
-//      SecondaryCommentInfoGroup(
-//        commentData: commentData,
-//        showingAlert: $showingAlert
-//      )
+      if !hidden {
+        CommentText(commentData: $commentData)
+      }
+      SecondaryCommentInfoGroup(
+        comment: commentData,
+        showingAlert: $showingAlert
+      )
       Divider()
     }
   }

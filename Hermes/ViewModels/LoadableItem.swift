@@ -20,5 +20,5 @@ class LoadableItemState<T>: ObservableObject {
 
 protocol LoadableItem {
   associatedtype TLoadFrom
-  func load(from type: TLoadFrom) async
+  func load(from type: TLoadFrom, isPreview: Bool) async
 }

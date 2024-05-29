@@ -70,24 +70,27 @@ extension AlgoliaItem {
   static func fetchItem(by id: HNID) async throws -> AlgoliaItem {
     if let url = URL(string: "https://hn.algolia.com/api/v1/items/\(id)") {
       let jsonDecoder = JSONDecoder()
-      jsonDecoder.dateDecodingStrategy = .custom { decoder -> Date in
-        let container = try decoder.singleValueContainer()
-        guard let containerString = try? container.decode(String.self) else {
-          return Date.now
-        }
-        let dateFormat = ISO8601DateFormatter()
-        dateFormat.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-        guard let date = dateFormat.date(from: containerString) else {
-          throw DecodingError.dataCorruptedError(in: container,
-                                                 debugDescription: "Invalid date string: \(containerString)")
-        }
-        return date
-      }
-
+      jsonDecoder.dateDecodingStrategy = self.jsonDecoderWithFractionalSeconds()
       let result = await AF.request(url).serializingDecodable(AlgoliaItem.self, decoder: jsonDecoder).result
       print(result)
       return try result.get()
     }
     throw URLError(.badURL)
+  }
+
+  static func jsonDecoderWithFractionalSeconds() -> JSONDecoder.DateDecodingStrategy {
+    return .custom { decoder -> Date in
+      let container = try decoder.singleValueContainer()
+      guard let containerString = try? container.decode(String.self) else {
+        return Date.now
+      }
+      let dateFormat = ISO8601DateFormatter()
+      dateFormat.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+      guard let date = dateFormat.date(from: containerString) else {
+        throw DecodingError.dataCorruptedError(in: container,
+                                               debugDescription: "Invalid date string: \(containerString)")
+      }
+      return date
+    }
   }
 }

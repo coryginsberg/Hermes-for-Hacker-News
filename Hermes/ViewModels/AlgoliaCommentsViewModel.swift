@@ -10,10 +10,12 @@ final class AlgoliaCommentsViewModel: LoadableItemState<[Comment]>, LoadableItem
 
   @Published var numComments = 0
 
-  func load(from post: Post) async {
+  func load(from post: Post, isPreview: Bool = false) async {
     state = .loading
     do {
-      let algoliaItem = try await AlgoliaItem.fetchItem(by: post.itemId)
+      let algoliaItem = isPreview ?
+        try AlgoliaItem.fetchItem(fromFile: "PostWithComments") :
+        try await AlgoliaItem.fetchItem(by: post.itemId)
       DispatchQueue.main.async { [self] in
         if algoliaItem.children.isEmpty {
           state = .empty
@@ -29,10 +31,25 @@ final class AlgoliaCommentsViewModel: LoadableItemState<[Comment]>, LoadableItem
           }
         }
         state = .loaded(comments)
-        numComments = algoliaItem.children.reduce(0) { $0 + $1.children.count }
+        self.numComments = algoliaItem.children.reduce(0) { $0 + $1.children.count }
       }
     } catch {
       state = .failed(error)
     }
+  }
+}
+
+// MARK: - AlgoliaItem extension for preview views
+
+extension AlgoliaItem {
+  static func fetchItem(fromFile filename: String) throws -> AlgoliaItem {
+    guard let url = Bundle.main.url(forResource: filename,
+                                    withExtension: "json") else {
+      throw URLError(.badURL)
+    }
+    let data = try Data(contentsOf: url)
+    let jsonDecoder = JSONDecoder()
+    jsonDecoder.dateDecodingStrategy = self.jsonDecoderWithFractionalSeconds()
+    return try jsonDecoder.decode(AlgoliaItem.self, from: data)
   }
 }

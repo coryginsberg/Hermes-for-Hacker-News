@@ -46,6 +46,21 @@ final class Post {
     self.text = text
     self.index = index
   }
+
+  init() {
+    self.itemId = 0
+    self.tags = []
+    self.author = ""
+    self.children = []
+    self.createdAt = Date()
+    self.numComments = nil
+    self.points = nil
+    self.title = ""
+    self.updatedAt = Date()
+    self.url = nil
+    self.text = nil
+    self.index = 0
+  }
 }
 
 extension Post: CustomStringConvertible {

@@ -6,9 +6,8 @@
 import SwiftUI
 
 extension Text {
-  func secondaryStyle(isDead: Bool) -> some View {
-    let secondaryColor =
-      isDead ? Color(uiColor: .systemGray5) : Color(uiColor: .secondaryLabel)
+  func secondaryStyle() -> some View {
+    let secondaryColor = Color(uiColor: .secondaryLabel)
 
     return allowsTightening(true)
       .frame(maxWidth: .infinity, alignment: .leading)
@@ -17,9 +16,8 @@ extension Text {
       .lineLimit(1)
   }
 
-  func commentStyle(isDead: Bool) -> some View {
-    let primaryColor = isDead ? Color(uiColor: .systemGray5) :
-      Color(uiColor: .label)
+  func commentStyle() -> some View {
+    let primaryColor = Color(uiColor: .label)
 
     return foregroundColor(primaryColor)
       .multilineTextAlignment(.leading)

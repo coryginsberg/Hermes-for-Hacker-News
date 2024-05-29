@@ -24,11 +24,15 @@ import WebKit
 struct CommentThread: View {
   @State var comment: Comment
   @State private var showingAlert = false
+  @State private var hidden = false
 
   var body: some View {
     VStack {
-      CommentBody(commentData: $comment, showingAlert: $showingAlert)
+      CommentBody(commentData: $comment,
+                  showingAlert: $showingAlert,
+                  hidden: $hidden)
       if !$comment.children.isEmpty {
+        // Recursively loop through until we run out of children
         ForEach(comment.children) { child in
           CommentThread(
             comment: child
@@ -38,15 +42,7 @@ struct CommentThread: View {
     }
     .contentShape(Rectangle())
     .onTapGesture {
-//      hidden.toggle()
+      hidden.toggle()
     }
   }
 }
-
-// #Preview("Top Level") {
-//  CommentThread(commentData: TestData.Comments.randomComments[0], indent: 0)
-// }
-//
-// #Preview("Indented") {
-//  CommentThread(commentData: TestData.Comments.randomComments[0], indent: 1)
-// }

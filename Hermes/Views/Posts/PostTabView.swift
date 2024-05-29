@@ -18,10 +18,10 @@ struct PostTabView: View {
     NavigationSplitView {
       List(posts, selection: $selectedId) { post in
         PostCell(forPost: post)
-      }
-      .refreshable {
-        await AngoliaSearchResults.refresh(modelContext: modelContext)
-      }
+      }.listStyle(.plain)
+        .refreshable {
+          await AngoliaSearchResults.refresh(modelContext: modelContext)
+        }
     } detail: {
       CommentListView(selectedPost: Binding(get: { posts.first(where: { post in
         post.id == selectedId
@@ -34,7 +34,7 @@ struct PostTabView: View {
 #if DEBUG
       log(category: "sqlite").debug("\(modelContext.sqliteCommand)")
 #endif
-    }
+    }.navigationTitle("Posts")
   }
 }
 

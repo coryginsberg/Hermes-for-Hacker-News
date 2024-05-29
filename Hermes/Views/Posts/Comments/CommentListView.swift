@@ -9,6 +9,7 @@ import SwiftUI
 // MARK: - CommentListView
 
 struct CommentListView: View {
+  var isPreview = false
   @Binding var selectedPost: Post?
 
   @ObservedObject private var algoliaItemLoader = AlgoliaCommentsViewModel()
@@ -30,12 +31,7 @@ struct CommentListView: View {
           case .empty:
             Text("Looks like there's no comments here yet")
           case .loaded(let algoliaItems):
-            ForEach(algoliaItems) { comment in
-              CommentThread(
-                comment: comment
-              )
-//              .padding(.leading, 10.0)
-            }
+            CommentListLoadedView(algoliaItems: algoliaItems)
           }
         }.padding(.trailing, 16.0)
       }
@@ -44,9 +40,13 @@ struct CommentListView: View {
       .onChange(of: selectedPost, initial: true) {
         if let selectedPost {
           Task {
-            await algoliaItemLoader.load(from: selectedPost)
+            await algoliaItemLoader.load(from: selectedPost, isPreview: isPreview)
           }
         }
       }
   }
+}
+
+#Preview {
+  CommentListView(isPreview: true, selectedPost: Binding.constant(.preview))
 }

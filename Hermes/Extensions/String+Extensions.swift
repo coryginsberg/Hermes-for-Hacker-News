@@ -29,8 +29,7 @@ extension String {
   // MARK: - String to HTML
 
   /// Returns a new string made by replacing in the `String` all HTML character
-  /// entity
-  /// references with the corresponding character.
+  /// entity references with the corresponding character.
   var stringByDecodingHTMLEntities: String {
     // ===== Utility functions =====
 
@@ -93,16 +92,14 @@ extension String {
   // MARK: - HTML To Markdown
 
   func htmlToMarkDown() -> String {
-    // Replace line feeds with nothing, which is how HTML notation is read in
-    // the
-    // browsers
-    var text = replacing("\n", with: "")
+    // Replace line feeds with nothing, which is how HTML notation is read in browsers
+    var text = self.replacing("\n", with: "")
 
     // Line breaks
     text = text.replacing("<div>", with: "\n\n")
     text = text.replacing("</div>", with: "")
-    text = text.replacing("<p>", with: "\n\n")
-    text = text.replacing("<br>", with: "\n\n")
+    text = text.replacing("<p>", with: "\n\n\n")
+    text = text.replacing("<br>", with: "\n\n\n")
 
     // Text formatting
     text = text.replacing("<strong>", with: "**")
@@ -151,8 +148,8 @@ extension String {
       .repetitionBehavior(.reluctant)
 
       if let match = text.firstMatch(of: searchHyperlink) {
-        let (hyperlinkTag, href, content) = match.output
-        let markDownLink = "[\(content)](\(href))"
+        let (hyperlinkTag, href, _) = match.output
+        let markDownLink = "[\(href)](\(href))"
         text = text.replacing(hyperlinkTag, with: markDownLink)
       } else {
         loop = false
