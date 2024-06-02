@@ -27,17 +27,22 @@ struct CommentThread: View {
   @State private var hidden = false
 
   var body: some View {
-    VStack {
-      CommentBody(commentData: $comment,
+    LazyVStack {
+      CommentCell(commentData: $comment,
                   showingAlert: $showingAlert,
-                  hidden: $hidden)
+                  isHidden: $hidden)
       if !$comment.children.isEmpty {
         // Recursively loop through until we run out of children
         ForEach(comment.children) { child in
           CommentThread(
             comment: child
           )
-        }
+        }.padding(.leading, 16.0)
+          .if(hidden) { view in
+            view.frame(height: 0)
+          }
+          .opacity(hidden ? 0 : 1)
+          .animation(.easeInOut, value: hidden)
       }
     }
     .contentShape(Rectangle())
@@ -45,4 +50,8 @@ struct CommentThread: View {
       hidden.toggle()
     }
   }
+}
+
+#Preview {
+  CommentListView(isPreview: true, selectedPost: Binding.constant(.preview))
 }

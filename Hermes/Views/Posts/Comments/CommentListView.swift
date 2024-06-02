@@ -17,9 +17,9 @@ struct CommentListView: View {
   var body: some View {
     NavigationStack {
       ScrollView(.vertical) {
-        VStack {
+        LazyVStack {
           if let selectedPost {
-            PostCell(forPost: selectedPost, isCommentView: true)
+            PostCell(post: selectedPost, isCommentView: true).padding(.leading)
           }
           switch algoliaItemLoader.state {
           case .idle:
@@ -31,9 +31,9 @@ struct CommentListView: View {
           case .empty:
             Text("Looks like there's no comments here yet")
           case .loaded(let algoliaItems):
-            CommentListLoadedView(algoliaItems: algoliaItems)
+            CommentListLoadedView(algoliaItems: algoliaItems).padding(.leading, 4.0)
           }
-        }.padding(.trailing, 16.0)
+        }.padding(.trailing, 8.0)
       }
     }.navigationTitle("\(selectedPost?.numComments ?? 0) Comments")
       .navigationBarTitleDisplayMode(.inline)

@@ -13,11 +13,6 @@ struct PostCell: View {
 
   let secondaryTextColor = Color(uiColor: .secondaryLabel)
 
-  init(forPost post: Post, isCommentView: Bool = false) {
-    self.post = post
-    self.isCommentView = isCommentView
-  }
-
   var body: some View {
     LazyVStack(alignment: .leading) { // Non-lazy VStack cuts off divider line for some reason
       HStack {
@@ -25,6 +20,9 @@ struct PostCell: View {
           PostFavicon(url: url)
         }
         PostText(post: post, isCommentView: isCommentView, isFaviconVisible: post.url != nil)
+      }
+      if isCommentView {
+        Divider()
       }
     }
   }

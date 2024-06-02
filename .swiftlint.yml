@@ -107,7 +107,12 @@ force_cast: warning
 force_try: warning
 force_unwrapping: error
 
-line_length: 120
+line_length:
+  warning: 120
+  ignores_comments: true
+  ignores_interpolated_strings: true
+  ignores_urls: true
+
 file_length:
   warning: 500
   error: 1200

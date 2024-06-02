@@ -13,11 +13,13 @@ struct CommentListLoadedView: View {
       CommentThread(
         comment: comment
       )
-      .padding(.leading, 10.0)
+      .padding(.leading, 8.0)
+    }.onAppear {
+      print(algoliaItems)
     }
   }
 }
 
-// #Preview {
-//  CommentListLoadedView()
-// }
+#Preview {
+  CommentListView(isPreview: true, selectedPost: Binding.constant(.preview))
+}

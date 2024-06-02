@@ -5,6 +5,8 @@
 
 import Foundation
 import SwiftData
+import SwiftUI
+import UIKit
 
 final class Comment {
   var itemId: HNID
@@ -40,7 +42,7 @@ final class Comment {
 
 extension Comment: CustomStringConvertible {
   var description: String {
-    "\(itemId), \(text) by \(author)"
+    "\(itemId) by \(author)"
   }
 }
 
@@ -50,20 +52,32 @@ extension Array where Element: Comment {
   subscript(id: Comment.ID?) -> Comment? {
     first { $0.id == id }
   }
+
+  func flattenDescendants() -> [Comment] {
+    var myArray = [Comment]()
+    for element in self {
+      myArray.append(element)
+      let result = element.children.flattenDescendants()
+      for i in result {
+        myArray.append(i)
+      }
+    }
+    return myArray
+  }
 }
 
 // Ensure that the model's conformance to Identifiable is public
 extension Comment: Identifiable {}
 
+extension Comment {
+  func countDescendants() -> Int {
+    [self].flattenDescendants().count
+  }
+}
+
 // MARK: - Convenience Inits
 
 extension Comment {
-//  /// Initialize from HNID. Must provide a comment depth
-//  convenience init(from id: HNID, commentDepth: Int) async throws {
-//    let item = try await AlgoliaItem.fetchItem(by: id)
-//    try await self.init(from: item, commentDepth: commentDepth)
-//  }
-
   /// Initialize from an AlgoliaItem
   convenience init(from comment: AlgoliaItem, forPost post: Post, commentDepth: Int = 0) throws {
     let children = try comment.children.map { child in
@@ -78,6 +92,7 @@ extension Comment {
     guard let text = comment.text?.stringByDecodingHTMLEntities.htmlToMarkDown() else {
       throw NSError(domain: "Must have text", code: 0)
     }
+
     self.init(itemId: comment.id,
               author: comment.author,
               children: children,

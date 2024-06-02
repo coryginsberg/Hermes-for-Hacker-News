@@ -6,19 +6,24 @@
 import AlertToast
 import SwiftUI
 
-struct CommentBody: View {
+struct CommentCell: View {
   @Binding var commentData: Comment
   @Binding var showingAlert: Bool
-  @Binding var hidden: Bool
+  @Binding var isHidden: Bool
 //  @Binding var indent: Int
 
   var body: some View {
     VStack {
-      if !hidden {
-        CommentText(commentData: $commentData)
-      }
+      CommentText(commentData: $commentData)
+        .if(isHidden) { view in
+          view.frame(height: 0)
+        }
+        .opacity(isHidden ? 0 : 1)
+        .animation(.easeInOut, value: isHidden)
+
       SecondaryCommentInfoGroup(
         comment: commentData,
+        isHidden: $isHidden,
         showingAlert: $showingAlert
       )
       Divider()
@@ -51,6 +56,8 @@ private struct CommentText: View {
       markdown: "\(commentData.text)"
     ) {
       Text(commentText)
+        .multilineTextAlignment(.leading)
+        .frame(maxWidth: .infinity, alignment: .leading)
         .contextMenu {
           Button {
             copyToClipboard(commentText: String(commentText
@@ -64,4 +71,8 @@ private struct CommentText: View {
         }
     }
   }
+}
+
+#Preview {
+  CommentListView(isPreview: true, selectedPost: Binding.constant(.preview))
 }

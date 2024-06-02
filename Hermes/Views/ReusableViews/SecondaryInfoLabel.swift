@@ -7,13 +7,18 @@ import SwiftUI
 
 struct SecondaryCommentInfoGroup: View {
   let comment: Comment
+  @Binding var isHidden: Bool
   @Binding var showingAlert: Bool
 
   var body: some View {
     HStack {
       Text("– \(comment.author)").secondaryStyle()
       HStack {
-        SecondaryInfoButton(systemImage: "arrowshape.turn.up.left") { showingAlert = true }
+        if !isHidden {
+          SecondaryInfoButton(systemImage: "arrowshape.turn.up.left") { showingAlert = true }
+        } else {
+          SecondaryInfoLabel(systemImage: "3.bubble", textBody: String(comment.countDescendants()))
+        }
         SecondaryInfoLabel(
           systemImage: "clock",
           textBody: DateFormatter.calcTimeSince(datePosted: comment.createdAt)
@@ -24,7 +29,11 @@ struct SecondaryCommentInfoGroup: View {
             textBody: "\(points)"
           )
         }
-        SecondaryInfoButton(systemImage: "ellipsis") { showingAlert = true }
+        if !isHidden {
+          SecondaryInfoButton(systemImage: "ellipsis") { showingAlert = true }
+        } else {
+          SecondaryInfoButton(systemImage: "chevron.down") { isHidden = false }
+        }
       }.padding(.leading, 6.0)
     }
   }
