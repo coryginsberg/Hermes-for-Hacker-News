@@ -13,6 +13,7 @@
 		EE14E4B32B8D578900AD5AE1 /* AlertViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E4B22B8D578900AD5AE1 /* AlertViewModal.swift */; };
 		EE14E4B52B8E887A00AD5AE1 /* SwiftUI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E4B42B8E887A00AD5AE1 /* SwiftUI+Extensions.swift */; };
 		EE27CD122C0D0AF50032988C /* If+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE27CD112C0D0AF50032988C /* If+Extensions.swift */; };
+		EE27CD152C0D19960032988C /* Clamping+PropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE27CD142C0D19960032988C /* Clamping+PropertyWrapper.swift */; };
 		EE40DE8C2C07B5B60009BA62 /* PostWithComments.json in Resources */ = {isa = PBXBuildFile; fileRef = EE40DE8B2C07B5B60009BA62 /* PostWithComments.json */; };
 		EE40DE902C07BACB0009BA62 /* CommentListLoadedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE40DE8F2C07BACB0009BA62 /* CommentListLoadedView.swift */; };
 		EE40DE922C07C5080009BA62 /* PostPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE40DE912C07C5080009BA62 /* PostPreview.swift */; };
@@ -87,6 +88,7 @@
 		EE14E4B22B8D578900AD5AE1 /* AlertViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModal.swift; sourceTree = "<group>"; };
 		EE14E4B42B8E887A00AD5AE1 /* SwiftUI+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Extensions.swift"; sourceTree = "<group>"; };
 		EE27CD112C0D0AF50032988C /* If+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "If+Extensions.swift"; sourceTree = "<group>"; };
+		EE27CD142C0D19960032988C /* Clamping+PropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Clamping+PropertyWrapper.swift"; sourceTree = "<group>"; };
 		EE40DE8B2C07B5B60009BA62 /* PostWithComments.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PostWithComments.json; sourceTree = "<group>"; };
 		EE40DE8F2C07BACB0009BA62 /* CommentListLoadedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListLoadedView.swift; sourceTree = "<group>"; };
 		EE40DE912C07C5080009BA62 /* PostPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPreview.swift; sourceTree = "<group>"; };
@@ -191,6 +193,14 @@
 				EE27CD112C0D0AF50032988C /* If+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EE27CD132C0D18F20032988C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EE27CD142C0D19960032988C /* Clamping+PropertyWrapper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		EE40DE8A2C07B5990009BA62 /* Resources */ = {
@@ -314,6 +324,7 @@
 		EEC8B9CF2A880A280088B6E9 /* Hermes */ = {
 			isa = PBXGroup;
 			children = (
+				EE27CD132C0D18F20032988C /* Helpers */,
 				EED1487F2A89A578001FA326 /* Info.plist */,
 				EE9727FA2BC73B0F00240EDF /* Debugging */,
 				EEC8B9FD2A880A610088B6E9 /* Extensions */,
@@ -625,6 +636,7 @@
 				EE03A6F82BC9D75600D649E1 /* AlgoliaItem.swift in Sources */,
 				EE0F941E2B893A1E00108223 /* String+Extensions.swift in Sources */,
 				EEC8BA1F2A8814880088B6E9 /* InboxView.swift in Sources */,
+				EE27CD152C0D19960032988C /* Clamping+PropertyWrapper.swift in Sources */,
 				EEC8BA2F2A8814E70088B6E9 /* CommentListView.swift in Sources */,
 				EE77BBD22A8AC9F400880625 /* WebViewWrapper.swift in Sources */,
 				EE40DE922C07C5080009BA62 /* PostPreview.swift in Sources */,

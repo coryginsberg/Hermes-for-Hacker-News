@@ -17,7 +17,7 @@ struct SecondaryCommentInfoGroup: View {
         if !isHidden {
           SecondaryInfoButton(systemImage: "arrowshape.turn.up.left") { showingAlert = true }
         } else {
-          SecondaryInfoLabel(systemImage: "3.bubble", textBody: String(comment.countDescendants()))
+          SecondaryCommentCount(numComments: comment.countDescendants())
         }
         SecondaryInfoLabel(
           systemImage: "clock",
@@ -98,5 +98,18 @@ struct SecondaryText: View {
       .foregroundStyle(.secondary)
       .font(.system(size: 12))
       .lineLimit(1)
+  }
+}
+
+struct SecondaryCommentCount: View {
+  @Clamped(to: 1 ... 20)
+  var numComments: Int = 1
+
+  var body: some View {
+    Image("\(numComments).bubble.filled")
+      .font(.callout)
+      .foregroundStyle(.tertiary)
+      .padding(.horizontal, 3)
+      .padding(.top, 1)
   }
 }
