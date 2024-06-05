@@ -16,15 +16,37 @@ struct PostText: View {
   let secondaryTextColor = Color(uiColor: .secondaryLabel)
   let spacer: Spacer = .init(minLength: 4.0)
 
+  @State var styledText: AttributedString?
+
   var body: some View {
     VStack(alignment: .leading) {
       PostPrimaryLabel(
         post: post,
-        secondaryTextColor: secondaryTextColor,
         isCommentView: isCommentView
       )
+      if isCommentView, let text = post.text {
+        if let styledText {
+          Text(styledText)
+        } else {
+          // fallback
+          Text(text)
+        }
+      }
       PostSecondaryLabel(post: post, textColor: secondaryTextColor)
     }
     .padding(.leading, isFaviconVisible ? 16.0 : 0)
+    .onAppear {
+      if let text = post.text, let formattedText = try? HTMLAttributedString.formatForHN(text: text) {
+        styledText = formattedText
+      }
+    }
+  }
+}
+
+#Preview("Comment View") {
+  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
+    VStack {
+      PostText(post: Post.formattedText, isCommentView: true, isFaviconVisible: false)
+    }.padding()
   }
 }

@@ -52,6 +52,8 @@ struct CommentThread: View {
   }
 }
 
-#Preview {
-  CommentListView(isPreview: true, selectedPost: Binding.constant(.preview))
-}
+// #Preview {
+//  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
+//    CommentListView(selectedPost: .constant(nil), isPreview: true)
+//  }
+// }

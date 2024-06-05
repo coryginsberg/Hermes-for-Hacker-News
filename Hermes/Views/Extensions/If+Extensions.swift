@@ -14,12 +14,26 @@ extension View {
   ///
   /// - Parameters:
   ///   - condition: The condition to evaluate.
-  ///   - transform: The transform to apply to the source `View`.
+  ///   - if: The transform to apply to the source `View` if `condition` is true.
+  ///   - else: The transform to apply to the source `View` if `condition` is false.
   /// - Returns: Either the original `View` or the modified `View` if the condition is `true`.
+  ///
+  /// ```swift
+  /// Text("Hello, World!")
+  ///   .if(isTitle) { text in
+  ///     text.fontWeight(.bold)
+  ///   } else: {
+  ///     text.fontWeight(.normal)
+  ///   }
+  /// ```
   @ViewBuilder
-  func `if`<Content: View>(_ condition: @autoclosure () -> Bool, transform: (Self) -> Content) -> some View {
+  func `if`<Content: View>(_ condition: @autoclosure () -> Bool,
+                           if transformIf: (Self) -> Content,
+                           else transformElse: ((Self) -> Content)? = nil) -> some View {
     if condition() {
-      transform(self)
+      transformIf(self)
+    } else if let transformElse {
+      transformElse(self)
     } else {
       self
     }

@@ -11,6 +11,7 @@ final class AlgoliaCommentsViewModel: LoadableItemState<[Comment]>, LoadableItem
   @Published var numComments = 0
 
   func load(from post: Post, isPreview: Bool = false) async {
+    print(isPreview)
     state = .loading
     do {
       let algoliaItem = isPreview ?

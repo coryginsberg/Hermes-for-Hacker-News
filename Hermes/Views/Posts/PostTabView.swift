@@ -15,25 +15,20 @@ struct PostTabView: View {
   @State private var selectedId: Post.ID?
 
   var body: some View {
-    NavigationSplitView {
-      List(posts, selection: $selectedId) { post in
-        PostCell(post: post)
-      }.listStyle(.plain)
-        .refreshable {
-          await AngoliaSearchResults.refresh(modelContext: modelContext)
-        }.navigationTitle("Posts")
-    } detail: {
-      CommentListView(selectedPost: Binding(get: { posts.first(where: { post in
-        post.id == selectedId
-      }) }, set: { _ in }))
-    }
-    .task {
-      await AngoliaSearchResults.refresh(modelContext: modelContext)
-    }
-    .onAppear {
-#if DEBUG
-      log(category: "sqlite").debug("\(modelContext.sqliteCommand)")
-#endif
+    ZStack {
+      NavigationSplitView {
+        List(posts, selection: $selectedId) { post in
+          PostCell(post: post)
+        }.listStyle(.plain)
+          .refreshable {
+            await AngoliaSearchResults.refresh(modelContext: modelContext)
+          }.navigationTitle("Posts")
+      } detail: {
+        CommentListView(selectedPost: $selectedId)
+      }
+      .task {
+        await AngoliaSearchResults.refresh(modelContext: modelContext)
+      }
     }
   }
 }

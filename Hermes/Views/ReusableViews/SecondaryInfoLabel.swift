@@ -102,11 +102,10 @@ struct SecondaryText: View {
 }
 
 struct SecondaryCommentCount: View {
-  @Clamped(to: 1 ... 20)
   var numComments: Int = 1
 
   var body: some View {
-    Image("\(numComments).bubble.filled")
+    Image("\(numComments.clamped(to: 1 ... 20)).bubble.filled")
       .font(.callout)
       .foregroundStyle(.tertiary)
       .padding(.horizontal, 3)
