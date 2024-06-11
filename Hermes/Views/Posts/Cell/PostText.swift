@@ -12,11 +12,10 @@ struct PostText: View {
   @State var post: Post
   @State var isCommentView: Bool = false
   @State var isFaviconVisible: Bool = true
+  @State var styledText: AttributedString?
 
   let secondaryTextColor = Color(uiColor: .secondaryLabel)
   let spacer: Spacer = .init(minLength: 4.0)
-
-  @State var styledText: AttributedString?
 
   var body: some View {
     VStack(alignment: .leading) {
