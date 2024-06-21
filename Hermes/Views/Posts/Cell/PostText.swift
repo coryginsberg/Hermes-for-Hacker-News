@@ -9,6 +9,8 @@ import SwiftUI
 // MARK: - PostCellText
 
 struct PostText: View {
+  @Environment(\.sizeCategory) var sizeCategory
+
   @State var post: Post
   @State var isCommentView: Bool = false
   @State var isFaviconVisible: Bool = true
@@ -16,6 +18,7 @@ struct PostText: View {
 
   let secondaryTextColor = Color(uiColor: .secondaryLabel)
   let spacer: Spacer = .init(minLength: 4.0)
+  let scaledSize = UIFontMetrics.default.scaledValue(for: UIFont.systemFontSize)
 
   var body: some View {
     VStack(alignment: .leading) {
@@ -35,7 +38,7 @@ struct PostText: View {
     }
     .padding(.leading, isFaviconVisible ? 16.0 : 0)
     .onAppear {
-      if let text = post.text, let formattedText = try? HTMLAttributedString.formatForHN(text: text) {
+      if let text = post.text, let formattedText = try? HTMLAttributedString.formatForHN(text: text, size: scaledSize) {
         styledText = formattedText
       }
     }

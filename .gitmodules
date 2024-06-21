@@ -1,0 +1,6 @@
+[submodule "PrettyHTML/html2md"]
+	path = PrettyHTML/html2md
+	url = https://github.com/tim-gromeyer/html2md
+[submodule "MarkdownifyHTML/Sources/html2md"]
+	path = MarkdownifyHTML/Sources/html2md
+	url = https://github.com/coryginsberg/html2md

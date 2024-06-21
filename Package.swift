@@ -9,11 +9,6 @@ let package = Package(
     .macOS(.v14),
   ],
   dependencies: [
-    // Prod Dependencies
-    .package(
-      url: "https://github.com/firebase/firebase-ios-sdk.git",
-      .upToNextMajor(from: "8.10.0")
-    ),
     .package(url: "https://github.com/will-lumley/FaviconFinder.git", from: "4.2.0"),
     // Dev Dependencies
     .package(url: "https://github.com/realm/SwiftLint.git", from: "0.37.0"),
@@ -22,12 +17,7 @@ let package = Package(
   targets: [
     .target(
       name: "Hermes",
-      dependencies: [
-        .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
-        .product(name: "FirebaseDatabase", package: "firebase-ios-sdk"),
-        .product(name: "FaviconFinder", package: "FaviconFinder"),
-      ],
       path: "Hermes"
-    )
+    ),
   ]
 )

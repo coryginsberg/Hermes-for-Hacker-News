@@ -4,22 +4,24 @@
 //
 
 import Foundation
+import SwiftUI
 import UIKit
 
 enum HTMLAttributedString {
   @MainActor
-  static func formatForHN(text: String) throws -> AttributedString? {
+  static func formatForHN(text: String, size: CGFloat) throws -> AttributedString? {
     let text = text.replacingOccurrences(of: "</p><p>", with: "<br/><br/>")
-    let fontSize = UIFont.preferredFont(forTextStyle: .body).pointSize
+//    let fontSize = UIFont.preferredFont(forTextStyle: .body).pointSize
     if let nsAttributedString = try? NSMutableAttributedString(data: text.data(using: .utf16) ?? Data(text.utf8),
                                                                options: [.documentType: NSAttributedString.DocumentType.html],
                                                                documentAttributes: nil) {
       nsAttributedString.enumerateAttributes(in: NSRange(0 ..< nsAttributedString.length)) { value, range, _ in
         if let font = value[.font] as? UIFont {
           if font.fontDescriptor.symbolicTraits.contains(.traitItalic) {
-            nsAttributedString.setAttributes([.font: UIFont.italicSystemFont(ofSize: fontSize)], range: range)
+            nsAttributedString.setAttributes([.font: UIFont.italicSystemFont(ofSize: size)], range: range)
           } else {
-            nsAttributedString.addAttributes([.font: UIFont.preferredFont(forTextStyle: .body)], range: range)
+            nsAttributedString.setAttributes([.font: UIFont.systemFont(ofSize: size)], range: range)
+//            nsAttributedString.setAttributes([.font: UIFont.systemFont(ofSize: scaledSize)], range: range)
           }
         }
       }

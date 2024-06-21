@@ -42,6 +42,7 @@
 		EEAE2B012B9E526B00E4A9A7 /* CommentIndentViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAE2B002B9E526B00E4A9A7 /* CommentIndentViewModifier.swift */; };
 		EEAE2B032B9E52F300E4A9A7 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAE2B022B9E52F300E4A9A7 /* CommentCell.swift */; };
 		EEAE2B062BA0ED0900E4A9A7 /* FaviconLoaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAE2B052BA0ED0900E4A9A7 /* FaviconLoaderViewModel.swift */; };
+		EEC77FB02C24A26E008531F1 /* MarkdownifyHTML in Frameworks */ = {isa = PBXBuildFile; productRef = EEC77FAF2C24A26E008531F1 /* MarkdownifyHTML */; };
 		EEC8B9D12A880A280088B6E9 /* HermesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9D02A880A280088B6E9 /* HermesApp.swift */; };
 		EEC8B9D52A880A310088B6E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D42A880A310088B6E9 /* Assets.xcassets */; };
 		EEC8B9D82A880A310088B6E9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D72A880A310088B6E9 /* Preview Assets.xcassets */; };
@@ -64,6 +65,7 @@
 		EED8D7302BFA9D0C002BFB44 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EED8D72F2BFA9D0C002BFB44 /* Alamofire */; };
 		EEE021482A881E58003676E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EEE021472A881E58003676E6 /* GoogleService-Info.plist */; };
 		EEEA19A42BB6127200654F56 /* PostTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEA19A32BB6127200654F56 /* PostTabView.swift */; };
+		EEFF3C432C25FFB0009B912B /* html2md in Frameworks */ = {isa = PBXBuildFile; productRef = EEFF3C422C25FFB0009B912B /* html2md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +121,8 @@
 		EEAE2B002B9E526B00E4A9A7 /* CommentIndentViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentIndentViewModifier.swift; sourceTree = "<group>"; };
 		EEAE2B022B9E52F300E4A9A7 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		EEAE2B052BA0ED0900E4A9A7 /* FaviconLoaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconLoaderViewModel.swift; sourceTree = "<group>"; };
+		EEC77FAE2C24A261008531F1 /* MarkdownifyHTML */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MarkdownifyHTML; sourceTree = "<group>"; };
+		EEC7D1CB2C262A9E00B0226F /* Unit Tests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Unit Tests.xctestplan"; path = "MarkdownifyHTML/Tests/MarkdownifyHTMLTests/Unit Tests.xctestplan"; sourceTree = "<group>"; };
 		EEC8B9CD2A880A280088B6E9 /* Hermes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hermes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC8B9D02A880A280088B6E9 /* HermesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesApp.swift; sourceTree = "<group>"; };
 		EEC8B9D42A880A310088B6E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,9 +160,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEFF3C432C25FFB0009B912B /* html2md in Frameworks */,
 				EE85BB172A8C0DF900ACF5F3 /* DomainParser in Frameworks */,
 				EE9727F62BC7380800240EDF /* OrderedCollections in Frameworks */,
 				EED8D7302BFA9D0C002BFB44 /* Alamofire in Frameworks */,
+				EEC77FB02C24A26E008531F1 /* MarkdownifyHTML in Frameworks */,
 				EE7936322B8D551500959398 /* AlertToast in Frameworks */,
 				EEC8BA412A8816100088B6E9 /* FaviconFinder in Frameworks */,
 			);
@@ -298,6 +304,8 @@
 		EEC8B9C42A880A280088B6E9 = {
 			isa = PBXGroup;
 			children = (
+				EEC7D1CB2C262A9E00B0226F /* Unit Tests.xctestplan */,
+				EEC77FAE2C24A261008531F1 /* MarkdownifyHTML */,
 				EEC8B9CF2A880A280088B6E9 /* Hermes */,
 				EEC8B9E02A880A320088B6E9 /* HermesTests */,
 				EEC8B9EA2A880A320088B6E9 /* HermesUITests */,
@@ -348,9 +356,9 @@
 			children = (
 				EE40DE8A2C07B5990009BA62 /* Resources */,
 				EEC8BA472A88191E0088B6E9 /* TestData.swift */,
-				EEC8B9D72A880A310088B6E9 /* Preview Assets.xcassets */,
 				EE40DE912C07C5080009BA62 /* PostPreview.swift */,
 				EE27CD162C10E9EF0032988C /* ModelContainerPreview.swift */,
+				EEC8B9D72A880A310088B6E9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -476,6 +484,8 @@
 				EE7936312B8D551500959398 /* AlertToast */,
 				EE9727F52BC7380800240EDF /* OrderedCollections */,
 				EED8D72F2BFA9D0C002BFB44 /* Alamofire */,
+				EEC77FAF2C24A26E008531F1 /* MarkdownifyHTML */,
+				EEFF3C422C25FFB0009B912B /* html2md */,
 			);
 			productName = Hermes;
 			productReference = EEC8B9CD2A880A280088B6E9 /* Hermes.app */;
@@ -524,8 +534,8 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					EEC8B9CC2A880A280088B6E9 = {
 						CreatedOnToolsVersion = 15.0;
@@ -899,7 +909,6 @@
 		EEC8B9F52A880A320088B6E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 33;
@@ -919,7 +928,6 @@
 		EEC8B9F62A880A320088B6E9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 33;
@@ -939,7 +947,6 @@
 		EEC8B9F82A880A320088B6E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = 3K22YJAJ77;
@@ -957,7 +964,6 @@
 		EEC8B9F92A880A320088B6E9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_TEAM = 3K22YJAJ77;
@@ -1080,6 +1086,10 @@
 			package = EE9727F42BC7380800240EDF /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = OrderedCollections;
 		};
+		EEC77FAF2C24A26E008531F1 /* MarkdownifyHTML */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MarkdownifyHTML;
+		};
 		EEC8BA402A8816100088B6E9 /* FaviconFinder */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EEC8BA3F2A8816100088B6E9 /* XCRemoteSwiftPackageReference "FaviconFinder" */;
@@ -1094,6 +1104,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EED8D72E2BFA9D0C002BFB44 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		EEFF3C422C25FFB0009B912B /* html2md */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = html2md;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
