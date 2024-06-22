@@ -20,12 +20,13 @@
 		EE40DE902C07BACB0009BA62 /* CommentListLoadedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE40DE8F2C07BACB0009BA62 /* CommentListLoadedView.swift */; };
 		EE40DE922C07C5080009BA62 /* PostPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE40DE912C07C5080009BA62 /* PostPreview.swift */; };
 		EE40DE942C07CCC00009BA62 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE40DE932C07CCC00009BA62 /* DateFormatter+Extensions.swift */; };
+		EE4231372C277E4C005291BA /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = EE4231362C277E4C005291BA /* AlertToast */; };
+		EE4231392C277FFE005291BA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EE4231382C277FFE005291BA /* Alamofire */; };
 		EE77BBD22A8AC9F400880625 /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD12A8AC9F400880625 /* WebViewWrapper.swift */; };
 		EE77BBD52A8AD14B00880625 /* PostFavicon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD42A8AD14B00880625 /* PostFavicon.swift */; };
 		EE77BBD72A8AD97E00880625 /* PostPrimaryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD62A8AD97E00880625 /* PostPrimaryLabel.swift */; };
 		EE77BBD92A8ADB2900880625 /* PostSecondaryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD82A8ADB2900880625 /* PostSecondaryLabel.swift */; };
 		EE79362D2B8C03FC00959398 /* SecondaryInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE79362C2B8C03FC00959398 /* SecondaryInfoLabel.swift */; };
-		EE7936322B8D551500959398 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = EE7936312B8D551500959398 /* AlertToast */; };
 		EE85BB142A8C0CC600ACF5F3 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */; };
 		EE85BB172A8C0DF900ACF5F3 /* DomainParser in Frameworks */ = {isa = PBXBuildFile; productRef = EE85BB162A8C0DF900ACF5F3 /* DomainParser */; };
 		EE88762D2B82B9BB0053633E /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = EE8876262B82B9BB0053633E /* LICENSE.md */; };
@@ -62,10 +63,8 @@
 		EEC8BA482A88191E0088B6E9 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA472A88191E0088B6E9 /* TestData.swift */; };
 		EECA35B42C0270B800166D38 /* AlgoliaCommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECA35B32C0270B800166D38 /* AlgoliaCommentsViewModel.swift */; };
 		EECA35B62C02714200166D38 /* LoadableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECA35B52C02714200166D38 /* LoadableItem.swift */; };
-		EED8D7302BFA9D0C002BFB44 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EED8D72F2BFA9D0C002BFB44 /* Alamofire */; };
 		EEE021482A881E58003676E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EEE021472A881E58003676E6 /* GoogleService-Info.plist */; };
 		EEEA19A42BB6127200654F56 /* PostTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEA19A32BB6127200654F56 /* PostTabView.swift */; };
-		EEFF3C432C25FFB0009B912B /* html2md in Frameworks */ = {isa = PBXBuildFile; productRef = EEFF3C422C25FFB0009B912B /* html2md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,7 +104,6 @@
 		EE77BBD82A8ADB2900880625 /* PostSecondaryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSecondaryLabel.swift; sourceTree = "<group>"; };
 		EE79362C2B8C03FC00959398 /* SecondaryInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryInfoLabel.swift; sourceTree = "<group>"; };
 		EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
-		EE8876222B82B9BB0053633E /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		EE8876232B82B9BB0053633E /* Package.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Package.resolved; sourceTree = "<group>"; };
 		EE8876242B82B9BB0053633E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EE8876262B82B9BB0053633E /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
@@ -122,7 +120,7 @@
 		EEAE2B022B9E52F300E4A9A7 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		EEAE2B052BA0ED0900E4A9A7 /* FaviconLoaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconLoaderViewModel.swift; sourceTree = "<group>"; };
 		EEC77FAE2C24A261008531F1 /* MarkdownifyHTML */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MarkdownifyHTML; sourceTree = "<group>"; };
-		EEC7D1CB2C262A9E00B0226F /* Unit Tests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Unit Tests.xctestplan"; path = "MarkdownifyHTML/Tests/MarkdownifyHTMLTests/Unit Tests.xctestplan"; sourceTree = "<group>"; };
+		EEC7D1CB2C262A9E00B0226F /* Unit Tests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = "Unit Tests.xctestplan"; path = "MarkdownifyHTML/Tests/MarkdownifyHTMLTests/Unit Tests.xctestplan"; sourceTree = "<group>"; };
 		EEC8B9CD2A880A280088B6E9 /* Hermes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hermes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC8B9D02A880A280088B6E9 /* HermesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesApp.swift; sourceTree = "<group>"; };
 		EEC8B9D42A880A310088B6E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -160,12 +158,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEFF3C432C25FFB0009B912B /* html2md in Frameworks */,
 				EE85BB172A8C0DF900ACF5F3 /* DomainParser in Frameworks */,
 				EE9727F62BC7380800240EDF /* OrderedCollections in Frameworks */,
-				EED8D7302BFA9D0C002BFB44 /* Alamofire in Frameworks */,
 				EEC77FB02C24A26E008531F1 /* MarkdownifyHTML in Frameworks */,
-				EE7936322B8D551500959398 /* AlertToast in Frameworks */,
+				EE4231392C277FFE005291BA /* Alamofire in Frameworks */,
+				EE4231372C277E4C005291BA /* AlertToast in Frameworks */,
 				EEC8BA412A8816100088B6E9 /* FaviconFinder in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,7 +310,6 @@
 				EEED0AAE2B9D33FA00BB27C0 /* Frameworks */,
 				EE8876262B82B9BB0053633E /* LICENSE.md */,
 				EE8876232B82B9BB0053633E /* Package.resolved */,
-				EE8876222B82B9BB0053633E /* Package.swift */,
 				EE8876242B82B9BB0053633E /* README.md */,
 				EED148782A88247A001FA326 /* .swift-version */,
 				EEC8BA3A2A8815500088B6E9 /* .gitignore */,
@@ -481,11 +477,10 @@
 			packageProductDependencies = (
 				EEC8BA402A8816100088B6E9 /* FaviconFinder */,
 				EE85BB162A8C0DF900ACF5F3 /* DomainParser */,
-				EE7936312B8D551500959398 /* AlertToast */,
 				EE9727F52BC7380800240EDF /* OrderedCollections */,
-				EED8D72F2BFA9D0C002BFB44 /* Alamofire */,
 				EEC77FAF2C24A26E008531F1 /* MarkdownifyHTML */,
-				EEFF3C422C25FFB0009B912B /* html2md */,
+				EE4231362C277E4C005291BA /* AlertToast */,
+				EE4231382C277FFE005291BA /* Alamofire */,
 			);
 			productName = Hermes;
 			productReference = EEC8B9CD2A880A280088B6E9 /* Hermes.app */;
@@ -565,6 +560,7 @@
 				EE7936302B8D551500959398 /* XCRemoteSwiftPackageReference "AlertToast" */,
 				EE9727F42BC7380800240EDF /* XCRemoteSwiftPackageReference "swift-collections" */,
 				EED8D72E2BFA9D0C002BFB44 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				EE1FC1E62C276AD50083F2AA /* XCLocalSwiftPackageReference "MarkdownifyHTML" */,
 			);
 			productRefGroup = EEC8B9CE2A880A280088B6E9 /* Products */;
 			projectDirPath = "";
@@ -724,7 +720,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -732,6 +728,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -776,6 +773,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -787,7 +785,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -795,6 +793,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -832,6 +831,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -841,6 +841,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Hermes/Preview Content\"";
@@ -876,6 +878,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 33;
 				DEVELOPMENT_ASSET_PATHS = "\"Hermes/Preview Content\"";
@@ -1019,6 +1023,13 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		EE1FC1E62C276AD50083F2AA /* XCLocalSwiftPackageReference "MarkdownifyHTML" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = MarkdownifyHTML;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		EE7936302B8D551500959398 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -1071,10 +1082,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EE7936312B8D551500959398 /* AlertToast */ = {
+		EE4231362C277E4C005291BA /* AlertToast */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EE7936302B8D551500959398 /* XCRemoteSwiftPackageReference "AlertToast" */;
 			productName = AlertToast;
+		};
+		EE4231382C277FFE005291BA /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EED8D72E2BFA9D0C002BFB44 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		EE85BB162A8C0DF900ACF5F3 /* DomainParser */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1099,15 +1115,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EEC8BA422A8816540088B6E9 /* XCRemoteSwiftPackageReference "SwiftLint" */;
 			productName = "plugin:SwiftLintPlugin";
-		};
-		EED8D72F2BFA9D0C002BFB44 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EED8D72E2BFA9D0C002BFB44 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		EEFF3C422C25FFB0009B912B /* html2md */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = html2md;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

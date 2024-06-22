@@ -29,7 +29,7 @@ struct PostFavicon: View {
           .faviconStyle(withUrlToLoad: self.$url)
           .redacted(reason: .invalidated)
           .onAppear {
-            log().error("\(error)")
+//            log().error("\(error)")
           }
       default:
         Image(.awkwardMonkey)

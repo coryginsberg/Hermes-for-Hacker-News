@@ -29,11 +29,11 @@ final class MarkdownifyHTMLTests: XCTestCase {
 
   func testComplexStrings() {
     for (test, solution) in HTMLResultMap {
-      guard let testFile = try? String(contentsOf: test, encoding: .utf16) else {
+      guard let testFile = try? String(contentsOf: test) else {
         XCTFail("Failed to load test file: \(test)")
         return
       }
-      guard let solutionFile = try? String(contentsOf: solution, encoding: .utf16) else {
+      guard let solutionFile = try? String(contentsOf: solution) else {
         XCTFail("Failed to load solution file: \(solution)")
         return
       }

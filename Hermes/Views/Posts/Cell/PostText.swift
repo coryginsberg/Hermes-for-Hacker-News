@@ -4,6 +4,7 @@
 //
 
 import FaviconFinder
+import MarkdownifyHTML
 import SwiftUI
 
 // MARK: - PostCellText
@@ -38,8 +39,10 @@ struct PostText: View {
     }
     .padding(.leading, isFaviconVisible ? 16.0 : 0)
     .onAppear {
-      if let text = post.text, let formattedText = try? HTMLAttributedString.formatForHN(text: text, size: scaledSize) {
-        styledText = formattedText
+      if let text = post.text {
+        let markdown = MarkdownifyHTML.markdownify(text)
+        print(markdown)
+        styledText = try? AttributedString(markdown: markdown)
       }
     }
   }

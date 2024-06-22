@@ -8,6 +8,8 @@ excluded:
   - ${PWD}/Carthage
   - ${PWD}/Pods
   - ${PWD}/DerivedData
+  - MarkdownifyHTML/.build
+  - MarkdownifyHTML/.swiftpm
 
 
 disabled_rules:
