@@ -104,7 +104,6 @@
 		EE77BBD82A8ADB2900880625 /* PostSecondaryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSecondaryLabel.swift; sourceTree = "<group>"; };
 		EE79362C2B8C03FC00959398 /* SecondaryInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryInfoLabel.swift; sourceTree = "<group>"; };
 		EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
-		EE8876232B82B9BB0053633E /* Package.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Package.resolved; sourceTree = "<group>"; };
 		EE8876242B82B9BB0053633E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EE8876262B82B9BB0053633E /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		EE9727E02BC7352400240EDF /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
@@ -310,7 +309,6 @@
 				EEC8B9CE2A880A280088B6E9 /* Products */,
 				EEED0AAE2B9D33FA00BB27C0 /* Frameworks */,
 				EE8876262B82B9BB0053633E /* LICENSE.md */,
-				EE8876232B82B9BB0053633E /* Package.resolved */,
 				EE8876242B82B9BB0053633E /* README.md */,
 				EED148782A88247A001FA326 /* .swift-version */,
 				EEC8BA3A2A8815500088B6E9 /* .gitignore */,

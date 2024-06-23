@@ -22,7 +22,7 @@ public extension Logger {
 }
 
 extension View {
-//  func log(category: String? = nil) -> os.Logger {
-//    os.Logger(category: category ?? String(describing: type(of: self)))
-//  }
+  func log(category: String? = nil) -> Logger {
+    Logger(category: category ?? String(describing: type(of: self)))
+  }
 }

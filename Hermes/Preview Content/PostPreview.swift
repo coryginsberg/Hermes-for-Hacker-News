@@ -7,6 +7,7 @@ import Foundation
 import SwiftData
 
 actor PreviewSampleData {
+  // swiftlint:disable:next force_try
   @MainActor static var container: ModelContainer = try! inMemoryContainer()
   static var inMemoryContainer: () throws -> ModelContainer = {
     let schema = Schema([Post.self])
@@ -115,6 +116,7 @@ extension Post {
   }
 
   static var formattedText: Post {
+    // swiftlint:disable line_length
     .init(postId: 40500071,
           tags: [],
           author: "realslimginz",
@@ -135,5 +137,6 @@ extension Post {
           <p><i>Who wants to be hired?</i> <a href="https://news.ycombinator.com/item?id=40563280">https://news.ycombinator.com/item?id=40563280</a></p><p><i>Freelancer? Seeking freelancer?</i> <a href="https://news.ycombinator.com/item?id=40563281">https://news.ycombinator.com/item?id=40563281</a></p>
           """,
           index: 0)
+    // swiftlint:enable line_length
   }
 }
