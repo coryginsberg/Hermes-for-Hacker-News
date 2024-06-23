@@ -2,15 +2,32 @@
 // https://docs.swift.org/swift-book
 
 import CxxStdlib
+import Foundation
 import html2md
 
-public enum MarkdownifyHTML {
-  public static func markdownify(_ html: String) -> String {
-    var temp = std.string(html)
+@available(iOS 15, macOS 12, *)
+public struct MarkdownifyHTML {
+  public private(set) var text: String
+  public var attributedText: AttributedString {
+    get throws {
+      try AttributedString(markdown: text, options: attributedStringOptions)
+    }
+  }
+
+  let attributedStringOptions: AttributedString.MarkdownParsingOptions
+
+  public init(_ text: String, withMarkdownOptions options: AttributedString.MarkdownParsingOptions = .init()) {
+    self.text = text
+    self.attributedStringOptions = options
+    markdownify(self.text)
+  }
+
+  mutating func markdownify(_ text2: String) {
+    var stdStr = std.string(text2)
     var options = html2md.Options.self.init()
-    var converter = html2md.Converter(&temp, withUnsafeMutablePointer(to: &options) { optionsPtr in
-      optionsPtr
+    var converter = html2md.Converter(&stdStr, withUnsafeMutablePointer(to: &options) { _ in
+      nil // Optional C++ value but pointer declaration is required in Swift
     })
-    return String(converter.convert())
+    text = String(converter.convert())
   }
 }

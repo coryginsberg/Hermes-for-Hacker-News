@@ -8,7 +8,7 @@ import ArgumentParser
 import Foundation
 import MarkdownifyHTML
 
-@available(macOS 10.15.4, *)
+@available(iOS 15, macOS 12, *)
 @main
 struct MarkdownifyHTMLCmd: ParsableCommand {
   @Argument(
@@ -26,7 +26,7 @@ struct MarkdownifyHTMLCmd: ParsableCommand {
       throw RuntimeError("Couldn't read from '\(file)'!")
     }
 
-    let markdownify = MarkdownifyHTML.markdownify(input)
+    let markdownify = MarkdownifyHTML(input).text
     print(markdownify)
   }
 }

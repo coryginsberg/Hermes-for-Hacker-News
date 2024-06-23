@@ -40,9 +40,9 @@ struct PostText: View {
     .padding(.leading, isFaviconVisible ? 16.0 : 0)
     .onAppear {
       if let text = post.text {
-        let markdown = MarkdownifyHTML.markdownify(text)
-        print(markdown)
-        styledText = try? AttributedString(markdown: markdown)
+        let markdown = MarkdownifyHTML(text,
+                                       withMarkdownOptions: .init(interpretedSyntax: .inlineOnly))
+        styledText = try? markdown.attributedText
       }
     }
   }

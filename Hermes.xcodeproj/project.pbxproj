@@ -15,7 +15,6 @@
 		EE27CD122C0D0AF50032988C /* If+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE27CD112C0D0AF50032988C /* If+Extensions.swift */; };
 		EE27CD152C0D19960032988C /* Clamping+PropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE27CD142C0D19960032988C /* Clamping+PropertyWrapper.swift */; };
 		EE27CD172C10E9EF0032988C /* ModelContainerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE27CD162C10E9EF0032988C /* ModelContainerPreview.swift */; };
-		EE27CD192C1114B20032988C /* HTMLAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE27CD182C1114B20032988C /* HTMLAttributedString.swift */; };
 		EE40DE8C2C07B5B60009BA62 /* PostWithComments.json in Resources */ = {isa = PBXBuildFile; fileRef = EE40DE8B2C07B5B60009BA62 /* PostWithComments.json */; };
 		EE40DE902C07BACB0009BA62 /* CommentListLoadedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE40DE8F2C07BACB0009BA62 /* CommentListLoadedView.swift */; };
 		EE40DE922C07C5080009BA62 /* PostPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE40DE912C07C5080009BA62 /* PostPreview.swift */; };
@@ -93,7 +92,6 @@
 		EE27CD112C0D0AF50032988C /* If+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "If+Extensions.swift"; sourceTree = "<group>"; };
 		EE27CD142C0D19960032988C /* Clamping+PropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Clamping+PropertyWrapper.swift"; sourceTree = "<group>"; };
 		EE27CD162C10E9EF0032988C /* ModelContainerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainerPreview.swift; sourceTree = "<group>"; };
-		EE27CD182C1114B20032988C /* HTMLAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLAttributedString.swift; sourceTree = "<group>"; };
 		EE40DE8B2C07B5B60009BA62 /* PostWithComments.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PostWithComments.json; sourceTree = "<group>"; };
 		EE40DE8F2C07BACB0009BA62 /* CommentListLoadedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListLoadedView.swift; sourceTree = "<group>"; };
 		EE40DE912C07C5080009BA62 /* PostPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPreview.swift; sourceTree = "<group>"; };
@@ -384,7 +382,6 @@
 				EE9727EB2BC7352400240EDF /* Post+AngoliaSearchResults.swift */,
 				EE9727E12BC7352400240EDF /* ViewModel.swift */,
 				EE9727E02BC7352400240EDF /* Errors.swift */,
-				EE27CD182C1114B20032988C /* HTMLAttributedString.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -646,7 +643,6 @@
 				EE9727F32BC7352400240EDF /* Post+AngoliaSearchResults.swift in Sources */,
 				EEEA19A42BB6127200654F56 /* PostTabView.swift in Sources */,
 				EE79362D2B8C03FC00959398 /* SecondaryInfoLabel.swift in Sources */,
-				EE27CD192C1114B20032988C /* HTMLAttributedString.swift in Sources */,
 				EE03A6F82BC9D75600D649E1 /* AlgoliaItem.swift in Sources */,
 				EE0F941E2B893A1E00108223 /* String+Extensions.swift in Sources */,
 				EEC8BA1F2A8814880088B6E9 /* InboxView.swift in Sources */,
