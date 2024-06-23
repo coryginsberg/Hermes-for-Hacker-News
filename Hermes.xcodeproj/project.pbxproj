@@ -21,6 +21,7 @@
 		EE40DE942C07CCC00009BA62 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE40DE932C07CCC00009BA62 /* DateFormatter+Extensions.swift */; };
 		EE4231372C277E4C005291BA /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = EE4231362C277E4C005291BA /* AlertToast */; };
 		EE4231392C277FFE005291BA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EE4231382C277FFE005291BA /* Alamofire */; };
+		EE71E3C02C28D02900F8C68D /* TextBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE71E3BF2C28D02900F8C68D /* TextBlockView.swift */; };
 		EE77BBD22A8AC9F400880625 /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD12A8AC9F400880625 /* WebViewWrapper.swift */; };
 		EE77BBD52A8AD14B00880625 /* PostFavicon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD42A8AD14B00880625 /* PostFavicon.swift */; };
 		EE77BBD72A8AD97E00880625 /* PostPrimaryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD62A8AD97E00880625 /* PostPrimaryLabel.swift */; };
@@ -96,6 +97,7 @@
 		EE40DE8F2C07BACB0009BA62 /* CommentListLoadedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListLoadedView.swift; sourceTree = "<group>"; };
 		EE40DE912C07C5080009BA62 /* PostPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPreview.swift; sourceTree = "<group>"; };
 		EE40DE932C07CCC00009BA62 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
+		EE71E3BF2C28D02900F8C68D /* TextBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBlockView.swift; sourceTree = "<group>"; };
 		EE77BBD12A8AC9F400880625 /* WebViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewWrapper.swift; sourceTree = "<group>"; };
 		EE77BBD42A8AD14B00880625 /* PostFavicon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFavicon.swift; sourceTree = "<group>"; };
 		EE77BBD62A8AD97E00880625 /* PostPrimaryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPrimaryLabel.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			children = (
 				EE79362C2B8C03FC00959398 /* SecondaryInfoLabel.swift */,
 				EE14E4B22B8D578900AD5AE1 /* AlertViewModal.swift */,
+				EE71E3BF2C28D02900F8C68D /* TextBlockView.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -631,6 +634,7 @@
 				EECA35B42C0270B800166D38 /* AlgoliaCommentsViewModel.swift in Sources */,
 				EE40DE902C07BACB0009BA62 /* CommentListLoadedView.swift in Sources */,
 				EE77BBD72A8AD97E00880625 /* PostPrimaryLabel.swift in Sources */,
+				EE71E3C02C28D02900F8C68D /* TextBlockView.swift in Sources */,
 				EEC8BA2D2A8814E70088B6E9 /* CommentThread.swift in Sources */,
 				EEC8BA1D2A8814830088B6E9 /* SettingsView.swift in Sources */,
 				EE9727ED2BC7352400240EDF /* ViewModel.swift in Sources */,

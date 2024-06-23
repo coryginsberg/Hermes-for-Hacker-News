@@ -44,9 +44,7 @@ struct CommentListView: View {
     }.navigationTitle("\(posts[selectedPost]?.numComments ?? 0) Comments")
       .navigationBarTitleDisplayMode(.inline)
       .onChange(of: selectedPost, initial: true) {
-        print("HERE")
         if let post = posts[selectedPost] {
-          print("here")
           Task {
             await algoliaItemLoader.load(from: post, isPreview: isPreview)
           }

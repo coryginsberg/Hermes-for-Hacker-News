@@ -18,10 +18,6 @@ struct MarkdownifyHTMLCmd: ParsableCommand {
   var file: URL
 
   mutating func run() throws {
-//    let handle = try FileHandle(forReadingFrom: file)
-//    guard let data = try? handle.readToEnd() else {
-//      throw RuntimeError("Couldn't read from '\(file)'!")
-//    }
     guard let input = try? String(contentsOf: file) else {
       throw RuntimeError("Couldn't read from '\(file)'!")
     }

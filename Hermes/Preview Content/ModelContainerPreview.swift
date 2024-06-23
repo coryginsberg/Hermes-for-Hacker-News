@@ -13,15 +13,18 @@ import SwiftUI
 /// of how to use this view, see the preview for `QuakeRow`.
 struct ModelContainerPreview<Content: View>: View {
   var content: () -> Content
+  var addPadding: Bool = false
   let container: ModelContainer
 
   /// Creates a view that creates the specified model container before
   /// displaying the preview content.
   init(
     _ modelContainer: @escaping () throws -> ModelContainer,
+    addPadding padding: Bool = false,
     @ViewBuilder content: @escaping () -> Content
   ) {
     self.content = content
+    self.addPadding = padding
     do {
       self.container = try MainActor.assumeIsolated(modelContainer)
     } catch {
@@ -30,7 +33,14 @@ struct ModelContainerPreview<Content: View>: View {
   }
 
   var body: some View {
-    content()
-      .modelContainer(container)
+    if addPadding {
+      VStack {
+        content()
+          .modelContainer(container)
+      }.padding()
+    } else {
+      content()
+        .modelContainer(container)
+    }
   }
 }

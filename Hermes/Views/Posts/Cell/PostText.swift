@@ -10,12 +10,9 @@ import SwiftUI
 // MARK: - PostCellText
 
 struct PostText: View {
-  @Environment(\.sizeCategory) var sizeCategory
-
   @State var post: Post
   @State var isCommentView: Bool = false
   @State var isFaviconVisible: Bool = true
-  @State var styledText: AttributedString?
 
   let secondaryTextColor = Color(uiColor: .secondaryLabel)
   let spacer: Spacer = .init(minLength: 4.0)
@@ -28,30 +25,16 @@ struct PostText: View {
         isCommentView: isCommentView
       )
       if isCommentView, let text = post.text {
-        if let styledText {
-          Text(styledText)
-        } else {
-          // fallback
-          Text(text)
-        }
+        TextBlockView(text: text)
       }
       PostSecondaryLabel(post: post, textColor: secondaryTextColor)
     }
     .padding(.leading, isFaviconVisible ? 16.0 : 0)
-    .onAppear {
-      if let text = post.text {
-        let markdown = MarkdownifyHTML(text,
-                                       withMarkdownOptions: .init(interpretedSyntax: .inlineOnly))
-        styledText = try? markdown.attributedText
-      }
-    }
   }
 }
 
 #Preview("Comment View") {
-  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
-    VStack {
-      PostText(post: Post.formattedText, isCommentView: true, isFaviconVisible: false)
-    }.padding()
+  ModelContainerPreview(PreviewSampleData.inMemoryContainer, addPadding: true) {
+    PostText(post: Post.formattedText, isCommentView: true, isFaviconVisible: false)
   }
 }
