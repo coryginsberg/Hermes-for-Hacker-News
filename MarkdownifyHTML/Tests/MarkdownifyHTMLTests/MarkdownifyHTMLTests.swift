@@ -4,55 +4,79 @@
 //
 
 import MarkdownifyHTML
+import OSLog
 import XCTest
 
+@available(iOS 15, *)
 final class MarkdownifyHTMLTests: XCTestCase {
-  let testFolder = "HTMLToTest/"
-  let solutionFolder = "ExpectedResults/"
-  var HTMLResultMap: Zip2Sequence<[URL], [URL]> = zip([], [])
+  var testFilePath: Resource?
+  var solutionFile: Resource?
 
   override func setUpWithError() throws {
-    let testFilePaths = Bundle.main.urls(forResourcesWithExtension: "html", subdirectory: testFolder) ?? []
-    let solutionFilePaths = Bundle.main.urls(forResourcesWithExtension: "md", subdirectory: solutionFolder) ?? []
-    if testFilePaths.count != solutionFilePaths.count {
-      throw TestError.testFolderNotFoundError
-    }
-    HTMLResultMap = zip(testFilePaths, solutionFilePaths)
+    try super.setUpWithError()
+    testFilePath = try Resource(name: "formattedComment", type: "html")
+    solutionFile = try Resource(name: "formattedComment", type: "md")
+    continueAfterFailure = false
   }
 
   func testEmptyString() {
     let expectedResult = ""
     let startingValue = ""
-    let markdownify = MarkdownifyHTML.markdownify(startingValue)
-    XCTAssertEqual(expectedResult, markdownify)
+    let markdownify = MarkdownifyHTML(startingValue).text
+    XCTAssert(expectedResult == markdownify, "Test")
   }
 
-  func testComplexStrings() {
-    for (test, solution) in HTMLResultMap {
-      guard let testFile = try? String(contentsOf: test) else {
-        XCTFail("Failed to load test file: \(test)")
+  func testComplexString() {
+    guard let testFile = try? String(contentsOf: testFilePath!.url) else {
+      XCTFail("Failed to load test file: \(testFilePath!.name)")
+      return
+    }
+    guard let solutionFile = try? String(contentsOf: solutionFile!.url) else {
+      XCTFail("Failed to load solution file: \(solutionFile!.name)")
+      return
+    }
+    let conversion = MarkdownifyHTML(testFile)
+
+    XCTAssertEqual(conversion.text, solutionFile, "Test File not equal to expected result")
+  }
+
+  func testAttributedConversionPerf() throws {
+    guard let testFile = try? String(contentsOf: testFilePath!.url) else {
+      XCTFail("Failed to load test file: \(testFilePath!.name)")
+      return
+    }
+
+    measure {
+      guard let _ = try? MarkdownifyHTML(testFile).attributedText else {
+        XCTFail("Failed to render")
         return
-      }
-      guard let solutionFile = try? String(contentsOf: solution) else {
-        XCTFail("Failed to load solution file: \(solution)")
-        return
-      }
-      let conversion = MarkdownifyHTML.markdownify(testFile)
-      if solutionFile != conversion {
-        XCTFail("Expected: \(solutionFile), Actual: \(conversion)")
       }
     }
-    XCTAssertTrue(true)
   }
-
-//  func testPerformanceExample() throws {
-//    // This is an example of a performance test case.
-//    measure {
-//      // Put the code you want to measure the time of here.
-//    }
-//  }
 }
 
 enum TestError: Error {
   case testFolderNotFoundError
+}
+
+struct Resource {
+  let name: String
+  let type: String
+  let url: URL
+
+  init(name: String, type: String, sourceFile: StaticString = #file) throws {
+    self.name = name
+    self.type = type
+
+    // The following assumes that your test source files are all in the same directory, and the resources are one directory down and over
+    // <Some folder>
+    //  - Resources
+    //      - <resource files>
+    //  - <Some test source folder>
+    //      - <test case files>
+    let testCaseURL = URL(fileURLWithPath: "\(sourceFile)", isDirectory: false)
+    let testsFolderURL = testCaseURL.deletingLastPathComponent()
+    let resourcesFolderURL = testsFolderURL.deletingLastPathComponent().appendingPathComponent("Resources", isDirectory: true)
+    self.url = resourcesFolderURL.appendingPathComponent("\(name).\(type)", isDirectory: false)
+  }
 }

@@ -60,7 +60,6 @@
 		EEC8BA2D2A8814E70088B6E9 /* CommentThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA2A2A8814E70088B6E9 /* CommentThread.swift */; };
 		EEC8BA2F2A8814E70088B6E9 /* CommentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA2C2A8814E70088B6E9 /* CommentListView.swift */; };
 		EEC8BA412A8816100088B6E9 /* FaviconFinder in Frameworks */ = {isa = PBXBuildFile; productRef = EEC8BA402A8816100088B6E9 /* FaviconFinder */; };
-		EEC8BA482A88191E0088B6E9 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8BA472A88191E0088B6E9 /* TestData.swift */; };
 		EECA35B42C0270B800166D38 /* AlgoliaCommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECA35B32C0270B800166D38 /* AlgoliaCommentsViewModel.swift */; };
 		EECA35B62C02714200166D38 /* LoadableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECA35B52C02714200166D38 /* LoadableItem.swift */; };
 		EEE021482A881E58003676E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EEE021472A881E58003676E6 /* GoogleService-Info.plist */; };
@@ -142,7 +141,6 @@
 		EEC8BA362A8815480088B6E9 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		EEC8BA382A88154C0088B6E9 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		EEC8BA3A2A8815500088B6E9 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		EEC8BA472A88191E0088B6E9 /* TestData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		EECA35B32C0270B800166D38 /* AlgoliaCommentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgoliaCommentsViewModel.swift; sourceTree = "<group>"; };
 		EECA35B52C02714200166D38 /* LoadableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableItem.swift; sourceTree = "<group>"; };
 		EED148782A88247A001FA326 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
@@ -350,7 +348,6 @@
 			isa = PBXGroup;
 			children = (
 				EE40DE8A2C07B5990009BA62 /* Resources */,
-				EEC8BA472A88191E0088B6E9 /* TestData.swift */,
 				EE40DE912C07C5080009BA62 /* PostPreview.swift */,
 				EE27CD162C10E9EF0032988C /* ModelContainerPreview.swift */,
 				EEC8B9D72A880A310088B6E9 /* Preview Assets.xcassets */,
@@ -666,7 +663,6 @@
 				EE9727F02BC7352400240EDF /* HNStoriesList.swift in Sources */,
 				EE9727FC2BC73B1D00240EDF /* ModelContext+SQLite.swift in Sources */,
 				EECA35B62C02714200166D38 /* LoadableItem.swift in Sources */,
-				EEC8BA482A88191E0088B6E9 /* TestData.swift in Sources */,
 				EE03A70B2BD5A6A000D649E1 /* Comment.swift in Sources */,
 				EEC8BA212A8814CA0088B6E9 /* RootView.swift in Sources */,
 				EE9727F12BC7352400240EDF /* AngoliaStoriesResults.swift in Sources */,

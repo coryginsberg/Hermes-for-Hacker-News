@@ -4,12 +4,20 @@
 //
 
 import Foundation
+import OSLog
 import SwiftData
 
 actor PreviewSampleData {
-  // swiftlint:disable:next force_try
-  @MainActor static var container: ModelContainer = try! inMemoryContainer()
-  static var inMemoryContainer: () throws -> ModelContainer = {
+  @MainActor static var container: ModelContainer = {
+    do {
+      return try inMemoryContainer()
+    } catch {
+      Logger(category: "com.previewSampleData.inMemoryContainer").error("Error creating in memory container: \(error)")
+      fatalError("Error creating in memory container: \(error)")
+    }
+  }()
+
+  @MainActor static var inMemoryContainer: () throws -> ModelContainer = {
     let schema = Schema([Post.self])
     let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try ModelContainer(for: schema, configurations: [configuration])
@@ -20,10 +28,8 @@ actor PreviewSampleData {
       Post.link,
       Post.formattedText,
     ]
-    Task { @MainActor in
-      for sampleData in sampleData {
-        container.mainContext.insert(sampleData)
-      }
+    for sampleData in sampleData {
+      container.mainContext.insert(sampleData)
     }
     return container
   }
@@ -69,7 +75,7 @@ extension Post {
   }
 
   static var mediumText: Post {
-    .init(postId: 40500071,
+    .init(postId: 40510071,
           tags: [],
           author: "realslimginz",
           children: nil,
@@ -85,7 +91,7 @@ extension Post {
   }
 
   static var longText: Post {
-    .init(postId: 40500071,
+    .init(postId: 40501071,
           tags: [],
           author: "realslimginz",
           children: nil,
@@ -101,7 +107,7 @@ extension Post {
   }
 
   static var link: Post {
-    .init(postId: 40500071,
+    .init(postId: 40500171,
           tags: [],
           author: "realslimginz",
           children: nil,

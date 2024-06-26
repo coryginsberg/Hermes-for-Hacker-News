@@ -52,7 +52,11 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/coryginsberg/Developer/Hermes-for-Hacker-News/MarkdownifyHTML/Tests/MarkdownifyHTMLTests/HTMLToTest/formattedComment.html"
+            argument = "--text &quot;Sure, &lt;a href=\&quot;https:&amp;#x2F;&amp;#x2F;flavourjournal.biomedcentral.com&amp;#x2F;articles&amp;#x2F;10.1186&amp;#x2F;s13411-015-0031-3\&quot; rel=\&quot;nofollow\&quot;&gt;https:&amp;#x2F;&amp;#x2F;flavourjournal.biomedcentral.com&amp;#x2F;articles&amp;#x2F;10.1186&amp;#x2F;s1...&lt;/a&gt;&lt;p&gt;Looking forward to your results&quot;"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "--file /Users/coryginsberg/Developer/Hermes-for-Hacker-News/MarkdownifyHTML/Tests/Resources/formattedComment.html"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

@@ -11,20 +11,19 @@ struct PostTabView: View {
   @Environment(\.modelContext) private var modelContext
   @Environment(\.scenePhase) private var scenePhase
   @Query(sort: \Post.index) private var posts: [Post]
-
-  @State private var selectedId: Post.ID?
+  @State private var selectedPost: Post?
 
   var body: some View {
     ZStack {
       NavigationSplitView {
-        List(posts, selection: $selectedId) { post in
+        List(posts, selection: $selectedPost) { post in
           PostCell(post: post)
         }.listStyle(.plain)
           .refreshable {
             await AngoliaSearchResults.refresh(modelContext: modelContext)
           }.navigationTitle("Posts")
       } detail: {
-        CommentListView(selectedPost: $selectedId)
+        CommentListView(selectedPost: $selectedPost)
       }
       .task {
         await AngoliaSearchResults.refresh(modelContext: modelContext)

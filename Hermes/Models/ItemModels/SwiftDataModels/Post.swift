@@ -75,6 +75,10 @@ extension Array where Element: Post {
   subscript(id: Post.ID?) -> Post? {
     first { $0.id == id }
   }
+
+//  subscript(id: Int) -> Post? {
+//    first { $0. }
+//  }
 }
 
 // Ensure that the model's conformance to Identifiable is public

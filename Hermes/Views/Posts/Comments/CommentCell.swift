@@ -52,24 +52,19 @@ private struct CommentText: View {
   }
 
   var body: some View {
-    if let commentText = try? AttributedString(
-      markdown: "\(commentData.text)"
-    ) {
-      Text(commentText)
-        .multilineTextAlignment(.leading)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .contextMenu {
-          Button {
-            copyToClipboard(commentText: String(commentText
-                .characters[...]))
-          } label: {
-            Label("Copy", systemImage: "doc.on.doc")
-          }
-          Button {} label: {
-            Label("Share", systemImage: "square.and.arrow.up")
-          }
+    TextBlockView(text: commentData.text)
+      .multilineTextAlignment(.leading)
+      .frame(maxWidth: .infinity, alignment: .leading)
+      .contextMenu {
+        Button {
+          copyToClipboard(commentText: commentData.text)
+        } label: {
+          Label("Copy", systemImage: "doc.on.doc")
         }
-    }
+        Button {} label: {
+          Label("Share", systemImage: "square.and.arrow.up")
+        }
+      }
   }
 }
 

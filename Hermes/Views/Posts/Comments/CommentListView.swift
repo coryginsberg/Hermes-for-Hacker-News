@@ -11,8 +11,7 @@ import SwiftUI
 struct CommentListView: View {
   @Environment(\.modelContext) private var modelContext
   @ObservedObject private var algoliaItemLoader = AlgoliaCommentsViewModel()
-  @Query(sort: \Post.index) private var posts: [Post]
-  @Binding var selectedPost: Post.ID?
+  @Binding var selectedPost: Post?
 
   var isPreview = false
 
@@ -21,9 +20,7 @@ struct CommentListView: View {
       ScrollView(.vertical) {
         if let selectedPost {
           LazyVStack {
-            if let post = posts[selectedPost] {
-              PostCell(post: post, isCommentView: true).padding(.leading)
-            }
+            PostCell(post: selectedPost, isCommentView: true).padding(.leading)
             switch algoliaItemLoader.state {
             case .idle:
               Text("Idle")
@@ -41,10 +38,10 @@ struct CommentListView: View {
           Text("No post selected")
         }
       }
-    }.navigationTitle("\(posts[selectedPost]?.numComments ?? 0) Comments")
+    }.navigationTitle("\(selectedPost?.numComments ?? 0) Comments")
       .navigationBarTitleDisplayMode(.inline)
       .onChange(of: selectedPost, initial: true) {
-        if let post = posts[selectedPost] {
+        if let post = selectedPost {
           Task {
             await algoliaItemLoader.load(from: post, isPreview: isPreview)
           }
@@ -55,13 +52,13 @@ struct CommentListView: View {
 
 #Preview("Post With Text") {
   ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
-    CommentListView(selectedPost: .constant(Post.smallText.id), isPreview: true)
+    CommentListView(selectedPost: .constant(Post.formattedText), isPreview: true)
   }
 }
 
 #Preview("Post With Link") {
   ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
-    CommentListView(selectedPost: .constant(Post.link.id), isPreview: true)
+    CommentListView(selectedPost: .constant(Post.link), isPreview: true)
   }
 }
 
