@@ -1,3 +1,4 @@
 [submodule "MarkdownifyHTML"]
 	path = MarkdownifyHTML
 	url = git@github.com:coryginsberg/MarkdownifyHTML.git
+	branch = hn-styling
