@@ -11,4 +11,5 @@
   "editor.rulers": [
     120
   ],
+  "swift.path": "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin",
 }

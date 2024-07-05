@@ -19,7 +19,7 @@ struct CommentListView: View {
     NavigationStack {
       ScrollView(.vertical) {
         if let selectedPost {
-          LazyVStack {
+          VStack {
             PostCell(post: selectedPost, isCommentView: true).padding(.leading)
             switch algoliaItemLoader.state {
             case .idle:
@@ -27,7 +27,7 @@ struct CommentListView: View {
             case .loading:
               ProgressView()
             case .failed(let error):
-              Text("Loading failed with error: \(error.localizedDescription)")
+              ErrorText(error, errorType: .loading)
             case .empty:
               Text("Looks like there's no comments here yet")
             case .loaded(let algoliaItems):
@@ -41,9 +41,9 @@ struct CommentListView: View {
     }.navigationTitle("\(selectedPost?.numComments ?? 0) Comments")
       .navigationBarTitleDisplayMode(.inline)
       .onChange(of: selectedPost, initial: true) {
-        if let post = selectedPost {
+        if let selectedPost {
           Task {
-            await algoliaItemLoader.load(from: post, isPreview: isPreview)
+            await algoliaItemLoader.load(from: selectedPost, isPreview: isPreview)
           }
         }
       }

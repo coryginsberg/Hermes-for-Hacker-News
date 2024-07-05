@@ -53,7 +53,6 @@ private struct CommentText: View {
 
   var body: some View {
     TextBlockView(text: commentData.text)
-      .multilineTextAlignment(.leading)
       .frame(maxWidth: .infinity, alignment: .leading)
       .contextMenu {
         Button {
@@ -68,8 +67,8 @@ private struct CommentText: View {
   }
 }
 
-// #Preview {
-//  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
-//    CommentListView(selectedPost: .constant(nil), isPreview: true)
-//  }
-// }
+#Preview {
+  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
+    CommentListView(selectedPost: .constant(nil), isPreview: true)
+  }
+}

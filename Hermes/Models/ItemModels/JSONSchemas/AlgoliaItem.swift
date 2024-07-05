@@ -70,27 +70,38 @@ extension AlgoliaItem {
   static func fetchItem(by id: HNID) async throws -> AlgoliaItem {
     if let url = URL(string: "https://hn.algolia.com/api/v1/items/\(id)") {
       let jsonDecoder = JSONDecoder()
-      jsonDecoder.dateDecodingStrategy = self.jsonDecoderWithFractionalSeconds()
+      jsonDecoder.dateDecodingStrategy = .iso8601WithFractionalSeconds
       let result = await AF.request(url).serializingDecodable(AlgoliaItem.self, decoder: jsonDecoder).result
-      print(result)
       return try result.get()
     }
     throw URLError(.badURL)
   }
+}
 
-  static func jsonDecoderWithFractionalSeconds() -> JSONDecoder.DateDecodingStrategy {
-    return .custom { decoder -> Date in
-      let container = try decoder.singleValueContainer()
-      guard let containerString = try? container.decode(String.self) else {
-        return Date.now
-      }
-      let dateFormat = ISO8601DateFormatter()
-      dateFormat.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-      guard let date = dateFormat.date(from: containerString) else {
-        throw DecodingError.dataCorruptedError(in: container,
-                                               debugDescription: "Invalid date string: \(containerString)")
-      }
+extension Formatter {
+  static var standardISO8601DateFormatter: ISO8601DateFormatter = {
+    let formatter = ISO8601DateFormatter()
+    formatter.formatOptions = [.withInternetDateTime]
+    return formatter
+  }()
+
+  static var customISO8601DateFormatter: ISO8601DateFormatter = {
+    let formatter = ISO8601DateFormatter()
+    formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+    return formatter
+  }()
+}
+
+extension JSONDecoder.DateDecodingStrategy {
+  static var iso8601WithFractionalSeconds = custom { decoder in
+    let dateStr = try decoder.singleValueContainer().decode(String.self)
+    if let date = Formatter.customISO8601DateFormatter.date(from: dateStr) {
+      return date
+    } else if let date = Formatter.standardISO8601DateFormatter.date(from: dateStr) {
       return date
     }
+    throw DecodingError.dataCorrupted(
+      DecodingError.Context(codingPath: decoder.codingPath,
+                            debugDescription: "Invalid date"))
   }
 }

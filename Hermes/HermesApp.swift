@@ -3,7 +3,6 @@
 // Licensed under Apache License 2.0
 //
 
-import OSLog
 import SwiftData
 import SwiftUI
 
@@ -19,8 +18,7 @@ struct HermesApp: App {
     do {
       modelContainer = try ModelContainer(for: Post.self)
     } catch {
-      Logger(category: "HermesApp").fault("\(error)")
-      fatalError("Failed to create ModelContainer for ItemData")
+      fatalError("Failed to create ModelContainer for ItemData: \(error)")
     }
   }
 
@@ -29,5 +27,11 @@ struct HermesApp: App {
       RootView().environment(viewModel)
     }
     .modelContainer(modelContainer)
+  }
+}
+
+extension HermesApp: Logging {
+  var category: String {
+    "Entry Point"
   }
 }

@@ -24,10 +24,6 @@ struct PostText: View {
         post: post,
         isCommentView: isCommentView
       )
-      if isCommentView, let text = post.text {
-        TextBlockView(text: text)
-      }
-      PostSecondaryLabel(post: post, textColor: secondaryTextColor)
     }
     .padding(.leading, isFaviconVisible ? 16.0 : 0)
   }

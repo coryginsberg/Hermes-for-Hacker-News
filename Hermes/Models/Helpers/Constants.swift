@@ -4,7 +4,6 @@
 //
 
 import Foundation
-import OSLog
 import SwiftUI
 
 typealias HNID = Int
@@ -15,14 +14,8 @@ enum C {
   static let urlSizeBreathingRoom = 50
 }
 
-public extension Logger {
-  init(category: String) {
-    self.init(subsystem: Bundle.main.bundleIdentifier ?? "com.coryginsberg.Hermes", category: category)
-  }
-}
-
-extension View {
-  func log(category: String? = nil) -> Logger {
-    Logger(category: category ?? String(describing: type(of: self)))
-  }
-}
+// extension View {
+//  func log(category: String? = nil) -> Logger {
+//    Logger(category: category ?? String(describing: type(of: self)))
+//  }
+// }

@@ -29,7 +29,7 @@ struct PostFavicon: View {
           .faviconStyle(withUrlToLoad: self.$url)
           .redacted(reason: .invalidated)
           .onAppear {
-            log().error("\(error)")
+            LogError(error)
           }
       default:
         Image(.awkwardMonkey)
@@ -47,6 +47,8 @@ struct PostFavicon: View {
     }
   }
 }
+
+extension PostFavicon: Logging {}
 
 extension Image {
   func faviconStyle(withUrlToLoad url: Binding<URL>) -> some View {

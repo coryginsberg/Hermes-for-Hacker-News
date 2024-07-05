@@ -19,7 +19,13 @@ struct PostCell: View {
         if let url = post.url {
           PostFavicon(url: url)
         }
-        PostText(post: post, isCommentView: isCommentView, isFaviconVisible: post.url != nil)
+        VStack {
+          PostText(post: post, isCommentView: isCommentView, isFaviconVisible: post.url != nil)
+          if isCommentView, let text = post.text {
+            TextBlockView(text: text)
+          }
+          PostSecondaryLabel(post: post, textColor: secondaryTextColor)
+        }
       }
       if isCommentView {
         Divider()

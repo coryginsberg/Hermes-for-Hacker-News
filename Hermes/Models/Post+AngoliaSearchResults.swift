@@ -3,10 +3,7 @@
 // Licensed under Apache License 2.0
 //
 
-import OSLog
 import SwiftData
-
-private let logger = Logger(category: "Post+HNSearchResults")
 
 extension AngoliaSearchResults {
   /// Loads new posts and deletes outdated ones.
@@ -16,9 +13,9 @@ extension AngoliaSearchResults {
       try modelContext.delete(model: Post.self)
 
       // Fetch the latest set of data from the server.
-      logger.debug("Refreshing the data store...")
+      Slog.log(.info, message: "Refreshing the data store...")
       let (featureCollection, storyList) = try await fetchStoryList(list: .topstories)
-      logger.debug("Loaded feature collection:\n\(featureCollection)")
+      Slog.log(.info, message: "Loaded feature collection:\n\(featureCollection)")
       // Add the content to the data store.
       for hit in featureCollection.hits {
         guard let objectId = Int(hit.objectId),
@@ -28,10 +25,9 @@ extension AngoliaSearchResults {
         let post = try Post(from: hit, index: storyIndex)
         modelContext.insert(post)
       }
-
-      logger.debug("Refresh complete.")
+      Slog.log(.debug, message: "Refresh complete.")
     } catch {
-      logger.error("\(error.localizedDescription)")
+      Slog.error(error)
     }
   }
 }

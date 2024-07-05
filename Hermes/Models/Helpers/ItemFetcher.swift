@@ -30,19 +30,3 @@ enum ItemFetcher {
     }
   }
 }
-
-// MARK: - FetchResultsError enum
-
-enum FetchResultsError: Error {
-  /// Errors on the query request itself
-  enum QueryError: Error {
-    case noSearchCriteria
-    case notInStoryList
-  }
-
-  /// Errors that occur when loading feature data
-  enum DownloadError: Error {
-    case wrongDataFormat(error: Error)
-    case missingData
-  }
-}

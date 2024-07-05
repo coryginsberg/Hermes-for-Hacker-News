@@ -162,7 +162,7 @@ extension AngoliaSearchResults {
         .map { key, value -> URLQueryItem in
           URLQueryItem(name: key, value: String(value))
         })
-    Logger(category: "AngoliaSearchResults").log("\(fullSearchUrl?.absoluteString ?? "")")
+    Slog.log(.info, message: "\(fullSearchUrl?.absoluteString ?? "")")
 
     return try await ItemFetcher.fetch(fromUrl: fullSearchUrl)
   }

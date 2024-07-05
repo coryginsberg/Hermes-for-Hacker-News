@@ -11,7 +11,6 @@ final class AlgoliaCommentsViewModel: LoadableItemState<[Comment]>, LoadableItem
   @Published var numComments = 0
 
   func load(from post: Post, isPreview: Bool = false) async {
-    print("isPreview")
     state = .loading
     do {
       let algoliaItem = isPreview ?
@@ -35,6 +34,7 @@ final class AlgoliaCommentsViewModel: LoadableItemState<[Comment]>, LoadableItem
         self.numComments = algoliaItem.children.reduce(0) { $0 + $1.children.count }
       }
     } catch {
+      print("here")
       state = .failed(error)
     }
   }
@@ -50,7 +50,7 @@ extension AlgoliaItem {
     }
     let data = try Data(contentsOf: url)
     let jsonDecoder = JSONDecoder()
-    jsonDecoder.dateDecodingStrategy = self.jsonDecoderWithFractionalSeconds()
+    jsonDecoder.dateDecodingStrategy = .iso8601WithFractionalSeconds
     return try jsonDecoder.decode(AlgoliaItem.self, from: data)
   }
 }

@@ -12,7 +12,7 @@ actor PreviewSampleData {
     do {
       return try inMemoryContainer()
     } catch {
-      Logger(category: "com.previewSampleData.inMemoryContainer").error("Error creating in memory container: \(error)")
+      Slog.error(error, message: "Error creating in memory container:")
       fatalError("Error creating in memory container: \(error)")
     }
   }()
