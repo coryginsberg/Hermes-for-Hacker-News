@@ -23,6 +23,30 @@
       "args": [],
       "cwd": "${workspaceFolder:HackerNewsApp}",
       "preLaunchTask": "swift: Build Release HackerNewsApp"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "args": [],
+      "cwd": "${workspaceFolder:Hermes-for-Hacker-News}/MarkdownifyHTML",
+      "name": "Debug MarkdownifyHTMLCmd (MarkdownifyHTML)",
+      "program": "${workspaceFolder:Hermes-for-Hacker-News}/MarkdownifyHTML/.build/debug/MarkdownifyHTMLCmd",
+      "preLaunchTask": "swift: Build Debug MarkdownifyHTMLCmd (MarkdownifyHTML)"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "args": [],
+      "cwd": "${workspaceFolder:Hermes-for-Hacker-News}/MarkdownifyHTML",
+      "name": "Release MarkdownifyHTMLCmd (MarkdownifyHTML)",
+      "program": "${workspaceFolder:Hermes-for-Hacker-News}/MarkdownifyHTML/.build/release/MarkdownifyHTMLCmd",
+      "preLaunchTask": "swift: Build Release MarkdownifyHTMLCmd (MarkdownifyHTML)"
     }
   ]
 }

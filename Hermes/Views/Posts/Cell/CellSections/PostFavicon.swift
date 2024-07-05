@@ -1,6 +1,6 @@
 //
-// Copyright (c) 2024 Cory Ginsberg.
-// Licensed under the Apache License, Version 2.0
+// Copyright (c) 2023 - Present Cory Ginsberg
+// Licensed under Apache License 2.0
 //
 
 import SwiftUI
@@ -12,32 +12,32 @@ struct PostFavicon: View {
   @ObservedObject private var faviconLoader = FaviconLoaderViewModel()
 
   var body: some View {
-    Group {
+    VStack {
       switch self.faviconLoader.state {
-      case .idle:
-        ProgressView()
-          .faviconStyle(withUrlToLoad: self.$url)
       case .loading:
         ProgressView()
           .faviconStyle(withUrlToLoad: self.$url)
       case .loaded(let image):
         Image(uiImage: image)
           .faviconStyle(withUrlToLoad: self.$url)
-//      case .failed(let error) where error == "failedToFindFavicon":
-//        Image(.awkwardMonkey).faviconStyle(withUrlToLoad: self.$url).redacted(reason: .invalidated)
-//      case .failed(let error) where error.code == -999:
-//        Image(.awkwardMonkey).faviconStyle(withUrlToLoad: self.$url).redacted(reason: .invalidated)
+      //      case .failed(let error) where error == "failedToFindFavicon":
+      //        Image(.awkwardMonkey).faviconStyle(withUrlToLoad: self.$url).redacted(reason: .invalidated)
+      //      case .failed(let error) where error.code == -999:
+      //        Image(.awkwardMonkey).faviconStyle(withUrlToLoad: self.$url).redacted(reason: .invalidated)
       case .failed(let error):
         Image(.awkwardMonkey)
           .faviconStyle(withUrlToLoad: self.$url)
           .redacted(reason: .invalidated)
           .onAppear {
-            log().error("\(error)")
+            LogError(error)
           }
+      default:
+        Image(.awkwardMonkey)
+          .faviconStyle(withUrlToLoad: self.$url)
+          .redacted(reason: .invalidated)
       }
-    }
-    .task {
-      await self.faviconLoader.load(fromUrl: self.url)
+    }.task {
+      await self.faviconLoader.load(from: self.url)
     }
     .onTapGesture {
       self.loadUrl.toggle()
@@ -47,6 +47,8 @@ struct PostFavicon: View {
     }
   }
 }
+
+extension PostFavicon: Logging {}
 
 extension Image {
   func faviconStyle(withUrlToLoad url: Binding<URL>) -> some View {

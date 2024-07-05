@@ -1,8 +1,6 @@
 //
-//  File.swift
-//  Hermes for Hacker News 2
-//
-//  Created by Cory Ginsberg on 4/3/24.
+// Copyright (c) 2023 - Present Cory Ginsberg
+// Licensed under Apache License 2.0
 //
 
 import Foundation
@@ -30,21 +28,5 @@ enum ItemFetcher {
       logger.error("\(error)")
       throw FetchResultsError.DownloadError.wrongDataFormat(error: error)
     }
-  }
-}
-
-// MARK: - FetchResultsError enum
-
-enum FetchResultsError: Error {
-  /// Errors on the query request itself
-  enum QueryError: Error {
-    case noSearchCriteria
-    case notInStoryList
-  }
-
-  /// Errors that occur when loading feature data
-  enum DownloadError: Error {
-    case wrongDataFormat(error: Error)
-    case missingData
   }
 }

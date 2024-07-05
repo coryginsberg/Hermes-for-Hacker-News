@@ -1,6 +1,6 @@
 //
-// Copyright (c) 2024 Cory Ginsberg.
-// Licensed under the Apache License, Version 2.0
+// Copyright (c) 2023 - Present Cory Ginsberg
+// Licensed under Apache License 2.0
 //
 
 import SwiftUI
@@ -13,19 +13,47 @@ struct PostCell: View {
 
   let secondaryTextColor = Color(uiColor: .secondaryLabel)
 
-  init(forPost post: Post, isCommentView: Bool = false) {
-    self.post = post
-    self.isCommentView = isCommentView
-  }
-
   var body: some View {
     LazyVStack(alignment: .leading) { // Non-lazy VStack cuts off divider line for some reason
       HStack {
         if let url = post.url {
           PostFavicon(url: url)
         }
-        PostText(post: post, isCommentView: isCommentView, isFaviconVisible: post.url != nil)
+        VStack {
+          PostText(post: post, isCommentView: isCommentView, isFaviconVisible: post.url != nil)
+          if isCommentView, let text = post.text {
+            TextBlockView(text: text)
+          }
+          PostSecondaryLabel(post: post, textColor: secondaryTextColor)
+        }
+      }
+      if isCommentView {
+        Divider()
       }
     }
+  }
+}
+
+#Preview("Front Page") {
+  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
+    VStack {
+      PostCell(post: Post.smallText, isCommentView: false)
+      PostCell(post: Post.mediumText, isCommentView: false)
+      PostCell(post: Post.longText, isCommentView: false)
+      PostCell(post: Post.link, isCommentView: false)
+      PostCell(post: Post.formattedText, isCommentView: false)
+    }.padding()
+  }
+}
+
+#Preview("Comment View") {
+  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
+    VStack {
+//      PostCell(post: Post.smallText, isCommentView: false)
+//      PostCell(post: Post.mediumText, isCommentView: false)
+//      PostCell(post: Post.longText, isCommentView: false)
+//      PostCell(post: Post.link, isCommentView: false)
+      PostCell(post: Post.formattedText, isCommentView: true)
+    }.padding()
   }
 }

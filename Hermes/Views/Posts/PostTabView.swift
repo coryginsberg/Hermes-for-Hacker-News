@@ -1,8 +1,6 @@
 //
-//  ContentView.swift
-//  Hermes
-//
-//  Created by Cory Ginsberg on 3/28/24.
+// Copyright (c) 2023 - Present Cory Ginsberg
+// Licensed under Apache License 2.0
 //
 
 import SwiftData
@@ -12,29 +10,26 @@ struct PostTabView: View {
   @Environment(ViewModel.self) private var viewModel
   @Environment(\.modelContext) private var modelContext
   @Environment(\.scenePhase) private var scenePhase
-
-  @State private var selectedId: Post.ID?
+  @Query(sort: \Post.index) private var posts: [Post]
+  @State private var selectedPostID: Post.ID?
 
   var body: some View {
-    NavigationSplitView {
-      PostList(selectedId: $selectedId)
+    ZStack {
+      NavigationSplitView {
+        List(posts, selection: $selectedPostID) { post in
+          PostCell(post: post)
+        }
         .listStyle(.plain)
         .navigationTitle("Posts")
-    } detail: {
-      Text("Select an item")
-    }
-    .onChange(of: scenePhase) { _, scenePhase in
-      if scenePhase == .active {
-        //        viewModel.update(modelContext: modelContext)
+        .refreshable {
+          await AngoliaSearchResults.refresh(modelContext: modelContext)
+        }
+      } detail: {
+        CommentListView(selectedPost: Binding(get: { posts[selectedPostID] }, set: { _ = $0 }))
       }
-    }
-    .task {
-      await HNSearchResults.refresh(modelContext: modelContext)
-    }
-    .onAppear {
-#if DEBUG
-      log(category: "sqlite").debug("\(modelContext.sqliteCommand)")
-#endif
+      .task {
+        await AngoliaSearchResults.refresh(modelContext: modelContext)
+      }
     }
   }
 }

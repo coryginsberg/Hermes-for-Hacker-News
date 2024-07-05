@@ -1,13 +1,15 @@
 //
-//  HNStoriesList.swift
-//  Hermes for Hacker News 2
-//
-//  Created by Cory Ginsberg on 4/3/24.
+// Copyright (c) 2023 - Present Cory Ginsberg
+// Licensed under Apache License 2.0
 //
 
+import Alamofire
 import Foundation
 
+// Technically this is the JSON schema for the stories list xD
 typealias HNStoriesList = [HNID]
+
+// MARK: - Fetch Stories List
 
 extension HNStoriesList {
   enum StoryLists: String {
@@ -21,7 +23,12 @@ extension HNStoriesList {
   }
 
   static func fetch(withStoryList storyList: StoryLists) async throws -> HNStoriesList {
-    let hnUrl = URL(string: "https://hacker-news.firebaseio.com/v0/\(storyList).json")
-    return try await ItemFetcher.fetch(fromUrl: hnUrl)
+    if let hnUrl = URL(string: "https://hacker-news.firebaseio.com/v0/\(storyList).json") {
+      return try await AF.request(hnUrl)
+        .validate()
+        .serializingDecodable(HNStoriesList.self)
+        .value
+    }
+    throw URLError(.unsupportedURL)
   }
 }

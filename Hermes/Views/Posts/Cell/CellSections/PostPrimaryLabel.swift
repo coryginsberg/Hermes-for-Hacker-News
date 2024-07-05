@@ -1,6 +1,6 @@
 //
-// Copyright (c) 2024 Cory Ginsberg.
-// Licensed under the Apache License, Version 2.0
+// Copyright (c) 2023 - Present Cory Ginsberg
+// Licensed under Apache License 2.0
 //
 
 import DomainParser
@@ -12,22 +12,18 @@ struct PostPrimaryLabel: View {
   @State private var showSafari: Bool = false
 
   var post: Post
-  var secondaryTextColor: Color
   var isCommentView: Bool = false
 
   var body: some View {
-    if isCommentView, let url = post.url {
-      PrimaryLabel(post: post, secondaryTextColor: secondaryTextColor)
-        .onTapGesture {
-          showSafari.toggle()
-        }.fullScreenCover(isPresented: $showSafari, content: {
-          WebViewWrapper(url: url)
-        })
-    } else {
-//      NavigationLink(destination: CommentListView(currentPost: postData)) {
-      PrimaryLabel(post: post, secondaryTextColor: secondaryTextColor)
-//      }
-    }
+    PrimaryLabel(post: post, isCommentView: isCommentView)
+      .if(isCommentView && post.url != nil) { label in
+        label
+          .onTapGesture {
+            showSafari.toggle()
+          }.fullScreenCover(isPresented: $showSafari, content: {
+            WebViewWrapper(url: post.url.unsafelyUnwrapped)
+          })
+      }
   }
 }
 
@@ -35,7 +31,7 @@ struct PostPrimaryLabel: View {
 
 struct PrimaryLabel: View {
   var post: Post
-  var secondaryTextColor: Color
+  var isCommentView: Bool
 
   var body: some View {
     VStack(alignment: .leading) {
@@ -43,9 +39,13 @@ struct PrimaryLabel: View {
         .foregroundColor(Color(uiColor: .label))
         .multilineTextAlignment(.leading)
         .allowsTightening(true)
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
         .font(.headline)
-        .fontWeight(.regular)
+        .if(isCommentView) { text in
+          text.fontWeight(.bold)
+        }
+
+      // Show url preview if link
       if let url = post.url {
         Text(url.domain ?? "")
           .font(.footnote)
@@ -55,5 +55,13 @@ struct PrimaryLabel: View {
       }
     }
     .padding(.bottom, 8.0)
+  }
+}
+
+#Preview("Comment View") {
+  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
+    VStack {
+      PostText(post: Post.formattedText, isCommentView: true, isFaviconVisible: false)
+    }.padding()
   }
 }

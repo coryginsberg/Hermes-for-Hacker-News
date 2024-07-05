@@ -1,12 +1,9 @@
 //
-//  Constants.swift
-//  Hermes for Hacker News 2
-//
-//  Created by Cory Ginsberg on 4/3/24.
+// Copyright (c) 2023 - Present Cory Ginsberg
+// Licensed under Apache License 2.0
 //
 
 import Foundation
-import OSLog
 import SwiftUI
 
 typealias HNID = Int
@@ -17,14 +14,8 @@ enum C {
   static let urlSizeBreathingRoom = 50
 }
 
-public extension Logger {
-  init(category: String) {
-    self.init(subsystem: Bundle.main.bundleIdentifier ?? "com.coryginsberg.Hermes", category: category)
-  }
-}
-
-extension View {
-  func log(category: String? = nil) -> os.Logger {
-    os.Logger(category: category ?? String(describing: type(of: self)))
-  }
-}
+// extension View {
+//  func log(category: String? = nil) -> Logger {
+//    Logger(category: category ?? String(describing: type(of: self)))
+//  }
+// }
