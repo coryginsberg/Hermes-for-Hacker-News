@@ -14,7 +14,7 @@ struct PostCell: View {
   let secondaryTextColor = Color(uiColor: .secondaryLabel)
 
   var body: some View {
-    LazyVStack(alignment: .leading) { // Non-lazy VStack cuts off divider line for some reason
+    VStack(alignment: .leading) { // Non-lazy VStack cuts off divider line for some reason
       HStack {
         if let url = post.url {
           PostFavicon(url: url)

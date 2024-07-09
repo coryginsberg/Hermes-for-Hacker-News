@@ -31,6 +31,7 @@
 		EE85BB142A8C0CC600ACF5F3 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */; };
 		EE85BB172A8C0DF900ACF5F3 /* DomainParser in Frameworks */ = {isa = PBXBuildFile; productRef = EE85BB162A8C0DF900ACF5F3 /* DomainParser */; };
 		EE88762D2B82B9BB0053633E /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = EE8876262B82B9BB0053633E /* LICENSE.md */; };
+		EE8B845F2C3C93FC00085477 /* String+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8B845E2C3C93FC00085477 /* String+HTML.swift */; };
 		EE9727ED2BC7352400240EDF /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727E12BC7352400240EDF /* ViewModel.swift */; };
 		EE9727EE2BC7352400240EDF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727E22BC7352400240EDF /* Constants.swift */; };
 		EE9727F02BC7352400240EDF /* HNStoriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727E52BC7352400240EDF /* HNStoriesList.swift */; };
@@ -106,6 +107,7 @@
 		EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		EE8876242B82B9BB0053633E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EE8876262B82B9BB0053633E /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		EE8B845E2C3C93FC00085477 /* String+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HTML.swift"; sourceTree = "<group>"; };
 		EE9727E12BC7352400240EDF /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		EE9727E22BC7352400240EDF /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EE9727E52BC7352400240EDF /* HNStoriesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HNStoriesList.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 		EE27CD132C0D18F20032988C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EEE7DE4E2C3881A60091F54A /* Logging.swift */,
 				EEC8B9FD2A880A610088B6E9 /* Extensions */,
 				EE9727FA2BC73B0F00240EDF /* Debugging */,
 				EEE7DE4B2C38741A0091F54A /* Errors */,
@@ -417,6 +420,7 @@
 				EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */,
 				EE0F941D2B893A1E00108223 /* String+Extensions.swift */,
 				EE40DE932C07CCC00009BA62 /* DateFormatter+Extensions.swift */,
+				EE8B845E2C3C93FC00085477 /* String+HTML.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -436,9 +440,9 @@
 			children = (
 				EEAE2B042B9E544B00E4A9A7 /* CommentViewModifiers */,
 				EEC8BA2A2A8814E70088B6E9 /* CommentThread.swift */,
+				EE40DE8F2C07BACB0009BA62 /* CommentListLoadedView.swift */,
 				EEC8BA2C2A8814E70088B6E9 /* CommentListView.swift */,
 				EEAE2B022B9E52F300E4A9A7 /* CommentCell.swift */,
-				EE40DE8F2C07BACB0009BA62 /* CommentListLoadedView.swift */,
 			);
 			path = Comments;
 			sourceTree = "<group>";
@@ -456,7 +460,6 @@
 			isa = PBXGroup;
 			children = (
 				EEE7DE4C2C38743F0091F54A /* Errors.swift */,
-				EEE7DE4E2C3881A60091F54A /* Logging.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -661,6 +664,7 @@
 				EEE7DE4A2C386A7F0091F54A /* ErrorText.swift in Sources */,
 				EE79362D2B8C03FC00959398 /* SecondaryInfoLabel.swift in Sources */,
 				EE03A6F82BC9D75600D649E1 /* AlgoliaItem.swift in Sources */,
+				EE8B845F2C3C93FC00085477 /* String+HTML.swift in Sources */,
 				EE0F941E2B893A1E00108223 /* String+Extensions.swift in Sources */,
 				EEC8BA1F2A8814880088B6E9 /* InboxView.swift in Sources */,
 				EE27CD152C0D19960032988C /* Clamping.swift in Sources */,
@@ -887,6 +891,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_INTEROP_MODE = objcxx;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_UPCOMING_FEATURE_GLOBAL_CONCURRENCY = YES;
+				SWIFT_UPCOMING_FEATURE_REGION_BASED_ISOLATION = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -930,6 +937,9 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_INTEROP_MODE = objcxx;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_UPCOMING_FEATURE_GLOBAL_CONCURRENCY = YES;
+				SWIFT_UPCOMING_FEATURE_REGION_BASED_ISOLATION = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

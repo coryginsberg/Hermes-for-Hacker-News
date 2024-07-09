@@ -4,31 +4,41 @@
 //
 
 import MarkdownifyHTML
-
-// import Markdownosaur
 import SwiftUI
 
 struct TextBlockView: View {
   @State var text: String
+
   var styledText: AttributedString {
-    guard let attributedString = try? MarkdownifyHTML(
-      text,
-      withMarkdownOptions: .init(allowsExtendedAttributes: true, interpretedSyntax: .inlineOnlyPreservingWhitespace)
-    ).attributedText else {
-      return AttributedString(MarkdownifyHTML(text).text)
+//    var text = self.text
+//    // wrap the first paragraph in a <p></p> if it's not already and there's other paragraphs in the string
+//    if let index = text.range(of: "<p>")?.lowerBound {
+//      text.insert(contentsOf: "</p>", at: index)
+//      text.insert(contentsOf: "<p>", at: text.startIndex)
+//    }
+    do {
+      let attributedString = try MarkdownifyHTML(
+        text,
+        withMarkdownOptions: .init(allowsExtendedAttributes: true, interpretedSyntax: .inlineOnlyPreservingWhitespace)
+      ).attributedText
+      return attributedString
+    } catch {
+      print(error)
+      return AttributedString()
     }
-    return attributedString
   }
 
   var body: some View {
-    Text(styledText)
-      .lineLimit(nil)
-      .multilineTextAlignment(.leading)
+//    Group {
+    Text(styledText).onAppear {
+//      print(styledText)
+    }
+//    }
   }
 }
 
 #Preview {
-  ModelContainerPreview(PreviewSampleData.inMemoryContainer, addPadding: true) {
+  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
     TextBlockView(text: Post.formattedText.text ?? "")
   }
 }

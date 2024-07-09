@@ -46,6 +46,7 @@ import SwiftUI
  ```
  */
 
+@MainActor
 public class AlertViewModal: ObservableObject {
   @Published var show = false
   @Published var alertToast = AlertToast(

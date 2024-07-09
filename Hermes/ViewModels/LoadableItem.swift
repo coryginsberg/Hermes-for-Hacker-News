@@ -18,6 +18,7 @@ class LoadableItemState<T>: ObservableObject {
   @Published var state = State.idle
 }
 
+@MainActor
 protocol LoadableItem {
   associatedtype TLoadFrom
   func load(from type: TLoadFrom, isPreview: Bool) async

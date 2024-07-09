@@ -14,7 +14,8 @@ enum Level: String {
   case critical
 }
 
-protocol Logging {
+@MainActor
+public protocol Logging {
   var subsystem: String { get }
   var category: String { get }
 }
@@ -79,8 +80,3 @@ struct Slog: Logging {
     print("\(message)")
   }
 }
-
-//
-// init(category: String) {
-//  self.init(subsystem: Bundle.main.bundleIdentifier ?? "com.coryginsberg.Hermes", category: category)
-// }
