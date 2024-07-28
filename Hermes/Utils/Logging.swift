@@ -40,7 +40,7 @@ extension Logging {
   }
 }
 
-struct Slog: Logging {
+struct Slog: Logging, Sendable {
   static func log(_ level: Level,
                   message: String,
                   fileName: String = #file,

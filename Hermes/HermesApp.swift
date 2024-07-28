@@ -10,7 +10,7 @@ import SwiftUI
 
 @main
 struct HermesApp: App {
-  @State private var viewModel = ViewModel()
+  @State private var postViewModel = PostView.ViewModel()
 
   let modelContainer: ModelContainer
 
@@ -24,7 +24,7 @@ struct HermesApp: App {
 
   var body: some Scene {
     WindowGroup {
-      RootView().environment(viewModel)
+      RootView().environment(postViewModel)
     }
     .modelContainer(modelContainer)
   }

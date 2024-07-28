@@ -14,15 +14,15 @@ import OSLog
 // MARK: - AngoliaSearchResults
 
 struct AngoliaSearchResults: Codable {
-  var hits: [Hit]
-  var hitsPerPage: Int
-  var nbHits: Int
-  var nbPages: Int
-  var page: Int
-  var params: String
-  var processingTimeMs: Int
-  var query: String
-  var serverTimeMs: Int
+  let hits: [Hit]
+  let hitsPerPage: Int
+  let nbHits: Int
+  let nbPages: Int
+  let page: Int
+  let params: String
+  let processingTimeMs: Int
+  let query: String
+  let serverTimeMs: Int
 
   enum CodingKeys: String, CodingKey {
     case hits
@@ -39,18 +39,18 @@ struct AngoliaSearchResults: Codable {
   // MARK: - Hit
 
   struct Hit: Codable {
-    var tags: [String]
-    var author: String
-    var children: [Int]
-    var createdAt: Date
-    var jobText: String?
-    var numComments: Int
-    var objectId: String
-    var points: Int
-    var title: String
-    var updatedAt: Date
-    var url: String?
-    var storyText: String?
+    let tags: [String]
+    let author: String
+    let children: [Int]
+    let createdAt: Date
+    let jobText: String?
+    let numComments: Int
+    let objectId: String
+    let points: Int
+    let title: String
+    let updatedAt: Date
+    let url: String?
+    let storyText: String?
 
     // swiftlint:disable nesting
     enum CodingKeys: String, CodingKey {

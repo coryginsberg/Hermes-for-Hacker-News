@@ -4,18 +4,13 @@
 //
 
 import MarkdownifyHTML
+import SafariServices
 import SwiftUI
 
 struct TextBlockView: View {
   @State var text: String
 
   var styledText: AttributedString {
-//    var text = self.text
-//    // wrap the first paragraph in a <p></p> if it's not already and there's other paragraphs in the string
-//    if let index = text.range(of: "<p>")?.lowerBound {
-//      text.insert(contentsOf: "</p>", at: index)
-//      text.insert(contentsOf: "<p>", at: text.startIndex)
-//    }
     do {
       let attributedString = try MarkdownifyHTML(
         text,
@@ -29,16 +24,31 @@ struct TextBlockView: View {
   }
 
   var body: some View {
-//    Group {
-    Text(styledText).onAppear {
-//      print(styledText)
-    }
-//    }
+    Text(styledText).onOpenURL(handler: { url in
+      let vc = SFSafariViewController(url: url)
+      UIApplication.shared.firstKeyWindow?.rootViewController?.present(vc, animated: true)
+      return .handled
+    })
   }
 }
 
-#Preview {
-  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
-    TextBlockView(text: Post.formattedText.text ?? "")
+extension View {
+  func onOpenURL(handler: @escaping (_ url: URL) -> OpenURLAction.Result) -> some View {
+    return environment(\.openURL, OpenURLAction(handler: handler))
   }
 }
+
+extension UIApplication {
+  var firstKeyWindow: UIWindow? {
+    return UIApplication.shared.connectedScenes
+      .compactMap { $0 as? UIWindowScene }
+      .filter { $0.activationState == .foregroundActive }
+      .first?.keyWindow
+  }
+}
+
+// #Preview(traits: .sizeThatFitsLayout) {
+//  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
+//    TextBlockView(text: Post.formattedText.text ?? "").environment(PostView.NavigationModel(testPost: Post.link))
+//  }
+// }

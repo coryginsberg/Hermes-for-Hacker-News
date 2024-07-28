@@ -47,6 +47,9 @@ struct CommentListView: View {
           }
         }
       }
+      .onDisappear {
+        selectedPost = nil
+      }
   }
 }
 

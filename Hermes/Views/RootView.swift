@@ -9,17 +9,15 @@ import SwiftUI
 // MARK: - RootView
 
 struct RootView: View {
-  @Environment(\.managedObjectContext) private var viewContext
-  @State private var viewModel = ViewModel()
   @StateObject var alertViewModal: AlertViewModal = .init()
+  @State private var navigationModel = PostView.NavigationModel()
 
   var body: some View {
     TabView {
-      PostTabView()
+      PostView()
         .tabItem {
           Label("Posts", systemImage: "newspaper.fill")
         }
-        .environment(viewModel)
       InboxView()
         .tabItem {
           Label("Inbox", systemImage: "envelope.fill")
@@ -35,16 +33,9 @@ struct RootView: View {
     }
     .accentColor(Color(.systemOrange))
     .environmentObject(alertViewModal)
+    .environment(navigationModel)
     .toast(isPresenting: $alertViewModal.show) {
       alertViewModal.alertToast
     }
-  }
-}
-
-// MARK: - RootView_Previews
-
-struct RootView_Previews: PreviewProvider {
-  static var previews: some View {
-    RootView()
   }
 }
