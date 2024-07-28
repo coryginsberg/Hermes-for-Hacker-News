@@ -5,6 +5,8 @@
 
 import Foundation
 
+// MARK: - Greatest common factor date format
+
 extension DateFormatter {
   static func calcTimeSince(datePosted date: Date) -> String {
     let components = Calendar(identifier: .gregorian)

@@ -6,7 +6,7 @@
 import Foundation
 
 @MainActor
-class LoadableItemState<T>: ObservableObject {
+@Observable class LoadableItemState<T> {
   indirect enum State {
     case idle
     case loading
@@ -15,7 +15,7 @@ class LoadableItemState<T>: ObservableObject {
     case failed(Error)
   }
 
-  @Published var state = State.idle
+  var state = State.idle
 }
 
 @MainActor

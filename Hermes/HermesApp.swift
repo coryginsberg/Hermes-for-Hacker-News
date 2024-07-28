@@ -10,23 +10,24 @@ import SwiftUI
 
 @main
 struct HermesApp: App {
-  @State private var postViewModel = PostView.ViewModel()
+  var sharedModelContainer: ModelContainer = {
+    let schema = Schema([
+      // TODO: Add SwiftData models here
+    ])
+    let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
-  let modelContainer: ModelContainer
-
-  init() {
     do {
-      modelContainer = try ModelContainer(for: Post.self)
+      return try ModelContainer(for: schema, configurations: [modelConfiguration])
     } catch {
-      fatalError("Failed to create ModelContainer for ItemData: \(error)")
+      fatalError("Could not create ModelContainer: \(error)")
     }
-  }
+  }()
 
   var body: some Scene {
     WindowGroup {
-      RootView().environment(postViewModel)
+      RootView()
     }
-    .modelContainer(modelContainer)
+    .modelContainer(sharedModelContainer)
   }
 }
 
