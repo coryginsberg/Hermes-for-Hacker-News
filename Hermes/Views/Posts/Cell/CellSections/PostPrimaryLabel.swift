@@ -63,10 +63,11 @@ struct PrimaryLabel: View {
   }
 }
 
-#Preview("Comment View") {
-  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
-    VStack {
-      PostText(post: Post.formattedText, isCommentView: true, isFaviconVisible: false)
-    }.padding()
-  }
-}
+//
+// #Preview("Comment View") {
+//  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
+//    VStack {
+//      PostText(post: Post.formattedText, isCommentView: true, isFaviconVisible: false)
+//    }.padding()
+//  }
+// }

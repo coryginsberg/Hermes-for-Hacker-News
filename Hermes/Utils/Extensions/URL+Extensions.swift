@@ -11,6 +11,33 @@ import UIKit
 
 /// See: https://stackoverflow.com/questions/21769092/can-i-get-a-nsurl-from-an-xcassets-bundle
 public extension URL {
+  @MainActor
+  func isValidURL() async -> Bool {
+    if let url = URL(string: absoluteString) {
+      return UIApplication.shared.canOpenURL(url)
+    }
+    return false
+  }
+
+  /// Returns the root domain and the tld
+  @available(macOS 13.0, iOS 16.0, tvOS 16.0, watchOS 9.0, *)
+  var domain: String? {
+    get async {
+      guard await isValidURL() else {
+        return await URL(string: "https://\(absoluteString)")?.domain
+      }
+      do {
+        return try DomainParser()
+          .parse(host: host() ?? "")?
+          .domain
+      } catch {
+        return host
+      }
+    }
+  }
+}
+
+extension URL {
   static func localURLForXCAsset(name: String) -> URL? {
     let fileManager = FileManager.default
     guard let cacheDirectory = fileManager.urls(

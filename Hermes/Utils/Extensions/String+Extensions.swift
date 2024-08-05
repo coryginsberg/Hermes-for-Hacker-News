@@ -8,8 +8,19 @@ import Foundation
 // MARK: - Get the first number found
 
 extension String {
-  var firstNumber: Int? {
-    guard let numInStr = components(separatedBy: .decimalDigits.inverted).first else { return 0 }
-    return Int(numInStr)
+  var integerValue: Int {
+    return (self as NSString).integerValue
+  }
+}
+
+extension String {
+  func dropPrefix(_ prefix: String) -> String {
+    guard self.hasPrefix(prefix) else { return self }
+    return String(self.dropFirst(prefix.count))
+  }
+
+  func dropSuffix(_ suffix: String) -> String {
+    guard self.hasSuffix(suffix) else { return self }
+    return String(self.dropLast(suffix.count))
   }
 }

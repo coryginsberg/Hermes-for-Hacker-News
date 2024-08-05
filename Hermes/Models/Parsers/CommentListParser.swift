@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import SwiftData
 import SwiftSoup
 
 final class CommentListParser: HTMLParser, HTMLParserDelegate {
@@ -16,5 +17,7 @@ final class CommentListParser: HTMLParser, HTMLParserDelegate {
 }
 
 extension HTMLParserDelegate where Element == Comment {
-  func getAllElements() throws -> [Comment] { return [] }
+  func queryAllElements(for modelContext: ModelContext) throws {
+    try modelContext.transaction {}
+  }
 }

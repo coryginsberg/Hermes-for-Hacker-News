@@ -5,8 +5,8 @@
 
 import Foundation
 
-@MainActor
-@Observable class LoadableItemState<T> {
+@Observable
+class LoadableItemState<T> {
   indirect enum State {
     case idle
     case loading
@@ -18,7 +18,6 @@ import Foundation
   var state = State.idle
 }
 
-@MainActor
 protocol LoadableItem {
   associatedtype TLoadFrom
   func load(from type: TLoadFrom, isPreview: Bool) async

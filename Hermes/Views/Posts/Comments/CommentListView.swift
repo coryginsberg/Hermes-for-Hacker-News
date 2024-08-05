@@ -10,7 +10,6 @@ import SwiftUI
 
 struct CommentListView: View {
   @Environment(\.modelContext) private var modelContext
-  @ObservedObject private var algoliaItemLoader = AlgoliaCommentsViewModel()
   @Binding var selectedPost: Post?
 
   var isPreview = false
@@ -21,18 +20,18 @@ struct CommentListView: View {
         if let selectedPost {
           VStack {
             PostCell(post: selectedPost, isCommentView: true).padding(.leading)
-            switch algoliaItemLoader.state {
-            case .idle:
-              Text("Idle")
-            case .loading:
-              ProgressView()
-            case .failed(let error):
-              ErrorText(error, errorType: .loading)
-            case .empty:
-              Text("Looks like there's no comments here yet")
-            case .loaded(let algoliaItems):
-              CommentListLoadedView(algoliaItems: algoliaItems).padding(.leading, 4.0)
-            }
+//            switch algoliaItemLoader.state {
+//            case .idle:
+//              Text("Idle")
+//            case .loading:
+//              ProgressView()
+//            case .failed(let error):
+//              ErrorText(error, errorType: .loading)
+//            case .empty:
+//              Text("Looks like there's no comments here yet")
+//            case .loaded(let algoliaItems):
+//              CommentListLoadedView(algoliaItems: algoliaItems).padding(.leading, 4.0)
+//            }
           }.padding(.trailing, 8.0)
         } else {
           Text("No post selected")
@@ -40,33 +39,27 @@ struct CommentListView: View {
       }
     }.navigationTitle("\(selectedPost?.numComments ?? 0) Comments")
       .navigationBarTitleDisplayMode(.inline)
-      .onChange(of: selectedPost, initial: true) {
-        if let selectedPost {
-          Task {
-            await algoliaItemLoader.load(from: selectedPost, isPreview: isPreview)
-          }
-        }
-      }
+      .onChange(of: selectedPost, initial: true) {}
       .onDisappear {
         selectedPost = nil
       }
   }
 }
 
-#Preview("Post With Text") {
-  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
-    CommentListView(selectedPost: .constant(Post.formattedText), isPreview: true)
-  }
-}
-
-#Preview("Post With Link") {
-  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
-    CommentListView(selectedPost: .constant(Post.link), isPreview: true)
-  }
-}
-
-#Preview("No Post Selected") {
-  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
-    CommentListView(selectedPost: .constant(nil), isPreview: true)
-  }
-}
+// #Preview("Post With Text") {
+//  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
+//    CommentListView(selectedPost: .constant(Post.formattedText), isPreview: true)
+//  }
+// }
+//
+// #Preview("Post With Link") {
+//  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
+//    CommentListView(selectedPost: .constant(Post.link), isPreview: true)
+//  }
+// }
+//
+// #Preview("No Post Selected") {
+//  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
+//    CommentListView(selectedPost: .constant(nil), isPreview: true)
+//  }
+// }

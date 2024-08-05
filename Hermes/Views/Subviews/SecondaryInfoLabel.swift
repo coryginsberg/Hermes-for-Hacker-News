@@ -5,39 +5,39 @@
 
 import SwiftUI
 
-struct SecondaryCommentInfoGroup: View {
-  let comment: Comment
-  @Binding var isHidden: Bool
-  @Binding var showingAlert: Bool
-
-  var body: some View {
-    HStack {
-      Text("– \(comment.author)").secondaryStyle()
-      HStack {
-        if !isHidden {
-          SecondaryInfoButton(systemImage: "arrowshape.turn.up.left") { showingAlert = true }
-        } else {
-          SecondaryCommentCount(numComments: comment.countDescendants())
-        }
-        SecondaryInfoLabel(
-          systemImage: "clock",
-          textBody: DateFormatter.calcTimeSince(datePosted: comment.createdAt)
-        )
-        if let points = comment.points, points > 0 {
-          SecondaryInfoLabel(
-            systemImage: "arrow.up",
-            textBody: "\(points)"
-          )
-        }
-        if !isHidden {
-          SecondaryInfoButton(systemImage: "ellipsis") { showingAlert = true }
-        } else {
-          SecondaryInfoButton(systemImage: "chevron.down") { isHidden = false }
-        }
-      }.padding(.leading, 6.0)
-    }
-  }
-}
+// struct SecondaryCommentInfoGroup: View {
+//  let comment: Comment
+//  @Binding var isHidden: Bool
+//  @Binding var showingAlert: Bool
+//
+//  var body: some View {
+//    HStack {
+//      Text("– \(comment.author)").secondaryStyle()
+//      HStack {
+//        if !isHidden {
+//          SecondaryInfoButton(systemImage: "arrowshape.turn.up.left") { showingAlert = true }
+//        } else {
+//          SecondaryCommentCount(numComments: comment.countDescendants())
+//        }
+//        SecondaryInfoLabel(
+//          systemImage: "clock",
+//          textBody: DateFormatter.calcTimeSince(datePosted: comment.createdAt)
+//        )
+//        if let points = comment.points, points > 0 {
+//          SecondaryInfoLabel(
+//            systemImage: "arrow.up",
+//            textBody: "\(points)"
+//          )
+//        }
+//        if !isHidden {
+//          SecondaryInfoButton(systemImage: "ellipsis") { showingAlert = true }
+//        } else {
+//          SecondaryInfoButton(systemImage: "chevron.down") { isHidden = false }
+//        }
+//      }.padding(.leading, 6.0)
+//    }
+//  }
+// }
 
 struct SecondaryInfoLabel: View {
   let systemImage: String

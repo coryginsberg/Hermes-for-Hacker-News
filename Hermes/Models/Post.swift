@@ -7,10 +7,10 @@ import Foundation
 import SwiftData
 
 @Model
-final class Post {
+class Post {
   var itemId: HNID
   var author: Author
-  var createdAt: String
+  var createdAt: Date
   var numComments: Int?
   var score: Int
   var title: String
@@ -19,8 +19,8 @@ final class Post {
   init(
     itemId: HNID,
     author: Author,
-    createdAt: String,
-    numComments: Int? = nil,
+    createdAt: Date,
+    numComments: Int,
     score: Int,
     title: String,
     url: URL? = nil
@@ -34,3 +34,14 @@ final class Post {
     self.url = url
   }
 }
+
+// A convenience for accessing a post in an array by its identifier.
+extension Array where Element: Post {
+  /// Gets the first post in the array with the specified ID, if any.
+  subscript(id: Post.ID?) -> Post? {
+    first { $0.id == id }
+  }
+}
+
+// Ensure that the model's conformance to Identifiable is public.
+extension Post: Identifiable {}

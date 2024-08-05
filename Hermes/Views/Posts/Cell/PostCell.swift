@@ -22,8 +22,8 @@ struct PostCell: View {
           }
           VStack {
             PostText(post: post, isCommentView: isCommentView, isFaviconVisible: post.url != nil)
-            if isCommentView, let text = post.text {
-              TextBlockView(text: text)
+            if isCommentView {
+              TextBlockView(text: post.title)
             }
             PostSecondaryLabel(post: post, textColor: secondaryTextColor)
           }
@@ -36,26 +36,26 @@ struct PostCell: View {
   }
 }
 
-#Preview("Front Page") {
-  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
-    VStack {
-      PostCell(post: Post.smallText, isCommentView: false)
-      PostCell(post: Post.mediumText, isCommentView: false)
-      PostCell(post: Post.longText, isCommentView: false)
-      PostCell(post: Post.link, isCommentView: false)
-      PostCell(post: Post.formattedText, isCommentView: false)
-    }.padding()
-  }
-}
-
-#Preview("Comment View") {
-  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
-    VStack {
+// #Preview("Front Page") {
+//  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
+//    VStack {
 //      PostCell(post: Post.smallText, isCommentView: false)
 //      PostCell(post: Post.mediumText, isCommentView: false)
 //      PostCell(post: Post.longText, isCommentView: false)
 //      PostCell(post: Post.link, isCommentView: false)
-      PostCell(post: Post.formattedText, isCommentView: true)
-    }.padding()
-  }
-}
+//      PostCell(post: Post.formattedText, isCommentView: false)
+//    }.padding()
+//  }
+// }
+//
+// #Preview("Comment View") {
+//  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
+//    VStack {
+////      PostCell(post: Post.smallText, isCommentView: false)
+////      PostCell(post: Post.mediumText, isCommentView: false)
+////      PostCell(post: Post.longText, isCommentView: false)
+////      PostCell(post: Post.link, isCommentView: false)
+//      PostCell(post: Post.formattedText, isCommentView: true)
+//    }.padding()
+//  }
+// }

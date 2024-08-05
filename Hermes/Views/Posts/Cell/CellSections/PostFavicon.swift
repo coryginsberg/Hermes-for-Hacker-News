@@ -10,7 +10,7 @@ struct PostFavicon: View {
   @State var url: URL
   @State var loadUrl = false
 
-  @ObservedObject private var faviconLoader = FaviconLoaderViewModel()
+  private let faviconLoader = FaviconLoaderViewModel()
 
   var body: some View {
     VStack {
@@ -19,7 +19,7 @@ struct PostFavicon: View {
         ProgressView()
           .faviconStyle(withUrlToLoad: self.$url)
       case .loaded(let image):
-        Image(uiImage: image)
+        Image(uiImage: image.image)
           .faviconStyle(withUrlToLoad: self.$url)
       case .failed(let error) where error as? FaviconError == FaviconError.failedToFindFavicon:
         Image(.awkwardMonkey)
@@ -58,7 +58,8 @@ struct PostFavicon: View {
 
 extension PostFavicon: Logging {}
 
-extension Image {
+// FaviconLoader typealiases Image so we need to specify here
+extension SwiftUI.Image {
   func faviconStyle(withUrlToLoad url: Binding<URL>) -> some View {
     return self.resizable()
       .scaledToFit()

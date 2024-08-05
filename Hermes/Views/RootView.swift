@@ -9,8 +9,7 @@ import SwiftUI
 // MARK: - RootView
 
 struct RootView: View {
-  @StateObject var alertViewModal: AlertViewModal = .init()
-  @State private var navigationModel = PostView.NavigationModel()
+  @State var alertViewModal: AlertViewModal = .init()
 
   var body: some View {
     TabView {
@@ -32,8 +31,7 @@ struct RootView: View {
         }
     }
     .accentColor(Color(.systemOrange))
-    .environmentObject(alertViewModal)
-    .environment(navigationModel)
+    .environment(alertViewModal)
     .toast(isPresenting: $alertViewModal.show) {
       alertViewModal.alertToast
     }

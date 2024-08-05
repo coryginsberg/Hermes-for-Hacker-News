@@ -3,6 +3,7 @@
 // Licensed under Apache License 2.0
 //
 
+import SwiftData
 import SwiftSoup
 
 protocol HTMLParserDelegate: AnyObject {
@@ -11,7 +12,7 @@ protocol HTMLParserDelegate: AnyObject {
   var htmlDocument: Document { get set }
   init(_ document: String) throws
 
-  func getAllElements() throws -> [Element]
+  func queryAllElements(for modelContext: ModelContext) throws
 }
 
 class HTMLParser {

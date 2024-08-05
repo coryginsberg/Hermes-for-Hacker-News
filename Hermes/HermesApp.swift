@@ -13,10 +13,15 @@ struct HermesApp: App {
   var sharedModelContainer: ModelContainer = {
     let schema = Schema([
       // TODO: Add SwiftData models here
+      Author.self,
+      Comment.self,
+      Post.self,
     ])
     let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
     do {
+      ValueTransformer.setValueTransformer(UIColorValueTransformer(),
+                                           forName: NSValueTransformerName("UIColorValueTransformer"))
       return try ModelContainer(for: schema, configurations: [modelConfiguration])
     } catch {
       fatalError("Could not create ModelContainer: \(error)")
