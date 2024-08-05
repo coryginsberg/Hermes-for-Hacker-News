@@ -3,6 +3,7 @@
 // Licensed under Apache License 2.0
 //
 
+import FaviconFinder
 import SwiftUI
 
 struct PostFavicon: View {
@@ -20,10 +21,17 @@ struct PostFavicon: View {
       case .loaded(let image):
         Image(uiImage: image)
           .faviconStyle(withUrlToLoad: self.$url)
-      //      case .failed(let error) where error == "failedToFindFavicon":
-      //        Image(.awkwardMonkey).faviconStyle(withUrlToLoad: self.$url).redacted(reason: .invalidated)
-      //      case .failed(let error) where error.code == -999:
-      //        Image(.awkwardMonkey).faviconStyle(withUrlToLoad: self.$url).redacted(reason: .invalidated)
+      case .failed(let error) where error as? FaviconError == FaviconError.failedToFindFavicon:
+        Image(.awkwardMonkey)
+          .faviconStyle(withUrlToLoad: self.$url)
+          .redacted(reason: .invalidated)
+      case .failed(let error) where error is FaviconError:
+        Image(.awkwardMonkey)
+          .faviconStyle(withUrlToLoad: self.$url)
+          .redacted(reason: .invalidated)
+          .onAppear {
+            LogError(error, message: "Favicon error:")
+          }
       case .failed(let error):
         Image(.awkwardMonkey)
           .faviconStyle(withUrlToLoad: self.$url)

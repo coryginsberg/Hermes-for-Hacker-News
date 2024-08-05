@@ -3,7 +3,7 @@
 // Licensed under Apache License 2.0
 //
 
-import FaviconFinder
+@preconcurrency import FaviconFinder
 import Foundation
 
 final class FaviconLoaderViewModel: LoadableItemState<FaviconImage>, LoadableItem {

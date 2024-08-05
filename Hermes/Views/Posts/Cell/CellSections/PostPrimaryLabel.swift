@@ -33,6 +33,8 @@ struct PrimaryLabel: View {
   var post: Post
   var isCommentView: Bool
 
+  @State var domain: String = ""
+
   var body: some View {
     VStack(alignment: .leading) {
       Text(post.title)
@@ -47,11 +49,14 @@ struct PrimaryLabel: View {
 
       // Show url preview if link
       if let url = post.url {
-        Text(url.domain ?? "")
+        Text(domain)
           .font(.footnote)
           .frame(maxWidth: .infinity, alignment: .topLeading)
           .padding(.top, 0.0)
           .foregroundColor(.init(uiColor: .tertiaryLabel))
+          .task {
+            domain = await url.domain ?? ""
+          }
       }
     }
     .padding(.bottom, 8.0)

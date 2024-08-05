@@ -5,6 +5,7 @@
 
 import Foundation
 
+@MainActor
 final class AlgoliaCommentsViewModel: LoadableItemState<[Comment]>, LoadableItem {
   typealias TLoadFrom = Post
 
@@ -50,7 +51,7 @@ extension AlgoliaItem {
     }
     let data = try Data(contentsOf: url)
     let jsonDecoder = JSONDecoder()
-    jsonDecoder.dateDecodingStrategy = .iso8601WithFractionalSeconds
+    jsonDecoder.dateDecodingStrategy = .iso8601withFractionalSeconds
     return try jsonDecoder.decode(AlgoliaItem.self, from: data)
   }
 }

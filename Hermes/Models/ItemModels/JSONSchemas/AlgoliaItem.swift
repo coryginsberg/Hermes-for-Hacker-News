@@ -70,7 +70,8 @@ extension AlgoliaItem {
   static func fetchItem(by id: HNID) async throws -> AlgoliaItem {
     if let url = URL(string: "https://hn.algolia.com/api/v1/items/\(id)") {
       let jsonDecoder = JSONDecoder()
-      jsonDecoder.dateDecodingStrategy = .iso8601WithFractionalSeconds
+      jsonDecoder.dateDecodingStrategy = .iso8601withFractionalSeconds
+
       let result = await AF.request(url).serializingDecodable(AlgoliaItem.self, decoder: jsonDecoder).result
       return try result.get()
     }
@@ -78,30 +79,40 @@ extension AlgoliaItem {
   }
 }
 
-extension Formatter {
-  static var standardISO8601DateFormatter: ISO8601DateFormatter = {
-    let formatter = ISO8601DateFormatter()
-    formatter.formatOptions = [.withInternetDateTime]
-    return formatter
-  }()
+extension Date.ISO8601FormatStyle {
+  static let iso8601withFractionalSeconds: Self = .init(includingFractionalSeconds: true)
+}
 
-  static var customISO8601DateFormatter: ISO8601DateFormatter = {
-    let formatter = ISO8601DateFormatter()
-    formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-    return formatter
-  }()
+extension ParseStrategy where Self == Date.ISO8601FormatStyle {
+  static var iso8601withFractionalSeconds: Date.ISO8601FormatStyle { .iso8601withFractionalSeconds }
+}
+
+extension FormatStyle where Self == Date.ISO8601FormatStyle {
+  static var iso8601withFractionalSeconds: Date.ISO8601FormatStyle { .iso8601withFractionalSeconds }
+}
+
+extension Date {
+  init(iso8601withFractionalSeconds parseInput: ParseStrategy.ParseInput) throws {
+    try self.init(parseInput, strategy: .iso8601withFractionalSeconds)
+  }
+
+  var iso8601withFractionalSeconds: String {
+    formatted(.iso8601withFractionalSeconds)
+  }
+}
+
+extension String {
+  func iso8601withFractionalSeconds() throws -> Date {
+    try .init(iso8601withFractionalSeconds: self)
+  }
 }
 
 extension JSONDecoder.DateDecodingStrategy {
-  static var iso8601WithFractionalSeconds = custom { decoder in
-    let dateStr = try decoder.singleValueContainer().decode(String.self)
-    if let date = Formatter.customISO8601DateFormatter.date(from: dateStr) {
-      return date
-    } else if let date = Formatter.standardISO8601DateFormatter.date(from: dateStr) {
-      return date
+  static let iso8601withFractionalSeconds = custom {
+    do {
+      return try .init(iso8601withFractionalSeconds: $0.singleValueContainer().decode(String.self))
+    } catch {
+      return try .init($0.singleValueContainer().decode(String.self), strategy: .iso8601)
     }
-    throw DecodingError.dataCorrupted(
-      DecodingError.Context(codingPath: decoder.codingPath,
-                            debugDescription: "Invalid date"))
   }
 }

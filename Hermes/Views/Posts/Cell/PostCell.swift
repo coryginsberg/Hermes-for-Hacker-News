@@ -14,21 +14,23 @@ struct PostCell: View {
   let secondaryTextColor = Color(uiColor: .secondaryLabel)
 
   var body: some View {
-    LazyVStack(alignment: .leading) { // Non-lazy VStack cuts off divider line for some reason
-      HStack {
-        if let url = post.url {
-          PostFavicon(url: url)
-        }
-        VStack {
-          PostText(post: post, isCommentView: isCommentView, isFaviconVisible: post.url != nil)
-          if isCommentView, let text = post.text {
-            TextBlockView(text: text)
+    NavigationLink(value: post.id) {
+      VStack(alignment: .leading) { // Non-lazy VStack cuts off divider line for some reason
+        HStack {
+          if let url = post.url {
+            PostFavicon(url: url)
           }
-          PostSecondaryLabel(post: post, textColor: secondaryTextColor)
+          VStack {
+            PostText(post: post, isCommentView: isCommentView, isFaviconVisible: post.url != nil)
+            if isCommentView, let text = post.text {
+              TextBlockView(text: text)
+            }
+            PostSecondaryLabel(post: post, textColor: secondaryTextColor)
+          }
         }
-      }
-      if isCommentView {
-        Divider()
+        if isCommentView {
+          Divider()
+        }
       }
     }
   }

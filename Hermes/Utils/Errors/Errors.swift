@@ -6,9 +6,9 @@
 import Foundation
 
 extension Error {
-  func errorCode() -> String {
+  func errorCode() -> Int {
     let nsError = self as NSError
-    return String(describing: nsError.code)
+    return nsError.code
   }
 
   func errorDomain() -> String {
