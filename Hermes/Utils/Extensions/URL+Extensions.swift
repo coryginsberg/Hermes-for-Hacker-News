@@ -7,12 +7,12 @@ import DomainParser
 import Foundation
 import UIKit
 
-// MARK: - XCAsset local URL
+// MARK: - Get Domain
 
 /// See: https://stackoverflow.com/questions/21769092/can-i-get-a-nsurl-from-an-xcassets-bundle
-public extension URL {
+extension URL {
   @MainActor
-  func isValidURL() async -> Bool {
+  private func isValidURL() async -> Bool {
     if let url = URL(string: absoluteString) {
       return UIApplication.shared.canOpenURL(url)
     }
@@ -36,6 +36,20 @@ public extension URL {
     }
   }
 }
+
+// MARK: - Init with static string
+
+extension URL {
+  init(staticString string: StaticString) {
+    guard let url = URL(string: "\(string)") else {
+      preconditionFailure("Invalid static URL string: \(string)")
+    }
+
+    self = url
+  }
+}
+
+// MARK: - XCAsset local URL
 
 extension URL {
   static func localURLForXCAsset(name: String) -> URL? {

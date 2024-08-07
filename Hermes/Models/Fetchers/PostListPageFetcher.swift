@@ -9,20 +9,21 @@ import SwiftData
 import SwiftUI
 
 struct PostListPageFetcher {
-  let baseUrl = URL(string: "https://news.ycombinator.com")
   var isFetching = false
 
-  func fetch() async throws -> String {
-    if let baseUrl {
-      let result = await AF.request(baseUrl, interceptor: .retryPolicy)
-        .cacheResponse(using: .cache)
-        .redirect(using: .doNotFollow)
-        .validate()
-        .serializingResponse(using: .string)
-        .result
-      return try result.get()
-    }
-    throw URLError(.unsupportedURL)
+  func fetch(_ sort: HN.Sorts = .news, page pageNumber: Int = 1, forDate date: Date? = nil) async throws -> String {
+    // TODO: Add `?day={date}` to URL when sort = .front
+    let pageQueryItem = URLQueryItem(name: "p", value: String(pageNumber))
+    let url = HN.baseURL
+      .appending(path: sort.rawValue)
+      .appending(queryItems: [pageQueryItem])
+    let result = await AF.request(url, interceptor: .retryPolicy)
+      .cacheResponse(using: .cache)
+      .redirect(using: .doNotFollow)
+      .validate()
+      .serializingString()
+      .result
+    return try result.get()
   }
 }
 

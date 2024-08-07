@@ -8,8 +8,8 @@ import SwiftData
 
 @Model
 class Post {
-  var rank: Int
-  var itemId: HNID
+  @Attribute(.unique) var rank: Int
+  @Attribute(.unique) var itemId: HNID
   var author: Author
   var createdAt: Date
   var numComments: Int?

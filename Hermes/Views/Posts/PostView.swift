@@ -10,24 +10,46 @@ struct PostView: View {
   @Environment(\.modelContext) private var modelContext
   @Query(sort: \Post.rank) private var posts: [Post]
   @State private var selectedPostID: Post.ID?
+  @State private var lastLoadedPage: Int = 1
+  @State private var isLoading: Bool = false
 
   func fetch(loadMore: Bool = false, forceRefresh: Bool = false) {
+    if forceRefresh {
+      lastLoadedPage = 1
+    }
     Task(priority: forceRefresh ? .userInitiated : .background) {
-      let document = try await PostListPageFetcher().fetch()
+      let document = try await PostListPageFetcher().fetch(page: lastLoadedPage)
       try PostListParser(document).queryAllElements(for: modelContext)
+      lastLoadedPage += 1
+      isLoading = false
     }
   }
 
   var body: some View {
     NavigationSplitView {
-      List(posts, selection: $selectedPostID) {
-        PostCell(post: $0)
+      List(selection: $selectedPostID) {
+        Section {
+          ForEach(Array(posts.enumerated()), id: \.self.element.id) { i, post in
+            PostCell(post: post)
+              .task(priority: .background) {
+                if posts.count - numBeforeLoadMore == i && !isLoading && lastLoadedPage <= HN.Posts.maxNumPages {
+                  isLoading = true
+                  fetch(loadMore: true)
+                }
+              }
+          }
+        }
+        if isLoading {
+          LoadingWheel()
+        }
       }
       .navigationTitle("Posts")
       .listStyle(.plain)
       .refreshable {
         fetch(forceRefresh: true)
       }
+      .listRowBackground(Color.clear)
+      .listSectionSeparator(.hidden)
     } detail: {
       CommentListView(selectedPost: Binding.constant(posts[selectedPostID]))
     }

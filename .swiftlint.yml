@@ -131,10 +131,6 @@ identifier_name:
     - y
     - z
 
-type_name:
-  excluded:
-    - C
-
 private_over_fileprivate:
   validate_extensions: true
 
