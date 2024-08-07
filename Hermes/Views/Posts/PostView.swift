@@ -8,8 +8,15 @@ import SwiftUI
 
 struct PostView: View {
   @Environment(\.modelContext) private var modelContext
-  @Query private var posts: [Post]
+  @Query(sort: \Post.rank) private var posts: [Post]
   @State private var selectedPostID: Post.ID?
+
+  func fetch(loadMore: Bool = false, forceRefresh: Bool = false) {
+    Task(priority: forceRefresh ? .userInitiated : .background) {
+      let document = try await PostListPageFetcher().fetch()
+      try PostListParser(document).queryAllElements(for: modelContext)
+    }
+  }
 
   var body: some View {
     NavigationSplitView {
@@ -19,23 +26,13 @@ struct PostView: View {
       .navigationTitle("Posts")
       .listStyle(.plain)
       .refreshable {
-        do {
-          let document = try await PostListPageFetcher().fetch()
-          try PostListParser(document).queryAllElements(for: modelContext)
-        } catch {
-          print(error)
-        }
+        fetch(forceRefresh: true)
       }
     } detail: {
       CommentListView(selectedPost: Binding.constant(posts[selectedPostID]))
     }
     .task {
-      do {
-        let document = try await PostListPageFetcher().fetch()
-        try PostListParser(document).queryAllElements(for: modelContext)
-      } catch {
-        print(error)
-      }
+      fetch()
     }
   }
 }

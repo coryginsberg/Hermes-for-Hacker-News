@@ -12,7 +12,6 @@ import SwiftUI
 struct HermesApp: App {
   var sharedModelContainer: ModelContainer = {
     let schema = Schema([
-      // TODO: Add SwiftData models here
       Author.self,
       Comment.self,
       Post.self,

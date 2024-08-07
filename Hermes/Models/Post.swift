@@ -8,6 +8,7 @@ import SwiftData
 
 @Model
 class Post {
+  var rank: Int
   var itemId: HNID
   var author: Author
   var createdAt: Date
@@ -17,6 +18,7 @@ class Post {
   var url: URL?
 
   init(
+    rank: Int,
     itemId: HNID,
     author: Author,
     createdAt: Date,
@@ -25,6 +27,7 @@ class Post {
     title: String,
     url: URL? = nil
   ) {
+    self.rank = rank
     self.itemId = itemId
     self.author = author
     self.createdAt = createdAt
