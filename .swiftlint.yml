@@ -15,6 +15,8 @@ excluded:
 disabled_rules:
   - trailing_comma
   - todo
+  - type_name
+  - mark
 
 analyzer_rules:
   - unused_import
@@ -130,10 +132,7 @@ identifier_name:
     - x
     - y
     - z
-
-type_name:
-  excluded:
-    - C
+    - vc
 
 private_over_fileprivate:
   validate_extensions: true

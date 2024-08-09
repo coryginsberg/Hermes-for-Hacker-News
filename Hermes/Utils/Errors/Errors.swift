@@ -40,7 +40,10 @@ enum StoryListError: Error, Equatable {
   case objectIdNotFound
 }
 
-enum GenericError: Error {
-  case missingValue(String)
-  case missingUrl
+struct RuntimeError: Error, CustomStringConvertible {
+  var description: String
+
+  init(_ description: String) {
+    self.description = description
+  }
 }

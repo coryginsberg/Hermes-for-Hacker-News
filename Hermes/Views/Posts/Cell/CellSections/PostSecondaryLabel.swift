@@ -12,12 +12,18 @@ struct PostSecondaryLabel: View {
   var textColor: Color
 
   var body: some View {
+    let textColor = if let postColor = post.author.color {
+      Color(postColor)
+    } else {
+      textColor
+    }
+
     ViewThatFits(in: .horizontal) {
       HStack(spacing: 4.0) {
         Group {
           SecondaryInfoLabel(
             systemImage: "arrow.up",
-            textBody: "\(post.points ?? 0)"
+            textBody: "\(post.score)"
           )
           SecondaryInfoLabel(
             systemImage: "bubble.left",
@@ -32,11 +38,11 @@ struct PostSecondaryLabel: View {
         .padding(.trailing, 10.0)
         .frame(alignment: .leading)
 
-        Text("by \(post.author)")
+        Text("by \(post.author.username)")
           .allowsTightening(true)
           .frame(maxWidth: .infinity, alignment: .trailing)
           .font(.caption)
-          .foregroundColor(textColor)
+          .foregroundStyle(textColor)
           .lineLimit(1)
       }
       .padding(.bottom, 2.0)

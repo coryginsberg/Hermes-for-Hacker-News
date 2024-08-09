@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/will-lumley/FaviconFinder.git",
       "state" : {
-        "revision" : "d3c715fcfa58716d608e2e77bfa2650a4c61e18e",
-        "version" : "4.5.0"
+        "revision" : "c87a6d27d472a2013506c3c173a8768f8e7521ee",
+        "version" : "5.0.2"
       }
     },
     {

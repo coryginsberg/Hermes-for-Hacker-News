@@ -47,9 +47,10 @@ import SwiftUI
  */
 
 @MainActor
-public class AlertViewModal: ObservableObject {
-  @Published var show = false
-  @Published var alertToast = AlertToast(
+@Observable
+public class AlertViewModal {
+  var show = false
+  var alertToast = AlertToast(
     displayMode: .hud,
     type: .regular,
     title: "LOREM IPSUM"

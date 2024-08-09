@@ -29,8 +29,8 @@ struct PostText: View {
   }
 }
 
-#Preview("Comment View") {
-  ModelContainerPreview(PreviewSampleData.inMemoryContainer, addPadding: true) {
-    PostText(post: Post.formattedText, isCommentView: true, isFaviconVisible: false)
-  }
-}
+// #Preview("Comment View") {
+//  ModelContainerPreview(PreviewSampleData.inMemoryContainer, addPadding: true) {
+//    PostText(post: Post.formattedText, isCommentView: true, isFaviconVisible: false)
+//  }
+// }

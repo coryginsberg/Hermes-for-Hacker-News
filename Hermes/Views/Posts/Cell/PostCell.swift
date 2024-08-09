@@ -18,15 +18,15 @@ struct PostCell: View {
       VStack(alignment: .leading) { // Non-lazy VStack cuts off divider line for some reason
         HStack {
           if let url = post.url {
-            PostFavicon(url: url)
+//            PostFavicon(url: url)
           }
           VStack {
             PostText(post: post, isCommentView: isCommentView, isFaviconVisible: post.url != nil)
-            if isCommentView, let text = post.text {
-              TextBlockView(text: text)
+            if isCommentView {
+              TextBlockView(text: post.title)
             }
             PostSecondaryLabel(post: post, textColor: secondaryTextColor)
-          }
+          }.opacity(post.isViewed && !isCommentView ? 0.5 : 1)
         }
         if isCommentView {
           Divider()
@@ -36,26 +36,26 @@ struct PostCell: View {
   }
 }
 
-#Preview("Front Page") {
-  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
-    VStack {
-      PostCell(post: Post.smallText, isCommentView: false)
-      PostCell(post: Post.mediumText, isCommentView: false)
-      PostCell(post: Post.longText, isCommentView: false)
-      PostCell(post: Post.link, isCommentView: false)
-      PostCell(post: Post.formattedText, isCommentView: false)
-    }.padding()
-  }
-}
-
-#Preview("Comment View") {
-  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
-    VStack {
+// #Preview("Front Page") {
+//  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
+//    VStack {
 //      PostCell(post: Post.smallText, isCommentView: false)
 //      PostCell(post: Post.mediumText, isCommentView: false)
 //      PostCell(post: Post.longText, isCommentView: false)
 //      PostCell(post: Post.link, isCommentView: false)
-      PostCell(post: Post.formattedText, isCommentView: true)
-    }.padding()
-  }
-}
+//      PostCell(post: Post.formattedText, isCommentView: false)
+//    }.padding()
+//  }
+// }
+//
+// #Preview("Comment View") {
+//  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
+//    VStack {
+////      PostCell(post: Post.smallText, isCommentView: false)
+////      PostCell(post: Post.mediumText, isCommentView: false)
+////      PostCell(post: Post.longText, isCommentView: false)
+////      PostCell(post: Post.link, isCommentView: false)
+//      PostCell(post: Post.formattedText, isCommentView: true)
+//    }.padding()
+//  }
+// }
