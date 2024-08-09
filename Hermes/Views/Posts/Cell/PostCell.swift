@@ -26,7 +26,7 @@ struct PostCell: View {
               TextBlockView(text: post.title)
             }
             PostSecondaryLabel(post: post, textColor: secondaryTextColor)
-          }
+          }.opacity(post.isViewed && !isCommentView ? 0.5 : 1)
         }
         if isCommentView {
           Divider()

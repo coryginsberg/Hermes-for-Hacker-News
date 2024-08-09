@@ -9,8 +9,6 @@ import SwiftData
 import SwiftUI
 
 struct PostListPageFetcher {
-  var isFetching = false
-
   func fetch(_ sort: HN.Sorts = .news, page pageNumber: Int = 1, forDate date: Date? = nil) async throws -> String {
     // TODO: Add `?day={date}` to URL when sort = .front
     let pageQueryItem = URLQueryItem(name: "p", value: String(pageNumber))

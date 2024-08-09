@@ -17,11 +17,13 @@ struct PostView: View {
     if forceRefresh {
       lastLoadedPage = 1
     }
+    defer {
+      isLoading = false
+    }
     Task(priority: forceRefresh ? .userInitiated : .background) {
       let document = try await PostListPageFetcher().fetch(page: lastLoadedPage)
       try PostListParser(document).queryAllElements(for: modelContext)
       lastLoadedPage += 1
-      isLoading = false
     }
   }
 
@@ -30,13 +32,20 @@ struct PostView: View {
       List(selection: $selectedPostID) {
         Section {
           ForEach(Array(posts.enumerated()), id: \.self.element.id) { i, post in
-            PostCell(post: post)
-              .task(priority: .background) {
-                if posts.count - numBeforeLoadMore == i && !isLoading && lastLoadedPage <= HN.Posts.maxNumPages {
-                  isLoading = true
-                  fetch(loadMore: true)
+            if !post.isHidden {
+              PostCell(post: post)
+                .task(priority: .background) {
+                  if posts.count - numBeforeLoadMore == i && !isLoading && lastLoadedPage <= HN.Posts.maxNumPages {
+                    isLoading = true
+                    fetch(loadMore: true)
+                  }
                 }
-              }
+                .onChange(of: selectedPostID) {
+                  if let selectedPostID, selectedPostID == post.id {
+                    post.isViewed = true
+                  }
+                }
+            }
           }
         }
         if isLoading {

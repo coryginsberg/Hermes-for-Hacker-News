@@ -17,6 +17,9 @@ class Post {
   var title: String
   var url: URL?
 
+  var isViewed: Bool = false
+  var isHidden: Bool = false
+
   init(
     rank: Int,
     itemId: HNID,
@@ -25,7 +28,8 @@ class Post {
     numComments: Int,
     score: Int,
     title: String,
-    url: URL? = nil
+    url: URL? = nil,
+    isHidden: Bool = false
   ) {
     self.rank = rank
     self.itemId = itemId
@@ -35,6 +39,7 @@ class Post {
     self.score = score
     self.title = title
     self.url = url
+    self.isHidden = isHidden
   }
 }
 
