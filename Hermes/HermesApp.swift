@@ -1,6 +1,6 @@
 //
-// Copyright (c) 2023 - Present Cory Ginsberg
-// Licensed under Apache License 2.0
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
 import SwiftData
@@ -15,13 +15,18 @@ struct HermesApp: App {
       Author.self,
       Comment.self,
       Post.self,
+      PostHistory.self,
     ])
-    let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+    let modelConfiguration = ModelConfiguration(
+      schema: schema,
+      isStoredInMemoryOnly: false
+    )
 
     do {
-      ValueTransformer.setValueTransformer(UIColorValueTransformer(),
-                                           forName: NSValueTransformerName("UIColorValueTransformer"))
-      return try ModelContainer(for: schema, configurations: [modelConfiguration])
+      return try ModelContainer(
+        for: schema,
+        configurations: [modelConfiguration]
+      )
     } catch {
       fatalError("Could not create ModelContainer: \(error)")
     }

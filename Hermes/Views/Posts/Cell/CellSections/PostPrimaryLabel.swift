@@ -1,6 +1,6 @@
 //
-// Copyright (c) 2023 - Present Cory Ginsberg
-// Licensed under Apache License 2.0
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
 import DomainParser
@@ -48,15 +48,12 @@ struct PrimaryLabel: View {
         }
 
       // Show url preview if link
-      if let url = post.url {
+      if let domain = post.siteDomain {
         Text(domain)
           .font(.footnote)
           .frame(maxWidth: .infinity, alignment: .topLeading)
           .padding(.top, 0.0)
           .foregroundColor(.init(uiColor: .tertiaryLabel))
-          .task {
-            domain = await url.domain ?? ""
-          }
       }
     }
     .padding(.bottom, 8.0)
