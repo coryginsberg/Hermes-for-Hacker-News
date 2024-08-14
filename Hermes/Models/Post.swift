@@ -1,6 +1,6 @@
 //
-// Copyright (c) 2023 - Present Cory Ginsberg
-// Licensed under Apache License 2.0
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
 import Foundation
@@ -9,16 +9,17 @@ import SwiftData
 @Model
 class Post {
   @Attribute(.unique) var rank: Int
-  @Attribute(.unique) var itemId: HNID
+  @Attribute(.unique, .preserveValueOnDeletion) var itemId: HNID
   var author: Author
   var createdAt: Date
-  var numComments: Int?
+  @Attribute(.preserveValueOnDeletion) var numComments: Int?
   var score: Int
   var title: String
   var url: URL?
+  var siteDomain: String?
+  @Relationship(deleteRule: .nullify, inverse: \PostHistory.post) var postHistory: PostHistory?
 
-  var isViewed: Bool = false
-  var isHidden: Bool = false
+  @Attribute(.preserveValueOnDeletion) var isHidden: Bool = false
 
   init(
     rank: Int,
@@ -29,6 +30,7 @@ class Post {
     score: Int,
     title: String,
     url: URL? = nil,
+    siteDomain: String? = nil,
     isHidden: Bool = false
   ) {
     self.rank = rank
@@ -39,6 +41,7 @@ class Post {
     self.score = score
     self.title = title
     self.url = url
+    self.siteDomain = siteDomain
     self.isHidden = isHidden
   }
 }
