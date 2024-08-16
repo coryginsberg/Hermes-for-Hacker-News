@@ -1,6 +1,6 @@
 //
-// Copyright (c) 2024 Cory Ginsberg.
-// Licensed under the Apache License, Version 2.0
+// Copyright (c) 2023 - Present Cory Ginsberg
+// Licensed under Apache License 2.0
 //
 
 import SwiftData
@@ -21,12 +21,13 @@ struct PostView: View {
     defer {
       isLoading = false
     }
-    Task(priority: .background) {
+    Task(priority: .userInitiated) {
       let document = try await PostListPageFetcher().fetch(
         sort,
         page: lastLoadedPage
       )
-      try PostListParser(document).queryAllElements(for: modelContext)
+
+      try await PostListParser(document).queryAllElements(for: modelContext.container)
       lastLoadedPage += 1
     }
   }
@@ -34,9 +35,6 @@ struct PostView: View {
   var body: some View {
     NavigationSplitView {
       List(posts, selection: $selectedPostID) { post in
-//        Section {
-//          ForEach(Array(posts.enumerated()), id: \.self.element.id) { i, post
-//          in
         if !post.isHidden {
           PostCell(post: post)
             .task(priority: .background) {
@@ -59,12 +57,8 @@ struct PostView: View {
                     print(error)
                   }
                 }
-                print(modelContext.hasChanges)
-                print(post.postHistory?.wasViewed as Any)
               }
             }
-//            }
-//          }
         }
         if isLoading {
           LoadingWheel()

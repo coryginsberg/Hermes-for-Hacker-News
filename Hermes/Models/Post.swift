@@ -1,10 +1,12 @@
 //
-// Copyright (c) 2024 Cory Ginsberg.
-// Licensed under the Apache License, Version 2.0
+// Copyright (c) 2023 - Present Cory Ginsberg
+// Licensed under Apache License 2.0
 //
 
+import FaviconFinder
 import Foundation
 import SwiftData
+import UIKit
 
 @Model
 class Post {
@@ -18,6 +20,7 @@ class Post {
   var url: URL?
   var siteDomain: String?
   @Relationship(deleteRule: .nullify, inverse: \PostHistory.post) var postHistory: PostHistory?
+  var favicon: Data?
 
   @Attribute(.preserveValueOnDeletion) var isHidden: Bool = false
 
@@ -31,6 +34,7 @@ class Post {
     title: String,
     url: URL? = nil,
     siteDomain: String? = nil,
+    favicon: Data? = nil,
     isHidden: Bool = false
   ) {
     self.rank = rank
@@ -42,6 +46,7 @@ class Post {
     self.title = title
     self.url = url
     self.siteDomain = siteDomain
+    self.favicon = favicon
     self.isHidden = isHidden
   }
 }

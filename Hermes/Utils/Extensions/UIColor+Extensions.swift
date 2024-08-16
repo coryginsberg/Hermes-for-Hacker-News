@@ -1,9 +1,6 @@
 //
-//  String+HTML.swift
-//  AttributedString
-//
-//  Created by Costantino Pistagna on 08/11/2017.
-//  Copyright © 2017 sofapps.it All rights reserved.
+// Copyright (c) 2023 - Present Cory Ginsberg
+// Licensed under Apache License 2.0
 //
 
 import Foundation

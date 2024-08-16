@@ -17,7 +17,7 @@ final class CommentListParser: HTMLParser, HTMLParserDelegate {
 }
 
 extension HTMLParserDelegate where Element == Comment {
-  func queryAllElements(for modelContext: ModelContext) throws {
-    try modelContext.transaction {}
+  func queryAllElements(for modelContainer: ModelContainer) async throws {
+    try await modelContainer.mainContext.transaction {}
   }
 }

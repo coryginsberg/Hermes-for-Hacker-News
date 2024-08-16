@@ -1,6 +1,6 @@
 //
-// Copyright (c) 2024 Cory Ginsberg.
-// Licensed under the Apache License, Version 2.0
+// Copyright (c) 2023 - Present Cory Ginsberg
+// Licensed under Apache License 2.0
 //
 
 import SwiftData
@@ -19,8 +19,8 @@ struct PostCell: View {
       VStack(alignment: .leading) {
         // Non-lazy VStack cuts off divider line for some reason
         HStack {
-          if let url = post.url {
-//            PostFavicon(url: url)
+          if let data = post.favicon, let image = UIImage(data: data) {
+            Image(uiImage: image).faviconStyle()
           }
           VStack {
             PostText(
