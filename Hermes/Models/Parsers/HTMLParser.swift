@@ -12,7 +12,7 @@ protocol HTMLParserDelegate: AnyObject {
   var htmlDocument: Document { get set }
   init(_ document: String) throws
 
-  func queryAllElements(for modelContext: ModelContext) throws
+  func queryAllElements(for modelContainer: ModelContainer) async throws
 }
 
 class HTMLParser {

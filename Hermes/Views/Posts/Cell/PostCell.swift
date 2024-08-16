@@ -19,8 +19,8 @@ struct PostCell: View {
       VStack(alignment: .leading) {
         // Non-lazy VStack cuts off divider line for some reason
         HStack {
-          if let url = post.url {
-//            PostFavicon(url: url)
+          if let data = post.favicon, let image = UIImage(data: data) {
+            Image(uiImage: image).faviconStyle()
           }
           VStack {
             PostText(

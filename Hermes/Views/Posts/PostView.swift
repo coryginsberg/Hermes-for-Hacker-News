@@ -21,12 +21,13 @@ struct PostView: View {
     defer {
       isLoading = false
     }
-    Task(priority: .background) {
+    Task(priority: .userInitiated) {
       let document = try await PostListPageFetcher().fetch(
         sort,
         page: lastLoadedPage
       )
-      try PostListParser(document).queryAllElements(for: modelContext)
+
+      try await PostListParser(document).queryAllElements(for: modelContext.container)
       lastLoadedPage += 1
     }
   }
