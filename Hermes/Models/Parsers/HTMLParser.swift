@@ -6,7 +6,7 @@
 import SwiftData
 import SwiftSoup
 
-protocol HTMLParserDelegate: AnyObject {
+protocol HTMLParserDelegate: AnyObject, LoadableItemState<Void> {
   associatedtype Element
 
   var htmlDocument: Document { get set }
@@ -15,7 +15,7 @@ protocol HTMLParserDelegate: AnyObject {
   func queryAllElements(for modelContainer: ModelContainer) async throws
 }
 
-class HTMLParser {
+class HTMLParser: LoadableItemState<Void> {
   weak var delegate: (any HTMLParserDelegate)?
   var htmlDocument: SwiftSoup.Document
 
