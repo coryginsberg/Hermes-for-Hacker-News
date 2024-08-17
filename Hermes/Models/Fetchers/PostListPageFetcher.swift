@@ -19,14 +19,12 @@ struct PostListPageFetcher {
     let url = HN.baseURL
       .appending(path: sort.rawValue.param)
       .appending(queryItems: [pageQueryItem])
-    print(url)
-    let result = await AF.request(url, interceptor: .retryPolicy)
+    return try await AF.request(url, interceptor: .retryPolicy)
       .cacheResponse(using: .cache)
       .redirect(using: .doNotFollow)
       .validate()
       .serializingString()
-      .result
-    return try result.get()
+      .value
   }
 }
 

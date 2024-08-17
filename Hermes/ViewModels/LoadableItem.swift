@@ -10,7 +10,7 @@ class LoadableItemState<T> {
   indirect enum State {
     case idle
     case loading
-    case loaded(T)
+    case loaded(T?)
     case empty
     case failed(Error)
   }
