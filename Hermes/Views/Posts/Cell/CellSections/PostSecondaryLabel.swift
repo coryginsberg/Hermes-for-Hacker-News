@@ -27,7 +27,7 @@ struct PostSecondaryLabel: View {
           )
           SecondaryInfoLabel(
             systemImage: "bubble.left",
-            textBody: "\(post.numComments ?? 0)"
+            textBody: "\(post.numComments)"
           )
           SecondaryInfoLabel(
             systemImage: "clock",

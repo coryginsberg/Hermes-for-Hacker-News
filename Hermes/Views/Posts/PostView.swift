@@ -11,24 +11,29 @@ struct PostView: View {
   @Environment(\.modelContext) private var modelContext
   @Query(sort: \Post.rank) private var posts: [Post]
   @State private var selectedPostID: Post.ID?
-  @State private var lastLoadedPage: Int = 1
+  @State private var lastLoadedPage: Int = 0
   @State private var isLoading: Bool = false
   @State private var sort: SortOption = .news
 
-  func fetch(loadMore _: Bool = false, forceRefresh: Bool = false) {
+  func fetch(forceRefresh: Bool = false) {
+    let container = modelContext.container
+    let modelActor = PostModelActor(modelContainer: container)
     if forceRefresh {
-      lastLoadedPage = 1
+      lastLoadedPage = 0
+      Task.detached {
+        try? await modelActor.delete()
+      }
     }
     defer {
       isLoading = false
+      lastLoadedPage += 1
     }
-    Task(priority: .background) {
+    Task.detached {
       let document = try await PostListPageFetcher().fetch(
         sort,
         page: lastLoadedPage
       )
-      try PostListParser(document).queryAllElements(for: modelContext)
-      lastLoadedPage += 1
+      try? await PostListParser(document).queryAllElements(for: container)
     }
   }
 
@@ -49,12 +54,16 @@ struct PostView: View {
       List(posts, selection: $selectedPostID) { post in
         if !post.isHidden {
           PostCell(post: post)
-            .task(priority: .background) {
-              if posts.count - numBeforeLoadMore == post.rank &&
+            .task {
+              if posts.count - numBeforeLoadMore >= post.rank &&
                 !isLoading &&
                 lastLoadedPage <= HN.Posts.maxNumPages {
                 isLoading = true
-                fetch(loadMore: true)
+                fetch()
+              } else {
+                print(posts.count - numBeforeLoadMore)
+                print(post.rank)
+                print(lastLoadedPage)
               }
             }
             .onChange(of: selectedPostID) {
@@ -76,8 +85,8 @@ struct PostView: View {
     } detail: {
       CommentListView(selectedPost: Binding.constant(posts[selectedPostID]))
     }
-    .task {
-      fetch()
+    .onAppear {
+      fetch(forceRefresh: true)
     }
   }
 }
