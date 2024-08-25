@@ -1,6 +1,6 @@
 //
-// Copyright (c) 2023 - Present Cory Ginsberg
-// Licensed under Apache License 2.0
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
 import Alamofire
@@ -9,12 +9,17 @@ import SwiftData
 import SwiftUI
 
 struct PostListPageFetcher {
-  func fetch(_ sort: HN.Sorts = .news, page pageNumber: Int = 1, forDate date: Date? = nil) async throws -> String {
+  func fetch(
+    _ sort: SortOption = .news,
+    page pageNumber: Int = 1,
+    forDate _: Date? = nil
+  ) async throws -> String {
     // TODO: Add `?day={date}` to URL when sort = .front
     let pageQueryItem = URLQueryItem(name: "p", value: String(pageNumber))
     let url = HN.baseURL
-      .appending(path: sort.rawValue)
+      .appending(path: sort.rawValue.param)
       .appending(queryItems: [pageQueryItem])
+    print(url)
     let result = await AF.request(url, interceptor: .retryPolicy)
       .cacheResponse(using: .cache)
       .redirect(using: .doNotFollow)
@@ -32,7 +37,7 @@ class PostListPage {
 extension PostListPage {
   func fetch() async {
     do {
-      self.page = try await PostListPageFetcher().fetch()
+      page = try await PostListPageFetcher().fetch()
     } catch {
       print(error)
     }

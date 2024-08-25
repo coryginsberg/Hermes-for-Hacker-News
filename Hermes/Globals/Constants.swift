@@ -18,14 +18,4 @@ enum HN {
     static let maxNumPages: Int = 24
     static let numPostsPerPage: Int = 30
   }
-
-  enum Sorts: String {
-    case news // Homepage
-    case newest
-    case best
-    case ask
-    case show
-    case jobs
-    case front // `/front` is structured `/front?day=2024-08-05`. Defaults to yesterday.
-  }
 }

@@ -1,6 +1,6 @@
 //
-// Copyright (c) 2023 - Present Cory Ginsberg
-// Licensed under Apache License 2.0
+// Copyright (c) 2024 Cory Ginsberg.
+// Licensed under the Apache License, Version 2.0
 //
 
 import SwiftData
@@ -12,16 +12,20 @@ struct PostView: View {
   @State private var selectedPostID: Post.ID?
   @State private var lastLoadedPage: Int = 1
   @State private var isLoading: Bool = false
+  @State private var sort: SortOption = .news
 
-  func fetch(loadMore: Bool = false, forceRefresh: Bool = false) {
+  func fetch(loadMore _: Bool = false, forceRefresh: Bool = false) {
     if forceRefresh {
       lastLoadedPage = 1
     }
     defer {
       isLoading = false
     }
-    Task(priority: forceRefresh ? .userInitiated : .background) {
-      let document = try await PostListPageFetcher().fetch(page: lastLoadedPage)
+    Task(priority: .background) {
+      let document = try await PostListPageFetcher().fetch(
+        sort,
+        page: lastLoadedPage
+      )
       try PostListParser(document).queryAllElements(for: modelContext)
       lastLoadedPage += 1
     }
@@ -29,36 +33,49 @@ struct PostView: View {
 
   var body: some View {
     NavigationSplitView {
-      List(selection: $selectedPostID) {
-        Section {
-          ForEach(Array(posts.enumerated()), id: \.self.element.id) { i, post in
-            if !post.isHidden {
-              PostCell(post: post)
-                .task(priority: .background) {
-                  if posts.count - numBeforeLoadMore == i && !isLoading && lastLoadedPage <= HN.Posts.maxNumPages {
-                    isLoading = true
-                    fetch(loadMore: true)
-                  }
-                }
-                .onChange(of: selectedPostID) {
-                  if let selectedPostID, selectedPostID == post.id {
-                    post.isViewed = true
-                  }
-                }
+      List(posts, selection: $selectedPostID) { post in
+//        Section {
+//          ForEach(Array(posts.enumerated()), id: \.self.element.id) { i, post
+//          in
+        if !post.isHidden {
+          PostCell(post: post)
+            .task(priority: .background) {
+              if posts
+                .count - numBeforeLoadMore == post.rank && !isLoading &&
+                lastLoadedPage <= HN.Posts.maxNumPages {
+                isLoading = true
+                fetch(loadMore: true)
+              }
             }
-          }
+            .onChange(of: selectedPostID) {
+              if let selectedPostID, selectedPostID == post.id {
+                if post.postHistory == nil {
+                  let history = PostHistory(post: post)
+                  modelContext.insert(history)
+                  post.postHistory = history
+                  do {
+                    try modelContext.save()
+                  } catch {
+                    print(error)
+                  }
+                }
+                print(modelContext.hasChanges)
+                print(post.postHistory?.wasViewed as Any)
+              }
+            }
+//            }
+//          }
         }
         if isLoading {
           LoadingWheel()
         }
       }
-      .navigationTitle("Posts")
-      .listStyle(.plain)
-      .refreshable {
+      .postListNavigation(sort: $sort) {
         fetch(forceRefresh: true)
       }
-      .listRowBackground(Color.clear)
-      .listSectionSeparator(.hidden)
+      .onChange(of: sort) {
+        fetch(forceRefresh: true)
+      }
     } detail: {
       CommentListView(selectedPost: Binding.constant(posts[selectedPostID]))
     }
@@ -70,6 +87,5 @@ struct PostView: View {
 
 #Preview {
   PostView()
-//    .environment(PostView.ViewModel())
     .modelContainer(for: Post.self, inMemory: true)
 }
