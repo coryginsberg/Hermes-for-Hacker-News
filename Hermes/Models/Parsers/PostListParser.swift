@@ -52,19 +52,15 @@ extension HTMLParserDelegate where Element == Post {
         let numComments = try subline?.children().last()?.text()
           .integerValue ?? 0
         if let hnid = HNID(post.id()) {
-          let post = Post(rank: rank,
-                          itemId: hnid,
-                          author: author,
-                          createdAt: time,
-                          numComments: numComments,
-                          score: score,
-                          title: titleAnchor?.ownText() ?? "",
-                          url: URL(string: url),
-                          siteDomain: siteDomain)
-          if let postHistory = try modelContext.fetch(PostHistory.fetch(for: hnid)).first {
-            post.postHistory = postHistory
-          }
-          modelContext.insert(post)
+          modelContext.insert(Post(rank: rank,
+                                   itemId: hnid,
+                                   author: author,
+                                   createdAt: time,
+                                   numComments: numComments,
+                                   score: score,
+                                   title: titleAnchor?.ownText() ?? "",
+                                   url: URL(string: url),
+                                   siteDomain: siteDomain))
         } else {
           throw RuntimeError("Failed to parse post")
         }

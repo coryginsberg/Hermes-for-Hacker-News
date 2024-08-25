@@ -19,9 +19,9 @@ struct PostCell: View {
       VStack(alignment: .leading) {
         // Non-lazy VStack cuts off divider line for some reason
         HStack {
-          if let url = post.url {
+//          if let url = post.url {
 //            PostFavicon(url: url)
-          }
+//          }
           VStack {
             PostText(
               post: post,
@@ -32,7 +32,7 @@ struct PostCell: View {
               TextBlockView(text: post.title)
             }
             PostSecondaryLabel(post: post, textColor: secondaryTextColor)
-          }.opacity(post.postHistory?.wasViewed ?? false && !isCommentView ? 0.5 : 1)
+          }.opacity(post.viewed && !isCommentView ? 0.5 : 1)
         }
         if isCommentView {
           Divider()

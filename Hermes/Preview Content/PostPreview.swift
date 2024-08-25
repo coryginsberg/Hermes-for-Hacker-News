@@ -122,7 +122,6 @@
 //  }
 //
 //  static var formattedText: Post {
-//    // swiftlint:disable line_length
 //    .init(postId: 40500071,
 //          tags: [],
 //          author: "realslimginz",
@@ -137,6 +136,5 @@
 //          Please state the location and include REMOTE, INTERNS and/or VISA when that sort of candidate is welcome. When remote work is <i>not</i> an option, include ONSITE.<p>Please only post if you personally are part of the hiring company—no recruiting firms or job boards. One post per company. If it isn't a household name, explain what your company does.</p><p>Commenters: please don't reply to job posts to complain about something. It's off topic here.</p><p>Readers: please only email if you are personally interested in the job.</p><p>Searchers: try <a href="https: // hnresumetojobs.com" rel="nofollow">https://hnresumetojobs.com</a>, <a href="https://hnhired.fly.dev" rel="nofollow">https://hnhired.fly.dev</a>, <a href="https://kennytilton.github.io/whoishiring/" rel="nofollow">https://kennytilton.github.io/whoishiring/</a>, <a href="https://hnjobs.emilburzo.com" rel="nofollow">https://hnjobs.emilburzo.com</a>.</p><p>Don't miss these other fine threads:</p><p><i>Who wants to be hired?</i> <a href="https://news.ycombinator.com/item?id=40563280">https://news.ycombinator.com/item?id=40563280</a></p><p><i>Freelancer? Seeking freelancer?</i> <a href="https://news.ycombinator.com/item?id=40563281">https://news.ycombinator.com/item?id=40563281</a></p>
 //          """,
 //          index: 0)
-//    // swiftlint:enable line_length
 //  }
 // }
