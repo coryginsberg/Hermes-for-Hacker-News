@@ -64,6 +64,10 @@
 		EECCF1FB2C56D6D600D69108 /* CommentListParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECCF1FA2C56D6CF00D69108 /* CommentListParser.swift */; };
 		EECCF1FD2C56D70600D69108 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECCF1FC2C56D70400D69108 /* Comment.swift */; };
 		EEE021482A881E58003676E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EEE021472A881E58003676E6 /* GoogleService-Info.plist */; };
+		EEE1FFBD2C7BBA2300795374 /* PostModelActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE1FFBC2C7BBA1B00795374 /* PostModelActor.swift */; };
+		EEE1FFBF2C7BBB1100795374 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE1FFBE2C7BBB0B00795374 /* Database.swift */; };
+		EEE1FFCA2C7BBF4300795374 /* ModelProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE1FFC92C7BBF3B00795374 /* ModelProviders.swift */; };
+		EEE1FFCC2C7BC16800795374 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE1FFCB2C7BC16300795374 /* Array+Extensions.swift */; };
 		EEE7DE4A2C386A7F0091F54A /* ErrorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE7DE492C386A7F0091F54A /* ErrorText.swift */; };
 		EEE7DE4D2C38743F0091F54A /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE7DE4C2C38743F0091F54A /* Errors.swift */; };
 		EEE7DE4F2C3881A60091F54A /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE7DE4E2C3881A60091F54A /* Logging.swift */; };
@@ -152,6 +156,10 @@
 		EED148782A88247A001FA326 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		EED1487F2A89A578001FA326 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEE021472A881E58003676E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EEE1FFBC2C7BBA1B00795374 /* PostModelActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModelActor.swift; sourceTree = "<group>"; };
+		EEE1FFBE2C7BBB0B00795374 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		EEE1FFC92C7BBF3B00795374 /* ModelProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProviders.swift; sourceTree = "<group>"; };
+		EEE1FFCB2C7BC16300795374 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 		EEE7DE492C386A7F0091F54A /* ErrorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorText.swift; sourceTree = "<group>"; };
 		EEE7DE4C2C38743F0091F54A /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		EEE7DE4E2C3881A60091F54A /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
@@ -387,6 +395,8 @@
 		EEC8B9FA2A880A460088B6E9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EEE1FFC82C7BBF3000795374 /* Helpers */,
+				EEE1FFBB2C7BBA1800795374 /* Actors */,
 				EEA91D542C61697B0097464C /* Fetchers */,
 				EECCF1F92C56D6C400D69108 /* Parsers */,
 				EECCF1F12C56BD4C00D69108 /* Author.swift */,
@@ -423,6 +433,7 @@
 		EEC8B9FD2A880A610088B6E9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EEE1FFCB2C7BC16300795374 /* Array+Extensions.swift */,
 				EECCF1F52C56C79900D69108 /* String+Extensions.swift */,
 				EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */,
 				EE40DE932C07CCC00009BA62 /* DateFormatter+Extensions.swift */,
@@ -462,6 +473,23 @@
 				EECCF1ED2C56BBAB00D69108 /* PostListParser.swift */,
 			);
 			path = Parsers;
+			sourceTree = "<group>";
+		};
+		EEE1FFBB2C7BBA1800795374 /* Actors */ = {
+			isa = PBXGroup;
+			children = (
+				EEE1FFBE2C7BBB0B00795374 /* Database.swift */,
+				EEE1FFBC2C7BBA1B00795374 /* PostModelActor.swift */,
+			);
+			path = Actors;
+			sourceTree = "<group>";
+		};
+		EEE1FFC82C7BBF3000795374 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EEE1FFC92C7BBF3B00795374 /* ModelProviders.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		EEE7DE482C386A680091F54A /* TextViews */ = {
@@ -663,12 +691,15 @@
 			files = (
 				EE77BBD52A8AD14B00880625 /* PostFavicon.swift in Sources */,
 				EE27CD172C10E9EF0032988C /* ModelContainerPreview.swift in Sources */,
+				EEE1FFCA2C7BBF4300795374 /* ModelProviders.swift in Sources */,
+				EEE1FFCC2C7BC16800795374 /* Array+Extensions.swift in Sources */,
 				EE40DE902C07BACB0009BA62 /* CommentListLoadedView.swift in Sources */,
 				EE77BBD72A8AD97E00880625 /* PostPrimaryLabel.swift in Sources */,
 				EE71E3C02C28D02900F8C68D /* TextBlockView.swift in Sources */,
 				EEC8BA2D2A8814E70088B6E9 /* CommentThread.swift in Sources */,
 				EEC8BA1D2A8814830088B6E9 /* SettingsView.swift in Sources */,
 				EEC8BA262A8814E10088B6E9 /* PostText.swift in Sources */,
+				EEE1FFBD2C7BBA2300795374 /* PostModelActor.swift in Sources */,
 				EE27CD122C0D0AF50032988C /* If+Extensions.swift in Sources */,
 				EECCF1F22C56BD4E00D69108 /* Author.swift in Sources */,
 				EEAE2B032B9E52F300E4A9A7 /* CommentCell.swift in Sources */,
@@ -688,6 +719,7 @@
 				EE77BBD22A8AC9F400880625 /* WebViewWrapper.swift in Sources */,
 				EE40DE922C07C5080009BA62 /* PostPreview.swift in Sources */,
 				EE14E4B32B8D578900AD5AE1 /* AlertViewModal.swift in Sources */,
+				EEE1FFBF2C7BBB1100795374 /* Database.swift in Sources */,
 				EECCF1FB2C56D6D600D69108 /* CommentListParser.swift in Sources */,
 				EEC8BA1B2A8814830088B6E9 /* ProfileView.swift in Sources */,
 				EECCF1FD2C56D70600D69108 /* Comment.swift in Sources */,
