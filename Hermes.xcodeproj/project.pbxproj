@@ -21,6 +21,7 @@
 		EE4231372C277E4C005291BA /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = EE4231362C277E4C005291BA /* AlertToast */; };
 		EE4231392C277FFE005291BA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EE4231382C277FFE005291BA /* Alamofire */; };
 		EE4712772C63FDF0002BF4AE /* LoadingWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4712762C63FDF0002BF4AE /* LoadingWheel.swift */; };
+		EE6620372C7BADA60083A697 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = EE6620362C7BADA60083A697 /* PrivacyInfo.xcprivacy */; };
 		EE71E3C02C28D02900F8C68D /* TextBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE71E3BF2C28D02900F8C68D /* TextBlockView.swift */; };
 		EE76011C2C693B1200BA27B7 /* PostListSortMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE76011B2C693B1200BA27B7 /* PostListSortMenu.swift */; };
 		EE77BBD22A8AC9F400880625 /* WebViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE77BBD12A8AC9F400880625 /* WebViewWrapper.swift */; };
@@ -38,7 +39,6 @@
 		EEAE2B012B9E526B00E4A9A7 /* CommentIndentViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAE2B002B9E526B00E4A9A7 /* CommentIndentViewModifier.swift */; };
 		EEAE2B032B9E52F300E4A9A7 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAE2B022B9E52F300E4A9A7 /* CommentCell.swift */; };
 		EEAE2B062BA0ED0900E4A9A7 /* FaviconLoaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAE2B052BA0ED0900E4A9A7 /* FaviconLoaderViewModel.swift */; };
-		EEB573A32C6C0694002AD23A /* PostHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB573A22C6C0690002AD23A /* PostHistory.swift */; };
 		EEC8B9D12A880A280088B6E9 /* HermesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC8B9D02A880A280088B6E9 /* HermesApp.swift */; };
 		EEC8B9D52A880A310088B6E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D42A880A310088B6E9 /* Assets.xcassets */; };
 		EEC8B9D82A880A310088B6E9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEC8B9D72A880A310088B6E9 /* Preview Assets.xcassets */; };
@@ -100,6 +100,7 @@
 		EE40DE912C07C5080009BA62 /* PostPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPreview.swift; sourceTree = "<group>"; };
 		EE40DE932C07CCC00009BA62 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		EE4712762C63FDF0002BF4AE /* LoadingWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingWheel.swift; sourceTree = "<group>"; };
+		EE6620362C7BADA60083A697 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = SOURCE_ROOT; };
 		EE71E3BF2C28D02900F8C68D /* TextBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBlockView.swift; sourceTree = "<group>"; };
 		EE76011B2C693B1200BA27B7 /* PostListSortMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListSortMenu.swift; sourceTree = "<group>"; };
 		EE77BBD12A8AC9F400880625 /* WebViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewWrapper.swift; sourceTree = "<group>"; };
@@ -117,7 +118,6 @@
 		EEAE2B002B9E526B00E4A9A7 /* CommentIndentViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentIndentViewModifier.swift; sourceTree = "<group>"; };
 		EEAE2B022B9E52F300E4A9A7 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		EEAE2B052BA0ED0900E4A9A7 /* FaviconLoaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconLoaderViewModel.swift; sourceTree = "<group>"; };
-		EEB573A22C6C0690002AD23A /* PostHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHistory.swift; sourceTree = "<group>"; };
 		EEC77FAE2C24A261008531F1 /* MarkdownifyHTML */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MarkdownifyHTML; sourceTree = "<group>"; };
 		EEC8B9CD2A880A280088B6E9 /* Hermes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hermes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEC8B9D02A880A280088B6E9 /* HermesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HermesApp.swift; sourceTree = "<group>"; };
@@ -325,6 +325,7 @@
 				EEC8BA382A88154C0088B6E9 /* .swiftlint.yml */,
 				EEC8BA342A8815460088B6E9 /* README.md */,
 				EEC8BA362A8815480088B6E9 /* LICENSE.md */,
+				EE6620362C7BADA60083A697 /* PrivacyInfo.xcprivacy */,
 			);
 			sourceTree = "<group>";
 		};
@@ -386,7 +387,6 @@
 		EEC8B9FA2A880A460088B6E9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EEB573A22C6C0690002AD23A /* PostHistory.swift */,
 				EEA91D542C61697B0097464C /* Fetchers */,
 				EECCF1F92C56D6C400D69108 /* Parsers */,
 				EECCF1F12C56BD4C00D69108 /* Author.swift */,
@@ -609,6 +609,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE6620372C7BADA60083A697 /* PrivacyInfo.xcprivacy in Resources */,
 				EE40DE8C2C07B5B60009BA62 /* PostWithComments.json in Resources */,
 				EE88762D2B82B9BB0053633E /* LICENSE.md in Resources */,
 				EEC8B9D82A880A310088B6E9 /* Preview Assets.xcassets in Resources */,
@@ -677,7 +678,6 @@
 				EEA91D532C6169740097464C /* PostListPageFetcher.swift in Sources */,
 				EEEA19A42BB6127200654F56 /* PostView.swift in Sources */,
 				EECCF1F42C56BDAD00D69108 /* Constants.swift in Sources */,
-				EEB573A32C6C0694002AD23A /* PostHistory.swift in Sources */,
 				EEE7DE4A2C386A7F0091F54A /* ErrorText.swift in Sources */,
 				EE79362D2B8C03FC00959398 /* SecondaryInfoLabel.swift in Sources */,
 				EE8B845F2C3C93FC00085477 /* UIColor+Extensions.swift in Sources */,
@@ -898,7 +898,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -944,7 +944,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
