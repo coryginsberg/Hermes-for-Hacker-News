@@ -3,6 +3,7 @@
 // Licensed under the Apache License, Version 2.0
 //
 
+import Foundation
 import SwiftData
 import SwiftUI
 
@@ -31,17 +32,26 @@ struct PostView: View {
     }
   }
 
+  func updateViewedPost(_ post: Post) {
+    if !post.viewed {
+      // FIXME: Why does this work but @AppStorage doesn't?
+      let viewedPosts = UserDefaults.standard.array(forKey: UserDefaultKeys.viewedPosts.rawValue)
+      if var viewedPosts {
+        viewedPosts.append(post.itemId)
+        UserDefaults.standard.set(viewedPosts, forKey: UserDefaultKeys.viewedPosts.rawValue)
+      }
+      post.viewed = true
+    }
+  }
+
   var body: some View {
     NavigationSplitView {
       List(posts, selection: $selectedPostID) { post in
-//        Section {
-//          ForEach(Array(posts.enumerated()), id: \.self.element.id) { i, post
-//          in
         if !post.isHidden {
           PostCell(post: post)
             .task(priority: .background) {
-              if posts
-                .count - numBeforeLoadMore == post.rank && !isLoading &&
+              if posts.count - numBeforeLoadMore == post.rank &&
+                !isLoading &&
                 lastLoadedPage <= HN.Posts.maxNumPages {
                 isLoading = true
                 fetch(loadMore: true)
@@ -49,22 +59,9 @@ struct PostView: View {
             }
             .onChange(of: selectedPostID) {
               if let selectedPostID, selectedPostID == post.id {
-                if post.postHistory == nil {
-                  let history = PostHistory(post: post)
-                  modelContext.insert(history)
-                  post.postHistory = history
-                  do {
-                    try modelContext.save()
-                  } catch {
-                    print(error)
-                  }
-                }
-                print(modelContext.hasChanges)
-                print(post.postHistory?.wasViewed as Any)
+                updateViewedPost(post)
               }
             }
-//            }
-//          }
         }
         if isLoading {
           LoadingWheel()

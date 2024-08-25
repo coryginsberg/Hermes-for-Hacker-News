@@ -15,7 +15,6 @@ struct HermesApp: App {
       Author.self,
       Comment.self,
       Post.self,
-      PostHistory.self,
     ])
     let modelConfiguration = ModelConfiguration(
       schema: schema,

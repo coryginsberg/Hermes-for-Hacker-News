@@ -8,18 +8,19 @@ import SwiftData
 
 @Model
 class Post {
-  @Attribute(.unique) var rank: Int
-  @Attribute(.unique, .preserveValueOnDeletion) var itemId: HNID
+  #Unique<Post>([\.itemId], [\.rank])
+
+  var rank: Int
+  var itemId: HNID
   var author: Author
   var createdAt: Date
-  @Attribute(.preserveValueOnDeletion) var numComments: Int?
+  var numComments: Int?
   var score: Int
   var title: String
   var url: URL?
   var siteDomain: String?
-  @Relationship(deleteRule: .nullify, inverse: \PostHistory.post) var postHistory: PostHistory?
-
-  @Attribute(.preserveValueOnDeletion) var isHidden: Bool = false
+  @Attribute(.preserveValueOnDeletion) var viewed: Bool
+  var isHidden: Bool = false
 
   init(
     rank: Int,
@@ -43,6 +44,20 @@ class Post {
     self.url = url
     self.siteDomain = siteDomain
     self.isHidden = isHidden
+    self.viewed = Post.isPostViewed(forHNID: itemId)
+  }
+}
+
+extension Post {
+  static func isPostViewed(forHNID postId: HNID) -> Bool {
+    let viewedPosts = UserDefaults.standard.array(forKey: UserDefaultKeys.viewedPosts.rawValue)
+    print(viewedPosts ?? "nil")
+    if let viewedPosts = viewedPosts as? [HNID] {
+      return viewedPosts.containsItem(postId)
+    } else {
+      UserDefaults.standard.set([HNID](), forKey: UserDefaultKeys.viewedPosts.rawValue)
+      return false
+    }
   }
 }
 
@@ -56,3 +71,9 @@ extension Array where Element: Post {
 
 // Ensure that the model's conformance to Identifiable is public.
 extension Post: Identifiable {}
+
+extension Array where Element == HNID {
+  func containsItem(_ id: HNID) -> Bool {
+    contains { $0 == id }
+  }
+}
