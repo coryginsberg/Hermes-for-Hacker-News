@@ -8,10 +8,10 @@ import SwiftData
 
 @Model
 class Post: PostProvider {
-  #Unique<Post>([\.itemId], [\.rank])
+//  #Unique<Post>([\.itemId], [\.rank])
 
-  var rank: Int
-  var itemId: HNID
+  @Attribute(.unique) var rank: Int
+  @Attribute(.unique) var itemId: HNID
   var author: Author
   var createdAt: Date
   var numComments: Int

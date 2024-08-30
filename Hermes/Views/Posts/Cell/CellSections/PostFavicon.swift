@@ -45,7 +45,7 @@ struct PostFavicon: View {
           .redacted(reason: .invalidated)
       }
     }.task {
-      await self.faviconLoader.load(from: self.url)
+//      await self.faviconLoader.load(from: self.url)
     }
     .onTapGesture {
       self.loadUrl.toggle()
