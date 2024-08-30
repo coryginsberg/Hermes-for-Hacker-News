@@ -50,40 +50,39 @@ struct PostView: View {
   }
 
   var body: some View {
-    NavigationSplitView {
+    NavigationStack {
       List(posts, selection: $selectedPostID) { post in
-        if !post.isHidden {
-          PostCell(post: post)
-            .task {
-              if posts.count - numBeforeLoadMore >= post.rank &&
-                !isLoading &&
-                lastLoadedPage <= HN.Posts.maxNumPages {
-                isLoading = true
-                fetch()
-              } else {
-                print(posts.count - numBeforeLoadMore)
-                print(post.rank)
-                print(lastLoadedPage)
-              }
+        PostCell(post: post)
+          .task {
+            if posts.count - numBeforeLoadMore >= post.rank &&
+              !isLoading &&
+              lastLoadedPage <= HN.Posts.maxNumPages {
+              isLoading = true
+              fetch()
+            } else {
+              print(posts.count - numBeforeLoadMore)
+              print(post.rank)
+              print(lastLoadedPage)
             }
-            .onChange(of: selectedPostID) {
-              if let selectedPostID, selectedPostID == post.id {
-                updateViewedPost(post)
-              }
+          }
+          .onChange(of: selectedPostID) {
+            if let selectedPostID, selectedPostID == post.id {
+              updateViewedPost(post)
             }
-        }
+          }
         if isLoading {
           LoadingWheel()
         }
       }
-      .postListNavigation(sort: $sort) {
+      .navigationDestination(item: $selectedPostID) { _ in
+        CommentListView(selectedPost: Binding.constant(posts[selectedPostID]))
+      }
+      .navigationBar(for: .postView($sort)) {
         fetch(forceRefresh: true)
       }
       .onChange(of: sort) {
         fetch(forceRefresh: true)
       }
-    } detail: {
-      CommentListView(selectedPost: Binding.constant(posts[selectedPostID]))
     }
     .onAppear {
       fetch(forceRefresh: true)
