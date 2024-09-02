@@ -51,7 +51,7 @@ struct PostView: View {
 
   var body: some View {
     NavigationStack {
-      List(posts, selection: $selectedPostID) { post in
+      List(posts) { post in
         PostCell(post: post)
           .task {
             if posts.count - numBeforeLoadMore >= post.rank &&

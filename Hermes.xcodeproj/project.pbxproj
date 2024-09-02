@@ -11,7 +11,6 @@
 		EE14E4B32B8D578900AD5AE1 /* AlertViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E4B22B8D578900AD5AE1 /* AlertViewModal.swift */; };
 		EE14E4B52B8E887A00AD5AE1 /* Text+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E4B42B8E887A00AD5AE1 /* Text+Extensions.swift */; };
 		EE14F74A2C69468D001123B0 /* PostListNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14F7492C694689001123B0 /* PostListNavigation.swift */; };
-		EE27CD122C0D0AF50032988C /* If+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE27CD112C0D0AF50032988C /* If+Extensions.swift */; };
 		EE27CD152C0D19960032988C /* Clamping.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE27CD142C0D19960032988C /* Clamping.swift */; };
 		EE27CD172C10E9EF0032988C /* ModelContainerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE27CD162C10E9EF0032988C /* ModelContainerPreview.swift */; };
 		EE40DE8C2C07B5B60009BA62 /* PostWithComments.json in Resources */ = {isa = PBXBuildFile; fileRef = EE40DE8B2C07B5B60009BA62 /* PostWithComments.json */; };
@@ -96,7 +95,6 @@
 		EE14E4B22B8D578900AD5AE1 /* AlertViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModal.swift; sourceTree = "<group>"; };
 		EE14E4B42B8E887A00AD5AE1 /* Text+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extensions.swift"; sourceTree = "<group>"; };
 		EE14F7492C694689001123B0 /* PostListNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListNavigation.swift; sourceTree = "<group>"; };
-		EE27CD112C0D0AF50032988C /* If+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "If+Extensions.swift"; sourceTree = "<group>"; };
 		EE27CD142C0D19960032988C /* Clamping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clamping.swift; sourceTree = "<group>"; };
 		EE27CD162C10E9EF0032988C /* ModelContainerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainerPreview.swift; sourceTree = "<group>"; };
 		EE40DE8B2C07B5B60009BA62 /* PostWithComments.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PostWithComments.json; sourceTree = "<group>"; };
@@ -212,7 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				EE14E4B42B8E887A00AD5AE1 /* Text+Extensions.swift */,
-				EE27CD112C0D0AF50032988C /* If+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -700,7 +697,6 @@
 				EEC8BA1D2A8814830088B6E9 /* SettingsView.swift in Sources */,
 				EEC8BA262A8814E10088B6E9 /* PostText.swift in Sources */,
 				EEE1FFBD2C7BBA2300795374 /* PostModelActor.swift in Sources */,
-				EE27CD122C0D0AF50032988C /* If+Extensions.swift in Sources */,
 				EECCF1F22C56BD4E00D69108 /* Author.swift in Sources */,
 				EEAE2B032B9E52F300E4A9A7 /* CommentCell.swift in Sources */,
 				EEC8BA282A8814E10088B6E9 /* PostCell.swift in Sources */,
