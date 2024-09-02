@@ -6,65 +6,79 @@
 import DomainParser
 import SwiftUI
 
-// MARK: - PostPrimaryLabelView
-
-struct PostPrimaryLabel: View {
-  @State private var showSafari: Bool = false
-
-  var post: Post
-  var isCommentView: Bool = false
-
-  var body: some View {
-    PrimaryLabel(post: post, isCommentView: isCommentView)
-      .if(isCommentView && post.url != nil) { label in
-        label
-          .onTapGesture {
-            showSafari.toggle()
-          }.fullScreenCover(isPresented: $showSafari, content: {
-            WebViewWrapper(url: post.url.unsafelyUnwrapped)
-          })
-      }
-  }
-}
-
 // MARK: - PrimaryLabel
 
 struct PrimaryLabel: View {
-  var post: Post
-  var isCommentView: Bool
-
-  @State var domain: String = ""
+  @Binding var post: Post
+  @Binding var isCommentView: Bool
 
   var body: some View {
-    VStack(alignment: .leading) {
-      Text(post.title)
-        .foregroundColor(Color(uiColor: .label))
-        .multilineTextAlignment(.leading)
-        .allowsTightening(true)
-        .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
-        .font(.headline)
-        .if(isCommentView) { text in
-          text.fontWeight(.bold)
-        }
+    if isCommentView, let url = post.url {
+      label.modifier(PrimaryLabelLink(url: url))
+    } else {
+      label
+    }
+  }
 
+  var label: some View {
+    VStack(alignment: .leading) {
+      Text(post.title).primaryLabel(withCommentView: $isCommentView)
       // Show url preview if link
       if let domain = post.siteDomain {
-        Text(domain)
-          .font(.footnote)
-          .frame(maxWidth: .infinity, alignment: .topLeading)
-          .padding(.top, 0.0)
-          .foregroundColor(.init(uiColor: .tertiaryLabel))
+        Text(domain).primarySublabel()
       }
     }
     .padding(.bottom, 8.0)
   }
 }
 
-//
-// #Preview("Comment View") {
-//  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
-//    VStack {
-//      PostText(post: Post.formattedText, isCommentView: true, isFaviconVisible: false)
-//    }.padding()
-//  }
-// }
+private struct PrimaryLabelLink: ViewModifier {
+  @State private var showSafari: Bool = false
+  var url: URL
+
+  func body(content: Content) -> some View {
+    content.onTapGesture {
+      showSafari.toggle()
+    }.fullScreenCover(isPresented: $showSafari) {
+      WebViewWrapper(url: url)
+    }
+  }
+}
+
+// MARK: - Primary Label Format
+
+private struct PrimaryLabelFormat: ViewModifier {
+  @Binding var isCommentView: Bool
+
+  func body(content: Content) -> some View {
+    content
+      .foregroundColor(Color(uiColor: .label))
+      .multilineTextAlignment(.leading)
+      .allowsTightening(true)
+      .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
+      .font(.headline)
+      .fontWeight(isCommentView ? .bold : .regular)
+  }
+}
+
+private struct PrimarySublabelFormat: ViewModifier {
+  func body(content: Content) -> some View {
+    content
+      .font(.footnote)
+      .frame(maxWidth: .infinity, alignment: .topLeading)
+      .padding(.top, 0.0)
+      .foregroundColor(.init(uiColor: .tertiaryLabel))
+  }
+}
+
+public extension View {
+  @ViewBuilder
+  func primaryLabel(withCommentView isCommentView: Binding<Bool>) -> some View {
+    modifier(PrimaryLabelFormat(isCommentView: isCommentView))
+  }
+
+  @ViewBuilder
+  func primarySublabel() -> some View {
+    modifier(PrimarySublabelFormat())
+  }
+}
