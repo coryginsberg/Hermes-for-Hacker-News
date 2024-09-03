@@ -7,13 +7,17 @@ import Foundation
 import SwiftData
 import SwiftUI
 
-struct PostView: View {
+struct PostsListView: View {
   @Environment(\.modelContext) private var modelContext
   @Query(sort: \Post.rank) private var posts: [Post]
+
   @State private var selectedPostID: Post.ID?
   @State private var lastLoadedPage: Int = 0
   @State private var isLoading: Bool = false
   @State private var sort: SortOption = .news
+
+  // For SwiftUI Previews only! Value should only be changed in #Preview blocks
+  var isPreview: Bool = false
 
   func fetch(forceRefresh: Bool = false) {
     let container = modelContext.container
@@ -77,20 +81,22 @@ struct PostView: View {
       .navigationDestination(item: $selectedPostID) { _ in
         CommentListView(selectedPost: Binding.constant(posts[selectedPostID]))
       }
-      .navigationBar(for: .postView($sort)) {
+      .onChange(of: sort) {
         fetch(forceRefresh: true)
       }
-      .onChange(of: sort) {
+      .navigationBar(for: .postView($sort)) {
         fetch(forceRefresh: true)
       }
     }
     .onAppear {
-      fetch(forceRefresh: true)
+      if !isPreview {
+        fetch(forceRefresh: true)
+      }
     }
   }
 }
 
-#Preview {
-  PostView()
-    .modelContainer(for: Post.self, inMemory: true)
+#Preview("Front Page", traits: .samplePostData) {
+  @Previewable @State var isPreview = true
+  PostsListView(isPreview: isPreview)
 }

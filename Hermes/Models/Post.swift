@@ -8,10 +8,10 @@ import SwiftData
 
 @Model
 class Post: PostProvider {
-//  #Unique<Post>([\.itemId], [\.rank])
+  #Unique<Post>([\.itemId], [\.rank])
 
-  @Attribute(.unique) var rank: Int
-  @Attribute(.unique) var itemId: HNID
+  var rank: Int
+  @Attribute(.preserveValueOnDeletion) var itemId: HNID
   var author: Author
   var createdAt: Date
   var numComments: Int
@@ -20,7 +20,7 @@ class Post: PostProvider {
   var url: URL?
   var siteDomain: String?
   @Attribute(.preserveValueOnDeletion) var viewed: Bool
-  var isHidden: Bool = false
+  @Attribute(.preserveValueOnDeletion) var isHidden: Bool = false
 
   required init(
     rank: Int,
