@@ -12,10 +12,9 @@
 		EE14E4B52B8E887A00AD5AE1 /* Text+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E4B42B8E887A00AD5AE1 /* Text+Extensions.swift */; };
 		EE14F74A2C69468D001123B0 /* PostListNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14F7492C694689001123B0 /* PostListNavigation.swift */; };
 		EE27CD152C0D19960032988C /* Clamping.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE27CD142C0D19960032988C /* Clamping.swift */; };
-		EE27CD172C10E9EF0032988C /* ModelContainerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE27CD162C10E9EF0032988C /* ModelContainerPreview.swift */; };
+		EE27CD172C10E9EF0032988C /* SamplePostListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE27CD162C10E9EF0032988C /* SamplePostListData.swift */; };
 		EE40DE8C2C07B5B60009BA62 /* PostWithComments.json in Resources */ = {isa = PBXBuildFile; fileRef = EE40DE8B2C07B5B60009BA62 /* PostWithComments.json */; };
 		EE40DE902C07BACB0009BA62 /* CommentListLoadedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE40DE8F2C07BACB0009BA62 /* CommentListLoadedView.swift */; };
-		EE40DE922C07C5080009BA62 /* PostPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE40DE912C07C5080009BA62 /* PostPreview.swift */; };
 		EE40DE942C07CCC00009BA62 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE40DE932C07CCC00009BA62 /* DateFormatter+Extensions.swift */; };
 		EE4231372C277E4C005291BA /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = EE4231362C277E4C005291BA /* AlertToast */; };
 		EE4231392C277FFE005291BA /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EE4231382C277FFE005291BA /* Alamofire */; };
@@ -31,6 +30,7 @@
 		EE85BB142A8C0CC600ACF5F3 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE85BB132A8C0CC600ACF5F3 /* URL+Extensions.swift */; };
 		EE85BB172A8C0DF900ACF5F3 /* DomainParser in Frameworks */ = {isa = PBXBuildFile; productRef = EE85BB162A8C0DF900ACF5F3 /* DomainParser */; };
 		EE88762D2B82B9BB0053633E /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = EE8876262B82B9BB0053633E /* LICENSE.md */; };
+		EE8B7A9F2C8793C200BD3D8E /* MarkdownifyHTML in Frameworks */ = {isa = PBXBuildFile; productRef = EE8B7A9E2C8793C200BD3D8E /* MarkdownifyHTML */; };
 		EE8B845F2C3C93FC00085477 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8B845E2C3C93FC00085477 /* UIColor+Extensions.swift */; };
 		EE9727FC2BC73B1D00240EDF /* ModelContext+SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9727FB2BC73B1D00240EDF /* ModelContext+SQLite.swift */; };
 		EE9DDA922C45B90E00086E62 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DDA912C45B90E00086E62 /* WebView.swift */; };
@@ -70,7 +70,7 @@
 		EEE7DE4A2C386A7F0091F54A /* ErrorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE7DE492C386A7F0091F54A /* ErrorText.swift */; };
 		EEE7DE4D2C38743F0091F54A /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE7DE4C2C38743F0091F54A /* Errors.swift */; };
 		EEE7DE4F2C3881A60091F54A /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE7DE4E2C3881A60091F54A /* Logging.swift */; };
-		EEEA19A42BB6127200654F56 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEA19A32BB6127200654F56 /* PostView.swift */; };
+		EEEA19A42BB6127200654F56 /* PostsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEA19A32BB6127200654F56 /* PostsListView.swift */; };
 		EEEDBEB02C693EFC00D13172 /* PostListSortOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEDBEAF2C693EFC00D13172 /* PostListSortOptions.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,10 +96,9 @@
 		EE14E4B42B8E887A00AD5AE1 /* Text+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extensions.swift"; sourceTree = "<group>"; };
 		EE14F7492C694689001123B0 /* PostListNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListNavigation.swift; sourceTree = "<group>"; };
 		EE27CD142C0D19960032988C /* Clamping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clamping.swift; sourceTree = "<group>"; };
-		EE27CD162C10E9EF0032988C /* ModelContainerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainerPreview.swift; sourceTree = "<group>"; };
+		EE27CD162C10E9EF0032988C /* SamplePostListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplePostListData.swift; sourceTree = "<group>"; };
 		EE40DE8B2C07B5B60009BA62 /* PostWithComments.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PostWithComments.json; sourceTree = "<group>"; };
 		EE40DE8F2C07BACB0009BA62 /* CommentListLoadedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListLoadedView.swift; sourceTree = "<group>"; };
-		EE40DE912C07C5080009BA62 /* PostPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPreview.swift; sourceTree = "<group>"; };
 		EE40DE932C07CCC00009BA62 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
 		EE4712762C63FDF0002BF4AE /* LoadingWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingWheel.swift; sourceTree = "<group>"; };
 		EE6620362C7BADA60083A697 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = SOURCE_ROOT; };
@@ -161,7 +160,7 @@
 		EEE7DE492C386A7F0091F54A /* ErrorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorText.swift; sourceTree = "<group>"; };
 		EEE7DE4C2C38743F0091F54A /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		EEE7DE4E2C3881A60091F54A /* Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
-		EEEA19A32BB6127200654F56 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		EEEA19A32BB6127200654F56 /* PostsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListView.swift; sourceTree = "<group>"; };
 		EEED0AAF2B9D33FA00BB27C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EEEDBEAF2C693EFC00D13172 /* PostListSortOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListSortOptions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,6 +173,7 @@
 				EE85BB172A8C0DF900ACF5F3 /* DomainParser in Frameworks */,
 				EE4231392C277FFE005291BA /* Alamofire in Frameworks */,
 				EE4231372C277E4C005291BA /* AlertToast in Frameworks */,
+				EE8B7A9F2C8793C200BD3D8E /* MarkdownifyHTML in Frameworks */,
 				EE0B24D72C34959700E6FAF8 /* MarkdownifyHTML in Frameworks */,
 				EEC8BA412A8816100088B6E9 /* FaviconFinder in Frameworks */,
 			);
@@ -201,7 +201,6 @@
 			children = (
 				EE77BBD32A8AD12D00880625 /* CellSections */,
 				EEC8BA242A8814E10088B6E9 /* PostCell.swift */,
-				EEC8BA222A8814E10088B6E9 /* PostText.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -264,6 +263,7 @@
 		EE77BBD32A8AD12D00880625 /* CellSections */ = {
 			isa = PBXGroup;
 			children = (
+				EEC8BA222A8814E10088B6E9 /* PostText.swift */,
 				EE77BBD42A8AD14B00880625 /* PostFavicon.swift */,
 				EE77BBD62A8AD97E00880625 /* PostPrimaryLabel.swift */,
 				EE77BBD82A8ADB2900880625 /* PostSecondaryLabel.swift */,
@@ -365,8 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				EE40DE8A2C07B5990009BA62 /* Resources */,
-				EE40DE912C07C5080009BA62 /* PostPreview.swift */,
-				EE27CD162C10E9EF0032988C /* ModelContainerPreview.swift */,
+				EE27CD162C10E9EF0032988C /* SamplePostListData.swift */,
 				EEC8B9D72A880A310088B6E9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -445,7 +444,7 @@
 				EE9DDA902C45B8F800086E62 /* WebView */,
 				EEC8B9FF2A880A6E0088B6E9 /* Comments */,
 				EE102A3A2ACCB90300C28F80 /* Cell */,
-				EEEA19A32BB6127200654F56 /* PostView.swift */,
+				EEEA19A32BB6127200654F56 /* PostsListView.swift */,
 			);
 			path = Posts;
 			sourceTree = "<group>";
@@ -538,6 +537,7 @@
 				EE4231362C277E4C005291BA /* AlertToast */,
 				EE4231382C277FFE005291BA /* Alamofire */,
 				EE0B24D62C34959700E6FAF8 /* MarkdownifyHTML */,
+				EE8B7A9E2C8793C200BD3D8E /* MarkdownifyHTML */,
 			);
 			productName = Hermes;
 			productReference = EEC8B9CD2A880A280088B6E9 /* Hermes.app */;
@@ -616,7 +616,7 @@
 				EE85BB152A8C0DF900ACF5F3 /* XCRemoteSwiftPackageReference "SwiftDomainParser" */,
 				EE7936302B8D551500959398 /* XCRemoteSwiftPackageReference "AlertToast" */,
 				EED8D72E2BFA9D0C002BFB44 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				EE1FC1E62C276AD50083F2AA /* XCLocalSwiftPackageReference "MarkdownifyHTML" */,
+				EE8B7A9D2C8793C200BD3D8E /* XCRemoteSwiftPackageReference "MarkdownifyHTML" */,
 			);
 			productRefGroup = EEC8B9CE2A880A280088B6E9 /* Products */;
 			projectDirPath = "";
@@ -687,7 +687,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE77BBD52A8AD14B00880625 /* PostFavicon.swift in Sources */,
-				EE27CD172C10E9EF0032988C /* ModelContainerPreview.swift in Sources */,
+				EE27CD172C10E9EF0032988C /* SamplePostListData.swift in Sources */,
 				EEE1FFCA2C7BBF4300795374 /* ModelProviders.swift in Sources */,
 				EEE1FFCC2C7BC16800795374 /* Array+Extensions.swift in Sources */,
 				EE40DE902C07BACB0009BA62 /* CommentListLoadedView.swift in Sources */,
@@ -703,7 +703,7 @@
 				EEE7DE4D2C38743F0091F54A /* Errors.swift in Sources */,
 				EEE7DE4F2C3881A60091F54A /* Logging.swift in Sources */,
 				EEA91D532C6169740097464C /* PostListPageFetcher.swift in Sources */,
-				EEEA19A42BB6127200654F56 /* PostView.swift in Sources */,
+				EEEA19A42BB6127200654F56 /* PostsListView.swift in Sources */,
 				EECCF1F42C56BDAD00D69108 /* Constants.swift in Sources */,
 				EEE7DE4A2C386A7F0091F54A /* ErrorText.swift in Sources */,
 				EE79362D2B8C03FC00959398 /* SecondaryInfoLabel.swift in Sources */,
@@ -713,7 +713,6 @@
 				EE27CD152C0D19960032988C /* Clamping.swift in Sources */,
 				EEC8BA2F2A8814E70088B6E9 /* CommentListView.swift in Sources */,
 				EE77BBD22A8AC9F400880625 /* WebViewWrapper.swift in Sources */,
-				EE40DE922C07C5080009BA62 /* PostPreview.swift in Sources */,
 				EE14E4B32B8D578900AD5AE1 /* AlertViewModal.swift in Sources */,
 				EEE1FFBF2C7BBB1100795374 /* Database.swift in Sources */,
 				EECCF1FB2C56D6D600D69108 /* CommentListParser.swift in Sources */,
@@ -940,7 +939,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -988,7 +987,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1125,13 +1124,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		EE1FC1E62C276AD50083F2AA /* XCLocalSwiftPackageReference "MarkdownifyHTML" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = MarkdownifyHTML;
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCRemoteSwiftPackageReference section */
 		EE7936302B8D551500959398 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -1147,6 +1139,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.1.0;
+			};
+		};
+		EE8B7A9D2C8793C200BD3D8E /* XCRemoteSwiftPackageReference "MarkdownifyHTML" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/coryginsberg/MarkdownifyHTML";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
 			};
 		};
 		EEC8BA3F2A8816100088B6E9 /* XCRemoteSwiftPackageReference "FaviconFinder" */ = {
@@ -1194,6 +1194,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EE85BB152A8C0DF900ACF5F3 /* XCRemoteSwiftPackageReference "SwiftDomainParser" */;
 			productName = DomainParser;
+		};
+		EE8B7A9E2C8793C200BD3D8E /* MarkdownifyHTML */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE8B7A9D2C8793C200BD3D8E /* XCRemoteSwiftPackageReference "MarkdownifyHTML" */;
+			productName = MarkdownifyHTML;
 		};
 		EEC8BA402A8816100088B6E9 /* FaviconFinder */ = {
 			isa = XCSwiftPackageProductDependency;
