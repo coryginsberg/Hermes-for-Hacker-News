@@ -25,8 +25,7 @@ struct PostCell: View {
           VStack {
             PostText(
               post: post,
-              isCommentView: isCommentView,
-              isFaviconVisible: post.url != nil
+              isCommentView: isCommentView
             )
             if isCommentView {
               TextBlockView(text: post.title)
@@ -42,18 +41,15 @@ struct PostCell: View {
   }
 }
 
-// #Preview("Front Page") {
-//  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
-//    VStack {
-//      PostCell(post: Post.smallText, isCommentView: false)
-//      PostCell(post: Post.mediumText, isCommentView: false)
-//      PostCell(post: Post.longText, isCommentView: false)
-//      PostCell(post: Post.link, isCommentView: false)
-//      PostCell(post: Post.formattedText, isCommentView: false)
-//    }.padding()
-//  }
-// }
-//
+#Preview("Front Page", traits: .modifier(SamplePostListData())) {
+  @Previewable @Query var posts: [Post]
+  VStack {
+    ForEach(posts) { post in
+      PostCell(post: post, isCommentView: false)
+    }
+  }.padding()
+}
+
 // #Preview("Comment View") {
 //  ModelContainerPreview(PreviewSampleData.inMemoryContainer) {
 //    VStack {

@@ -7,9 +7,10 @@ import Foundation
 import SwiftData
 import SwiftUI
 
-struct PostView: View {
+struct PostsListView: View {
   @Environment(\.modelContext) private var modelContext
   @Query(sort: \Post.rank) private var posts: [Post]
+
   @State private var selectedPostID: Post.ID?
   @State private var lastLoadedPage: Int = 0
   @State private var isLoading: Bool = false
@@ -77,10 +78,10 @@ struct PostView: View {
       .navigationDestination(item: $selectedPostID) { _ in
         CommentListView(selectedPost: Binding.constant(posts[selectedPostID]))
       }
-      .navigationBar(for: .postView($sort)) {
+      .onChange(of: sort) {
         fetch(forceRefresh: true)
       }
-      .onChange(of: sort) {
+      .navigationBar(for: .postView($sort)) {
         fetch(forceRefresh: true)
       }
     }
@@ -91,6 +92,7 @@ struct PostView: View {
 }
 
 #Preview {
-  PostView()
+  @Previewable @Query var posts: [Post]
+  PostsListView()
     .modelContainer(for: Post.self, inMemory: true)
 }
