@@ -86,15 +86,18 @@ struct AuthorText: View {
   var author: Author
 
   var body: some View {
-    Text("by \(author.username)")
+    Text("\(Text("by")) \(Text(author.username).colored(customTextColor))")
       .allowsTightening(true)
       .frame(maxWidth: .infinity, alignment: .trailing)
-      .secondaryInfoFormat(withTextColor: getTextColor())
+      .secondaryInfoFormat()
   }
 
-  func getTextColor() -> Color {
-    if let postColor = author.color {
-      return Color(postColor)
+  var customTextColor: Color {
+    if author.isNewUser {
+      return .green
+    }
+    if let postColor = author.customColor {
+      return Color.from(string: postColor)
     }
     return .secondary
   }
@@ -102,9 +105,13 @@ struct AuthorText: View {
 
 // MARK: - Secondary Info Format
 
-private struct SecondaryInfoFormat: ViewModifier {
-  var textColor: Color = .secondary
+extension Text {
+  func colored(_ color: Color) -> Text {
+    foregroundColor(color)
+  }
+}
 
+private struct SecondaryInfoFormat: ViewModifier {
   func body(content: Content) -> some View {
     content
       .foregroundStyle(.secondary)
@@ -115,7 +122,24 @@ private struct SecondaryInfoFormat: ViewModifier {
 
 public extension View {
   @ViewBuilder
-  func secondaryInfoFormat(withTextColor textColor: Color = .secondary) -> some View {
-    modifier(SecondaryInfoFormat(textColor: textColor))
+  func secondaryInfoFormat() -> some View {
+    modifier(SecondaryInfoFormat())
+  }
+}
+
+public extension Color {
+  static func from(string: String) -> Color {
+    switch string.lowercased() {
+    case "orange": return .orange
+    case "yellow": return .yellow
+    case "green": return .green
+    case "mint": return .mint
+    case "cyan": return .cyan
+    case "blue": return .blue
+    case "indigo": return .indigo
+    case "purple": return .purple
+    case "pink": return .pink
+    default: return .secondary
+    }
   }
 }

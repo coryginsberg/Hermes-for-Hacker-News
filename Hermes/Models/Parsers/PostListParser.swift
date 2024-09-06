@@ -40,11 +40,10 @@ extension HTMLParserDelegate where Element == Post {
         .integerValue ?? 0
       let authorElem = try subline?.getElementsByClass("hnuser").first()
       let authorText = try authorElem?.text() ?? ""
-      let authorColor = try authorElem?.getElementsByTag("font").first()?
-        .attr("color") ?? nil
+      let authorHasColor = try authorElem?.getElementsByTag("font").hasAttr("color") ?? false
       let author = AuthorDTO(
         username: authorText,
-        color: authorColor
+        isNewUser: authorHasColor
       )
       let timeStr = try (subline?.getElementsByClass("age").first()?
         .attr("title") ?? "") + "+0000"

@@ -12,7 +12,7 @@ class Post: PostProvider {
 
   var rank: Int
   @Attribute(.preserveValueOnDeletion) var itemId: HNID
-  var author: Author
+  @Relationship(deleteRule: .nullify) var author: Author
   var createdAt: Date
   var numComments: Int
   var score: Int
