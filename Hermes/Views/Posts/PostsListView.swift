@@ -7,15 +7,22 @@ import Foundation
 import SwiftData
 import SwiftUI
 
-struct PostView: View {
+struct PostsListView: View {
   @Environment(\.modelContext) private var modelContext
   @Query(sort: \Post.rank) private var posts: [Post]
+
   @State private var selectedPostID: Post.ID?
   @State private var lastLoadedPage: Int = 0
   @State private var isLoading: Bool = false
   @State private var sort: SortOption = .news
 
+  // For SwiftUI Previews only! Value should only be changed in #Preview blocks
+  var isPreview: Bool = false
+
   func fetch(forceRefresh: Bool = false) {
+    if isPreview {
+      return
+    }
     let container = modelContext.container
     let modelActor = PostModelActor(modelContainer: container)
     if forceRefresh {
@@ -50,40 +57,39 @@ struct PostView: View {
   }
 
   var body: some View {
-    NavigationSplitView {
-      List(posts, selection: $selectedPostID) { post in
-        if !post.isHidden {
-          PostCell(post: post)
-            .task {
-              if posts.count - numBeforeLoadMore >= post.rank &&
-                !isLoading &&
-                lastLoadedPage <= HN.Posts.maxNumPages {
-                isLoading = true
-                fetch()
-              } else {
-                print(posts.count - numBeforeLoadMore)
-                print(post.rank)
-                print(lastLoadedPage)
-              }
+    NavigationStack {
+      List(posts) { post in
+        PostCell(post: post)
+          .task {
+            if posts.count - numBeforeLoadMore >= post.rank &&
+              !isLoading &&
+              lastLoadedPage <= HN.Posts.maxNumPages {
+              isLoading = true
+              fetch()
+            } else {
+              print(posts.count - numBeforeLoadMore)
+              print(post.rank)
+              print(lastLoadedPage)
             }
-            .onChange(of: selectedPostID) {
-              if let selectedPostID, selectedPostID == post.id {
-                updateViewedPost(post)
-              }
+          }
+          .onChange(of: selectedPostID) {
+            if let selectedPostID, selectedPostID == post.id {
+              updateViewedPost(post)
             }
-        }
+          }
         if isLoading {
           LoadingWheel()
         }
       }
-      .postListNavigation(sort: $sort) {
-        fetch(forceRefresh: true)
+      .navigationDestination(item: $selectedPostID) { _ in
+        CommentListView(selectedPost: Binding.constant(posts[selectedPostID]))
       }
       .onChange(of: sort) {
         fetch(forceRefresh: true)
       }
-    } detail: {
-      CommentListView(selectedPost: Binding.constant(posts[selectedPostID]))
+      .navigationBar(for: .postView($sort)) {
+        fetch(forceRefresh: true)
+      }
     }
     .onAppear {
       fetch(forceRefresh: true)
@@ -91,7 +97,7 @@ struct PostView: View {
   }
 }
 
-#Preview {
-  PostView()
-    .modelContainer(for: Post.self, inMemory: true)
+#Preview("Front Page", traits: .samplePostData) {
+  @Previewable @State var isPreview = true
+  PostsListView(isPreview: isPreview)
 }

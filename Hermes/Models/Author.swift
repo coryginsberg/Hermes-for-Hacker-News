@@ -4,20 +4,34 @@
 //
 
 import SwiftData
+import SwiftUICore
 import UIKit
 
 @Model
 final class Author: AuthorProvider {
-  var username: String
-  var color: String?
+  #Unique<Author>([\.username])
 
-  required init(username: String, color: String? = nil) {
+  var username: String
+  var isNewUser: Bool
+  var customColor: String?
+
+  required init(username: String, isNewUser: Bool = false, customColor: String? = nil) {
     self.username = username
-    self.color = color
+    self.isNewUser = isNewUser
+    self.customColor = customColor ?? checkCustomColor(username)
   }
 
   convenience init(fromDTO dto: AuthorDTO) {
-    self.init(username: dto.username, color: dto.color)
+    self.init(username: dto.username, isNewUser: dto.isNewUser, customColor: dto.customColor)
+  }
+
+  func checkCustomColor(_ username: String) -> String? {
+    let customColorList = ["realslimginz": Color.purple.description, "dang": Color.blue.description]
+    print(customColorList)
+    guard let customColor = customColorList.first(where: { $0.key == username }) else {
+      return nil
+    }
+    return customColor.value
   }
 }
 
@@ -33,14 +47,16 @@ extension Author: Identifiable {}
 
 final class AuthorDTO: AuthorProvider, DTO {
   let username: String
-  let color: String?
+  let isNewUser: Bool
+  let customColor: String?
 
-  init(username: String, color: String?) {
+  init(username: String, isNewUser: Bool = false, customColor: String? = nil) {
     self.username = username
-    self.color = color
+    self.isNewUser = isNewUser
+    self.customColor = customColor
   }
 
   convenience init(from author: Author) {
-    self.init(username: author.username, color: author.color)
+    self.init(username: author.username, isNewUser: author.isNewUser, customColor: author.customColor)
   }
 }

@@ -27,7 +27,13 @@ struct HermesApp: App {
         configurations: [modelConfiguration]
       )
     } catch {
-      fatalError("Could not create ModelContainer: \(error)")
+      let urlApp = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).last
+      // swiftlint:disable:next force_unwrapping
+      let url = urlApp!.appendingPathComponent("default.store")
+      if FileManager.default.fileExists(atPath: url.path) {
+        fatalError("Could not create ModelContainer: \(error). Try clearing the swiftdata db at \(url.absoluteString)")
+      }
+      fatalError("Could not create ModelContainer: \(error).")
     }
   }()
 

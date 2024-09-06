@@ -3,7 +3,6 @@
 // Licensed under Apache License 2.0
 //
 
-import AlertToast
 import SwiftUI
 
 // MARK: - RootView
@@ -13,7 +12,7 @@ struct RootView: View {
 
   var body: some View {
     TabView {
-      PostView()
+      PostsListView()
         .tabItem {
           Label("Posts", systemImage: "newspaper.fill")
         }
@@ -32,8 +31,5 @@ struct RootView: View {
     }
     .accentColor(Color(.systemOrange))
     .environment(alertViewModal)
-    .toast(isPresenting: $alertViewModal.show) {
-      alertViewModal.alertToast
-    }
   }
 }

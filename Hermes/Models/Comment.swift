@@ -8,7 +8,7 @@ import SwiftData
 @Model
 final class Comment: CommentProvider {
   var itemId: HNID
-  var author: Author
+  @Relationship(deleteRule: .nullify) var author: Author
 
   init(itemId: HNID, author: Author) {
     self.itemId = itemId

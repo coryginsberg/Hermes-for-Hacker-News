@@ -12,7 +12,6 @@ import SwiftUI
 struct PostText: View {
   @State var post: Post
   @State var isCommentView: Bool = false
-  @State var isFaviconVisible: Bool = true
 
   let secondaryTextColor = Color(uiColor: .secondaryLabel)
   let spacer: Spacer = .init(minLength: 4.0)
@@ -20,17 +19,10 @@ struct PostText: View {
 
   var body: some View {
     VStack(alignment: .leading) {
-      PostPrimaryLabel(
-        post: post,
-        isCommentView: isCommentView
+      PrimaryLabel(
+        post: $post,
+        isCommentView: $isCommentView
       )
     }
-    .padding(.leading, isFaviconVisible ? 16.0 : 0)
   }
 }
-
-// #Preview("Comment View") {
-//  ModelContainerPreview(PreviewSampleData.inMemoryContainer, addPadding: true) {
-//    PostText(post: Post.formattedText, isCommentView: true, isFaviconVisible: false)
-//  }
-// }

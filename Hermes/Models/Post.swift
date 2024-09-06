@@ -11,8 +11,8 @@ class Post: PostProvider {
   #Unique<Post>([\.itemId], [\.rank])
 
   var rank: Int
-  var itemId: HNID
-  var author: Author
+  @Attribute(.preserveValueOnDeletion) var itemId: HNID
+  @Relationship(deleteRule: .nullify) var author: Author
   var createdAt: Date
   var numComments: Int
   var score: Int
@@ -20,7 +20,7 @@ class Post: PostProvider {
   var url: URL?
   var siteDomain: String?
   @Attribute(.preserveValueOnDeletion) var viewed: Bool
-  var isHidden: Bool = false
+  @Attribute(.preserveValueOnDeletion) var isHidden: Bool = false
 
   required init(
     rank: Int,

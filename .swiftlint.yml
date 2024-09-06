@@ -10,6 +10,8 @@ excluded:
   - ${PWD}/DerivedData
   - MarkdownifyHTML/.build
   - MarkdownifyHTML/.swiftpm
+  - Build
+  - DerivedData
 
 
 disabled_rules:
