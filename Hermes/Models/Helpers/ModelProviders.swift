@@ -18,10 +18,10 @@ protocol ItemProvider: AnyObject {
 // MARK: - PostProvider
 
 protocol PostProvider: ItemProvider {
-  associatedtype T: AuthorProvider
+  associatedtype Author: AuthorProvider
 
   var rank: Int { get }
-  var author: T { get }
+  var author: Author { get }
   var createdAt: Date { get }
   var numComments: Int { get }
   var score: Int { get }
@@ -34,7 +34,7 @@ protocol PostProvider: ItemProvider {
   init(
     rank: Int,
     itemId: HNID,
-    author: T,
+    author: Author,
     createdAt: Date,
     numComments: Int,
     score: Int,
@@ -49,13 +49,13 @@ protocol PostProvider: ItemProvider {
 // MARK: - CommentProvider
 
 protocol CommentProvider: ItemProvider {
-  associatedtype T: AuthorProvider
+  associatedtype Author: AuthorProvider
 
-  var author: T { get }
+  var author: Author { get }
 
   init(
     itemId: HNID,
-    author: T
+    author: Author
   )
 }
 
@@ -64,9 +64,10 @@ protocol CommentProvider: ItemProvider {
 // NOTE: HN Authors don't have an HNID. The username is the ID.
 protocol AuthorProvider: AnyObject {
   var username: String { get }
-  var color: String? { get }
+  var isNewUser: Bool { get } // New users are highlighted green
+  var customColor: String? { get }
 
-  init(username: String, color: String?)
+  init(username: String, isNewUser: Bool, customColor: String?)
 }
 
 protocol DTO: Sendable {}
