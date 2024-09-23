@@ -39,34 +39,43 @@ extension HTMLParserDelegate where Element == Post {
       let score = try subline?.getElementsByClass("score").first()?.ownText()
         .integerValue ?? 0
       let authorElem = try subline?.getElementsByClass("hnuser").first()
-      let authorText = try authorElem?.text() ?? ""
-      let authorHasColor = try authorElem?.getElementsByTag("font").hasAttr("color") ?? false
-      let author = AuthorDTO(
-        username: authorText,
-        isNewUser: authorHasColor
-      )
+      var author: AuthorDTO?
+      if let authorElem {
+        author = try self.queryAuthor(fromElem: authorElem)
+      } else {
+        author = nil as AuthorDTO?
+      }
       let timeStr = try (subline?.getElementsByClass("age").first()?
         .attr("title") ?? "") + "+0000"
       let time = ISO8601DateFormatter().date(from: timeStr) ?? Date()
       let numComments = try subline?.children().last()?.text()
         .integerValue ?? 0
-      if let hnid = HNID(post.id()) {
-        return PostDTO(rank: rank,
-                       itemId: hnid,
-                       author: author,
-                       createdAt: time,
-                       numComments: numComments,
-                       score: score,
-                       title: titleAnchor?.ownText() ?? "",
-                       url: URL(string: url),
-                       siteDomain: siteDomain,
-                       viewed: Self.wasPostViewed(forHNID: hnid),
-                       isHidden: false) // TODO: Check `isHidden` same way as `viewed`
-      } else {
+      guard let hnid = HNID(post.id()) else {
         throw RuntimeError("Failed to parse post")
       }
+      return PostDTO(rank: rank,
+                     itemId: hnid,
+                     hasAuthor: author != nil,
+                     author: author,
+                     createdAt: time,
+                     numComments: numComments,
+                     score: score,
+                     title: titleAnchor?.ownText() ?? "",
+                     url: URL(string: url),
+                     siteDomain: siteDomain,
+                     viewed: Self.wasPostViewed(forHNID: hnid),
+                     isHidden: false) // TODO: Check `isHidden` same way as `viewed`
     }
     try await modelActor.insert(postsDTO)
+  }
+
+  func queryAuthor(fromElem authorElem: SwiftSoup.Element) throws -> AuthorDTO {
+    let authorText = try authorElem.text()
+    let authorHasColor = try authorElem.getElementsByTag("font").hasAttr("color")
+    return AuthorDTO(
+      username: authorText,
+      isNewUser: authorHasColor
+    )
   }
 
   static func wasPostViewed(forHNID postId: HNID) -> Bool {

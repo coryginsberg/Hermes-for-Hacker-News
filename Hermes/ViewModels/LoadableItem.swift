@@ -6,7 +6,7 @@
 import Foundation
 
 @Observable
-class LoadableItemState<T> {
+class LoadableItemState<T>: @unchecked Sendable {
   indirect enum State {
     case idle
     case loading

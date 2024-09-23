@@ -8,11 +8,10 @@ import SwiftData
 
 @Model
 class Post: PostProvider {
-  #Unique<Post>([\.itemId], [\.rank])
-
-  var rank: Int
-  @Attribute(.preserveValueOnDeletion) var itemId: HNID
-  @Relationship(deleteRule: .nullify) var author: Author
+  @Attribute(.unique) var rank: Int
+  @Attribute(.unique, .preserveValueOnDeletion) var itemId: HNID
+  var hasAuthor: Bool
+  @Relationship(deleteRule: .nullify) var author: Author?
   var createdAt: Date
   var numComments: Int
   var score: Int
@@ -20,12 +19,13 @@ class Post: PostProvider {
   var url: URL?
   var siteDomain: String?
   @Attribute(.preserveValueOnDeletion) var viewed: Bool
-  @Attribute(.preserveValueOnDeletion) var isHidden: Bool = false
+  var isHidden: Bool
 
   required init(
     rank: Int,
     itemId: HNID,
-    author: Author,
+    hasAuthor: Bool = true,
+    author: Author?,
     createdAt: Date,
     numComments: Int = 0,
     score: Int,
@@ -37,6 +37,7 @@ class Post: PostProvider {
   ) {
     self.rank = rank
     self.itemId = itemId
+    self.hasAuthor = hasAuthor
     self.author = author
     self.createdAt = createdAt
     self.numComments = numComments
@@ -49,7 +50,10 @@ class Post: PostProvider {
   }
 
   convenience init(fromDTO dto: PostDTO) {
-    let author = Author(fromDTO: dto.author)
+    var author: Author?
+    if dto.hasAuthor, let dtoAuthor = dto.author {
+      author = Author(fromDTO: dtoAuthor)
+    }
 
     self.init(
       rank: dto.rank,
@@ -79,7 +83,8 @@ extension Post: Identifiable {}
 final class PostDTO: PostProvider, DTO {
   let rank: Int
   let itemId: HNID
-  let author: AuthorDTO
+  let hasAuthor: Bool
+  let author: AuthorDTO?
   let createdAt: Date
   let numComments: Int
   let score: Int
@@ -92,10 +97,11 @@ final class PostDTO: PostProvider, DTO {
   init(
     rank: Int,
     itemId: HNID,
-    author: AuthorDTO,
+    hasAuthor: Bool,
+    author: AuthorDTO?,
     createdAt: Date,
     numComments: Int = 0,
-    score: Int,
+    score: Int = 0,
     title: String,
     url: URL?,
     siteDomain: String?,
@@ -104,6 +110,7 @@ final class PostDTO: PostProvider, DTO {
   ) {
     self.rank = rank
     self.itemId = itemId
+    self.hasAuthor = hasAuthor
     self.author = author
     self.createdAt = createdAt
     self.numComments = numComments
