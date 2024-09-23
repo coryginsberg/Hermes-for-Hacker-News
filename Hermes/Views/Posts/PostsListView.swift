@@ -66,10 +66,6 @@ struct PostsListView: View {
               lastLoadedPage <= HN.Posts.maxNumPages {
               isLoading = true
               fetch()
-            } else {
-              print(posts.count - numBeforeLoadMore)
-              print(post.rank)
-              print(lastLoadedPage)
             }
           }
           .onChange(of: selectedPostID) {
@@ -84,10 +80,10 @@ struct PostsListView: View {
       .navigationDestination(item: $selectedPostID) { _ in
         CommentListView(selectedPost: Binding.constant(posts[selectedPostID]))
       }
-      .onChange(of: sort) {
+      .navigationBar(for: .postView($sort)) {
         fetch(forceRefresh: true)
       }
-      .navigationBar(for: .postView($sort)) {
+      .onChange(of: sort) {
         fetch(forceRefresh: true)
       }
     }
@@ -97,7 +93,11 @@ struct PostsListView: View {
   }
 }
 
-#Preview("Front Page", traits: .samplePostData) {
+#Preview("Test Data", traits: .samplePostData) {
   @Previewable @State var isPreview = true
   PostsListView(isPreview: isPreview)
+}
+
+#Preview("Live Data") {
+  PostsListView().modelContainer(for: Post.self, inMemory: true)
 }

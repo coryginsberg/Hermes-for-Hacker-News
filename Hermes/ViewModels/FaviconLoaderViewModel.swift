@@ -7,17 +7,16 @@ import FaviconFinder
 import Foundation
 
 @Observable
-final class FaviconLoaderViewModel: LoadableItemState<FaviconImage>, LoadableItem {
+final class FaviconLoaderViewModel: LoadableItemState<URL>, LoadableItem, @unchecked Sendable {
   typealias TLoadFrom = URL
   func load(from url: TLoadFrom, isPreview: Bool = false) async {
     state = .loading
     do {
-      let favicon = try await FaviconFinder(url: url).fetchFaviconURLs().download().largest()
-      if let image = favicon.image {
-        state = .loaded(image)
-      } else {
+      guard let faviconUrl = try await FaviconFinder(url: url).fetchFaviconURLs().first?.source else {
         state = .failed(FaviconError.emptyFavicon)
+        return
       }
+      state = .loaded(faviconUrl)
     } catch {
       state = .failed(error)
     }

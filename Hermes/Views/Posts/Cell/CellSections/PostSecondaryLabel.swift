@@ -31,7 +31,9 @@ struct PostSecondaryLabel: View {
         }
         .padding(.trailing, 10.0)
         .frame(alignment: .leading)
-        AuthorText(author: post.author)
+        if let author = post.author {
+          AuthorText(author: author)
+        }
       }
       .padding(.bottom, 2.0)
     }

@@ -21,7 +21,8 @@ protocol PostProvider: ItemProvider {
   associatedtype Author: AuthorProvider
 
   var rank: Int { get }
-  var author: Author { get }
+  var hasAuthor: Bool { get }
+  var author: Author? { get }
   var createdAt: Date { get }
   var numComments: Int { get }
   var score: Int { get }
@@ -34,7 +35,8 @@ protocol PostProvider: ItemProvider {
   init(
     rank: Int,
     itemId: HNID,
-    author: Author,
+    hasAuthor: Bool,
+    author: Author?,
     createdAt: Date,
     numComments: Int,
     score: Int,
