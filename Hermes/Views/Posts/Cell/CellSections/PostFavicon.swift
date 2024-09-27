@@ -3,13 +3,12 @@
 // Licensed under Apache License 2.0
 //
 
-import FaviconFinder
-import NukeUI
 import SwiftUI
 
 struct PostFavicon: View {
-  @State var url: URL
-  @State var loadUrl = false
+  @Binding var post: Post
+
+  @State private var loadUrl = false
 
   private let faviconLoader = FaviconLoaderViewModel()
 
@@ -20,51 +19,29 @@ struct PostFavicon: View {
         ProgressView()
           .faviconStyle()
       case .loaded(let url):
-        LazyImage(request: request(ForUrl: url))
-          .faviconStyle()
-      case .failed(let error) where error as? FaviconError == FaviconError.failedToFindFavicon:
+        Image(uiImage: url).faviconStyle()
+      case .failed:
         Image(.awkwardMonkey)
           .faviconStyle()
           .redacted(reason: .invalidated)
-      case .failed(let error) where error is FaviconError:
-        Image(.awkwardMonkey)
-          .faviconStyle()
-          .redacted(reason: .invalidated)
-          .onAppear {
-            LogError(error, message: "Favicon error:")
-          }
-      case .failed(let error):
-        Image(.awkwardMonkey)
-          .faviconStyle()
-          .redacted(reason: .invalidated)
-          .onAppear {
-            LogError(error)
-          }
       default:
         Image(.awkwardMonkey)
           .faviconStyle()
           .redacted(reason: .invalidated)
       }
     }.task {
-      await self.faviconLoader.load(from: self.url)
+      if let url = URL(string: self.post.siteDomain ?? "") {
+        await self.faviconLoader.load(from: url)
+      }
     }
     .onTapGesture {
       self.loadUrl.toggle()
     }
     .fullScreenCover(isPresented: $loadUrl) {
-      WebViewWrapper(url: self.$url.wrappedValue)
+      if let url = self.post.url {
+        WebViewWrapper(url: url)
+      }
     }.padding(.trailing, 16)
-  }
-}
-
-extension PostFavicon {
-  func request(ForUrl url: URL) -> ImageRequest {
-    return ImageRequest(url: url,
-                        processors: [
-                          .resize(height: 100),
-                          .resize(width: 100)
-                        ],
-                        priority: .high)
   }
 }
 
@@ -80,18 +57,10 @@ private struct PreviewImageViewModifier: ViewModifier {
   }
 }
 
-// FaviconLoader typealiases Image so we need to specify here
-extension SwiftUI.Image {
+extension Image {
   @ViewBuilder
   func faviconStyle() -> some View {
     resizable().modifier(PreviewImageViewModifier())
-  }
-}
-
-extension LazyImage {
-  @ViewBuilder
-  func faviconStyle() -> some View {
-    modifier(PreviewImageViewModifier())
   }
 }
 
