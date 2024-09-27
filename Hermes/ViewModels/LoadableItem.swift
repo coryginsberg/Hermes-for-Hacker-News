@@ -6,13 +6,14 @@
 import Foundation
 
 @Observable
-class LoadableItemState<T>: @unchecked Sendable {
+class LoadableItemState<TLoadingItem>: @unchecked Sendable {
   indirect enum State {
     case idle
     case loading
-    case loaded(T)
+    case loadingProgress(Int)
+    case loaded(TLoadingItem)
     case empty
-    case failed(Error)
+    case failed(LoadableItemError)
   }
 
   var state = State.idle
@@ -21,4 +22,9 @@ class LoadableItemState<T>: @unchecked Sendable {
 protocol LoadableItem {
   associatedtype TLoadFrom
   func load(from type: TLoadFrom, isPreview: Bool) async
+}
+
+enum LoadableItemError: Error {
+  case loadingError
+  case notFound
 }

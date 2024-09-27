@@ -7,9 +7,11 @@ import Foundation
 import SwiftData
 
 @Model
-class Post: PostProvider {
-  @Attribute(.unique) var rank: Int
-  @Attribute(.unique, .preserveValueOnDeletion) var itemId: HNID
+final class Post: PostProvider {
+  #Unique<Post>([\.rank], [\.itemId])
+
+  var rank: Int
+  @Attribute(.preserveValueOnDeletion) var itemId: HNID
   var hasAuthor: Bool
   @Relationship(deleteRule: .nullify) var author: Author?
   var createdAt: Date
@@ -80,7 +82,7 @@ extension Post: Identifiable {}
 
 // MARK: - Data Transfer Object
 
-final class PostDTO: PostProvider, DTO {
+final class PostDTO: PostProvider & DTO {
   let rank: Int
   let itemId: HNID
   let hasAuthor: Bool

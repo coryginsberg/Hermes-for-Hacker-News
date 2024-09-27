@@ -45,7 +45,7 @@ extension Author: Identifiable {}
 
 // MARK: - Data Transfer Object
 
-final class AuthorDTO: AuthorProvider, DTO {
+final class AuthorDTO: AuthorProvider & DTO {
   let username: String
   let isNewUser: Bool
   let customColor: String?

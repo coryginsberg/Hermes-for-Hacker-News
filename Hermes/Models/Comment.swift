@@ -26,7 +26,7 @@ extension Comment: Identifiable {}
 
 // MARK: - Data Transfer Object
 
-final class CommentDTO: CommentProvider, DTO {
+final class CommentDTO: CommentProvider & DTO {
   let itemId: HNID
   let author: AuthorDTO
 
