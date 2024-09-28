@@ -10,7 +10,6 @@ class LoadableItemState<TLoadingItem>: @unchecked Sendable {
   indirect enum State {
     case idle
     case loading
-    case loadingProgress(Int)
     case loaded(TLoadingItem)
     case empty
     case failed(LoadableItemError)
@@ -19,6 +18,7 @@ class LoadableItemState<TLoadingItem>: @unchecked Sendable {
   var state = State.idle
 }
 
+@MainActor
 protocol LoadableItem {
   associatedtype TLoadFrom
   func load(from type: TLoadFrom, isPreview: Bool) async
