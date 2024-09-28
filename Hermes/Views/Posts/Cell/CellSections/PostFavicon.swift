@@ -3,35 +3,40 @@
 // Licensed under Apache License 2.0
 //
 
+import NukeUI
 import SwiftUI
 
 struct PostFavicon: View {
   @Binding var post: Post
 
   @State private var loadUrl = false
+  @State private var url: URL?
 
   private let faviconLoader = FaviconLoaderViewModel()
 
   var body: some View {
-    Group {
-      switch self.faviconLoader.state {
-      case .loading:
-        ProgressView()
+    LazyImage(url: url,
+              transaction: .init(animation: .easeInOut)) { state in
+      if let image = state.image {
+        image.resizable().aspectRatio(contentMode: .fill)
+      } else if state.error != nil {
+        Image(systemName: "\(post.siteDomain?.first ?? "a").square.fill")
           .faviconStyle()
-      case .loaded(let url):
-        Image(uiImage: url).faviconStyle()
-      case .failed:
-        Image(.awkwardMonkey)
+          .foregroundStyle(.accent, .thickMaterial)
+      } else {
+        Image(systemName: "square.fill")
           .faviconStyle()
-          .redacted(reason: .invalidated)
-      default:
-        Image(.awkwardMonkey)
-          .faviconStyle()
-          .redacted(reason: .invalidated)
+          .foregroundStyle(.thickMaterial)
       }
-    }.task {
+    }
+    .processors([.resize(size: CGSize(width: 100, height: 100),
+                         contentMode: .aspectFit,
+                         upscale: true)])
+    .priority(.high)
+    .faviconStyle()
+    .task {
       if let url = URL(string: self.post.siteDomain ?? "") {
-        await self.faviconLoader.load(from: url)
+        self.url = await self.faviconLoader.load(from: url)
       }
     }
     .onTapGesture {
@@ -61,6 +66,13 @@ extension Image {
   @ViewBuilder
   func faviconStyle() -> some View {
     resizable().modifier(PreviewImageViewModifier())
+  }
+}
+
+extension LazyImage {
+  @ViewBuilder
+  func faviconStyle() -> some View {
+    modifier(PreviewImageViewModifier())
   }
 }
 

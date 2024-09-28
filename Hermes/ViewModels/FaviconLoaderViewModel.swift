@@ -5,29 +5,15 @@
 
 import Foundation
 import Nuke
+import NukeUI
+import UIKit
 
 @Observable
-final class FaviconLoaderViewModel: LoadableItemState<PlatformImage>, LoadableItem, @unchecked Sendable {
-  typealias TLoadFrom = URL
-
+final class FaviconLoaderViewModel: @unchecked Sendable {
   let defaultURL: URL = .init(staticString: "https://www.faviconextractor.com/favicon/")
 
-  func load(from url: TLoadFrom, isPreview: Bool = false) async {
-    state = .loading
-    await Slog.log(.debug, message: "Loading favicon for \(url)")
-    do {
-      let urlToLoad = await genImageToLoad(fromUrl: url)
-      let request = ImageRequest(url: urlToLoad,
-                                 processors: [.resize(size: CGSize(width: 50, height: 50),
-                                                      contentMode: .aspectFit,
-                                                      upscale: true)],
-                                 priority: .high)
-      let image = try await ImagePipeline.shared.imageTask(with: request).image
-      state = .loaded(image)
-    } catch {
-      state = .failed(.loadingError)
-      await Slog.error(error, message: "URL: \(url)")
-    }
+  func load(from url: URL) async -> URL {
+    return await genImageToLoad(fromUrl: url)
   }
 
   private func genImageToLoad(fromUrl url: URL) async -> URL {
