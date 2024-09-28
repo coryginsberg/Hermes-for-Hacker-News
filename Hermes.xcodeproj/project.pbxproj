@@ -73,6 +73,7 @@
 		EEE7DE4F2C3881A60091F54A /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE7DE4E2C3881A60091F54A /* Logging.swift */; };
 		EEEA19A42BB6127200654F56 /* PostsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEA19A32BB6127200654F56 /* PostsListView.swift */; };
 		EEEDBEB02C693EFC00D13172 /* PostListSortOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEDBEAF2C693EFC00D13172 /* PostListSortOptions.swift */; };
+		EEF83B742CA8963700748634 /* GitHubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF83B732CA8963400748634 /* GitHubUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +164,7 @@
 		EEEA19A32BB6127200654F56 /* PostsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListView.swift; sourceTree = "<group>"; };
 		EEED0AAF2B9D33FA00BB27C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EEEDBEAF2C693EFC00D13172 /* PostListSortOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListSortOptions.swift; sourceTree = "<group>"; };
+		EEF83B732CA8963400748634 /* GitHubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -391,6 +393,7 @@
 		EEC8B9FA2A880A460088B6E9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EEF83B732CA8963400748634 /* GitHubUser.swift */,
 				EEE1FFC82C7BBF3000795374 /* Helpers */,
 				EEE1FFBB2C7BBA1800795374 /* Actors */,
 				EEA91D542C61697B0097464C /* Fetchers */,
@@ -733,6 +736,7 @@
 				EECCF1F82C56CF8100D69108 /* HTMLParser.swift in Sources */,
 				EE9727FC2BC73B1D00240EDF /* ModelContext+SQLite.swift in Sources */,
 				EECA35B62C02714200166D38 /* LoadableItem.swift in Sources */,
+				EEF83B742CA8963700748634 /* GitHubUser.swift in Sources */,
 				EECCF1F02C56BCF100D69108 /* Post.swift in Sources */,
 				EE76011C2C693B1200BA27B7 /* PostListSortMenu.swift in Sources */,
 				EEC8BA212A8814CA0088B6E9 /* RootView.swift in Sources */,
