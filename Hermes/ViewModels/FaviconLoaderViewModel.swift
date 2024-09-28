@@ -3,10 +3,8 @@
 // Licensed under Apache License 2.0
 //
 
+import Alamofire
 import Foundation
-import Nuke
-import NukeUI
-import UIKit
 
 @Observable
 final class FaviconLoaderViewModel: @unchecked Sendable {
@@ -19,7 +17,7 @@ final class FaviconLoaderViewModel: @unchecked Sendable {
   private func genImageToLoad(fromUrl url: URL) async -> URL {
     switch await url.domain {
     case "github.com":
-      return genGitHubImageUrl(fromUrl: url)
+      return await genGitHubImageUrl(fromUrl: url)
     default:
       return defaultURL.appending(path: url.absoluteString)
     }
@@ -27,7 +25,19 @@ final class FaviconLoaderViewModel: @unchecked Sendable {
 }
 
 extension FaviconLoaderViewModel {
-  private func genGitHubImageUrl(fromUrl url: URL) -> URL {
+  private func genGitHubImageUrl(fromUrl url: URL) async -> URL {
+    print("https://api.github.com/users/\(url.lastPathComponent)")
+    let user = try? await AF.request("https://api.github.com/users/\(url.lastPathComponent)")
+      .cacheResponse(using: .cache)
+      .redirect(using: .doNotFollow)
+      .validate()
+      .serializingDecodable(GitHubUser.self)
+      .result
+      .get()
+
+    if let avatarUrl = user?.avatarURL, let url = URL(string: avatarUrl) {
+      return url
+    }
     return URL(staticString: "https://github.com/favicon.ico")
   }
 }
