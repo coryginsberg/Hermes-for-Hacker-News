@@ -45,7 +45,7 @@ extension Post {
            score: 19,
            title: "Show HN: This cool site I found!",
            url: URL(string: "https://www.google.com/"),
-           siteDomain: "www.google.com"),
+           siteDomain: "google.com"),
       Post(rank: 5,
            itemId: 40501071,
            author: Author(username: "randomuser1"),
@@ -53,7 +53,7 @@ extension Post {
            score: 19,
            title: "Show HN: This cool site I found! Lorem ipsum dolor sit amet",
            url: URL(string: "https://www.example.com/"),
-           siteDomain: "www.example.com"),
+           siteDomain: "github.com/coryginsberg"),
       Post(rank: 6,
            itemId: 40501071,
            author: Author(username: "realslimginz"),
@@ -62,7 +62,7 @@ extension Post {
            title: "This is my personal site. There are many like it but this one is mine. I'm writing a long title to" +
              " test how it wraps. Pickles.",
            url: URL(string: "https://www.coryginsberg.com/"),
-           siteDomain: "www.coryginsberg.com"),
+           siteDomain: "coryginsberg.com"),
       Post(rank: 7,
            itemId: 40501071,
            author: Author(username: "randomuser3"),
@@ -71,7 +71,7 @@ extension Post {
            title: "An even longer title to make sure wrapping looks good for links which Hacker News has a lot of. " +
              "Lorem ipsum dolor sit amet consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis.",
            url: URL(string: "https://www.example.com/"),
-           siteDomain: "www.example.com"),
+           siteDomain: "example.com"),
     ]
 
     for post in posts {

@@ -18,7 +18,7 @@ struct PostCell: View {
     NavigationLink(value: post.id) {
       VStack(alignment: .leading) {
         // Non-lazy VStack cuts off divider line for some reason
-        HStack {
+        HStack(alignment: .top) {
           if post.url != nil && post.siteDomain != nil {
             PostFavicon(post: $post)
           }
