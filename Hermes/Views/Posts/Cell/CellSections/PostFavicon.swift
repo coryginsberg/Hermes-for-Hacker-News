@@ -15,25 +15,28 @@ struct PostFavicon: View {
   private let faviconLoader = FaviconLoaderViewModel()
 
   var body: some View {
-    LazyImage(url: url,
-              transaction: .init(animation: .easeInOut)) { state in
-      if let image = state.image {
-        image.resizable().aspectRatio(contentMode: .fill)
-      } else if state.error != nil {
-        Image(systemName: "\(post.siteDomain?.first ?? "a").square.fill")
-          .faviconStyle()
-          .foregroundStyle(.accent, .thickMaterial)
-      } else {
-        Image(systemName: "square.fill")
-          .faviconStyle()
-          .foregroundStyle(.thickMaterial)
+    ZStack {
+      LazyImage(url: url,
+                transaction: .init(animation: .easeInOut)) { state in
+        if let image = state.image {
+          image.resizable().aspectRatio(contentMode: .fill)
+        } else if state.error != nil {
+          Image(systemName: "\(post.siteDomain?.first ?? "a").square.fill")
+            .faviconStyle()
+            .foregroundStyle(.accent, .thickMaterial)
+        } else {
+          Image(systemName: "square.fill")
+            .faviconStyle()
+            .foregroundStyle(.thickMaterial)
+        }
       }
+      .processors([.resize(size: CGSize(width: 100, height: 100),
+                           contentMode: .aspectFit,
+                           upscale: true)])
+      .priority(.high)
+      .faviconStyle()
+      PostFaviconProfileIcon(faviconUrl: $url, sourceDomain: $post.siteDomain)
     }
-    .processors([.resize(size: CGSize(width: 100, height: 100),
-                         contentMode: .aspectFit,
-                         upscale: true)])
-    .priority(.high)
-    .faviconStyle()
     .task {
       if let url = URL(string: self.post.siteDomain ?? "") {
         self.url = await self.faviconLoader.load(from: url)
@@ -58,6 +61,7 @@ private struct PreviewImageViewModifier: ViewModifier {
       .scaledToFit()
       .transition(.scale(scale: 0.1, anchor: .center))
       .frame(width: 50, height: 50, alignment: .top)
+      .background(.thinMaterial)
       .clipShape(RoundedRectangle(cornerRadius: 8))
   }
 }

@@ -74,6 +74,7 @@
 		EEEA19A42BB6127200654F56 /* PostsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEA19A32BB6127200654F56 /* PostsListView.swift */; };
 		EEEDBEB02C693EFC00D13172 /* PostListSortOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEDBEAF2C693EFC00D13172 /* PostListSortOptions.swift */; };
 		EEF83B742CA8963700748634 /* GitHubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF83B732CA8963400748634 /* GitHubUser.swift */; };
+		EEF83B782CAB40DF00748634 /* PostFaviconProfileIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF83B772CAB40DF00748634 /* PostFaviconProfileIcon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +166,7 @@
 		EEED0AAF2B9D33FA00BB27C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EEEDBEAF2C693EFC00D13172 /* PostListSortOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListSortOptions.swift; sourceTree = "<group>"; };
 		EEF83B732CA8963400748634 /* GitHubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUser.swift; sourceTree = "<group>"; };
+		EEF83B772CAB40DF00748634 /* PostFaviconProfileIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFaviconProfileIcon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,7 @@
 				EE77BBD42A8AD14B00880625 /* PostFavicon.swift */,
 				EE77BBD62A8AD97E00880625 /* PostPrimaryLabel.swift */,
 				EE77BBD82A8ADB2900880625 /* PostSecondaryLabel.swift */,
+				EEF83B772CAB40DF00748634 /* PostFaviconProfileIcon.swift */,
 			);
 			path = CellSections;
 			sourceTree = "<group>";
@@ -708,6 +711,7 @@
 				EEE7DE4D2C38743F0091F54A /* Errors.swift in Sources */,
 				EEE7DE4F2C3881A60091F54A /* Logging.swift in Sources */,
 				EEA91D532C6169740097464C /* PostListPageFetcher.swift in Sources */,
+				EEF83B782CAB40DF00748634 /* PostFaviconProfileIcon.swift in Sources */,
 				EEEA19A42BB6127200654F56 /* PostsListView.swift in Sources */,
 				EECCF1F42C56BDAD00D69108 /* Constants.swift in Sources */,
 				EEE7DE4A2C386A7F0091F54A /* ErrorText.swift in Sources */,

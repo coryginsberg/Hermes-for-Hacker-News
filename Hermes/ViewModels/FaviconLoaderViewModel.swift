@@ -7,7 +7,7 @@ import Alamofire
 import Foundation
 
 @Observable
-final class FaviconLoaderViewModel: @unchecked Sendable {
+final class FaviconLoaderViewModel: Sendable {
   let defaultURL: URL = .init(staticString: "https://www.faviconextractor.com/favicon/")
 
   func load(from url: URL) async -> URL {
@@ -15,7 +15,7 @@ final class FaviconLoaderViewModel: @unchecked Sendable {
   }
 
   private func genImageToLoad(fromUrl url: URL) async -> URL {
-    switch await url.domain {
+    switch await url.genDomain {
     case "github.com":
       return await genGitHubImageUrl(fromUrl: url)
     default:
@@ -26,7 +26,6 @@ final class FaviconLoaderViewModel: @unchecked Sendable {
 
 extension FaviconLoaderViewModel {
   private func genGitHubImageUrl(fromUrl url: URL) async -> URL {
-    print("https://api.github.com/users/\(url.lastPathComponent)")
     let user = try? await AF.request("https://api.github.com/users/\(url.lastPathComponent)")
       .cacheResponse(using: .cache)
       .redirect(using: .doNotFollow)
