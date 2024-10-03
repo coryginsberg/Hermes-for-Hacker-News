@@ -16,6 +16,8 @@ struct PostsListView: View {
   @State private var isLoading: Bool = false
   @State private var sort: SortOption = .news
 
+  @Default(.viewedPosts) var viewedPosts
+
   // For SwiftUI Previews only! Value should only be changed in #Preview blocks
   var isPreview: Bool = false
 
@@ -44,41 +46,27 @@ struct PostsListView: View {
     }
   }
 
-  func updateViewedPost(_ post: Post) {
-    if !post.viewed {
-      // FIXME: Why does this work but @AppStorage doesn't?
-      let viewedPosts = UserDefaults.standard.array(forKey: UserDefaultKeys.viewedPosts.rawValue)
-      if var viewedPosts {
-        viewedPosts.append(post.itemId)
-        UserDefaults.standard.set(viewedPosts, forKey: UserDefaultKeys.viewedPosts.rawValue)
-      }
-      post.viewed = true
-    }
-  }
-
   var body: some View {
     NavigationStack {
-      List(posts) { post in
-        PostCell(post: post)
-          .task {
-            if posts.count - numBeforeLoadMore >= post.rank &&
-              !isLoading &&
-              lastLoadedPage <= HN.Posts.maxNumPages {
-              isLoading = true
-              fetch()
+      List(posts, selection: $selectedPostID) { post in
+        NavigationLink(value: post) {
+          PostCell(post: post)
+            .task {
+              if posts.count - numBeforeLoadMore >= post.rank &&
+                !isLoading &&
+                lastLoadedPage <= HN.Posts.maxNumPages {
+                isLoading = true
+                fetch()
+              }
             }
+        }.onChange(of: selectedPostID) {
+          if let selectedPostID, selectedPostID == post.id {
+            viewedPosts.insert(post.itemId)
           }
-          .onChange(of: selectedPostID) {
-            if let selectedPostID, selectedPostID == post.id {
-              updateViewedPost(post)
-            }
-          }
-        if isLoading {
-          LoadingWheel()
         }
       }
-      .navigationDestination(item: $selectedPostID) { _ in
-        CommentListView(selectedPost: Binding.constant(posts[selectedPostID]))
+      .navigationDestination(for: Post.self) { post in
+        CommentListView(selectedPost: post)
       }
       .navigationBar(for: .postView($sort)) {
         fetch(forceRefresh: true)

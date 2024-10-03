@@ -15,7 +15,7 @@ struct PostFaviconProfileIcon: View {
 
   @State var website: Website?
 
-  var body: some View { 
+  var body: some View {
     Group {
       if let website {
         Image("Logos/\(website.rawValue)")
