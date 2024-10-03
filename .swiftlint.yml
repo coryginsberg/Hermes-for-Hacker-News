@@ -109,6 +109,7 @@ attributes:
     - "@UIApplicationDelegateAdaptor"
     - "@Query"
     - "@AppStorage"
+    - "@Default"
 
 force_cast: warning
 force_try: warning
