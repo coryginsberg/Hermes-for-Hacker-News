@@ -3,80 +3,86 @@
 // Licensed under Apache License 2.0
 //
 
-import FaviconFinder
+import NukeUI
 import SwiftUI
 
 struct PostFavicon: View {
-  @State var url: URL
-  @State var loadUrl = false
+  @Binding var post: Post
+
+  @State private var loadUrl = false
+  @State private var url: URL?
 
   private let faviconLoader = FaviconLoaderViewModel()
 
   var body: some View {
-    VStack {
-      switch self.faviconLoader.state {
-      case .loading:
-        ProgressView()
-          .faviconStyle(withUrlToLoad: self.$url)
-      case .loaded(let image):
-        Image(uiImage: image.image)
-          .faviconStyle(withUrlToLoad: self.$url)
-      case .failed(let error) where error as? FaviconError == FaviconError.failedToFindFavicon:
-        Image(.awkwardMonkey)
-          .faviconStyle(withUrlToLoad: self.$url)
-          .redacted(reason: .invalidated)
-      case .failed(let error) where error is FaviconError:
-        Image(.awkwardMonkey)
-          .faviconStyle(withUrlToLoad: self.$url)
-          .redacted(reason: .invalidated)
-          .onAppear {
-            LogError(error, message: "Favicon error:")
-          }
-      case .failed(let error):
-        Image(.awkwardMonkey)
-          .faviconStyle(withUrlToLoad: self.$url)
-          .redacted(reason: .invalidated)
-          .onAppear {
-            LogError(error)
-          }
-      default:
-        Image(.awkwardMonkey)
-          .faviconStyle(withUrlToLoad: self.$url)
-          .redacted(reason: .invalidated)
+    ZStack {
+      LazyImage(url: url,
+                transaction: .init(animation: .easeInOut)) { state in
+        if let image = state.image {
+          image.resizable().aspectRatio(contentMode: .fill)
+        } else if state.error != nil {
+          Image(systemName: "\(post.siteDomain?.first ?? "a").square.fill")
+            .faviconStyle()
+            .foregroundStyle(.accent, .thickMaterial)
+        } else {
+          Image(systemName: "square.fill")
+            .faviconStyle()
+            .foregroundStyle(.thickMaterial)
+        }
       }
-    }.task {
-//      await self.faviconLoader.load(from: self.url)
+      .processors([.resize(size: CGSize(width: 100, height: 100),
+                           contentMode: .aspectFit,
+                           upscale: true)])
+      .priority(.high)
+      .faviconStyle()
+      PostFaviconProfileIcon(faviconUrl: $url, sourceDomain: $post.siteDomain)
+    }
+    .task {
+      if let url = URL(string: self.post.siteDomain ?? "") {
+        self.url = await self.faviconLoader.load(from: url)
+      }
     }
     .onTapGesture {
       self.loadUrl.toggle()
     }
-    .fullScreenCover(isPresented: self.$loadUrl) {
-      WebViewWrapper(url: self.$url.wrappedValue)
-    }
+    .fullScreenCover(isPresented: $loadUrl) {
+      if let url = self.post.url {
+        WebViewWrapper(url: url)
+      }
+    }.padding(.trailing, 16)
   }
 }
 
 extension PostFavicon: Logging {}
 
-// FaviconLoader typealiases Image so we need to specify here
-extension SwiftUI.Image {
-  func faviconStyle(withUrlToLoad url: Binding<URL>) -> some View {
-    return self.resizable()
+private struct PreviewImageViewModifier: ViewModifier {
+  func body(content: Content) -> some View {
+    content
       .scaledToFit()
       .transition(.scale(scale: 0.1, anchor: .center))
       .frame(width: 50, height: 50, alignment: .top)
+      .background(.thinMaterial)
       .clipShape(RoundedRectangle(cornerRadius: 8))
   }
 }
 
-extension ProgressView {
-  func faviconStyle(withUrlToLoad url: Binding<URL>) -> some View {
-    @State var loadUrl = false
+extension Image {
+  @ViewBuilder
+  func faviconStyle() -> some View {
+    resizable().modifier(PreviewImageViewModifier())
+  }
+}
 
-    return self
-      .scaledToFit()
-      .transition(.scale(scale: 0.1, anchor: .center))
-      .frame(width: 50, height: 50, alignment: .top)
-      .clipShape(RoundedRectangle(cornerRadius: 8))
+extension LazyImage {
+  @ViewBuilder
+  func faviconStyle() -> some View {
+    modifier(PreviewImageViewModifier())
+  }
+}
+
+extension ProgressView {
+  @ViewBuilder
+  func faviconStyle() -> some View {
+    modifier(PreviewImageViewModifier())
   }
 }

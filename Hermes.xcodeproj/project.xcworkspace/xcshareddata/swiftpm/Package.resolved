@@ -1,4 +1,5 @@
 {
+  "originHash" : "723e662c7245fdd03116e9ddba8c93084736730f0ef9b45b10e9d10964e79d22",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -19,6 +20,15 @@
       }
     },
     {
+      "identity" : "defaults",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sindresorhus/Defaults",
+      "state" : {
+        "revision" : "38925e3cfacf3fb89a81a35b1cd44fd5a5b7e0fa",
+        "version" : "8.2.0"
+      }
+    },
+    {
       "identity" : "faviconfinder",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/will-lumley/FaviconFinder.git",
@@ -28,12 +38,12 @@
       }
     },
     {
-      "identity" : "swift-argument-parser",
+      "identity" : "nuke",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-argument-parser.git",
+      "location" : "https://github.com/kean/Nuke",
       "state" : {
-        "revision" : "41982a3656a71c768319979febd796c6fd111d5c",
-        "version" : "1.5.0"
+        "revision" : "0ead44350d2737db384908569c012fe67c421e4d",
+        "version" : "12.8.0"
       }
     },
     {
@@ -50,8 +60,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SimplyDanny/SwiftLintPlugins",
       "state" : {
-        "revision" : "6c3d6c32a37224179dc290f21e03d1238f3d963b",
-        "version" : "0.56.2"
+        "revision" : "7c80ce6f142164b0201871e580b021d1b2c69804",
+        "version" : "0.57.0"
       }
     },
     {
@@ -64,5 +74,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

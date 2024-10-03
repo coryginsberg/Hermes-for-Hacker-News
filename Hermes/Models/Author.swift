@@ -12,8 +12,9 @@ final class Author: AuthorProvider {
   #Unique<Author>([\.username])
 
   var username: String
-  var isNewUser: Bool
+  var isNewUser: Bool = false
   var customColor: String?
+  @Relationship(deleteRule: .cascade, inverse: \Post.author) var posts = [Post]()
 
   required init(username: String, isNewUser: Bool = false, customColor: String? = nil) {
     self.username = username
@@ -27,7 +28,6 @@ final class Author: AuthorProvider {
 
   func checkCustomColor(_ username: String) -> String? {
     let customColorList = ["realslimginz": Color.purple.description, "dang": Color.blue.description]
-    print(customColorList)
     guard let customColor = customColorList.first(where: { $0.key == username }) else {
       return nil
     }
@@ -45,7 +45,7 @@ extension Author: Identifiable {}
 
 // MARK: - Data Transfer Object
 
-final class AuthorDTO: AuthorProvider, DTO {
+final class AuthorDTO: AuthorProvider & DTO {
   let username: String
   let isNewUser: Bool
   let customColor: String?
